@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}User details - {{siteName}}{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">David Batty</h1>
+
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Name"
+        },
+        value: {
+          text: "David Batty"
+        }
+      },
+      {
+        key: {
+          text: "Phone number"
+        },
+        value: {
+          text: "0113 234 567890"
+        }
+      },
+      {
+        key: {
+          text: "Email address"
+        },
+        value: {
+          text: "david.batty@leedsutd.co.uk"
+        }
+      },
+      {
+        key: {
+          text: "Access rights"
+        },
+        value: {
+          text: "Bronze"
+        }
+      },
+      {
+        key: {
+          text: "Status"
+        },
+        value: {
+          html: '<span class="govuk-tag govuk-tag--inactive">Suspended</span>'
+        }
+      }
+    ]
+  }) }}
+
+  <a href="/v1/user-edit" class="govuk-button">Edit user</a>
+  <a href="#" class="govuk-button">Re-send invite</a>
+  <a href="/v1/user-confirmation--delete" class="govuk-button govuk-button--warning">Delete user</a>
+{% endblock %}
