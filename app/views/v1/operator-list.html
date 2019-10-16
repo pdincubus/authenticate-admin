@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <h1 class="govuk-heading-xl">Operators</h1>
+
+  <a href="/v1/operator-add" class="govuk-button">Add new operator</a>
+
+  {{ govukTable({
+    caption: "",
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Name",
+        classes: "govuk-!-width-half"
+      },
+      {
+        text: "Services",
+        format: "numeric",
+        classes: "govuk-!-width-one-quarter"
+      },
+      {
+        text: "Organisations",
+        format: "numeric",
+        classes: "govuk-!-width-one-quarter"
+      },
+      {
+        text: "Users",
+        format: "numeric"
+      }
+    ],
+    rows: [
+      [
+        {
+          html: '<a href="/v1/operator-edit" class="govuk-link">Health</a>'
+        },
+        {
+          html: '<a href="/v1/service-list" class="govuk-link">4</a>',
+          format: "numeric"
+        },
+        {
+          html: '<a href="/v1/organisation-list" class="govuk-link">18</a>',
+          format: "numeric"
+        },
+        {
+          html: '<a href="/v1/user-list" class="govuk-link">214</a>',
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/operator-edit" class="govuk-link">State Pension</a>'
+        },
+        {
+          html: '<a href="/v1/service-list" class="govuk-link">2</a>',
+          format: "numeric"
+        },
+        {
+          html: '<a href="/v1/organisation-list" class="govuk-link">23</a>',
+          format: "numeric"
+        },
+        {
+          html: '<a href="/v1/user-list" class="govuk-link">167</a>',
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/operator-edit" class="govuk-link">Universal Credit</a>'
+        },
+        {
+          html: '<a href="/v1/service-list" class="govuk-link">8</a>',
+          format: "numeric"
+        },
+        {
+          html: '<a href="/v1/organisation-list" class="govuk-link">43</a>',
+          format: "numeric"
+        },
+        {
+          html: '<a href="/v1/user-list" class="govuk-link">1004</a>',
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/operator-edit" class="govuk-link">Operator Name</a>'
+        },
+        {
+          html: '<a href="/v1/service-list" class="govuk-link">1</a>',
+          format: "numeric"
+        },
+        {
+          html: '<a href="/v1/organisation-list" class="govuk-link">3</a>',
+          format: "numeric"
+        },
+        {
+          html: '<a href="/v1/user-list" class="govuk-link">66</a>',
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/operator-edit" class="govuk-link">Another Operator</a>'
+        },
+        {
+          html: '<a href="/v1/service-list" class="govuk-link">2</a>',
+          format: "numeric"
+        },
+        {
+          html: '<a href="/v1/organisation-list" class="govuk-link">12</a>',
+          format: "numeric"
+        },
+        {
+          html: '<a href="/v1/user-list" class="govuk-link">96</a>',
+          format: "numeric"
+        }
+      ]
+    ]
+  }) }}
+</div>
+{% endblock %}

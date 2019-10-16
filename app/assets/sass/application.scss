@@ -15,4 +15,19 @@ $govuk-assets-path: '/govuk/assets/';
 // Components that aren't in Frontend
 @import "components/cookie-banner";
 
-// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+.govuk-header__nav {
+  float: right;
+}
+
+.govuk-header__nav .govuk-header__nav-link {
+  text-decoration: none;
+  color: #fff;
+  margin-left: 24px;
+  display: inline-block;
+  line-height: 30px;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}

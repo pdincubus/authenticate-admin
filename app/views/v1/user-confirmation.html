@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  User added - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  {{ govukPanel({
+    titleText: "User added",
+    html: "Some additional helpful text here"
+  }) }}
+</div>
+{% endblock %}

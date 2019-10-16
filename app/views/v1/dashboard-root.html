@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Dashboard - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <h1 class="govuk-heading-xl">Superuser dashboard</h1>
+  <a href="/v1/operator-list" class="govuk-button">Operators</a>
+  <a href="/v1/service-list" class="govuk-button">Services</a>
+  <a href="/v1/organisation-list" class="govuk-button">Organisations</a>
+  <a href="/v1/user-list" class="govuk-button">Users</a>
+</div>
+{% endblock %}

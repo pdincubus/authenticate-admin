@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Edit user - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    {{ govukFieldset({
+      legend: {
+        text: "Edit user",
+        classes: "govuk-fieldset__legend--xl",
+        isPageHeading: true
+      }
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "First name"
+      },
+      id: "user-first-name",
+      name: "user-first-name",
+      value: "David"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Last name"
+      },
+      id: "user-last-name",
+      name: "user-last-name",
+      value: "Batty"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Phone number"
+      },
+      id: "user-phone-number",
+      name: "user-phone-number",
+      type: "tel",
+      value: "0113 234 567890"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Email address"
+      },
+      id: "user-email-address",
+      name: "user-email-address",
+      type: "email",
+      value: "david.batty@leedsutd.co.uk"
+    }) }}
+
+    {{ govukRadios({
+      idPrefix: "user-access-rights",
+      name: "user-access-rights",
+      fieldset: {
+        legend: {
+          text: "Access rights",
+          isPageHeading: false
+        }
+      },
+      hint: {
+        html: '<a href="#" target="_blank" rel="noopener noreferrer">More information about access rights<span class="govuk-visually-hidden"> (This link opens in a new window or tab)</span></a>'
+      },
+      items: [
+        {
+          value: "platinum",
+          text: "Platinum"
+        },
+        {
+          value: "gold",
+          text: "Gold"
+        },
+        {
+          value: "silver",
+          text: "Silver"
+        },
+        {
+          value: "bronze",
+          text: "Bronze"
+        },
+        {
+          value: "tin",
+          text: "Tin",
+          checked: true
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Add operator"
+    }) }}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <h1 class="govuk-heading-xl">Users</h1>
+
+  <a href="/v1/user-add" class="govuk-button">Add new user</a>
+
+  {{ govukTable({
+    caption: "",
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Name"
+      },
+      {
+        text: "Email address"
+      },
+      {
+        text: "Organisation",
+        classes: "govuk-!-width-one-quarter"
+      },
+      {
+        text: "Status"
+      }
+    ],
+    rows: [
+      [
+        {
+          html: '<a href="/v1/user-edit" class="govuk-link">David Batty</a>'
+        },
+        {
+          html: '<a href="mailto:david.batty@leedsutd.co.uk" class="govuk-link">david.batty@leedsutd.co.uk</a>'
+        },
+        {
+          text: "Capita"
+        },
+        {
+          html: '<span class="govuk-tag">Active</span>'
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/user-edit" class="govuk-link">Gary Speed</a>'
+        },
+        {
+          html: '<a href="mailto:gary.speed@leedsutd.co.uk" class="govuk-link">gary.speed@leedsutd.co.uk</a>'
+        },
+        {
+          text: "Capita"
+        },
+        {
+          html: '<span class="govuk-tag govuk-tag--inactive">Suspended</span>'
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/user-edit" class="govuk-link">Gordon Strachan</a>'
+        },
+        {
+          html: '<a href="mailto:gordon.strachan@leedsutd.co.uk" class="govuk-link">gordon.strachan@leedsutd.co.uk</a>'
+        },
+        {
+          text: "G3S"
+        },
+        {
+          html: '<span class="govuk-tag">Active</span>'
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/user-edit" class="govuk-link">Gary McAllister</a>'
+        },
+        {
+          html: '<a href="mailto:gary.mcallister@leedsutd.co.uk" class="govuk-link">gary.mcallister@leedsutd.co.uk</a>'
+        },
+        {
+          text: "Capita"
+        },
+        {
+          html: '<span class="govuk-tag">Active</span>'
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/user-edit" class="govuk-link">Tony Dorigo</a>'
+        },
+        {
+          html: '<a href="mailto:tony.dorigo@leedsutd.co.uk" class="govuk-link">tony.dorigo@leedsutd.co.uk</a>'
+        },
+        {
+          text: "Capita"
+        },
+        {
+          html: '<span class="govuk-tag">Active</span>'
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/user-edit" class="govuk-link">Mel Sterland</a>'
+        },
+        {
+          html: '<a href="mailto:mel.sterland@leedsutd.co.uk" class="govuk-link">mel.sterland@leedsutd.co.uk</a>'
+        },
+        {
+          text: "Capita"
+        },
+        {
+          html: '<span class="govuk-tag">Active</span>'
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/user-edit" class="govuk-link">Some Dude</a>'
+        },
+        {
+          html: '<a href="mailto:some.dude@leedsutd.co.uk" class="govuk-link">some.dude@leedsutd.co.uk</a>'
+        },
+        {
+          text: "Capita"
+        },
+        {
+          html: '<span class="govuk-tag">Active</span>'
+        }
+      ]
+    ]
+  }) }}
+</div>
+{% endblock %}

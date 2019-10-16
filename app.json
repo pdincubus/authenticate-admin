@@ -1,5 +1,5 @@
 {
-    "name": "govuk-prototype-kit",
+    "name": "authenticate-admin",
     "scripts": {},
     "env": {
       "USE_AUTH": {
@@ -18,4 +18,3 @@
       }
     ]
   }
-  

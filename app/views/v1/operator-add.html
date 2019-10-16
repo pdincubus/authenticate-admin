@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add new operator - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    {{ govukFieldset({
+      legend: {
+        text: "Add an operator",
+        classes: "govuk-fieldset__legend--xl",
+        isPageHeading: true
+      }
+    })}}
+
+    {{ govukInput({
+      label: {
+        text: "Operator name"
+      },
+      id: "operator-name",
+      name: "operator-name"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Operator admin first name"
+      },
+      id: "operator-admin-first-name",
+      name: "operator-admin-first-name"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Operator admin last name"
+      },
+      id: "operator-admin-last-name",
+      name: "operator-admin-last-name"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Operator admin phone number"
+      },
+      id: "operator-admin-phone-number",
+      name: "operator-admin-phone-number",
+      type: "tel"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Operator admin email address"
+      },
+      id: "operator-admin-email-address",
+      name: "operator-admin-email-address",
+      type: "email"
+    }) }}
+
+    {{ govukRadios({
+      idPrefix: "operator-admin-access-rights",
+      name: "operator-admin-access-rights",
+      fieldset: {
+        legend: {
+          text: "Access rights",
+          isPageHeading: false
+        }
+      },
+      hint: {
+        html: '<a href="#" target="_blank" rel="noopener noreferrer">More information about access rights<span class="govuk-visually-hidden"> (This link opens in a new window or tab)</span></a>'
+      },
+      items: [
+        {
+          value: "platinum",
+          text: "Platinum"
+        },
+        {
+          value: "gold",
+          text: "Gold"
+        },
+        {
+          value: "silver",
+          text: "Silver"
+        },
+        {
+          value: "bronze",
+          text: "Bronze"
+        },
+        {
+          value: "tin",
+          text: "Tin"
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Add operator"
+    }) }}
+  </div>
+</div>
+{% endblock %}

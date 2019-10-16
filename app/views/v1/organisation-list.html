@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <h1 class="govuk-heading-xl">Organisations</h1>
+
+  <a href="/v1/organisation-add" class="govuk-button">Add new organisation</a>
+
+  {{ govukTable({
+    caption: "",
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Name",
+        classes: "govuk-!-width-half"
+      },
+      {
+        text: "Operator",
+        classes: "govuk-!-width-one-quarter"
+      },
+      {
+        text: "Service",
+        classes: "govuk-!-width-one-quarter"
+      },
+      {
+        text: "Users",
+        format: "numeric"
+      }
+    ],
+    rows: [
+      [
+        {
+          html: '<a href="/v1/organisation-edit" class="govuk-link">Capita</a>'
+        },
+        {
+          html: '<a href="/v1/operator-edit" class="govuk-link">Health</a>'
+        },
+        {
+          html: '<a href="/v1/service-edit" class="govuk-link">Health Assessments</a>'
+        },
+        {
+          html: '<a href="/v1/user-list" class="govuk-link">23</a>',
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/organisation-edit" class="govuk-link">G3S</a>'
+        },
+        {
+          html: '<a href="/v1/operator-edit" class="govuk-link">Health</a>'
+        },
+        {
+          html: '<a href="/v1/service-edit" class="govuk-link">Health Assessments</a>'
+        },
+        {
+          html: '<a href="/v1/user-list" class="govuk-link">37</a>',
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/organisation-edit" class="govuk-link">Providers R Us</a>'
+        },
+        {
+          html: '<a href="/v1/operator-edit" class="govuk-link">Health</a>'
+        },
+        {
+          html: '<a href="/v1/service-edit" class="govuk-link">Health Assessments</a>'
+        },
+        {
+          html: '<a href="/v1/user-list" class="govuk-link">31</a>',
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/organisation-edit" class="govuk-link">Cap Gemini</a>'
+        },
+        {
+          html: '<a href="/v1/operator-edit" class="govuk-link">Health</a>'
+        },
+        {
+          html: '<a href="/v1/service-edit" class="govuk-link">CYI</a>'
+        },
+        {
+          html: '<a href="/v1/user-list" class="govuk-link">12</a>',
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/organisation-edit" class="govuk-link">Consultio</a>'
+        },
+        {
+          html: '<a href="/v1/operator-edit" class="govuk-link">State Pensions</a>'
+        },
+        {
+          html: '<a href="/v1/service-edit" class="govuk-link">CYI</a>'
+        },
+        {
+          html: '<a href="/v1/user-list" class="govuk-link">98</a>',
+          format: "numeric"
+        }
+      ],
+      [
+        {
+          html: '<a href="/v1/organisation-edit" class="govuk-link">Odyssey</a>'
+        },
+        {
+          html: '<a href="/v1/operator-edit" class="govuk-link">Universal Credit</a>'
+        },
+        {
+          html: '<a href="/v1/service-edit" class="govuk-link">CYI</a>'
+        },
+        {
+          html: '<a href="/v1/user-list" class="govuk-link">23</a>',
+          format: "numeric"
+        }
+      ]
+    ]
+  }) }}
+</div>
+{% endblock %}

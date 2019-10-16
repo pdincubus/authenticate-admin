@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Edit operator - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    {{ govukFieldset({
+      legend: {
+        text: "Edit operator",
+        classes: "govuk-fieldset__legend--xl",
+        isPageHeading: true
+      }
+    })}}
+
+    {{ govukInput({
+      label: {
+        text: "Operator name"
+      },
+      id: "operator-name",
+      name: "operator-name",
+      value: "Health"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Operator admin first name"
+      },
+      id: "operator-admin-first-name",
+      name: "operator-admin-first-name",
+      value: "Gary"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Operator admin last name"
+      },
+      id: "operator-admin-last-name",
+      name: "operator-admin-last-name",
+      value: "Speed"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Operator admin phone number"
+      },
+      id: "operator-admin-phone-number",
+      name: "operator-admin-phone-number",
+      type: "tel",
+      value: "0113 234 567890"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Operator admin email address"
+      },
+      id: "operator-admin-email-address",
+      name: "operator-admin-email-address",
+      type: "email",
+      value: "gary.speed@leedsutd.co.uk"
+    }) }}
+
+    {{ govukRadios({
+      idPrefix: "operator-admin-access-rights",
+      name: "operator-admin-access-rights",
+      fieldset: {
+        legend: {
+          text: "Access rights",
+          isPageHeading: false
+        }
+      },
+      hint: {
+        html: '<a href="#" target="_blank" rel="noopener noreferrer">More information about access rights<span class="govuk-visually-hidden"> (This link opens in a new window or tab)</span></a>'
+      },
+      items: [
+        {
+          value: "platinum",
+          text: "Platinum"
+        },
+        {
+          value: "gold",
+          text: "Gold",
+          checked: true
+        },
+        {
+          value: "silver",
+          text: "Silver"
+        },
+        {
+          value: "bronze",
+          text: "Bronze"
+        },
+        {
+          value: "tin",
+          text: "Tin"
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Save changes"
+    }) }}
+  </div>
+</div>
+{% endblock %}

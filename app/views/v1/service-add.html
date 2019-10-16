@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add new service - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    {{ govukFieldset({
+      legend: {
+        text: "Add a service",
+        classes: "govuk-fieldset__legend--xl",
+        isPageHeading: true
+      }
+    })}}
+
+    {{ govukInput({
+      label: {
+        text: "Service name"
+      },
+      id: "service-name",
+      name: "service-name"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Service admin first name"
+      },
+      id: "service-admin-first-name",
+      name: "service-admin-first-name"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Service admin last name"
+      },
+      id: "service-admin-last-name",
+      name: "service-admin-last-name"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Service admin phone number"
+      },
+      id: "service-admin-phone-number",
+      name: "service-admin-phone-number",
+      type: "tel"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Service admin email address"
+      },
+      id: "service-admin-email-address",
+      name: "service-admin-email-address",
+      type: "email"
+    }) }}
+
+    {{ govukRadios({
+      idPrefix: "service-admin-access-rights",
+      name: "service-admin-access-rights",
+      fieldset: {
+        legend: {
+          text: "Access rights",
+          isPageHeading: false
+        }
+      },
+      hint: {
+        html: '<a href="#" target="_blank" rel="noopener noreferrer">More information about access rights<span class="govuk-visually-hidden"> (This link opens in a new window or tab)</span></a>'
+      },
+      items: [
+        {
+          value: "platinum",
+          text: "Platinum"
+        },
+        {
+          value: "gold",
+          text: "Gold"
+        },
+        {
+          value: "silver",
+          text: "Silver"
+        },
+        {
+          value: "bronze",
+          text: "Bronze"
+        },
+        {
+          value: "tin",
+          text: "Tin"
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Add service"
+    }) }}
+  </div>
+</div>
+{% endblock %}
