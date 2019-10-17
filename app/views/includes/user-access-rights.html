@@ -1,0 +1,44 @@
+{{ govukRadios({
+  idPrefix: "user-access-rights",
+  name: "user-access-rights",
+  fieldset: {
+    legend: {
+      text: "Access rights",
+      isPageHeading: false
+    }
+  },
+  items: [
+    {
+      value: "System Admin",
+      text: "System Admin",
+      hint: {
+        html: "Add a group of services, used by a specific part of DWP<br>Invite group admins<br>Add a set of users who do not work for DWP, such as a supplier or a local authority<br>Add a service<br>Invite service admins"
+      },
+      checked: checked("['user-access-rights']", "System Admin")
+    },
+    {
+      value: "Group Admin",
+      text: "Group Admin",
+      hint: {
+        html: "Admin for services used by a specific part of DWP<br>Add services to their group<br>Invite service admins<br>Invite users to their services"
+      },
+      checked: checked("['user-access-rights']", "Group Admin")
+    },
+    {
+      value: "Service Admin",
+      text: "Service Admin",
+      hint: {
+        html: "Admin for one service<br>Invite users to their service<br>{third party?}"
+      },
+      checked: checked("['user-access-rights']", "Service Admin")
+    },
+    {
+      value: "User",
+      text: "User",
+      hint: {
+        text: "Can access the service"
+      },
+      checked: checked("['user-access-rights']", "User")
+    }
+  ]
+}) }}

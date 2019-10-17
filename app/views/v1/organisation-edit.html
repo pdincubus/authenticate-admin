@@ -7,101 +7,68 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
-    {{ govukFieldset({
-      legend: {
-        text: "Edit organisation",
-        classes: "govuk-fieldset__legend--l",
-        isPageHeading: true
-      }
-    })}}
-
-    {{ govukInput({
-      label: {
-        text: "Organisation name"
-      },
-      id: "organisation-name",
-      name: "organisation-name",
-      value: "Capita"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Organisation admin first name"
-      },
-      id: "organisation-admin-first-name",
-      name: "organisation-admin-first-name",
-      value: "Gary"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Organisation admin last name"
-      },
-      id: "organisation-admin-last-name",
-      name: "organisation-admin-last-name",
-      value: "Speed"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Organisation admin phone number"
-      },
-      id: "organisation-admin-phone-number",
-      name: "organisation-admin-phone-number",
-      type: "tel",
-      value: "0113 234 567890"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Organisation admin email address"
-      },
-      id: "organisation-admin-email-address",
-      name: "organisation-admin-email-address",
-      type: "email",
-      value: "gary.speed@leedsutd.co.uk"
-    }) }}
-
-    {{ govukRadios({
-      idPrefix: "organisation-admin-access-rights",
-      name: "organisation-admin-access-rights",
-      fieldset: {
+    <form action="/v1/organisation-summary" method="post" class="form">
+      {{ govukFieldset({
         legend: {
-          text: "Access rights",
-          isPageHeading: false
+          text: "Edit organisation",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
         }
-      },
-      hint: {
-        html: '<a href="#" target="_blank" rel="noopener noreferrer">More information about access rights<span class="govuk-visually-hidden"> (This link opens in a new window or tab)</span></a>'
-      },
-      items: [
-        {
-          value: "platinum",
-          text: "Platinum"
-        },
-        {
-          value: "gold",
-          text: "Gold"
-        },
-        {
-          value: "silver",
-          text: "Silver"
-        },
-        {
-          value: "bronze",
-          text: "Bronze",
-          checked: true
-        },
-        {
-          value: "tin",
-          text: "Tin"
-        }
-      ]
-    }) }}
+      })}}
 
-    {{ govukButton({
-      text: "Save changes"
-    }) }}
+      {{ govukInput({
+        label: {
+          text: "Organisation name"
+        },
+        id: "organisation-name",
+        name: "organisation-name",
+        value: data["organisation-name"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Organisation admin first name"
+        },
+        id: "organisation-admin-first-name",
+        name: "organisation-admin-first-name",
+        value: data["organisation-admin-first-name"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Organisation admin last name"
+        },
+        id: "organisation-admin-last-name",
+        name: "organisation-admin-last-name",
+        value: data["organisation-admin-last-name"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Organisation admin phone number"
+        },
+        id: "organisation-admin-phone-number",
+        name: "organisation-admin-phone-number",
+        type: "tel",
+        value: data["organisation-admin-phone-number"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Organisation admin email address"
+        },
+        id: "organisation-admin-email-address",
+        name: "organisation-admin-email-address",
+        type: "email",
+        value: data["organisation-admin-email-address"]
+      }) }}
+
+      {% include "includes/organisation-access-rights.html" %}
+
+      {{ govukButton({
+        text: "Save changes"
+      }) }}
+    </form>
   </div>
 </div>
 {% endblock %}

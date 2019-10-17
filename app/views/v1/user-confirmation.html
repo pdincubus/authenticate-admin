@@ -5,10 +5,11 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
   {{ govukPanel({
-    titleText: "User added",
-    html: "Some additional helpful text here"
+    titleText: "User added: " + data["user-first-name"] + " " + data["user-last-name"],
+    text: "Some useful additional text here"
   }) }}
-</div>
+
+  <a href="/v1/user-list" class="govuk-link">View all users</a><br>
+  <a href="/v1/dashboard-root" class="govuk-link">Go to the dashboard</a>
 {% endblock %}

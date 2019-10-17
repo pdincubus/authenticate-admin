@@ -45,4 +45,8 @@ router.get('/v1/user-edit', function (req, res) {
   res.render('v1/user-edit', { 'activeNav': 'users' });
 });
 
+router.get('/v1/user-add', function (req, res) {
+  res.render('v1/user-add', { 'activeNav': 'users' });
+});
+
 module.exports = router

@@ -7,95 +7,63 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
-    {{ govukFieldset({
-      legend: {
-        text: "Add a partner organisation",
-        classes: "govuk-fieldset__legend--l",
-        isPageHeading: true
-      }
-    })}}
-
-    {{ govukInput({
-      label: {
-        text: "Partner organisation name"
-      },
-      id: "organisation-name",
-      name: "organisation-name"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Partner organisation admin first name"
-      },
-      id: "organisation-admin-first-name",
-      name: "organisation-admin-first-name"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Partner organisation admin last name"
-      },
-      id: "organisation-admin-last-name",
-      name: "organisation-admin-last-name"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Partner organisation admin phone number"
-      },
-      id: "organisation-admin-phone-number",
-      name: "organisation-admin-phone-number",
-      type: "tel"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Partner organisation admin email address"
-      },
-      id: "organisation-admin-email-address",
-      name: "organisation-admin-email-address",
-      type: "email"
-    }) }}
-
-    {{ govukRadios({
-      idPrefix: "organisation-admin-access-rights",
-      name: "organisation-admin-access-rights",
-      fieldset: {
+    <form action="/v1/organisation-summary" method="post" class="form">
+      {{ govukFieldset({
         legend: {
-          text: "Access rights",
-          isPageHeading: false
+          text: "Add a partner organisation",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
         }
-      },
-      hint: {
-        html: '<a href="#" target="_blank" rel="noopener noreferrer">More information about access rights<span class="govuk-visually-hidden"> (This link opens in a new window or tab)</span></a>'
-      },
-      items: [
-        {
-          value: "platinum",
-          text: "Platinum"
-        },
-        {
-          value: "gold",
-          text: "Gold"
-        },
-        {
-          value: "silver",
-          text: "Silver"
-        },
-        {
-          value: "bronze",
-          text: "Bronze"
-        },
-        {
-          value: "tin",
-          text: "Tin"
-        }
-      ]
-    }) }}
+      })}}
 
-    {{ govukButton({
-      text: "Add partner organisation"
-    }) }}
+      {{ govukInput({
+        label: {
+          text: "Partner organisation name"
+        },
+        id: "organisation-name",
+        name: "organisation-name"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Partner organisation admin first name"
+        },
+        id: "organisation-admin-first-name",
+        name: "organisation-admin-first-name"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Partner organisation admin last name"
+        },
+        id: "organisation-admin-last-name",
+        name: "organisation-admin-last-name"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Partner organisation admin phone number"
+        },
+        id: "organisation-admin-phone-number",
+        name: "organisation-admin-phone-number",
+        type: "tel"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Partner organisation admin email address"
+        },
+        id: "organisation-admin-email-address",
+        name: "organisation-admin-email-address",
+        type: "email"
+      }) }}
+
+      {% include "includes/organisation-access-rights.html" %}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
   </div>
 </div>
 {% endblock %}

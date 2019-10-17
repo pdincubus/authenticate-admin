@@ -7,101 +7,68 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
-    {{ govukFieldset({
-      legend: {
-        text: "Edit service",
-        classes: "govuk-fieldset__legend--l",
-        isPageHeading: true
-      }
-    })}}
-
-    {{ govukInput({
-      label: {
-        text: "Service name"
-      },
-      id: "service-name",
-      name: "service-name",
-      value: "Health Assessments"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Service admin first name"
-      },
-      id: "service-admin-first-name",
-      name: "service-admin-first-name",
-      value: "Gary"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Service admin last name"
-      },
-      id: "service-admin-last-name",
-      name: "service-admin-last-name",
-      value: "Speed"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Service admin phone number"
-      },
-      id: "service-admin-phone-number",
-      name: "service-admin-phone-number",
-      type: "tel",
-      value: "0113 234 567890"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Service admin email address"
-      },
-      id: "service-admin-email-address",
-      name: "service-admin-email-address",
-      type: "email",
-      value: "gary.speed@leedsutd.co.uk"
-    }) }}
-
-    {{ govukRadios({
-      idPrefix: "service-admin-access-rights",
-      name: "service-admin-access-rights",
-      fieldset: {
+    <form action="/v1/service-summary" method="post" class="form">
+      {{ govukFieldset({
         legend: {
-          text: "Access rights",
-          isPageHeading: false
+          text: "Edit service",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
         }
-      },
-      hint: {
-        html: '<a href="#" target="_blank" rel="noopener noreferrer">More information about access rights<span class="govuk-visually-hidden"> (This link opens in a new window or tab)</span></a>'
-      },
-      items: [
-        {
-          value: "platinum",
-          text: "Platinum"
-        },
-        {
-          value: "gold",
-          text: "Gold"
-        },
-        {
-          value: "silver",
-          text: "Silver",
-          checked: true
-        },
-        {
-          value: "bronze",
-          text: "Bronze"
-        },
-        {
-          value: "tin",
-          text: "Tin"
-        }
-      ]
-    }) }}
+      })}}
 
-    {{ govukButton({
-      text: "Save changes"
-    }) }}
+      {{ govukInput({
+        label: {
+          text: "Service name"
+        },
+        id: "service-name",
+        name: "service-name",
+        value: data["service-name"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Service admin first name"
+        },
+        id: "service-admin-first-name",
+        name: "service-admin-first-name",
+        value: data["service-admin-first-name"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Service admin last name"
+        },
+        id: "service-admin-last-name",
+        name: "service-admin-last-name",
+        value: data["service-admin-last-name"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Service admin phone number"
+        },
+        id: "service-admin-phone-number",
+        name: "service-admin-phone-number",
+        type: "tel",
+        value: data["service-admin-phone-number"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Service admin email address"
+        },
+        id: "service-admin-email-address",
+        name: "service-admin-email-address",
+        type: "email",
+        value: data["service-admin-email-address"]
+      }) }}
+
+      {% include "includes/service-access-rights.html" %}
+
+      {{ govukButton({
+        text: "Save changes"
+      }) }}
+    </form>
   </div>
 </div>
 {% endblock %}

@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your details - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="govuk-heading-l">Check details</h1>
+
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Service group name"
+      },
+      value: {
+        html: data["operator-name"]
+      }
+    },
+    {
+      key: {
+        text: "Group admin first name"
+      },
+      value: {
+        html: data["operator-admin-first-name"]
+      }
+    },
+    {
+      key: {
+        text: "Group admin last name"
+      },
+      value: {
+        html: data["operator-admin-last-name"]
+      }
+    },
+    {
+      key: {
+        text: "Group admin phone number"
+      },
+      value: {
+        html: data["operator-admin-phone-number"]
+      }
+    },
+    {
+      key: {
+        text: "Group admin email address"
+      },
+      value: {
+        html: data["operator-admin-email-address"]
+      }
+    },
+    {
+      key: {
+        text: "Access rights"
+      },
+      value: {
+        html: data["operator-admin-access-rights"]
+      }
+    }
+  ]
+}) }}
+
+<a href="/v1/operator-confirmation" class="govuk-button">Continue</a>
+<a href="/v1/operator-edit" class="govuk-button">Make changes</a>
+{% endblock %}

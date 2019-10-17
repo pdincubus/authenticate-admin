@@ -7,101 +7,68 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
-    {{ govukFieldset({
-      legend: {
-        text: "Edit service group",
-        classes: "govuk-fieldset__legend--l",
-        isPageHeading: true
-      }
-    })}}
-
-    {{ govukInput({
-      label: {
-        text: "Service group name"
-      },
-      id: "operator-name",
-      name: "operator-name",
-      value: "Health"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Service group admin first name"
-      },
-      id: "operator-admin-first-name",
-      name: "operator-admin-first-name",
-      value: "Gary"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Service group admin last name"
-      },
-      id: "operator-admin-last-name",
-      name: "operator-admin-last-name",
-      value: "Speed"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Service group admin phone number"
-      },
-      id: "operator-admin-phone-number",
-      name: "operator-admin-phone-number",
-      type: "tel",
-      value: "0113 234 567890"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Service group admin email address"
-      },
-      id: "operator-admin-email-address",
-      name: "operator-admin-email-address",
-      type: "email",
-      value: "gary.speed@leedsutd.co.uk"
-    }) }}
-
-    {{ govukRadios({
-      idPrefix: "operator-admin-access-rights",
-      name: "operator-admin-access-rights",
-      fieldset: {
+    <form action="/v1/operator-summary" method="post" class="form">
+      {{ govukFieldset({
         legend: {
-          text: "Access rights",
-          isPageHeading: false
+          text: "Edit service group",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
         }
-      },
-      hint: {
-        html: '<a href="#" target="_blank" rel="noopener noreferrer">More information about access rights<span class="govuk-visually-hidden"> (This link opens in a new window or tab)</span></a>'
-      },
-      items: [
-        {
-          value: "platinum",
-          text: "Platinum"
-        },
-        {
-          value: "gold",
-          text: "Gold",
-          checked: true
-        },
-        {
-          value: "silver",
-          text: "Silver"
-        },
-        {
-          value: "bronze",
-          text: "Bronze"
-        },
-        {
-          value: "tin",
-          text: "Tin"
-        }
-      ]
-    }) }}
+      })}}
 
-    {{ govukButton({
-      text: "Save changes"
-    }) }}
+      {{ govukInput({
+        label: {
+          text: "Service group name"
+        },
+        id: "operator-name",
+        name: "operator-name",
+        value: data["operator-name"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Service group admin first name"
+        },
+        id: "operator-admin-first-name",
+        name: "operator-admin-first-name",
+        value: data["operator-admin-first-name"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Service group admin last name"
+        },
+        id: "operator-admin-last-name",
+        name: "operator-admin-last-name",
+        value: data["operator-admin-last-name"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Service group admin phone number"
+        },
+        id: "operator-admin-phone-number",
+        name: "operator-admin-phone-number",
+        type: "tel",
+        value: data["operator-admin-phone-number"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Service group admin email address"
+        },
+        id: "operator-admin-email-address",
+        name: "operator-admin-email-address",
+        type: "email",
+        value: data["operator-admin-email-address"]
+      }) }}
+
+      {% include "includes/operator-access-rights.html" %}
+
+      {{ govukButton({
+        text: "Save changes"
+      }) }}
+    </form>
   </div>
 </div>
 {% endblock %}

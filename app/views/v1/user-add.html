@@ -7,87 +7,55 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
-    {{ govukFieldset({
-      legend: {
-        text: "Add a user",
-        classes: "govuk-fieldset__legend--l",
-        isPageHeading: true
-      }
-    })}}
-
-    {{ govukInput({
-      label: {
-        text: "First name"
-      },
-      id: "user-first-name",
-      name: "user-first-name"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Last name"
-      },
-      id: "user-last-name",
-      name: "user-last-name"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Phone number"
-      },
-      id: "user-phone-number",
-      name: "user-phone-number",
-      type: "tel"
-    }) }}
-
-    {{ govukInput({
-      label: {
-        text: "Email address"
-      },
-      id: "user-email-address",
-      name: "user-email-address",
-      type: "email"
-    }) }}
-
-    {{ govukRadios({
-      idPrefix: "user-access-rights",
-      name: "user-access-rights",
-      fieldset: {
+    <form action="/v1/user-summary" method="post" class="form">
+      {{ govukFieldset({
         legend: {
-          text: "Access rights",
-          isPageHeading: false
+          text: "Add a user",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
         }
-      },
-      hint: {
-        html: '<a href="#" target="_blank" rel="noopener noreferrer">More information about access rights<span class="govuk-visually-hidden"> (This link opens in a new window or tab)</span></a>'
-      },
-      items: [
-        {
-          value: "platinum",
-          text: "Platinum"
-        },
-        {
-          value: "gold",
-          text: "Gold"
-        },
-        {
-          value: "silver",
-          text: "Silver"
-        },
-        {
-          value: "bronze",
-          text: "Bronze"
-        },
-        {
-          value: "tin",
-          text: "Tin"
-        }
-      ]
-    }) }}
+      })}}
 
-    {{ govukButton({
-      text: "Add user"
-    }) }}
+      {{ govukInput({
+        label: {
+          text: "First name"
+        },
+        id: "user-first-name",
+        name: "user-first-name"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Last name"
+        },
+        id: "user-last-name",
+        name: "user-last-name"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Phone number"
+        },
+        id: "user-phone-number",
+        name: "user-phone-number",
+        type: "tel"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Email address"
+        },
+        id: "user-email-address",
+        name: "user-email-address",
+        type: "email"
+      }) }}
+
+      {% include "includes/user-access-rights.html" %}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
   </div>
 </div>
 {% endblock %}
