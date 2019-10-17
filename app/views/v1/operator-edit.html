@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Edit operator - {{serviceName}}
+  Edit service group - {{serviceName}}
 {% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@
   <div class="govuk-grid-column-one-half">
     {{ govukFieldset({
       legend: {
-        text: "Edit operator",
+        text: "Edit service group",
         classes: "govuk-fieldset__legend--l",
         isPageHeading: true
       }
@@ -17,7 +17,7 @@
 
     {{ govukInput({
       label: {
-        text: "Operator name"
+        text: "Service group name"
       },
       id: "operator-name",
       name: "operator-name",
@@ -26,7 +26,7 @@
 
     {{ govukInput({
       label: {
-        text: "Operator admin first name"
+        text: "Service group admin first name"
       },
       id: "operator-admin-first-name",
       name: "operator-admin-first-name",
@@ -35,7 +35,7 @@
 
     {{ govukInput({
       label: {
-        text: "Operator admin last name"
+        text: "Service group admin last name"
       },
       id: "operator-admin-last-name",
       name: "operator-admin-last-name",
@@ -44,7 +44,7 @@
 
     {{ govukInput({
       label: {
-        text: "Operator admin phone number"
+        text: "Service group admin phone number"
       },
       id: "operator-admin-phone-number",
       name: "operator-admin-phone-number",
@@ -54,7 +54,7 @@
 
     {{ govukInput({
       label: {
-        text: "Operator admin email address"
+        text: "Service group admin email address"
       },
       id: "operator-admin-email-address",
       name: "operator-admin-email-address",

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Add new organisation - {{serviceName}}
+  Add new partner organisation - {{serviceName}}
 {% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@
   <div class="govuk-grid-column-one-half">
     {{ govukFieldset({
       legend: {
-        text: "Add an organisation",
+        text: "Add a partner organisation",
         classes: "govuk-fieldset__legend--l",
         isPageHeading: true
       }
@@ -17,7 +17,7 @@
 
     {{ govukInput({
       label: {
-        text: "Organisation name"
+        text: "Partner organisation name"
       },
       id: "organisation-name",
       name: "organisation-name"
@@ -25,7 +25,7 @@
 
     {{ govukInput({
       label: {
-        text: "Organisation admin first name"
+        text: "Partner organisation admin first name"
       },
       id: "organisation-admin-first-name",
       name: "organisation-admin-first-name"
@@ -33,7 +33,7 @@
 
     {{ govukInput({
       label: {
-        text: "Organisation admin last name"
+        text: "Partner organisation admin last name"
       },
       id: "organisation-admin-last-name",
       name: "organisation-admin-last-name"
@@ -41,7 +41,7 @@
 
     {{ govukInput({
       label: {
-        text: "Organisation admin phone number"
+        text: "Partner organisation admin phone number"
       },
       id: "organisation-admin-phone-number",
       name: "organisation-admin-phone-number",
@@ -50,7 +50,7 @@
 
     {{ govukInput({
       label: {
-        text: "Organisation admin email address"
+        text: "Partner organisation admin email address"
       },
       id: "organisation-admin-email-address",
       name: "organisation-admin-email-address",
@@ -94,7 +94,7 @@
     }) }}
 
     {{ govukButton({
-      text: "Add operator"
+      text: "Add partner organisation"
     }) }}
   </div>
 </div>

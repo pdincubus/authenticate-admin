@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Add new operator - {{serviceName}}
+  Add new Group - {{serviceName}}
 {% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@
   <div class="govuk-grid-column-one-half">
     {{ govukFieldset({
       legend: {
-        text: "Add an operator",
+        text: "Add a service group",
         classes: "govuk-fieldset__legend--l",
         isPageHeading: true
       }
@@ -17,7 +17,7 @@
 
     {{ govukInput({
       label: {
-        text: "Operator name"
+        text: "Service group name"
       },
       id: "operator-name",
       name: "operator-name"
@@ -25,7 +25,7 @@
 
     {{ govukInput({
       label: {
-        text: "Operator admin first name"
+        text: "Group admin first name"
       },
       id: "operator-admin-first-name",
       name: "operator-admin-first-name"
@@ -33,7 +33,7 @@
 
     {{ govukInput({
       label: {
-        text: "Operator admin last name"
+        text: "Group admin last name"
       },
       id: "operator-admin-last-name",
       name: "operator-admin-last-name"
@@ -41,7 +41,7 @@
 
     {{ govukInput({
       label: {
-        text: "Operator admin phone number"
+        text: "Group admin phone number"
       },
       id: "operator-admin-phone-number",
       name: "operator-admin-phone-number",
@@ -50,7 +50,7 @@
 
     {{ govukInput({
       label: {
-        text: "Operator admin email address"
+        text: "Group admin email address"
       },
       id: "operator-admin-email-address",
       name: "operator-admin-email-address",
@@ -94,7 +94,7 @@
     }) }}
 
     {{ govukButton({
-      text: "Add operator"
+      text: "Add service group"
     }) }}
   </div>
 </div>

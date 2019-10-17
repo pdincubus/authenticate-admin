@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
-{% block pageTitle %}{% endblock %}
+{% block pageTitle %}Service groups - {{serviceName}}{% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-l">Operators</h1>
+  <h1 class="govuk-heading-l">Service groups</h1>
 
-  <a href="/v1/operator-add" class="govuk-button">Add new operator</a>
+  <a href="/v1/operator-add" class="govuk-button">Add new service group</a>
 
   {{ govukTable({
     caption: "",

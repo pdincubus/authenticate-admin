@@ -53,43 +53,6 @@
       value: "jane.smith@organisation.gov"
     }) }}
 
-    {{ govukRadios({
-      idPrefix: "user-access-rights",
-      name: "user-access-rights",
-      fieldset: {
-        legend: {
-          text: "Access rights",
-          isPageHeading: false
-        }
-      },
-      hint: {
-        html: '<a href="#" target="_blank" rel="noopener noreferrer">More information about access rights<span class="govuk-visually-hidden"> (This link opens in a new window or tab)</span></a>'
-      },
-      items: [
-        {
-          value: "platinum",
-          text: "Platinum"
-        },
-        {
-          value: "gold",
-          text: "Gold"
-        },
-        {
-          value: "silver",
-          text: "Silver"
-        },
-        {
-          value: "bronze",
-          text: "Bronze"
-        },
-        {
-          value: "tin",
-          text: "Tin",
-          checked: true
-        }
-      ]
-    }) }}
-
     {{ govukButton({
       text: "Save changes"
     }) }}
