@@ -16,22 +16,32 @@
       },
       value: {
         html: data["organisation-name"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/organisation-edit",
+            text: "Change",
+            visuallyHiddenText: "partner organisation name"
+          }
+        ]
       }
     },
     {
       key: {
-        text: "First name"
+        text: "Full name"
       },
       value: {
-        html: data["organisation-admin-first-name"]
-      }
-    },
-    {
-      key: {
-        text: "Last name"
+        html: data["organisation-admin-full-name"]
       },
-      value: {
-        html: data["organisation-admin-last-name"]
+      actions: {
+        items: [
+          {
+            href: "/v1/organisation-edit",
+            text: "Change",
+            visuallyHiddenText: "partner organisation admin full name"
+          }
+        ]
       }
     },
     {
@@ -40,6 +50,15 @@
       },
       value: {
         html: data["organisation-admin-phone-number"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/organisation-edit",
+            text: "Change",
+            visuallyHiddenText: "partner organisation admin phone number"
+          }
+        ]
       }
     },
     {
@@ -48,6 +67,15 @@
       },
       value: {
         html: data["organisation-admin-email-address"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/organisation-edit",
+            text: "Change",
+            visuallyHiddenText: "partner organisation admin email address"
+          }
+        ]
       }
     },
     {
@@ -56,11 +84,19 @@
       },
       value: {
         html: data["organisation-admin-access-rights"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/organisation-edit",
+            text: "Change",
+            visuallyHiddenText: "partner organisation admin access rights"
+          }
+        ]
       }
     }
   ]
 }) }}
 
 <a href="/v1/organisation-confirmation" class="govuk-button">Continue</a>
-<a href="/v1/organisation-edit" class="govuk-button govuk-button--secondary">Make changes</a>
 {% endblock %}

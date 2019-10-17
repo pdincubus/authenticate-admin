@@ -12,18 +12,19 @@
   rows: [
     {
       key: {
-        text: "First name"
+        text: "Full name"
       },
       value: {
-        html: data["user-first-name"]
-      }
-    },
-    {
-      key: {
-        text: "Last name"
+        html: data["user-full-name"]
       },
-      value: {
-        html: data["user-last-name"]
+      actions: {
+        items: [
+          {
+            href: "/v1/user-edit",
+            text: "Change",
+            visuallyHiddenText: "name"
+          }
+        ]
       }
     },
     {
@@ -32,6 +33,15 @@
       },
       value: {
         html: data["user-phone-number"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/user-edit",
+            text: "Change",
+            visuallyHiddenText: "phone number"
+          }
+        ]
       }
     },
     {
@@ -40,6 +50,15 @@
       },
       value: {
         html: data["user-email-address"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/user-edit",
+            text: "Change",
+            visuallyHiddenText: "email address"
+          }
+        ]
       }
     },
     {
@@ -48,11 +67,19 @@
       },
       value: {
         html: data["user-access-rights"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/user-edit",
+            text: "Change",
+            visuallyHiddenText: "access rights"
+          }
+        ]
       }
     }
   ]
 }) }}
 
 <a href="/v1/user-confirmation" class="govuk-button">Continue</a>
-<a href="/v1/user-edit" class="govuk-button govuk-button--secondary">Make changes</a>
 {% endblock %}

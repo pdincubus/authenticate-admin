@@ -16,22 +16,32 @@
       },
       value: {
         html: data["operator-name"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/operator-edit",
+            text: "Change",
+            visuallyHiddenText: "service group name"
+          }
+        ]
       }
     },
     {
       key: {
-        text: "Group admin first name"
+        text: "Group admin full name"
       },
       value: {
-        html: data["operator-admin-first-name"]
-      }
-    },
-    {
-      key: {
-        text: "Group admin last name"
+        html: data["operator-admin-full-name"]
       },
-      value: {
-        html: data["operator-admin-last-name"]
+      actions: {
+        items: [
+          {
+            href: "/v1/operator-edit",
+            text: "Change",
+            visuallyHiddenText: "group admin full name"
+          }
+        ]
       }
     },
     {
@@ -40,6 +50,15 @@
       },
       value: {
         html: data["operator-admin-phone-number"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/operator-edit",
+            text: "Change",
+            visuallyHiddenText: "group admin phone number"
+          }
+        ]
       }
     },
     {
@@ -48,6 +67,15 @@
       },
       value: {
         html: data["operator-admin-email-address"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/operator-edit",
+            text: "Change",
+            visuallyHiddenText: "group admin email address"
+          }
+        ]
       }
     },
     {
@@ -56,11 +84,19 @@
       },
       value: {
         html: data["operator-admin-access-rights"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/operator-edit",
+            text: "Change",
+            visuallyHiddenText: "group admin access rights"
+          }
+        ]
       }
     }
   ]
 }) }}
 
 <a href="/v1/operator-confirmation" class="govuk-button">Continue</a>
-<a href="/v1/operator-edit" class="govuk-button govuk-button--secondary">Make changes</a>
 {% endblock %}

@@ -23,9 +23,9 @@
     </thead>
 
     <tbody class="govuk-table__body">
-      {% if data['user-first-name'] %}
+      {% if data['user-full-name'] %}
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="/v1/user-view" class="govuk-link">{{ data['user-first-name'] }} {{ data['user-last-name'] }}</a></th>
+        <th scope="row" class="govuk-table__header"><a href="/v1/user-view" class="govuk-link">{{ data['user-full-name'] }}</a></th>
         <td class="govuk-table__cell"><a href="mailto:{{ data['user-email-address'] }}" class="govuk-link">{{ data['user-email-address'] }}</a></td>
         <td class="govuk-table__cell">-</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>

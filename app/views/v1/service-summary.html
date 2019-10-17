@@ -16,22 +16,32 @@
       },
       value: {
         html: data["service-name"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/service-edit",
+            text: "Change",
+            visuallyHiddenText: "service name"
+          }
+        ]
       }
     },
     {
       key: {
-        text: "First name"
+        text: "Full name"
       },
       value: {
-        html: data["service-admin-first-name"]
-      }
-    },
-    {
-      key: {
-        text: "Last name"
+        html: data["service-admin-full-name"]
       },
-      value: {
-        html: data["service-admin-last-name"]
+      actions: {
+        items: [
+          {
+            href: "/v1/service-edit",
+            text: "Change",
+            visuallyHiddenText: "service admin full name"
+          }
+        ]
       }
     },
     {
@@ -40,6 +50,15 @@
       },
       value: {
         html: data["service-admin-phone-number"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/service-edit",
+            text: "Change",
+            visuallyHiddenText: "service admin phone number"
+          }
+        ]
       }
     },
     {
@@ -48,6 +67,15 @@
       },
       value: {
         html: data["service-admin-email-address"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/service-edit",
+            text: "Change",
+            visuallyHiddenText: "service admin email address"
+          }
+        ]
       }
     },
     {
@@ -56,11 +84,19 @@
       },
       value: {
         html: data["service-admin-access-rights"]
+      },
+      actions: {
+        items: [
+          {
+            href: "/v1/service-edit",
+            text: "Change",
+            visuallyHiddenText: "service admin access rights"
+          }
+        ]
       }
     }
   ]
 }) }}
 
 <a href="/v1/service-confirmation" class="govuk-button">Continue</a>
-<a href="/v1/service-edit" class="govuk-button govuk-button--secondary">Make changes</a>
 {% endblock %}
