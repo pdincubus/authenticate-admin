@@ -3,7 +3,7 @@
 {% block pageTitle %}User details - {{siteName}}{% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-l">David Batty</h1>
+  <h1 class="govuk-heading-l">{{ data['user-first-name'] }} {{ data['user-last-name'] }}</h1>
 
   {{ govukSummaryList({
     rows: [
@@ -12,7 +12,7 @@
           text: "Name"
         },
         value: {
-          text: "David Batty"
+          text: data['user-first-name'] + " " + data['user-last-name']
         }
       },
       {
@@ -20,7 +20,7 @@
           text: "Phone number"
         },
         value: {
-          text: "0113 234 567890"
+          text: data['user-phone-number']
         }
       },
       {
@@ -28,7 +28,7 @@
           text: "Email address"
         },
         value: {
-          text: "david.batty@leedsutd.co.uk"
+          text: data['user-email-address']
         }
       },
       {
@@ -36,7 +36,7 @@
           text: "Access rights"
         },
         value: {
-          text: "Bronze"
+          text: data['user-access-rights']
         }
       },
       {
@@ -44,7 +44,7 @@
           text: "Status"
         },
         value: {
-          html: '<span class="govuk-tag govuk-tag--inactive">Suspended</span>'
+          html: '<span class="govuk-tag govuk-tag--inactive">Active</span>'
         }
       }
     ]

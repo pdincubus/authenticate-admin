@@ -7,125 +7,60 @@
 
   <a href="/v1/service-add" class="govuk-button">Add new service</a>
 
-  {{ govukTable({
-    caption: "",
-    firstCellIsHeader: true,
-    head: [
-      {
-        text: "Name",
-        classes: "govuk-!-width-half"
-      },
-      {
-        text: "Service group",
-        classes: "govuk-!-width-one-quarter"
-      },
-      {
-        text: "Partner organisations",
-        format: "numeric",
-        classes: "govuk-!-width-one-quarter"
-      },
-      {
-        text: "Users",
-        format: "numeric"
-      }
-    ],
-    rows: [
-      [
-        {
-          html: '<a href="/v1/service-edit" class="govuk-link">Health Assessments</a>'
-        },
-        {
-          html: '<a href="/v1/operator-edit" class="govuk-link">Health</a>'
-        },
-        {
-          html: '<a href="/v1/organisation-list" class="govuk-link">18</a>',
-          format: "numeric"
-        },
-        {
-          html: '<a href="/v1/user-list" class="govuk-link">214</a>',
-          format: "numeric"
-        }
-      ],
-      [
-        {
-          html: '<a href="/v1/service-edit" class="govuk-link">TRAPS</a>'
-        },
-        {
-          html: '<a href="/v1/operator-edit" class="govuk-link">Health</a>'
-        },
-        {
-          html: '<a href="/v1/organisation-list" class="govuk-link">23</a>',
-          format: "numeric"
-        },
-        {
-          html: '<a href="/v1/user-list" class="govuk-link">167</a>',
-          format: "numeric"
-        }
-      ],
-      [
-        {
-          html: '<a href="/v1/service-edit" class="govuk-link">PRAP</a>'
-        },
-        {
-          html: '<a href="/v1/operator-list" class="govuk-link">Health</a>'
-        },
-        {
-          html: '<a href="/v1/organisation-list" class="govuk-link">43</a>',
-          format: "numeric"
-        },
-        {
-          html: '<a href="/v1/user-list" class="govuk-link">1004</a>',
-          format: "numeric"
-        }
-      ],
-      [
-        {
-          html: '<a href="/v1/service-edit" class="govuk-link">SYI</a>'
-        },
-        {
-          html: '<a href="/v1/operator-edit" class="govuk-link">Health</a>'
-        },
-        {
-          html: '<a href="/v1/organisation-list" class="govuk-link">3</a>',
-          format: "numeric"
-        },
-        {
-          html: '<a href="/v1/user-list" class="govuk-link">66</a>',
-          format: "numeric"
-        }
-      ],
-      [
-        {
-          html: '<a href="/v1/service-edit" class="govuk-link">CYI</a>'
-        },
-        {
-          html: '<a href="/v1/operator-edit" class="govuk-link">State Pensions</a>'
-        },
-        {
-          html: '<a href="/v1/organisation-list" class="govuk-link">12</a>',
-          format: "numeric"
-        },
-        {
-          html: '<a href="/v1/user-list" class="govuk-link">96</a>',
-          format: "numeric"
-        }
-      ],
-      [
-        {
-          html: '<a href="/v1/service-edit" class="govuk-link">VBI</a>'
-        },
-        {
-          html: '<a href="/v1/operator-edit" class="govuk-link">State Pensions</a>'
-        },
-        {
-          html: '<a href="/v1/organisation-list" class="govuk-link">9</a>',
-          format: "numeric"
-        },
-        {
-          html: '<a href="/v1/user-list" class="govuk-link">288</a>',
-          format: "numeric"
-        }
-      ]
-    ]
-  }) }}
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header govuk-!-width-half">Name</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Service group</th>
+        <th scope="col" class="govuk-table__header govuk-table__header--numeric govuk-!-width-one-quarter">Partner organisations</th>
+        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Users</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      {% if data['service-name'] %}
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="/v1/service-edit" class="govuk-link">{{ data['service-name'] }}</a></th>
+        <td class="govuk-table__cell">-</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">-</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">-</td>
+      </tr>
+      {% endif %}
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="/v1/service-edit" class="govuk-link">TRAPS</a></th>
+        <td class="govuk-table__cell"><a href="/v1/operator-edit" class="govuk-link">Health</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v1/organisation-list" class="govuk-link">23</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v1/user-list" class="govuk-link">167</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="/v1/service-edit" class="govuk-link">PRAP</a></th>
+        <td class="govuk-table__cell"><a href="/v1/operator-list" class="govuk-link">Health</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v1/organisation-list" class="govuk-link">43</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v1/user-list" class="govuk-link">1004</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="/v1/service-edit" class="govuk-link">SYI</a></th>
+        <td class="govuk-table__cell"><a href="/v1/operator-edit" class="govuk-link">Health</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v1/organisation-list" class="govuk-link">3</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v1/user-list" class="govuk-link">66</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="/v1/service-edit" class="govuk-link">CYI</a></th>
+        <td class="govuk-table__cell"><a href="/v1/operator-edit" class="govuk-link">State Pensions</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v1/organisation-list" class="govuk-link">12</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v1/user-list" class="govuk-link">96</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="/v1/service-edit" class="govuk-link">VBI</a></th>
+        <td class="govuk-table__cell"><a href="/v1/operator-edit" class="govuk-link">State Pensions</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v1/organisation-list" class="govuk-link">9</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v1/user-list" class="govuk-link">288</a></td>
+      </tr>
+    </tbody>
+  </table>
 {% endblock %}
