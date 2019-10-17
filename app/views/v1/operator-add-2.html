@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add new Group - {{serviceName}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <form action="/v1/operator-add-3" method="post" class="form">
+      {{ govukFieldset({
+        legend: {
+          text: "Add a service group admin",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      })}}
+
+      {{ govukInput({
+        label: {
+          text: "Service group admin full name"
+        },
+        id: "operator-admin-full-name",
+        name: "operator-admin-full-name"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Service group admin phone number"
+        },
+        id: "operator-admin-phone-number",
+        name: "operator-admin-phone-number",
+        type: "tel"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Service group admin email address"
+        },
+        id: "operator-admin-email-address",
+        name: "operator-admin-email-address",
+        type: "email"
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

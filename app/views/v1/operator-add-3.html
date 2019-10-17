@@ -7,22 +7,16 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
-    <form action="/v1/operator-add-2" method="post" class="form">
+    <form action="/v1/operator-summary" method="post" class="form">
       {{ govukFieldset({
         legend: {
-          text: "Add a service group",
+          text: "Admin access rights",
           classes: "govuk-fieldset__legend--l",
           isPageHeading: true
         }
       })}}
 
-      {{ govukInput({
-        label: {
-          text: "Service group name"
-        },
-        id: "operator-name",
-        name: "operator-name"
-      }) }}
+      {% include "includes/operator-access-rights.html" %}
 
       {{ govukButton({
         text: "Continue"

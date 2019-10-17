@@ -29,51 +29,17 @@
     },
     {
       key: {
-        text: "Group admin full name"
+        text: "Group admin details"
       },
       value: {
-        html: data["operator-admin-full-name"]
+        html: data["operator-admin-full-name"] + "<br>" + data["operator-admin-phone-number"] + "<br>" + data["operator-admin-email-address"]
       },
       actions: {
         items: [
           {
-            href: "/v1/operator-edit",
+            href: "/v1/operator-edit-2",
             text: "Change",
-            visuallyHiddenText: "group admin full name"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Group admin phone number"
-      },
-      value: {
-        html: data["operator-admin-phone-number"]
-      },
-      actions: {
-        items: [
-          {
-            href: "/v1/operator-edit",
-            text: "Change",
-            visuallyHiddenText: "group admin phone number"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Group admin email address"
-      },
-      value: {
-        html: data["operator-admin-email-address"]
-      },
-      actions: {
-        items: [
-          {
-            href: "/v1/operator-edit",
-            text: "Change",
-            visuallyHiddenText: "group admin email address"
+            visuallyHiddenText: "group admin details"
           }
         ]
       }
@@ -88,7 +54,7 @@
       actions: {
         items: [
           {
-            href: "/v1/operator-edit",
+            href: "/v1/operator-edit-3",
             text: "Change",
             visuallyHiddenText: "group admin access rights"
           }
