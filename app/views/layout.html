@@ -58,6 +58,30 @@
       </nav>
     </div>
   </header>
+
+  <nav class="navigation-global">
+    <ul class="govuk-width-container">
+      <li>
+        <a href="/v1/dashboard-root" {% if activeNav == 'dashboard' %}class="active" aria-current="page"{% endif %}>Dashboard</a>
+      </li>
+
+      <li>
+        <a href="/v1/dashboard-operators" {% if activeNav == 'operators' %}class="active" aria-current="page"{% endif %}>Operators</a>
+      </li>
+
+      <li>
+        <a href="/v1/dashboard-services" {% if activeNav == 'services' %}class="active" aria-current="page"{% endif %}>Services</a>
+      </li>
+
+      <li>
+        <a href="/v1/dashboard-organisations" {% if activeNav == 'organisations' %}class="active" aria-current="page"{% endif %}>Organisations</a>
+      </li>
+
+      <li>
+        <a href="/v1/dashboard-user" {% if activeNav == 'users' %}class="active" aria-current="page"{% endif %}>Users</a>
+      </li>
+    </ul>
+  </nav>
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
