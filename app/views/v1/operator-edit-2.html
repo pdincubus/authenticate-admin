@@ -23,7 +23,7 @@
 
       {{ govukInput({
         label: {
-          text: "Service group admin full name"
+          text: "Name"
         },
         id: "operator-admin-full-name",
         name: "operator-admin-full-name",
@@ -32,12 +32,22 @@
 
       {{ govukInput({
         label: {
-          text: "Service group admin email address"
+          text: "Email address"
         },
         id: "operator-admin-email-address",
         name: "operator-admin-email-address",
         type: "email",
         value: data["operator-admin-email-address"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Phone number"
+        },
+        id: "operator-admin-phone-number",
+        name: "operator-admin-phone-number",
+        type: "tel",
+        value: data["operator-admin-phone-number"]
       }) }}
 
       {{ govukButton({
