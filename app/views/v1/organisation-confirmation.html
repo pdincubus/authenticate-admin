@@ -6,13 +6,16 @@
 
 {% block content %}
 <div class="govuk-grid-row">
-  {{ govukPanel({
-    titleText: "Organisation added: " + data["organisation-name"],
-    html: "Some additional helpful text here"
-  }) }}
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+      titleText: data["organisation-name"] + " partner organisation created"
+    }) }}
 
-  <a href="/v1/organisation-list" class="govuk-link">View all partner organisations</a><br>
-  <a href="/v1/organisation-add" class="govuk-link">Add another partner organisation</a><br>
-  <a href="/v1/dashboard-root" class="govuk-link">Go to the dashboard</a>
+    <p>An invitation has been sent to xxxx@xxxx.xxxx</p>
+
+    <!--<a href="/v1/organisation-list" class="govuk-link">View all partner organisations</a><br>
+    <a href="/v1/organisation-add" class="govuk-link">Add another partner organisation</a><br>-->
+    <a href="/v1/dashboard-root" class="govuk-link">Go to the dashboard</a>
+  </div>
 </div>
 {% endblock %}

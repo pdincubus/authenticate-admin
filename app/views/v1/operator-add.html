@@ -7,10 +7,15 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
+    {{ govukBackLink({
+      text: "Back",
+      href: "/v1/dashboard-root"
+    }) }}
+
     <form action="/v1/operator-add-2" method="post" class="form">
       {{ govukFieldset({
         legend: {
-          text: "Add a service group",
+          html: '<span class="govuk-caption-l">Add a new service group</span>Create a service group name',
           classes: "govuk-fieldset__legend--l",
           isPageHeading: true
         }

@@ -32,48 +32,14 @@
         text: "Full name"
       },
       value: {
-        html: data["organisation-admin-full-name"]
+        html: data["organisation-admin-full-name"] + "<br>" + data["organisation-admin-email-address"]
       },
       actions: {
         items: [
           {
             href: "/v1/organisation-edit",
             text: "Change",
-            visuallyHiddenText: "partner organisation admin full name"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Phone number"
-      },
-      value: {
-        html: data["organisation-admin-phone-number"]
-      },
-      actions: {
-        items: [
-          {
-            href: "/v1/organisation-edit",
-            text: "Change",
-            visuallyHiddenText: "partner organisation admin phone number"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Email address"
-      },
-      value: {
-        html: data["organisation-admin-email-address"]
-      },
-      actions: {
-        items: [
-          {
-            href: "/v1/organisation-edit",
-            text: "Change",
-            visuallyHiddenText: "partner organisation admin email address"
+            visuallyHiddenText: "partner organisation admin details"
           }
         ]
       }

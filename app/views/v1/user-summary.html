@@ -15,48 +15,14 @@
         text: "Full name"
       },
       value: {
-        html: data["user-full-name"]
+        html: data["user-full-name"] + "<br>" + data["user-email-address"]
       },
       actions: {
         items: [
           {
             href: "/v1/user-edit",
             text: "Change",
-            visuallyHiddenText: "name"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Phone number"
-      },
-      value: {
-        html: data["user-phone-number"]
-      },
-      actions: {
-        items: [
-          {
-            href: "/v1/user-edit",
-            text: "Change",
-            visuallyHiddenText: "phone number"
-          }
-        ]
-      }
-    },
-    {
-      key: {
-        text: "Email address"
-      },
-      value: {
-        html: data["user-email-address"]
-      },
-      actions: {
-        items: [
-          {
-            href: "/v1/user-edit",
-            text: "Change",
-            visuallyHiddenText: "email address"
+            visuallyHiddenText: "details"
           }
         ]
       }

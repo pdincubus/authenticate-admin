@@ -5,12 +5,17 @@
 {% endblock %}
 
 {% block content %}
-  {{ govukPanel({
-    titleText: "User added: " + data["user-full-name"],
-    text: "Some useful additional text here"
-  }) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: data["user-full-name"] + " created"
+      }) }}
 
-  <a href="/v1/user-list" class="govuk-link">View all users</a><br>
-  <a href="/v1/user-add" class="govuk-link">Add another user</a><br>
-  <a href="/v1/dashboard-root" class="govuk-link">Go to the dashboard</a>
+      <p>An invitation has been sent to xxxx@xxxx.xxxx</p>
+
+      <!--<a href="/v1/user-list" class="govuk-link">View all users</a><br>
+      <a href="/v1/user-add" class="govuk-link">Add another user</a><br>-->
+      <a href="/v1/dashboard-root" class="govuk-link">Go to the dashboard</a>
+    </div>
+  </div>
 {% endblock %}

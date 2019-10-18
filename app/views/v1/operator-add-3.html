@@ -7,10 +7,15 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
+    {{ govukBackLink({
+      text: "Back",
+      href: "/v1/operator-add-2"
+    }) }}
+
     <form action="/v1/operator-summary" method="post" class="form">
       {{ govukFieldset({
         legend: {
-          text: "Admin access rights",
+          html: '<span class="govuk-caption-l">Add a new service group</span>Set admin permissions',
           classes: "govuk-fieldset__legend--l",
           isPageHeading: true
         }

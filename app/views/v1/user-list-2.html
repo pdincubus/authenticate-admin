@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}Users - {{serviceName}}{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Users</h1>
+
+  <a href="/v1/user-add" class="govuk-button">Add new user</a>
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+
+        <th scope="col" class="govuk-table__header">Name</th>
+
+        <th scope="col" class="govuk-table__header">Email address</th>
+
+        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Organisation</th>
+
+        <th scope="col" class="govuk-table__header">Status</th>
+
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="/v1/user-view" class="govuk-link">Jane Smith</a></th>
+        <td class="govuk-table__cell"><a href="mailto:jane.smith@company.gov.uk" class="govuk-link">jane.smith@company.gov.uk</a></td>
+        <td class="govuk-table__cell">Capita</td>
+        <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="/v1/user-view" class="govuk-link">Joan Smith</a></th>
+        <td class="govuk-table__cell"><a href="mailto:joan.smith@company.gov.uk" class="govuk-link">joan.smith@company.gov.uk</a></td>
+        <td class="govuk-table__cell">G3S</td>
+        <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="/v1/user-view" class="govuk-link">James Smith</a></th>
+        <td class="govuk-table__cell"><a href="mailto:james.smith@company.gov.uk" class="govuk-link">james.smith@company.gov.uk</a></td>
+        <td class="govuk-table__cell">Capita</td>
+        <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="/v1/user-view" class="govuk-link">Joe Smith</a></th>
+        <td class="govuk-table__cell"><a href="mailto:joe.smith@company.gov.uk" class="govuk-link">joe.smith@company.gov.uk</a></td>
+        <td class="govuk-table__cell">Capita</td>
+        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--inactive">Inactive</span></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="/v1/user-view" class="govuk-link">Jack Smith</a></th>
+        <td class="govuk-table__cell"><a href="mailto:jack.smith@company.gov.uk" class="govuk-link">jack.smith@company.gov.uk</a></td>
+        <td class="govuk-table__cell">Capita</td>
+        <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <nav role="navigation" aria-label="Pagination">
+    <div class="pagination__summary">
+      Showing 11 &ndash; 15 of 15 results
+    </div>
+
+    <ul class="pagination">
+      <li class="pagination__item">
+        <a class="pagination__link" href="/v1/user-list"  aria-label="Previous page">
+          <span aria-hidden="true" role="presentation">&laquo;</span> Previous
+        </a>
+      </li>
+
+      <li class="pagination__item">
+        <a class="pagination__link" href="/v1/user-list" aria-label="Page 1">1</a>
+      </li>
+
+      <li class="pagination__item">
+        <a class="pagination__link current" href="/v1/user-list-2" aria-label="Page 2">2</a>
+      </li>
+
+      <li class="pagination__item">
+        <span class="pagination__link disabled" aria-label="Next page">
+          Next <span aria-hidden="true" role="presentation">&raquo;</span>
+        </span>
+      </li>
+    </ul>
+  </nav>
+
+  <a href="/v1/dashboard-root" class="govuk-link">Back to dashboard</a>
+{% endblock %}

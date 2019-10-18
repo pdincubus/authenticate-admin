@@ -7,6 +7,11 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-one-half">
+    {{ govukBackLink({
+      text: "Back",
+      href: "/v1/operator-summary"
+    }) }}
+
     <form action="/v1/operator-summary" method="post" class="form">
       {{ govukFieldset({
         legend: {
@@ -23,16 +28,6 @@
         id: "operator-admin-full-name",
         name: "operator-admin-full-name",
         value: data["operator-admin-full-name"]
-      }) }}
-
-      {{ govukInput({
-        label: {
-          text: "Service group admin phone number"
-        },
-        id: "operator-admin-phone-number",
-        name: "operator-admin-phone-number",
-        type: "tel",
-        value: data["operator-admin-phone-number"]
       }) }}
 
       {{ govukInput({
