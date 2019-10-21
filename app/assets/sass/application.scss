@@ -216,3 +216,19 @@ a.pagination__link:focus {
     float: right;
   }
 }
+
+/**
+ *
+ */
+ .govuk-tag--high {
+    background-color: #006435;
+ }
+
+ .govuk-tag--medium {
+    background-color: #ffbf47;
+    color: #0b0c0c;
+ }
+
+ .govuk-tag--low {
+    background-color: #b10e1e;
+ }
