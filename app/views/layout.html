@@ -40,6 +40,15 @@
 {% block header %}
   {% include "includes/cookie-banner.html" %}
 
+  <div class="govuk-width-container">
+    {{ govukPhaseBanner({
+      tag: {
+        text: "alpha"
+      },
+      html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+  </div>
+
   <header class="govuk-header" role="banner" data-module="govuk-header">
     <div class="govuk-header__container govuk-width-container">
       <div class="govuk-header__logo">
@@ -53,35 +62,11 @@
       </div>
 
       <nav class="govuk-header__nav">
-        <a href="/v1/user-edit--self" class="govuk-header__nav-link">Jane Smith</a>
-        <a href="/v1/dashboard-root" class="govuk-header__nav-link">Sign out</a>
+        <a href="/v2/user-edit--self" class="govuk-header__nav-link">Jane Smith</a>
+        <a href="/v2/dashboard-root" class="govuk-header__nav-link">Sign out</a>
       </nav>
     </div>
   </header>
-
-  <nav class="navigation-global">
-    <ul class="govuk-width-container">
-      <li>
-        <a href="/v1/dashboard-root" {% if activeNav == 'dashboard' %}class="active" aria-current="page"{% endif %}>Dashboard</a>
-      </li>
-
-      <li>
-        <a href="/v1/operator-list" {% if activeNav == 'operators' %}class="active" aria-current="page"{% endif %}>Service groups</a>
-      </li>
-
-      <li>
-        <a href="/v1/service-list" {% if activeNav == 'services' %}class="active" aria-current="page"{% endif %}>Services</a>
-      </li>
-
-      <li>
-        <a href="/v1/organisation-list" {% if activeNav == 'organisations' %}class="active" aria-current="page"{% endif %}>Partner organisations</a>
-      </li>
-
-      <li>
-        <a href="/v1/user-list" {% if activeNav == 'users' %}class="active" aria-current="page"{% endif %}>Users</a>
-      </li>
-    </ul>
-  </nav>
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}

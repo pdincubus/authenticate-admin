@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Organisation added - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v2/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+      titleText: data["organisation-name"] + " partner organisation created"
+    }) }}
+
+    <p>An invitation has been sent to xxxx@xxxx.xxxx</p>
+
+    <!--<a href="organisation-list" class="govuk-link">View all partner organisations</a><br>
+    <a href="organisation-add" class="govuk-link">Add another partner organisation</a><br>-->
+    <a href="dashboard-root" class="govuk-link">Go to the dashboard</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Edit user - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v2/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "/v2/user-add"
+    }) }}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+            <form action="user-summary" method="post" class="form">
+                {{ govukFieldset({
+                    legend: {
+                        html: '<span class="govuk-caption-l">Edit user</span>Set user permissions',
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                    }
+                })}}
+
+                {% include "v2/includes/user-access-rights.html" %}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

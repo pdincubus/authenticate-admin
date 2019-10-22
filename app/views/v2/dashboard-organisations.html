@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Dashboard - Capita - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v2/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-l">Capita</h1>
+
+<div class="govuk-cards">
+  <div class="govuk-cards__item govuk-cards__item--dashboard">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Users</h2>
+
+    <p class="govuk-heading-xl govuk-!-margin-bottom-5">
+      <span class="govuk-visually-hidden">There are currently</span>
+      11
+      <span class="govuk-visually-hidden">users in the system</span>
+    </p>
+
+    <ul class="govuk-list">
+      <li>
+        <a href="user-add" class="govuk-link">Add a new user</a>
+      </li>
+
+      <li>
+        <a href="#" class="govuk-link">Add multiple new users (TODO)</a>
+      </li>
+
+      <li>
+        <a href="user-list" class="govuk-link">View all users</a>
+      </ul>
+  </div>
+</div>
+{% endblock %}

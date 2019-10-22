@@ -21,10 +21,71 @@
 
             {% set currentVersionHtml %}
                 <span class="govuk-caption-l">
+                    <time datetime="2019-10-09">21 October 2019</time>
+                </span>
+
+                <h2 class="govuk-heading-l">v2</h2>
+
+                <h3 class="govuk-heading-m">UR Goals</h3>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>
+                        lorem ipsum dolor sit amet consectetur
+                    </li>
+
+                    <li>
+                        lorem ipsum dolor sit amet consectetur
+
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>
+                                lorem ipsum dolor sit amet consectetur
+                            </li>
+
+                            <li>
+                                lorem ipsum dolor sit amet consectetur
+                            </li>
+
+                            <li>
+                                lorem ipsum dolor sit amet consectetur
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3 class="govuk-heading-m">General changes</h3>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>
+                        Various text content changes
+                    </li>
+                    <li>
+                        'Back' links position change on <a href="/v2/operator-add" class="govuk-link">Add service group</a> and <a href="/v2/operator-edit" class="govuk-link">Edit service group</a> journeys
+                    </li>
+                    <li>
+                        <a href="/v2/dashboard-root" class="govuk-link">Dashboard cards</a> now have a background colour and border
+                    </li>
+                    <li>
+                        Added missing 'caption' to <a href="/v2/operator-summary" class="govuk-link">Add service group summary page</a>
+                    </li>
+                    <li>
+                        Re-position 'add' buttons on each listing page
+                    </li>
+                    <li>
+                        Changed several container elements from one-half to two-thirds width
+                    </li>
+                </ul>
+
+                <a href="/v2/dashboard-root" class="govuk-button">Open prototype</a>
+            {% endset %}
+
+            {% set previousVersionsHtml %}
+                <span class="govuk-caption-l">
                     <time datetime="2019-10-09">16 October 2019</time>
                 </span>
 
                 <h2 class="govuk-heading-l">v1</h2>
+
+                <a href="/v1/dashboard-root" class="govuk-button">Open prototype</a>
 
                 <h2 class="govuk-heading-m">UR Goals</h2>
 
@@ -51,17 +112,6 @@
                         </ul>
                     </li>
                 </ul>
-
-                <a href="/v1/dashboard-root" class="govuk-button">Open prototype</a>
-            {% endset %}
-
-            {% set previousVersionsHtml %}
-                <span class="govuk-caption-l">
-                    <time datetime="2019-10-09">16 October 2019</time>
-                </span>
-
-                <h2 class="govuk-heading-l">version number</h2>
-                <h2 class="govuk-heading-m">Iterations made</h2>
 
                 <table class="govuk-table">
                     <thead class="govuk-table__head">
@@ -117,17 +167,17 @@
 
                     <tbody class="govuk-table__body">
                         <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="#">Start page</a></td>
-                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--high">high</span></td>
-                        </tr>
-
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="#">Confirm email</a></td>
+                            <td class="govuk-table__cell"><a href="/v1/dashboard-root">System admin dashboard</a></td>
                             <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
                         </tr>
 
                         <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="#">Landing page</a></td>
+                            <td class="govuk-table__cell"><a href="/v1/operator-list">Service Group landing</a></td>
+                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                        </tr>
+
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell"><a href="/v1/operator-add">Add a Service Group</a></td>
                             <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
                         </tr>
                     </tbody>
@@ -157,6 +207,13 @@
                         id: "current-version",
                         panel: {
                             html: currentVersionHtml
+                        }
+                    },
+                    {
+                        label: "Previous versions",
+                        id: "previous-versions",
+                        panel: {
+                            html: previousVersionsHtml
                         }
                     }
                 ]

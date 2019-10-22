@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Edit service group - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v2/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "/v2/operator-summary"
+    }) }}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="/v2/operator-summary" method="post" class="form">
+                {{ govukFieldset({
+                    legend: {
+                        text: "Edit service group",
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                    }
+                })}}
+
+                {{ govukInput({
+                    label: {
+                        text: "Service group name"
+                    },
+                    id: "operator-name",
+                    name: "operator-name",
+                    value: data["operator-name"],
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukButton({
+                    text: "Save changes"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

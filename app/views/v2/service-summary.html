@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your details - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v2/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Check details</h1>
+
+        {{ govukSummaryList({
+        rows: [
+            {
+            key: {
+                text: "Service name"
+            },
+            value: {
+                html: data["service-name"]
+            },
+            actions: {
+                items: [
+                {
+                    href: "service-edit",
+                    text: "Change",
+                    visuallyHiddenText: "service name"
+                }
+                ]
+            }
+            },
+            {
+            key: {
+                text: "Full name"
+            },
+            value: {
+                html: data["service-admin-full-name"] + "<br>" + data["service-admin-email-address"]
+            },
+            actions: {
+                items: [
+                {
+                    href: "service-edit",
+                    text: "Change",
+                    visuallyHiddenText: "service admin details"
+                }
+                ]
+            }
+            },
+            {
+            key: {
+                text: "Access rights"
+            },
+            value: {
+                html: data["service-admin-access-rights"]
+            },
+            actions: {
+                items: [
+                {
+                    href: "service-edit",
+                    text: "Change",
+                    visuallyHiddenText: "service admin access rights"
+                }
+                ]
+            }
+            }
+        ]
+        }) }}
+
+        <a href="service-confirmation" class="govuk-button">Continue</a>
+    </div>
+</div>
+{% endblock %}

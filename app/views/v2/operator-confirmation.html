@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Service group added - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v2/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+      titleText: data["operator-name"] + " service group created"
+    }) }}
+
+    <p>An invitation has been sent to xxxx@xxxx.xxxx</p>
+
+    <!--<a href="operator-list" class="govuk-link">View all service groups</a><br>
+    <a href="operator-add" class="govuk-link">Add another service group</a><br>-->
+    <a href="/v2/dashboard-root" class="govuk-link">Back to dashboard</a>
+  </div>
+</div>
+{% endblock %}

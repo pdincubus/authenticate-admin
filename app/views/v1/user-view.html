@@ -2,6 +2,12 @@
 
 {% block pageTitle %}User details - {{siteName}}{% endblock %}
 
+{% block header %}
+    {{ super() }}
+
+    {% include "v1/includes/nav.html" %}
+{% endblock %}
+
 {% block content %}
   <h1 class="govuk-heading-l">{{ data['user-first-name'] }} {{ data['user-last-name'] }}</h1>
 

@@ -4,6 +4,12 @@
   Dashboard - Service groups - {{serviceName}}
 {% endblock %}
 
+{% block header %}
+    {{ super() }}
+
+    {% include "v1/includes/nav.html" %}
+{% endblock %}
+
 {% block content %}
 <h1 class="govuk-heading-l">Health</h1>
 

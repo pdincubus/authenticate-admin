@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add new Group - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v2/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "/v2/dashboard-root"
+    }) }}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="/v2/operator-add-2" method="post" class="form">
+                {{ govukFieldset({
+                    legend: {
+                        html: '<span class="govuk-caption-l">Add a new service group</span>Create a service group name',
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                    }
+                })}}
+
+                {{ govukInput({
+                    label: {
+                        text: "Service group name"
+                    },
+                    id: "operator-name",
+                    name: "operator-name",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Edit service group - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v2/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "/v2/operator-edit"
+    }) }}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="operator-summary" method="post" class="form">
+                {{ govukFieldset({
+                    legend: {
+                        text: "Edit service group",
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                    }
+                })}}
+
+                {{ govukInput({
+                    label: {
+                        text: "Name"
+                    },
+                    id: "operator-admin-full-name",
+                    name: "operator-admin-full-name",
+                    value: data["operator-admin-full-name"],
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Email address"
+                    },
+                    id: "operator-admin-email-address",
+                    name: "operator-admin-email-address",
+                    type: "email",
+                    value: data["operator-admin-email-address"],
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Phone number"
+                    },
+                    id: "operator-admin-phone-number",
+                    name: "operator-admin-phone-number",
+                    type: "tel",
+                    value: data["operator-admin-phone-number"],
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukButton({
+                    text: "Save changes"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

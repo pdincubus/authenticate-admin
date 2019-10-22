@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check your details - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v2/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    {{ govukBackLink({
+        text: "Back",
+        href: "/v2/operator-add-3"
+    }) }}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">
+                <span class="govuk-caption-l">Add a new service group</span>Check details
+            </h1>
+
+            {{ govukSummaryList({
+                rows: [
+                    {
+                        key: {
+                            text: "Service group name"
+                        },
+                        value: {
+                            html: data["operator-name"]
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "/v2/operator-edit",
+                                    text: "Change",
+                                    visuallyHiddenText: "service group name"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Group admin details"
+                        },
+                        value: {
+                            html: data["operator-admin-full-name"] + "<br>" + data["operator-admin-email-address"] + "<br>" + data["operator-admin-phone-number"]
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "/v2/operator-edit-2",
+                                    text: "Change",
+                                    visuallyHiddenText: "group admin details"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Access rights"
+                        },
+                        value: {
+                            html: data["operator-admin-access-rights"]
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "/v2/operator-edit-3",
+                                    text: "Change",
+                                    visuallyHiddenText: "group admin access rights"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }) }}
+
+            <a href="/v2/operator-confirmation" class="govuk-button">Create service group</a>
+        </div>
+    </div>
+{% endblock %}

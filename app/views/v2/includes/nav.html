@@ -1,0 +1,23 @@
+<nav class="navigation-global">
+    <ul class="govuk-width-container">
+        <li>
+            <a href="/v2/dashboard-root" {% if activeNav == 'dashboard' %}class="active" aria-current="page"{% endif %}>Dashboard</a>
+        </li>
+
+        <li>
+            <a href="/v2/operator-list" {% if activeNav == 'operators' %}class="active" aria-current="page"{% endif %}>Service groups</a>
+        </li>
+
+        <li>
+            <a href="/v2/service-list" {% if activeNav == 'services' %}class="active" aria-current="page"{% endif %}>Services</a>
+        </li>
+
+        <li>
+            <a href="/v2/organisation-list" {% if activeNav == 'organisations' %}class="active" aria-current="page"{% endif %}>Partner organisations</a>
+        </li>
+
+        <li>
+            <a href="/v2/user-list" {% if activeNav == 'users' %}class="active" aria-current="page"{% endif %}>Users</a>
+        </li>
+    </ul>
+</nav>

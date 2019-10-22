@@ -2,6 +2,12 @@
 
 {% block pageTitle %}{% endblock %}
 
+{% block header %}
+    {{ super() }}
+
+    {% include "v1/includes/nav.html" %}
+{% endblock %}
+
 {% block content %}
 <h1 class="govuk-heading-l">Partner organisations</h1>
 

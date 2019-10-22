@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Edit service - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v2/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <form action="service-summary" method="post" class="form">
+      {{ govukFieldset({
+        legend: {
+          text: "Edit service",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      })}}
+
+      {{ govukInput({
+        label: {
+          text: "Service name"
+        },
+        id: "service-name",
+        name: "service-name",
+        value: data["service-name"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Admin name"
+        },
+        id: "service-admin-full-name",
+        name: "service-admin-full-name",
+        value: data["service-admin-full-name"]
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Admin email address"
+        },
+        id: "service-admin-email-address",
+        name: "service-admin-email-address",
+        type: "email",
+        value: data["service-admin-email-address"]
+      }) }}
+
+      {% include "includes/service-access-rights.html" %}
+
+      {{ govukButton({
+        text: "Save changes"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

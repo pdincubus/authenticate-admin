@@ -4,6 +4,12 @@
   Service added - {{serviceName}}
 {% endblock %}
 
+{% block header %}
+    {{ super() }}
+
+    {% include "v1/includes/nav.html" %}
+{% endblock %}
+
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

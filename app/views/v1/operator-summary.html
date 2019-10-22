@@ -4,8 +4,13 @@
   Check your details - {{serviceName}}
 {% endblock %}
 
-{% block content %}
+{% block header %}
+    {{ super() }}
 
+    {% include "v1/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
 <h1 class="govuk-heading-l">Check details</h1>
 
 {{ govukSummaryList({
