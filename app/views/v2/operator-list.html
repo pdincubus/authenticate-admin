@@ -25,6 +25,8 @@
       </tr>
     </thead>
 
+    
+
     <tbody class="govuk-table__body">
       {% if data['operator-name'] %}
       <tr class="govuk-table__row">
@@ -34,6 +36,13 @@
         <td class="govuk-table__cell govuk-table__cell--numeric">-</td>
       </tr>
       {% endif %}
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="dashboard-service-group-health" class="govuk-link">Health</a></th>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v2/service-list" class="govuk-link">2</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v2/organisation-list" class="govuk-link">23</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="/v2/user-list" class="govuk-link">167</a></td>
+      </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="/v2/dashboard-operators" class="govuk-link">State Pension</a></th>

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Dashboard - Health Assessment - {{serviceName}}
+  Dashboard - Service groups - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -11,15 +11,35 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="govuk-heading-l">Health Assessment</h1>
+<h1 class="govuk-heading-l">Health</h1>
 
 <div class="govuk-cards govuk-cards--2">
+    <div class="govuk-cards--2__item govuk-card--dashboard">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Services</h2>
+
+    <p class="govuk-heading-xl govuk-!-margin-bottom-5">
+      <span class="govuk-visually-hidden">There are currently</span>
+      6
+      <span class="govuk-visually-hidden">services in the system</span>
+    </p>
+
+    <ul class="govuk-list">
+      <li>
+        <a href="service-add" class="govuk-link">Add new service</a>
+      </li>
+
+      <li>
+        <a href="service-list" class="govuk-link">View services</a>
+      </li>
+    </ul>
+  </div>
+
   <div class="govuk-cards--2__item govuk-card--dashboard">
     <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Partner organisations</h2>
 
     <p class="govuk-heading-xl govuk-!-margin-bottom-5">
       <span class="govuk-visually-hidden">There are currently</span>
-      17
+      6
       <span class="govuk-visually-hidden">partner organisations in the system</span>
     </p>
 
@@ -29,7 +49,7 @@
       </li>
 
       <li>
-        <a href="organisation-list" class="govuk-link">View all partner organisations</a>
+        <a href="organisation-list" class="govuk-link">View partner organisations</a>
       </li>
     </ul>
   </div>
@@ -39,7 +59,7 @@
 
     <p class="govuk-heading-xl govuk-!-margin-bottom-5">
       <span class="govuk-visually-hidden">There are currently</span>
-      167
+      11
       <span class="govuk-visually-hidden">users in the system</span>
     </p>
 
@@ -53,7 +73,7 @@
       </li>
 
       <li>
-        <a href="user-list" class="govuk-link">View all users</a>
+        <a href="user-list" class="govuk-link">View users</a>
       </ul>
   </div>
 </div>
