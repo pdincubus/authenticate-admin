@@ -1,10 +1,10 @@
 {{ govukRadios({
   classes: "govuk-radios--small govuk-radios--inline",
-  idPrefix: "user-access-rights-add-services-to-operator",
-  name: "user-access-rights-add-services-to-operator",
+  idPrefix: "user-access-rights-add-org-users",
+  name: "user-access-rights-add-org-users",
   fieldset: {
     legend: {
-      text: "User needs to be able to add existing services to a service group",
+      text: "User needs to be able to create new users and add to a partner organisation",
       isPageHeading: false,
       classes: "govuk-fieldset__legend--s govuk-!-font-weight-regular"
     }
@@ -13,23 +13,23 @@
     {
       value: "Yes",
       text: "Yes",
-      checked: checked("['user-access-rights-add-services-to-operator']", "Yes")
+      checked: checked("['user-access-rights-add-org-users']", "Yes")
     },
     {
       value: "No",
       text: "No",
-      checked: checked("['user-access-rights-add-services-to-operator']", "No")
+      checked: checked("['user-access-rights-add-org-users']", "No")
     }
   ]
 }) }}
 
 {{ govukRadios({
   classes: "govuk-radios--small govuk-radios--inline",
-  idPrefix: "user-access-rights-add-services",
-  name: "user-access-rights-add-services",
+  idPrefix: "user-access-rights-add-org-services",
+  name: "user-access-rights-add-org-services",
   fieldset: {
     legend: {
-      text: "User needs to be able to create new services",
+      text: "User needs to be able to add existing services to a partner organisation",
       isPageHeading: false,
       classes: "govuk-fieldset__legend--s govuk-!-font-weight-regular"
     }
@@ -38,23 +38,23 @@
     {
       value: "Yes",
       text: "Yes",
-      checked: checked("['user-access-rights-add-services']", "Yes")
+      checked: checked("['user-access-rights-add-org-services']", "Yes")
     },
     {
       value: "No",
       text: "No",
-      checked: checked("['user-access-rights-add-services']", "No")
+      checked: checked("['user-access-rights-add-org-services']", "No")
     }
   ]
 }) }}
 
 {{ govukRadios({
   classes: "govuk-radios--small govuk-radios--inline",
-  idPrefix: "user-access-rights-add-service-groups",
-  name: "user-access-rights-add-service-groups",
+  idPrefix: "user-access-rights-add-organisations",
+  name: "user-access-rights-add-organisations",
   fieldset: {
     legend: {
-      text: "User needs to be able to create new service groups",
+      text: "User needs to be able to create new partner organisations",
       isPageHeading: false,
       classes: "govuk-fieldset__legend--s govuk-!-font-weight-regular"
     }
@@ -63,12 +63,12 @@
     {
       value: "Yes",
       text: "Yes",
-      checked: checked("['user-access-rights-add-service-groups']", "Yes")
+      checked: checked("['user-access-rights-add-organisations']", "Yes")
     },
     {
       value: "No",
       text: "No",
-      checked: checked("['user-access-rights-add-service-groups']", "No")
+      checked: checked("['user-access-rights-add-organisations']", "No")
     }
   ]
 }) }}

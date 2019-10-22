@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Edit user - {{serviceName}}
+  Add new user - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -13,7 +13,7 @@
 {% block content %}
     {{ govukBackLink({
         text: "Back",
-        href: "/v2/user-add"
+        href: "/v2/user-add-2"
     }) }}
 
     <div class="govuk-grid-row">
@@ -21,13 +21,13 @@
             <form action="user-summary" method="post" class="form">
                 {{ govukFieldset({
                     legend: {
-                        html: '<span class="govuk-caption-l">Edit user</span>Set user permissions',
+                        html: '<span class="govuk-caption-l">Add a new user</span>Set user permissions',
                         classes: "govuk-fieldset__legend--l",
                         isPageHeading: true
                     }
                 })}}
 
-                {% include "v2/includes/user-access-rights.html" %}
+                {% include "v2/includes/user-access-rights-2.html" %}
 
                 {{ govukButton({
                     text: "Continue"
