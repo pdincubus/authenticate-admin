@@ -1,52 +1,137 @@
 {{ govukRadios({
-  idPrefix: "user-access-rights",
-  name: "user-access-rights",
+  classes: "govuk-radios--small govuk-radios--inline",
+  idPrefix: "user-access-rights-add-org-users",
+  name: "user-access-rights-add-org-users",
   fieldset: {
     legend: {
-      text: "Access rights",
-      isPageHeading: false
+      text: "User needs to be able to create new users and add to a partner organisation",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s govuk-!-font-weight-regular"
     }
   },
   items: [
     {
-      value: "System Admin",
-      text: "System Admin",
-      hint: {
-        html: "Add a group of services, used by a specific part of DWP<br>Invite group admins<br>Add a set of users who do not work for DWP, such as a supplier or a local authority<br>Add a service<br>Invite service admins"
-      },
-      checked: checked("['user-access-rights']", "System Admin")
+      value: "Yes",
+      text: "Yes"
     },
     {
-      value: "Service Group Admin",
-      text: "Service Group Admin",
-      hint: {
-        html: "Admin for services used by a specific part of DWP<br>Add services to their group<br>Invite service admins<br>Invite users to their services"
-      },
-      checked: checked("['user-access-rights']", "Group Admin")
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  classes: "govuk-radios--small govuk-radios--inline",
+  idPrefix: "user-access-rights-add-org-services",
+  name: "user-access-rights-add-org-services",
+  fieldset: {
+    legend: {
+      text: "User needs to be able to add existing services to a partner organisation",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s govuk-!-font-weight-regular"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
     },
     {
-      value: "Service Admin",
-      text: "Service Admin",
-      hint: {
-        html: "Admin for one service<br>Invite users to their service<br>{third party?}"
-      },
-      checked: checked("['user-access-rights']", "Service Admin")
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  classes: "govuk-radios--small govuk-radios--inline",
+  idPrefix: "user-access-rights-add-organisations",
+  name: "user-access-rights-add-organisations",
+  fieldset: {
+    legend: {
+      text: "User needs to be able to create new partner organisations",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s govuk-!-font-weight-regular"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
     },
     {
-      value: "Partner Organisation Admin",
-      text: "Partner Organisation Admin",
-      hint: {
-        html: "Admin for a set of users who do not work for DWP, such as a supplier or local authority<br>Invite users who don’t work for DWP to their service"
-      },
-      checked: checked("['operator-admin-access-rights']", "Partner Organisation Admin")
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  classes: "govuk-radios--small govuk-radios--inline",
+  idPrefix: "user-access-rights-add-services",
+  name: "user-access-rights-add-services",
+  fieldset: {
+    legend: {
+      text: "User needs to be able to add existing services to a service group",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s govuk-!-font-weight-regular"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
     },
     {
-      value: "User",
-      text: "User",
-      hint: {
-        text: "Can access the service"
-      },
-      checked: checked("['user-access-rights']", "User")
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  classes: "govuk-radios--small govuk-radios--inline",
+  idPrefix: "user-access-rights-add-services",
+  name: "user-access-rights-add-services",
+  fieldset: {
+    legend: {
+      text: "User needs to be able to create new services",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s govuk-!-font-weight-regular"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  classes: "govuk-radios--small govuk-radios--inline",
+  idPrefix: "user-access-rights-add-service-groups",
+  name: "user-access-rights-add-service-groups",
+  fieldset: {
+    legend: {
+      text: "User needs to be able to create new service groups",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s govuk-!-font-weight-regular"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No"
     }
   ]
 }) }}

@@ -20,7 +20,7 @@
         rows: [
             {
             key: {
-                text: "Full name"
+                text: "User details"
             },
             value: {
                 html: data["user-full-name"] + "<br>" + data["user-email-address"] + "<br>" + data["user-phone-number"]
@@ -37,10 +37,10 @@
             },
             {
             key: {
-                text: "Access rights"
+                text: "This user can..."
             },
             value: {
-                html: data["user-access-rights"]
+                html: "create organisation users: " + data["user-access-rights-add-org-users"] + "<br>" + "add existing services to a partner organisation: " + data["user-access-rights-add-org-services"]+ "<br>"  + "create new partner organisations: " + data["user-access-rights-add-organisations"]+ "<br>"  + "add existing services to a service group: " + data["user-access-rights-add-services"]+ "<br>"  + "create new services: " + data["user-access-rights-add-services"]+ "<br>"  + "create new service groups: " + data["user-access-rights-add-service-groups"]
             },
             actions: {
                 items: [
