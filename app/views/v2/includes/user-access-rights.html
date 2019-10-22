@@ -12,11 +12,13 @@
   items: [
     {
       value: "Yes",
-      text: "Yes"
+      text: "Yes",
+      checked: checked("['user-access-rights-add-org-users']", "Yes")
     },
     {
       value: "No",
-      text: "No"
+      text: "No",
+      checked: checked("['user-access-rights-add-org-users']", "No")
     }
   ]
 }) }}
@@ -35,11 +37,13 @@
   items: [
     {
       value: "Yes",
-      text: "Yes"
+      text: "Yes",
+      checked: checked("['user-access-rights-add-org-services']", "Yes")
     },
     {
       value: "No",
-      text: "No"
+      text: "No",
+      checked: checked("['user-access-rights-add-org-services']", "No")
     }
   ]
 }) }}
@@ -58,19 +62,21 @@
   items: [
     {
       value: "Yes",
-      text: "Yes"
+      text: "Yes",
+      checked: checked("['user-access-rights-add-organisations']", "Yes")
     },
     {
       value: "No",
-      text: "No"
+      text: "No",
+      checked: checked("['user-access-rights-add-organisations']", "No")
     }
   ]
 }) }}
 
 {{ govukRadios({
   classes: "govuk-radios--small govuk-radios--inline",
-  idPrefix: "user-access-rights-add-services",
-  name: "user-access-rights-add-services",
+  idPrefix: "user-access-rights-add-services-to-operator",
+  name: "user-access-rights-add-services-to-operator",
   fieldset: {
     legend: {
       text: "User needs to be able to add existing services to a service group",
@@ -81,11 +87,13 @@
   items: [
     {
       value: "Yes",
-      text: "Yes"
+      text: "Yes",
+      checked: checked("['user-access-rights-add-services-to-operator']", "Yes")
     },
     {
       value: "No",
-      text: "No"
+      text: "No",
+      checked: checked("['user-access-rights-add-services-to-operator']", "No")
     }
   ]
 }) }}
@@ -104,11 +112,13 @@
   items: [
     {
       value: "Yes",
-      text: "Yes"
+      text: "Yes",
+      checked: checked("['user-access-rights-add-services']", "Yes")
     },
     {
       value: "No",
-      text: "No"
+      text: "No",
+      checked: checked("['user-access-rights-add-services']", "No")
     }
   ]
 }) }}
@@ -127,11 +137,13 @@
   items: [
     {
       value: "Yes",
-      text: "Yes"
+      text: "Yes",
+      checked: checked("['user-access-rights-add-service-groups']", "Yes")
     },
     {
       value: "No",
-      text: "No"
+      text: "No",
+      checked: checked("['user-access-rights-add-service-groups']", "No")
     }
   ]
 }) }}
