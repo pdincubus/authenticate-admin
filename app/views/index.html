@@ -20,9 +20,7 @@
             </h2>
 
             {% set currentVersionHtml %}
-                <span class="govuk-caption-l">
-                    <time datetime="2019-10-09">21 October 2019</time>
-                </span>
+                <time datetime="2019-10-09" class="govuk-caption-l">21 October 2019</time>
 
                 <h2 class="govuk-heading-l">v2</h2>
 
@@ -68,10 +66,10 @@
                         Added missing 'caption' to <a href="/v2/operator-summary" class="govuk-link">Add service group summary page</a>
                     </li>
                     <li>
-                        Re-position 'add' buttons on each listing page
+                        Changed several container elements from one-half to two-thirds width
                     </li>
                     <li>
-                        Changed several container elements from one-half to two-thirds width
+                        Added some new dashboards for service groups/services
                     </li>
                 </ul>
 
@@ -79,15 +77,13 @@
             {% endset %}
 
             {% set previousVersionsHtml %}
-                <span class="govuk-caption-l">
-                    <time datetime="2019-10-09">16 October 2019</time>
-                </span>
+                <time datetime="2019-10-09" class="govuk-caption-l">16 October 2019</time>
 
                 <h2 class="govuk-heading-l">v1</h2>
 
                 <a href="/v1/dashboard-root" class="govuk-button">Open prototype</a>
 
-                <h2 class="govuk-heading-m">UR Goals</h2>
+                <h3 class="govuk-heading-m">UR Goals</h3>
 
                 <ul class="govuk-list govuk-list--bullet">
                     <li>
@@ -146,13 +142,22 @@
                 <h3 class="govuk-heading-m">Confidence level</h3>
 
                 <details class="govuk-details" role="group">
-                    <summary class="govuk-details__summary" role="button" aria-controls="details-content-confidence-levels" aria-expanded="false">
+                    <summary
+                        class="govuk-details__summary"
+                        role="button"
+                        aria-controls="details-content-confidence-levels"
+                        aria-expanded="false"
+                    >
                         <span class="govuk-details__summary-text">
                             What is this?
                         </span>
                     </summary>
 
-                    <div class="govuk-details__text" id="details-content-confidence-levels" aria-hidden="true">
+                    <div
+                        class="govuk-details__text"
+                        id="details-content-confidence-levels"
+                        aria-hidden="true"
+                    >
                         Confidence can rise and fall in the course of a user journey, depending on what we know at that time. This helps the team, and the wider organisation, understand and prioritise what needs more work.
                     </div>
                 </details>
