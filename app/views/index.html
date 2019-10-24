@@ -76,6 +76,75 @@
                 <a href="/v3/dashboard-root" class="govuk-button">View as Super admin</a>
                 <a href="/v3/dashboard-service-health-assessment" class="govuk-button">View as Service admin</a>
                 <a href="/v3/dashboard-organisation-capita" class="govuk-button">View as Organisation admin</a>
+
+                <h3 class="govuk-heading-m">Confidence level</h3>
+
+                <details class="govuk-details" role="group">
+                    <summary
+                        class="govuk-details__summary"
+                        role="button"
+                        aria-controls="details-content-confidence-levels"
+                        aria-expanded="false"
+                    >
+                        <span class="govuk-details__summary-text">
+                            What is this?
+                        </span>
+                    </summary>
+
+                    <div
+                        class="govuk-details__text"
+                        id="details-content-confidence-levels"
+                        aria-hidden="true"
+                    >
+                        Confidence can rise and fall in the course of a user journey, depending on what we know at that time. This helps the team, and the wider organisation, understand and prioritise what needs more work.
+                    </div>
+                </details>
+
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="col">User journey step</th>
+                            <th class="govuk-table__header" scope="col">Confidence</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell"><a href="/v3/dashboard-root">Super admin dashboard</a></td>
+                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
+                        </tr>
+
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell"><a href="/v3/dashboard-service-health-assessment">Service admin dashboard</a></td>
+                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
+                        </tr>
+
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell"><a href="/v3/dashboard-organisation-capita">Organisation admin dashbaord</a></td>
+                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
+                        </tr>
+
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell"><a href="/v3/service-add">Add a new service</a></td>
+                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                        </tr>
+
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell"><a href="/v3/organisation-add">Add a new organisation</a></td>
+                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                        </tr>
+
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell"><a href="/v3/user-add">Add a new user</a></td>
+                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                        </tr>
+
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell"><a href="/v3/user-edit">Edit a user</a></td>
+                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             {% endset %}
 
             {% set previousVersionsHtml %}
