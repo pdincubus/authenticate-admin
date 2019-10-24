@@ -22,6 +22,66 @@
                     }
                 })}}
 
+                {{ govukSelect({
+                    id: "user-service",
+                    name: "user-service",
+                    label: {
+                        text: "Service"
+                    },
+                    items: [
+                        {
+                            value: "",
+                            text: "None"
+                        },
+                        {
+                            value: "Health Assessments",
+                            text: "Health Assessments"
+                        },
+                        {
+                            value: "PRAP",
+                            text: "PRAP"
+                        },
+                        {
+                            value: "Blue Badge",
+                            text: "Blue Badge"
+                        },
+                        {
+                            value: "Something Else",
+                            text: "Something Else"
+                        }
+                    ]
+                }) }}
+
+                {{ govukSelect({
+                    id: "user-organisation",
+                    name: "user-organisation",
+                    label: {
+                        text: "Organisation"
+                    },
+                    items: [
+                        {
+                            value: "",
+                            text: "None"
+                        },
+                        {
+                            value: "Capita",
+                            text: "Capita"
+                        },
+                        {
+                            value: "G3S",
+                            text: "G3S"
+                        },
+                        {
+                            value: "Other Org",
+                            text: "Other Org"
+                        },
+                        {
+                            value: "Someone Else",
+                            text: "Someone Else"
+                        }
+                    ]
+                }) }}
+
                 {{ govukInput({
                     label: {
                         text: "Name"
@@ -50,6 +110,8 @@
                     type: "tel",
                     classes: "govuk-!-width-three-quarters"
                 }) }}
+
+                {% include "v3/includes/user-access-rights.html" %}
 
                 {{ govukButton({
                     text: "Continue"

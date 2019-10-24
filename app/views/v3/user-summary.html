@@ -27,11 +27,62 @@
                 },
                 actions: {
                     items: [
-                    {
-                        href: "user-edit",
-                        text: "Change",
-                        visuallyHiddenText: "details"
-                    }
+                        {
+                            href: "user-edit",
+                            text: "Change",
+                            visuallyHiddenText: "details"
+                        }
+                    ]
+                }
+            },
+            {
+                key: {
+                    text: "Permissions"
+                },
+                value: {
+                    html: data["user-access-rights"]
+                },
+                actions: {
+                    items: [
+                        {
+                            href: "user-edit-3",
+                            text: "Change",
+                            visuallyHiddenText: "permissions"
+                        }
+                    ]
+                }
+            },
+            {
+                key: {
+                    text: "Service"
+                },
+                value: {
+                    html: data["user-service"]
+                },
+                actions: {
+                    items: [
+                        {
+                            href: "user-edit-2",
+                            text: "Change",
+                            visuallyHiddenText: "service"
+                        }
+                    ]
+                }
+            },
+            {
+                key: {
+                    text: "Organisation"
+                },
+                value: {
+                    html: data["user-organisation"]
+                },
+                actions: {
+                    items: [
+                        {
+                            href: "user-edit-2",
+                            text: "Change",
+                            visuallyHiddenText: "organisation"
+                        }
                     ]
                 }
             }
