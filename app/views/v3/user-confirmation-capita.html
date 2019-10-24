@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  User added - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav-organisation.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: data["user-full-name"] + " created"
+      }) }}
+
+      <p>An invitation has been sent.</p>
+
+      <!--<a href="user-list" class="govuk-link">View all users</a><br>
+      <a href="user-add" class="govuk-link">Add another user</a><br>-->
+      <a href="dashboard-organisation-capita" class="govuk-link">Go to the dashboard</a>
+    </div>
+  </div>
+{% endblock %}
