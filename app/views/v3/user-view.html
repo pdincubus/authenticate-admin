@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    User details - {{siteName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">{{ data['user-first-name'] }} {{ data['user-last-name'] }}</h1>
+
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Name"
+        },
+        value: {
+          text: data['user-full-name']
+        }
+      },
+      {
+        key: {
+          text: "Email address"
+        },
+        value: {
+          text: data['user-email-address']
+        }
+      },
+      {
+        key: {
+          text: "Access rights"
+        },
+        value: {
+          text: data['user-access-rights']
+        }
+      },
+      {
+        key: {
+          text: "Status"
+        },
+        value: {
+          html: '<span class="govuk-tag govuk-tag">Active</span>'
+        }
+      }
+    ]
+  }) }}
+
+  <a href="user-edit" class="govuk-button">Edit user</a>
+  <a href="#" class="govuk-button govuk-button--secondary">Re-send invite</a>
+  <a href="user-confirmation--delete" class="govuk-button govuk-button--warning">Delete user</a>
+{% endblock %}

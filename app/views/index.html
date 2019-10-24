@@ -20,9 +20,9 @@
             </h2>
 
             {% set currentVersionHtml %}
-                <time datetime="2019-10-09" class="govuk-caption-l">21 October 2019</time>
+                <time datetime="2019-10-09" class="govuk-caption-l">24 October 2019</time>
 
-                <h2 class="govuk-heading-l">v2</h2>
+                <h2 class="govuk-heading-l">v3</h2>
 
                 <h3 class="govuk-heading-m">UR Goals</h3>
 
@@ -54,6 +54,41 @@
 
                 <ul class="govuk-list govuk-list--bullet">
                     <li>
+                        Remove Service Groups
+                    </li>
+                    <li>
+                        Remove access rights pages from 'Add service' and 'Add organisation'
+                    </li>
+                    <li>
+                        Revert access rights style on 'Add user' and 'Edit user' to previous
+                    </li>
+                    <li>
+                        Create 'Health Assessment' service admin journey pages
+                    </li>
+                    <li>
+                        Create 'Capita' organisation admin journey pages
+                    </li>
+                    <li>
+                        Add organisation choice into user edit journey
+                    </li>
+                </ul>
+
+                <a href="/v3/dashboard-root" class="govuk-button">View as Super admin</a>
+                <a href="/v3/dashboard-service-health-assessment" class="govuk-button">View as Service admin</a>
+                <a href="/v3/dashboard-organisation-capita" class="govuk-button">View as Organisation admin</a>
+            {% endset %}
+
+            {% set previousVersionsHtml %}
+                <time datetime="2019-10-09" class="govuk-caption-l">21 October 2019</time>
+
+                <h2 class="govuk-heading-l">v2</h2>
+
+                <a href="/v2/dashboard-root" class="govuk-button">Open prototype</a>
+
+                <h3 class="govuk-heading-m">General changes</h3>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>
                         Various text content changes
                     </li>
                     <li>
@@ -73,10 +108,8 @@
                     </li>
                 </ul>
 
-                <a href="/v2/dashboard-root" class="govuk-button">Open prototype</a>
-            {% endset %}
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-            {% set previousVersionsHtml %}
                 <time datetime="2019-10-09" class="govuk-caption-l">16 October 2019</time>
 
                 <h2 class="govuk-heading-l">v1</h2>

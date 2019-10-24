@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add new service - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="service-summary" method="post" class="form">
+                {{ govukFieldset({
+                    legend: {
+                        text: "Add a service",
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                    }
+                })}}
+
+                {{ govukInput({
+                    label: {
+                        text: "Service name"
+                    },
+                    id: "service-name",
+                    name: "service-name",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Admin name"
+                    },
+                    id: "service-admin-full-name",
+                    name: "service-admin-full-name",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Admin email address"
+                    },
+                    id: "service-admin-email-address",
+                    name: "service-admin-email-address",
+                    type: "email",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

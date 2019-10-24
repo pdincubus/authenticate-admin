@@ -1,0 +1,19 @@
+<nav class="navigation-global">
+    <ul class="govuk-width-container">
+        <li>
+            <a href="/v3/dashboard-root" {% if activeNav == 'dashboard' %}class="active" aria-current="page"{% endif %}>Dashboard</a>
+        </li>
+
+        <li>
+            <a href="/v3/service-list" {% if activeNav == 'services' %}class="active" aria-current="page"{% endif %}>Services</a>
+        </li>
+
+        <li>
+            <a href="/v3/organisation-list" {% if activeNav == 'organisations' %}class="active" aria-current="page"{% endif %}>Partner organisations</a>
+        </li>
+
+        <li>
+            <a href="/v3/user-list" {% if activeNav == 'users' %}class="active" aria-current="page"{% endif %}>Users</a>
+        </li>
+    </ul>
+</nav>

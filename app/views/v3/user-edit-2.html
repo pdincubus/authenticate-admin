@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Edit user - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="user-summary-edit" method="post" class="form">
+                {{ govukFieldset({
+                    legend: {
+                        html: '<span class="govuk-caption-l">Edit user</span>User details',
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                    }
+                })}}
+
+                {{ govukSelect({
+                    id: "user-organisation",
+                    name: "user-organisation",
+                    label: {
+                        text: "Organisation"
+                    },
+                    items: [
+                        {
+                            value: "",
+                            text: "None",
+                            selected: checked("['user-organisation']", "")
+                        },
+                        {
+                            value: "Capita",
+                            text: "Capita",
+                            selected: checked("['user-organisation']", "Capita")
+                        },
+                        {
+                            value: "G3S",
+                            text: "G3S",
+                            selected: checked("['user-organisation']", "G3S")
+                        },
+                        {
+                            value: "Other Org",
+                            text: "Other Org",
+                            selected: checked("['user-organisation']", "Other Org")
+                        },
+                        {
+                            value: "Someone Else",
+                            text: "Someone Else",
+                            selected: checked("['user-organisation']", "Someone Else")
+                        }
+                    ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
