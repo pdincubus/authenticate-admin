@@ -7,319 +7,315 @@
 {% block content %}
   {{releaseVersion | log}}
 
-    <div class="govuk-grid-row">
-        <h1 class="govuk-heading-xl">
-            {{serviceName}}
-        </h1>
-    </div>
+    <h1 class="govuk-heading-xl">
+        {{serviceName}}
+    </h1>
 
-    <div class="govuk-grid-row">
-        <div class="govuk-tabs" data-module="tabs">
-            <h2 class="govuk-tabs__title">
-                Prototype versions
-            </h2>
+    <div class="govuk-tabs" data-module="tabs">
+        <h2 class="govuk-tabs__title">
+            Prototype versions
+        </h2>
 
-            {% set currentVersionHtml %}
-                <time datetime="2019-10-09" class="govuk-caption-l">24 October 2019</time>
+        {% set currentVersionHtml %}
+            <time datetime="2019-10-09" class="govuk-caption-l">24 October 2019</time>
 
-                <h2 class="govuk-heading-l">v3</h2>
+            <h2 class="govuk-heading-l">v3</h2>
 
-                <h3 class="govuk-heading-m">UR Goals</h3>
+            <h3 class="govuk-heading-m">UR Goals</h3>
 
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>
-                        lorem ipsum dolor sit amet consectetur
-                    </li>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>
+                    lorem ipsum dolor sit amet consectetur
+                </li>
 
-                    <li>
-                        lorem ipsum dolor sit amet consectetur
+                <li>
+                    lorem ipsum dolor sit amet consectetur
 
-                        <ul class="govuk-list govuk-list--bullet">
-                            <li>
-                                lorem ipsum dolor sit amet consectetur
-                            </li>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                            lorem ipsum dolor sit amet consectetur
+                        </li>
 
-                            <li>
-                                lorem ipsum dolor sit amet consectetur
-                            </li>
+                        <li>
+                            lorem ipsum dolor sit amet consectetur
+                        </li>
 
-                            <li>
-                                lorem ipsum dolor sit amet consectetur
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                        <li>
+                            lorem ipsum dolor sit amet consectetur
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
-                <h3 class="govuk-heading-m">General changes</h3>
+            <h3 class="govuk-heading-m">General changes</h3>
 
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>
-                        Remove Service Groups
-                    </li>
-                    <li>
-                        Remove access rights pages from 'Add service' and 'Add organisation'
-                    </li>
-                    <li>
-                        Revert access rights style on 'Add user' and 'Edit user' to previous
-                    </li>
-                    <li>
-                        Create 'Health Assessment' service admin journey pages
-                    </li>
-                    <li>
-                        Create 'Capita' organisation admin journey pages
-                    </li>
-                    <li>
-                        Add organisation choice into user edit journey
-                    </li>
-                </ul>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>
+                    Remove Service Groups
+                </li>
+                <li>
+                    Remove access rights pages from 'Add service' and 'Add organisation'
+                </li>
+                <li>
+                    Revert access rights style on 'Add user' and 'Edit user' to previous
+                </li>
+                <li>
+                    Create 'Health Assessment' service admin journey pages
+                </li>
+                <li>
+                    Create 'Capita' organisation admin journey pages
+                </li>
+                <li>
+                    Add organisation choice into user edit journey
+                </li>
+            </ul>
 
-                <a href="/v3/dashboard-root" class="govuk-button">View as Super admin</a>
-                <a href="/v3/dashboard-service-health-assessment" class="govuk-button">View as Service admin</a>
-                <a href="/v3/dashboard-organisation-capita" class="govuk-button">View as Organisation admin</a>
+            <a href="/v3/dashboard-root" class="govuk-button">View as Super admin</a>
+            <a href="/v3/dashboard-service-health-assessment" class="govuk-button">View as Service admin</a>
+            <a href="/v3/dashboard-organisation-capita" class="govuk-button">View as Organisation admin</a>
 
-                <h3 class="govuk-heading-m">Confidence level</h3>
+            <h3 class="govuk-heading-m">Confidence level</h3>
 
-                <details class="govuk-details" role="group">
-                    <summary
-                        class="govuk-details__summary"
-                        role="button"
-                        aria-controls="details-content-confidence-levels"
-                        aria-expanded="false"
-                    >
-                        <span class="govuk-details__summary-text">
-                            What is this?
-                        </span>
-                    </summary>
+            <details class="govuk-details" role="group">
+                <summary
+                    class="govuk-details__summary"
+                    role="button"
+                    aria-controls="details-content-confidence-levels"
+                    aria-expanded="false"
+                >
+                    <span class="govuk-details__summary-text">
+                        What is this?
+                    </span>
+                </summary>
 
-                    <div
-                        class="govuk-details__text"
-                        id="details-content-confidence-levels"
-                        aria-hidden="true"
-                    >
-                        Confidence can rise and fall in the course of a user journey, depending on what we know at that time. This helps the team, and the wider organisation, understand and prioritise what needs more work.
-                    </div>
-                </details>
+                <div
+                    class="govuk-details__text"
+                    id="details-content-confidence-levels"
+                    aria-hidden="true"
+                >
+                    Confidence can rise and fall in the course of a user journey, depending on what we know at that time. This helps the team, and the wider organisation, understand and prioritise what needs more work.
+                </div>
+            </details>
 
-                <table class="govuk-table">
-                    <thead class="govuk-table__head">
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="col">User journey step</th>
-                            <th class="govuk-table__header" scope="col">Confidence</th>
-                        </tr>
-                    </thead>
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="col">User journey step</th>
+                        <th class="govuk-table__header" scope="col">Confidence</th>
+                    </tr>
+                </thead>
 
-                    <tbody class="govuk-table__body">
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="/v3/dashboard-root">Super admin dashboard</a></td>
-                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
-                        </tr>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="/v3/dashboard-root">Super admin dashboard</a></td>
+                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
+                    </tr>
 
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="/v3/dashboard-service-health-assessment">Service admin dashboard</a></td>
-                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
-                        </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="/v3/dashboard-service-health-assessment">Service admin dashboard</a></td>
+                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
+                    </tr>
 
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="/v3/dashboard-organisation-capita">Organisation admin dashbaord</a></td>
-                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
-                        </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="/v3/dashboard-organisation-capita">Organisation admin dashbaord</a></td>
+                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
+                    </tr>
 
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="/v3/service-add">Add a new service</a></td>
-                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                        </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="/v3/service-add">Add a new service</a></td>
+                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                    </tr>
 
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="/v3/organisation-add">Add a new organisation</a></td>
-                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                        </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="/v3/organisation-add">Add a new organisation</a></td>
+                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                    </tr>
 
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="/v3/user-add">Add a new user</a></td>
-                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                        </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="/v3/user-add">Add a new user</a></td>
+                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                    </tr>
 
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="/v3/user-edit">Edit a user</a></td>
-                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            {% endset %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="/v3/user-edit">Edit a user</a></td>
+                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        {% endset %}
 
-            {% set previousVersionsHtml %}
-                <time datetime="2019-10-09" class="govuk-caption-l">21 October 2019</time>
+        {% set previousVersionsHtml %}
+            <time datetime="2019-10-09" class="govuk-caption-l">21 October 2019</time>
 
-                <h2 class="govuk-heading-l">v2</h2>
+            <h2 class="govuk-heading-l">v2</h2>
 
-                <a href="/v2/dashboard-root" class="govuk-button">Open prototype</a>
+            <a href="/v2/dashboard-root" class="govuk-button">Open prototype</a>
 
-                <h3 class="govuk-heading-m">General changes</h3>
+            <h3 class="govuk-heading-m">General changes</h3>
 
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>
-                        Various text content changes
-                    </li>
-                    <li>
-                        'Back' links position change on <a href="/v2/operator-add" class="govuk-link">Add service group</a> and <a href="/v2/operator-edit" class="govuk-link">Edit service group</a> journeys
-                    </li>
-                    <li>
-                        <a href="/v2/dashboard-root" class="govuk-link">Dashboard cards</a> now have a background colour and border
-                    </li>
-                    <li>
-                        Added missing 'caption' to <a href="/v2/operator-summary" class="govuk-link">Add service group summary page</a>
-                    </li>
-                    <li>
-                        Changed several container elements from one-half to two-thirds width
-                    </li>
-                    <li>
-                        Added some new dashboards for service groups/services
-                    </li>
-                    <li>
-                        A different approach to choosing user permissions
-                    </li>
-                </ul>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>
+                    Various text content changes
+                </li>
+                <li>
+                    'Back' links position change on <a href="/v2/operator-add" class="govuk-link">Add service group</a> and <a href="/v2/operator-edit" class="govuk-link">Edit service group</a> journeys
+                </li>
+                <li>
+                    <a href="/v2/dashboard-root" class="govuk-link">Dashboard cards</a> now have a background colour and border
+                </li>
+                <li>
+                    Added missing 'caption' to <a href="/v2/operator-summary" class="govuk-link">Add service group summary page</a>
+                </li>
+                <li>
+                    Changed several container elements from one-half to two-thirds width
+                </li>
+                <li>
+                    Added some new dashboards for service groups/services
+                </li>
+                <li>
+                    A different approach to choosing user permissions
+                </li>
+            </ul>
 
-                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-                <time datetime="2019-10-09" class="govuk-caption-l">16 October 2019</time>
+            <time datetime="2019-10-09" class="govuk-caption-l">16 October 2019</time>
 
-                <h2 class="govuk-heading-l">v1</h2>
+            <h2 class="govuk-heading-l">v1</h2>
 
-                <a href="/v1/dashboard-root" class="govuk-button">Open prototype</a>
+            <a href="/v1/dashboard-root" class="govuk-button">Open prototype</a>
 
-                <h3 class="govuk-heading-m">UR Goals</h3>
+            <h3 class="govuk-heading-m">UR Goals</h3>
 
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>
-                        To understand more about the role of service management
-                    </li>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>
+                    To understand more about the role of service management
+                </li>
 
-                    <li>
-                        To explore the journey for a system admin adding a service group.
+                <li>
+                    To explore the journey for a system admin adding a service group.
 
-                        <ul class="govuk-list govuk-list--bullet">
-                            <li>
-                                Check understanding of the dashboard
-                            </li>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                            Check understanding of the dashboard
+                        </li>
 
-                            <li>
-                                Explore whether the flow of the journey/screens make sense to users
-                            </li>
+                        <li>
+                            Explore whether the flow of the journey/screens make sense to users
+                        </li>
 
-                            <li>
-                                Explore users understanding of the permissions/roles
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                        <li>
+                            Explore users understanding of the permissions/roles
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
-                <table class="govuk-table">
-                    <thead class="govuk-table__head">
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="col">User research finding</th>
-                            <th class="govuk-table__header" scope="col">Potential solutions</th>
-                            <th class="govuk-table__header" scope="col">Iteration made</th>
-                        </tr>
-                    </thead>
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="col">User research finding</th>
+                        <th class="govuk-table__header" scope="col">Potential solutions</th>
+                        <th class="govuk-table__header" scope="col">Iteration made</th>
+                    </tr>
+                </thead>
 
-                    <tbody class="govuk-table__body">
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Finding 1</td>
-                            <td class="govuk-table__cell">Interpretation 1</td>
-                            <td class="govuk-table__cell">Iteration 1</td>
-                        </tr>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Finding 1</td>
+                        <td class="govuk-table__cell">Interpretation 1</td>
+                        <td class="govuk-table__cell">Iteration 1</td>
+                    </tr>
 
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Finding 2</td>
-                            <td class="govuk-table__cell">Interpretation 2</td>
-                            <td class="govuk-table__cell">Iteration 2</td>
-                        </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Finding 2</td>
+                        <td class="govuk-table__cell">Interpretation 2</td>
+                        <td class="govuk-table__cell">Iteration 2</td>
+                    </tr>
 
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell">Finding 3</td>
-                            <td class="govuk-table__cell">Interpretation 3</td>
-                            <td class="govuk-table__cell">Iteration 3</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">Finding 3</td>
+                        <td class="govuk-table__cell">Interpretation 3</td>
+                        <td class="govuk-table__cell">Iteration 3</td>
+                    </tr>
+                </tbody>
+            </table>
 
-                <h3 class="govuk-heading-m">Confidence level</h3>
+            <h3 class="govuk-heading-m">Confidence level</h3>
 
-                <details class="govuk-details" role="group">
-                    <summary
-                        class="govuk-details__summary"
-                        role="button"
-                        aria-controls="details-content-confidence-levels"
-                        aria-expanded="false"
-                    >
-                        <span class="govuk-details__summary-text">
-                            What is this?
-                        </span>
-                    </summary>
+            <details class="govuk-details" role="group">
+                <summary
+                    class="govuk-details__summary"
+                    role="button"
+                    aria-controls="details-content-confidence-levels"
+                    aria-expanded="false"
+                >
+                    <span class="govuk-details__summary-text">
+                        What is this?
+                    </span>
+                </summary>
 
-                    <div
-                        class="govuk-details__text"
-                        id="details-content-confidence-levels"
-                        aria-hidden="true"
-                    >
-                        Confidence can rise and fall in the course of a user journey, depending on what we know at that time. This helps the team, and the wider organisation, understand and prioritise what needs more work.
-                    </div>
-                </details>
+                <div
+                    class="govuk-details__text"
+                    id="details-content-confidence-levels"
+                    aria-hidden="true"
+                >
+                    Confidence can rise and fall in the course of a user journey, depending on what we know at that time. This helps the team, and the wider organisation, understand and prioritise what needs more work.
+                </div>
+            </details>
 
-                <table class="govuk-table">
-                    <thead class="govuk-table__head">
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header" scope="col">User journey step</th>
-                            <th class="govuk-table__header" scope="col">Confidence</th>
-                        </tr>
-                    </thead>
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="col">User journey step</th>
+                        <th class="govuk-table__header" scope="col">Confidence</th>
+                    </tr>
+                </thead>
 
-                    <tbody class="govuk-table__body">
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="/v1/dashboard-root">System admin dashboard</a></td>
-                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
-                        </tr>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="/v1/dashboard-root">System admin dashboard</a></td>
+                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
+                    </tr>
 
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="/v1/operator-list">Service Group landing</a></td>
-                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                        </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="/v1/operator-list">Service Group landing</a></td>
+                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                    </tr>
 
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell"><a href="/v1/operator-add">Add a Service Group</a></td>
-                            <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell"><a href="/v1/operator-add">Add a Service Group</a></td>
+                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                    </tr>
+                </tbody>
+            </table>
 
-                <h3 class="govuk-heading-m">Useful links</h3>
+            <h3 class="govuk-heading-m">Useful links</h3>
 
-                <ul class="govuk-list">
-                    <li>
-                        <a class="govuk-link" href="/public/files/discussion/admin-portal-discussion-guide-add-a-service-group-1.docx">Discussion guide</a>
-                    </li>
-                </ul>
-            {% endset %}
+            <ul class="govuk-list">
+                <li>
+                    <a class="govuk-link" href="/public/files/discussion/admin-portal-discussion-guide-add-a-service-group-1.docx">Discussion guide</a>
+                </li>
+            </ul>
+        {% endset %}
 
-            {{ govukTabs({
-                items: [
-                    {
-                        label: "Current version",
-                        id: "current-version",
-                        panel: {
-                            html: currentVersionHtml
-                        }
-                    },
-                    {
-                        label: "Previous versions",
-                        id: "previous-versions",
-                        panel: {
-                            html: previousVersionsHtml
-                        }
+        {{ govukTabs({
+            items: [
+                {
+                    label: "Current version",
+                    id: "current-version",
+                    panel: {
+                        html: currentVersionHtml
                     }
-                ]
-            }) }}
-        </div>
+                },
+                {
+                    label: "Previous versions",
+                    id: "previous-versions",
+                    panel: {
+                        html: previousVersionsHtml
+                    }
+                }
+            ]
+        }) }}
     </div>
 {% endblock %}
