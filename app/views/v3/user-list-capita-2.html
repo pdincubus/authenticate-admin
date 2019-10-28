@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-l listing-page">Users</h1>
+  <h1 class="govuk-heading-l listing-page"><span class="govuk-caption-l">Capita</span>Users</h1>
 
   <a href="user-add-capita" class="govuk-button listing-page">Add new user</a>
 
@@ -19,7 +19,7 @@
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Name</th>
-        <th scope="col" class="govuk-table__header">Email address</th>
+        <th scope="col" class="govuk-table__header">User level</th>
         <th scope="col" class="govuk-table__header">Status</th>
       </tr>
     </thead>
@@ -27,31 +27,31 @@
     <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Jane Smith</a></th>
-        <td class="govuk-table__cell"><a href="mailto:jane.smith@capita.pretend" class="govuk-link">jane.smith@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Joan Smith</a></th>
-        <td class="govuk-table__cell"><a href="mailto:joan.smith@capita.pretend" class="govuk-link">joan.smith@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">James Smith</a></th>
-        <td class="govuk-table__cell"><a href="mailto:james.smith@capita.pretend" class="govuk-link">james.smith@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Joe Smith</a></th>
-        <td class="govuk-table__cell"><a href="mailto:joe.smith@capita.pretend" class="govuk-link">joe.smith@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--inactive">Inactive</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Jack Smith</a></th>
-        <td class="govuk-table__cell"><a href="mailto:jack.smith@capita.pretend" class="govuk-link">jack.smith@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
     </tbody>
@@ -84,8 +84,4 @@
       </li>
     </ul>
   </nav>
-
-  <p class="govuk-!-margin-top-9">
-    <a href="dashboard-organisation-capita" class="govuk-link">Back to dashboard</a>
-  </p>
 {% endblock %}

@@ -13,7 +13,7 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="user-summary" method="post" class="form">
+            <form action="user-add-type" method="post" class="form">
                 {{ govukFieldset({
                     legend: {
                         html: '<span class="govuk-caption-l">Add a new user</span>User details',
@@ -21,95 +21,6 @@
                         isPageHeading: true
                     }
                 })}}
-
-                {{ govukSelect({
-                    id: "user-service",
-                    name: "user-service",
-                    label: {
-                        text: "Service"
-                    },
-                    items: [
-                        {
-                            value: "",
-                            text: "None"
-                        },
-                        {
-                            value: "Health Assessments",
-                            text: "Health Assessments"
-                        },
-                        {
-                            value: "PRAP",
-                            text: "PRAP"
-                        },
-                        {
-                            value: "Blue Badge",
-                            text: "Blue Badge"
-                        },
-                        {
-                            value: "Something Else",
-                            text: "Something Else"
-                        }
-                    ]
-                }) }}
-
-                {{ govukSelect({
-                    id: "user-organisation",
-                    name: "user-organisation",
-                    label: {
-                        text: "Organisation"
-                    },
-                    items: [
-                        {
-                            value: "",
-                            text: "None"
-                        },
-                        {
-                            value: "Capita",
-                            text: "Capita"
-                        },
-                        {
-                            value: "G3S",
-                            text: "G3S"
-                        },
-                        {
-                            value: "Other Org",
-                            text: "Other Org"
-                        },
-                        {
-                            value: "Someone Else",
-                            text: "Someone Else"
-                        }
-                    ]
-                }) }}
-
-                {{ govukInput({
-                    label: {
-                        text: "Name"
-                    },
-                    id: "user-full-name",
-                    name: "user-full-name",
-                    classes: "govuk-!-width-three-quarters"
-                }) }}
-
-                {{ govukInput({
-                    label: {
-                        text: "Email address"
-                    },
-                    id: "user-email-address",
-                    name: "user-email-address",
-                    type: "email",
-                    classes: "govuk-!-width-three-quarters"
-                }) }}
-
-                {{ govukInput({
-                    label: {
-                        text: "Phone number"
-                    },
-                    id: "user-phone-number",
-                    name: "user-phone-number",
-                    type: "tel",
-                    classes: "govuk-!-width-three-quarters"
-                }) }}
 
                 {% include "v3/includes/user-access-rights.html" %}
 

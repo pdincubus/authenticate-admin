@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Add new service - {{serviceName}}
+  Add new user - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -13,10 +13,10 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="service-confirmation" method="post" class="form">
+            <form action="user-confirmation" method="post" class="form">
                 {{ govukFieldset({
                     legend: {
-                        text: "Add a service",
+                        html: '<span class="govuk-caption-l">Add a new super admin</span>Super admin details',
                         classes: "govuk-fieldset__legend--l",
                         isPageHeading: true
                     }
@@ -24,29 +24,30 @@
 
                 {{ govukInput({
                     label: {
-                        text: "Service name"
+                        text: "Name"
                     },
-                    id: "service-name",
-                    name: "service-name",
+                    id: "user-full-name",
+                    name: "user-full-name",
                     classes: "govuk-!-width-three-quarters"
                 }) }}
 
                 {{ govukInput({
                     label: {
-                        text: "Admin name"
+                        text: "Email address"
                     },
-                    id: "service-admin-full-name",
-                    name: "service-admin-full-name",
-                    classes: "govuk-!-width-three-quarters"
-                }) }}
-
-                {{ govukInput({
-                    label: {
-                        text: "Admin email address"
-                    },
-                    id: "service-admin-email-address",
-                    name: "service-admin-email-address",
+                    id: "user-email-address",
+                    name: "user-email-address",
                     type: "email",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Phone number"
+                    },
+                    id: "user-phone-number",
+                    name: "user-phone-number",
+                    type: "tel",
                     classes: "govuk-!-width-three-quarters"
                 }) }}
 

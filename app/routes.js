@@ -49,4 +49,30 @@ router.get('/v1/user-add', function (req, res) {
   res.render('v1/user-add', { 'activeNav': 'users' });
 });
 
-module.exports = router
+router.post('/v3/user-add-type', function (req, res) {
+    let userType = req.session.data['user-access-rights'];
+
+    switch (userType) {
+        case 'Super Admin':
+            res.redirect('/v3/user-add-super');
+            break;
+
+        case 'Service Admin':
+            res.redirect('/v3/user-add-service');
+            break;
+
+        case 'Organisation Admin':
+            res.redirect('/v3/user-add-organisation');
+            break;
+
+        case 'User':
+            res.redirect('/v3/user-add-user');
+            break;
+
+        default:
+            res.redirect('/v3/user-add-user');
+            break;
+    }
+});
+
+module.exports = router;

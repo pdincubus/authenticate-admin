@@ -16,11 +16,41 @@
             <form action="user-confirmation-capita" method="post" class="form">
                 {{ govukFieldset({
                     legend: {
-                        html: '<span class="govuk-caption-l">Add a new user</span>User details',
+                        html: '<span class="govuk-caption-l">Add a new organisation admin</span>Organisation admin details',
                         classes: "govuk-fieldset__legend--l",
                         isPageHeading: true
                     }
                 })}}
+
+                {{ govukSelect({
+                    id: "user-organisation",
+                    name: "user-organisation",
+                    label: {
+                        text: "Organisation"
+                    },
+                    items: [
+                        {
+                            value: "",
+                            text: "None"
+                        },
+                        {
+                            value: "Capita",
+                            text: "Capita"
+                        },
+                        {
+                            value: "G3S",
+                            text: "G3S"
+                        },
+                        {
+                            value: "Other Org",
+                            text: "Other Org"
+                        },
+                        {
+                            value: "Someone Else",
+                            text: "Someone Else"
+                        }
+                    ]
+                }) }}
 
                 {{ govukInput({
                     label: {
@@ -50,8 +80,6 @@
                     type: "tel",
                     classes: "govuk-!-width-three-quarters"
                 }) }}
-
-                {% include "v3/includes/user-access-rights-capita.html" %}
 
                 {{ govukButton({
                     text: "Continue"

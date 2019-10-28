@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-l listing-page">Users</h1>
+  <h1 class="govuk-heading-l listing-page"><span class="govuk-caption-l">Capita</span>Users</h1>
 
   <a href="/v3/user-add-capita" class="govuk-button listing-page">Add new user</a>
 
@@ -19,7 +19,7 @@
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Name</th>
-        <th scope="col" class="govuk-table__header">Email address</th>
+        <th scope="col" class="govuk-table__header">User level</th>
         <th scope="col" class="govuk-table__header">Status</th>
       </tr>
     </thead>
@@ -28,62 +28,72 @@
       {% if data['user-full-name'] %}
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="/v3/user-view" class="govuk-link">{{ data['user-full-name'] }}</a></th>
-        <td class="govuk-table__cell"><a href="mailto:{{ data['user-email-address'] }}" class="govuk-link">{{ data['user-email-address'] }}</a></td>
+        <td class="govuk-table__cell">
+            {% if data['user-access-rights'] == 'Super Admin' %}
+                <span class="govuk-tag govuk-tag--l4">L4</span> Super admin
+            {% elif data['user-access-rights'] == 'Service Admin' %}
+                <span class="govuk-tag govuk-tag--l3">L3</span> Service admin
+            {% elif data['user-access-rights'] == 'Organisation Admin' %}
+                <span class="govuk-tag govuk-tag--l2">L2</span> Organisation admin
+            {% else %}
+                L1 User
+            {% endif %}
+        </td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
       {% endif %}
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="/v3/user-view" class="govuk-link">Gary Speed</a></th>
-        <td class="govuk-table__cell"><a href="mailto:gary.speed@capita.pretend" class="govuk-link">gary.speed@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--inactive">Suspended</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="/v3/user-view" class="govuk-link">Gordon Strachan</a></th>
-        <td class="govuk-table__cell"><a href="mailto:gordon.strachan@capita.pretend" class="govuk-link">gordon.strachan@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="/v3/user-view" class="govuk-link">Gary McAllister</a></th>
-        <td class="govuk-table__cell"><a href="mailto:gary.mcallister@capita.pretend" class="govuk-link">gary.mcallister@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="/v3/user-view" class="govuk-link">Tony Dorigo</a></th>
-        <td class="govuk-table__cell"><a href="mailto:tony.dorigo@capita.pretend" class="govuk-link">tony.dorigo@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="/v3/user-view" class="govuk-link">Mel Sterland</a></th>
-        <td class="govuk-table__cell"><a href="mailto:mel.sterland@capita.pretend" class="govuk-link">mel.sterland@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="/v3/user-view" class="govuk-link">John Doe</a></th>
-        <td class="govuk-table__cell"><a href="mailto:john.doe@capita.pretend" class="govuk-link">john.doe@capita.pretend</a></td>
+        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--l2">L2</span> Organisation admin</td>
         <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--inactive">Suspended</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="/v3/user-view" class="govuk-link">Jackson Smith</a></th>
-        <td class="govuk-table__cell"><a href="mailto:jackson.smith@capita.pretend" class="govuk-link">jackson.smith@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="/v3/user-view" class="govuk-link">Jessie Smith</a></th>
-        <td class="govuk-table__cell"><a href="mailto:jessie.smith@capita.pretend" class="govuk-link">jessie.smith@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="/v3/user-view" class="govuk-link">John Smith</a></th>
-        <td class="govuk-table__cell"><a href="mailto:john.smith@capita.pretend" class="govuk-link">john.smith@capita.pretend</a></td>
+        <td class="govuk-table__cell">L1 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
     </tbody>
