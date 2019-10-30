@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Edit service - {{serviceName}}
+    Set up your service - add a connection - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -13,31 +13,35 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="service-edit-support" method="post" class="form">
+            <form action="service-edit-connection-list-2" method="post" class="form">
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <span class="govuk-caption-l">Set up your service</span>
-                        Service details
+                        Connection details
                     </legend>
 
-                    {{ govukInput({
-                        label: {
-                            text: "Service name"
-                        },
-                        id: "service-name",
-                        name: "service-name",
-                        classes: "govuk-!-width-three-quarters",
-                        value: data["service-name"]
-                    }) }}
 
                     {{ govukInput({
                         label: {
-                            text: "Homepage URL"
+                            text: "Connection name"
                         },
-                        id: "service-homepage-url",
-                        name: "service-homepage-url",
+                        id: "service-connection-name-2",
+                        name: "service-connection-name-2",
                         classes: "govuk-!-width-three-quarters",
-                        value: data["service-homepage-url"]
+                        value: data["service-connection-name-2"]
+                    }) }}
+
+                    {{ govukTextarea({
+                        label: {
+                            text: "Callback URLs"
+                        },
+                        id: "service-connection-callbacks-2",
+                        name: "service-connection-callbacks-2",
+                        classes: "govuk-!-width-three-quarters",
+                        hint: {
+                            text: "One URL per line, including protocol (http:// or https://)."
+                        },
+                        value: data["service-connection-callbacks-2"]
                     }) }}
 
                     {{ govukButton({

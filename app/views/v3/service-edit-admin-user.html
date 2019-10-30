@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Set up your service - add admin user - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="service-edit-summary" method="post" class="form">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Set up your service</span>
+                        Add a service admin user
+                    </legend>
+
+                    <p>Add the details of the person you are inviting as the admin.</p>
+
+                    {{ govukInput({
+                        label: {
+                            text: "Full name of the admin for this service"
+                        },
+                        id: "service-admin-full-name",
+                        name: "service-admin-full-name",
+                        classes: "govuk-!-width-three-quarters",
+                        value: data['service-admin-full-name']
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Admin's email address"
+                        },
+                        id: "service-admin-email-address",
+                        name: "service-admin-email-address",
+                        type: "email",
+                        classes: "govuk-!-width-three-quarters",
+                        value: data['service-admin-email-address']
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Admin's phone number"
+                        },
+                        id: "service-admin-phone-number",
+                        name: "service-admin-phone-number",
+                        type: "tel",
+                        classes: "govuk-!-width-three-quarters",
+                        value: data['service-admin-phone-number']
+                    }) }}
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}
