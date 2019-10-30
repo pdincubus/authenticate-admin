@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add new service - add admin user - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="service-add-confirmation" method="post" class="form">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Add a new service</span>
+                        Check your details
+                    </legend>
+
+                    {{ govukSummaryList({
+                        rows: [
+                            {
+                                key: {
+                                    text: "Service details"
+                                },
+                                value: {
+                                    html: data["service-name"] + "<br>" + data["service-homepage-url"]
+                                },
+                                actions: {
+                                    items: [
+                                        {
+                                            href: "service-edit",
+                                            text: "Change",
+                                            visuallyHiddenText: "service details"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                key: {
+                                    text: "Support information"
+                                },
+                                value: {
+                                    html: data["service-support-email"] + "<br>" + data["service-support-phone"] + "<br>" + data["service-support-site"] + "<br>" + data["service-support-hours"]
+                                },
+                                actions: {
+                                    items: [
+                                        {
+                                            href: "service-edit",
+                                            text: "Change",
+                                            visuallyHiddenText: "support information"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                key: {
+                                    text: "Connection"
+                                },
+                                value: {
+                                    html: data["service-connection-name"] + "<br>" + data["service-connection-callbacks"]
+                                },
+                                actions: {
+                                    items: [
+                                        {
+                                            href: "service-edit",
+                                            text: "Change",
+                                            visuallyHiddenText: "connection information"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                key: {
+                                    text: "Security policies"
+                                },
+                                value: {
+                                    html: "Sign up: " + data["service-policy-signup"] + "<br>Sign in: " + data["service-policy-signin"] + "<br>Password reset: " + data["service-policy-password"]
+                                },
+                                actions: {
+                                    items: [
+                                        {
+                                            href: "service-edit",
+                                            text: "Change",
+                                            visuallyHiddenText: "security policies"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                key: {
+                                    text: "Email templates"
+                                },
+                                value: {
+                                    html: data["service-email-templates"]
+                                },
+                                actions: {
+                                    items: [
+                                        {
+                                            href: "service-edit",
+                                            text: "Change",
+                                            visuallyHiddenText: "email templates"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                key: {
+                                    text: "Service admin details"
+                                },
+                                value: {
+                                    html: data["service-admin-full-name"] + "<br>" + data["service-admin-email-address"] + "<br>" + data["service-admin-phone-number"]
+                                },
+                                actions: {
+                                    items: [
+                                        {
+                                            href: "service-edit",
+                                            text: "Change",
+                                            visuallyHiddenText: "service admin details"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }) }}
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

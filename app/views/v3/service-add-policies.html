@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add new service - choose security policies - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="service-add-email-templates" method="post" class="form">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Add a new service</span>
+                        Choose your securty policies
+                    </legend>
+
+                    {{ govukRadios({
+                        idPrefix: "service-policy-signup",
+                        name: "service-policy-signup",
+                        fieldset: {
+                            legend: {
+                                text: "Signup policy",
+                                isPageHeading: false
+                            }
+                        },
+                        items: [
+                            {
+                                value: "Health signup policy",
+                                text: "Health signup policy"
+                            },
+                            {
+                                value: "PRaPs signup policy",
+                                text: "PRaPs signup policy"
+                            },
+                            {
+                                value: "Default signup policy",
+                                text: "Default signup policy"
+                            }
+                        ]
+                    }) }}
+
+                    {{ govukRadios({
+                        idPrefix: "service-policy-signin",
+                        name: "service-policy-signin",
+                        fieldset: {
+                            legend: {
+                                text: "Sign in policy",
+                                isPageHeading: false
+                            }
+                        },
+                        items: [
+                            {
+                                value: "Health sign in policy",
+                                text: "Health sign in policy"
+                            },
+                            {
+                                value: "PRaPs sign in policy",
+                                text: "PRaPs sign in policy"
+                            },
+                            {
+                                value: "Default sign in policy",
+                                text: "Default sign in policy"
+                            }
+                        ]
+                    }) }}
+
+                    {{ govukRadios({
+                        idPrefix: "service-policy-password",
+                        name: "service-policy-password",
+                        fieldset: {
+                            legend: {
+                                text: "Password reset policy",
+                                isPageHeading: false
+                            }
+                        },
+                        items: [
+                            {
+                                value: "Health password reset policy",
+                                text: "Health password reset policy"
+                            },
+                            {
+                                value: "PRaPs password reset policy",
+                                text: "PRaPs password reset policy"
+                            },
+                            {
+                                value: "Default password reset policy",
+                                text: "Default password reset policy"
+                            }
+                        ]
+                    }) }}
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

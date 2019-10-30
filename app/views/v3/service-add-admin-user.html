@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Add new service - {{serviceName}}
+  Add new service - add admin user - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -13,30 +13,41 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="service-add-support" method="post" class="form">
+            <form action="service-add-summary" method="post" class="form">
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <span class="govuk-caption-l">Add a new service</span>
-                        Service details
+                        Add a service admin user
                     </legend>
 
-                    <p>Add the name of the service and the details of the person you are inviting as the admin.</p>
+                    <p>Add the details of the person you are inviting as the admin.</p>
 
                     {{ govukInput({
                         label: {
-                            text: "Service name"
+                            text: "Full name of the admin for this service"
                         },
-                        id: "service-name",
-                        name: "service-name",
+                        id: "service-admin-full-name",
+                        name: "service-admin-full-name",
                         classes: "govuk-!-width-three-quarters"
                     }) }}
 
                     {{ govukInput({
                         label: {
-                            text: "Homepage URL"
+                            text: "Admin's email address"
                         },
-                        id: "service-homepage-url",
-                        name: "service-homepage-url",
+                        id: "service-admin-email-address",
+                        name: "service-admin-email-address",
+                        type: "email",
+                        classes: "govuk-!-width-three-quarters"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Admin's phone number"
+                        },
+                        id: "service-admin-phone-number",
+                        name: "service-admin-phone-number",
+                        type: "tel",
                         classes: "govuk-!-width-three-quarters"
                     }) }}
 

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Add new service - {{serviceName}}
+  Add new service - add a connection - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -13,35 +13,42 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="service-add-support" method="post" class="form">
+            <form action="service-add-policies" method="post" class="form">
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <span class="govuk-caption-l">Add a new service</span>
-                        Service details
+                        Add a connection
                     </legend>
 
-                    <p>Add the name of the service and the details of the person you are inviting as the admin.</p>
 
                     {{ govukInput({
                         label: {
-                            text: "Service name"
+                            text: "Connection name"
                         },
-                        id: "service-name",
-                        name: "service-name",
+                        id: "service-connection-name",
+                        name: "service-connection-name",
                         classes: "govuk-!-width-three-quarters"
                     }) }}
 
-                    {{ govukInput({
+                    {{ govukTextarea({
                         label: {
-                            text: "Homepage URL"
+                            text: "Callback URLs"
                         },
-                        id: "service-homepage-url",
-                        name: "service-homepage-url",
-                        classes: "govuk-!-width-three-quarters"
+                        id: "service-connection-callbacks",
+                        name: "service-connection-callbacks",
+                        classes: "govuk-!-width-three-quarters",
+                        hint: {
+                            text: "One URL per line, including protocol (http:// or https://)."
+                        }
                     }) }}
 
                     {{ govukButton({
                         text: "Continue"
+                    }) }}
+
+                    {{ govukButton({
+                        text: "Skip this step",
+                        classes: "govuk-button--secondary"
                     }) }}
                 </fieldset>
             </form>
