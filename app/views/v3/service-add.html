@@ -22,6 +22,8 @@
                     }
                 })}}
 
+                <p>Add the name of the service and the details of the person you are inviting as the admin.</p>
+
                 {{ govukInput({
                     label: {
                         text: "Service name"
@@ -33,7 +35,7 @@
 
                 {{ govukInput({
                     label: {
-                        text: "Admin name"
+                        text: "Full name of the admin for this service"
                     },
                     id: "service-admin-full-name",
                     name: "service-admin-full-name",
@@ -42,7 +44,7 @@
 
                 {{ govukInput({
                     label: {
-                        text: "Admin email address"
+                        text: "Admin's email address"
                     },
                     id: "service-admin-email-address",
                     name: "service-admin-email-address",
