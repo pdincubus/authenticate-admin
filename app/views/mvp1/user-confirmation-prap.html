@@ -12,7 +12,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {{ govukPanel({
-        titleText: data["user-full-name"] + " created"
+        titleText: data["user-full-name"] + " created in " + data["user-organisation"]
       }) }}
 
       <p>An invitation has been sent to {{data['user-email-address']}}</p>

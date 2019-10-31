@@ -6,8 +6,6 @@
 
 {% block header %}
     {{ super() }}
-
-    {% include "v3/includes/nav.html" %}
 {% endblock %}
 
 {% block content %}
@@ -33,6 +31,14 @@
                         },
                         value: {
                             text: data['user-email-address']
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Organisation"
+                        },
+                        value: {
+                            text: data['user-organisation']
                         }
                     },
                     {
@@ -67,7 +73,7 @@
             <a href="#" class="govuk-button govuk-button--warning">Delete user</a>
 
             <p class="govuk-!-margin-top-9">
-                <a href="user-list-capita" class="govuk-link">Back users list</a>
+                <a href="user-list-prap" class="govuk-link">Back users list</a>
             </p>
         </div>
     </div>

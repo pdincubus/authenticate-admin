@@ -297,3 +297,14 @@ a.pagination__link:focus {
 .govuk-tag--inactive {
     background-color: govuk-colour("dark-grey");
 }
+
+/**
+ * Autocomplete stuff
+ */
+.autocomplete__wrapper {
+    width: 50%;
+}
+
+.autocomplete__option {
+    font-family: "GDS Transport", Arial, sans-serif;
+}

@@ -11,7 +11,7 @@
 {% block content %}
   <h1 class="govuk-heading-l listing-page">Users</h1>
 
-  <a href="user-add-user-prap" class="govuk-button listing-page">Add new user</a>
+  <a href="user-add-prap" class="govuk-button listing-page">Add new user</a>
 
   <table class="govuk-table">
     <thead class="govuk-table__head">
@@ -26,7 +26,7 @@
       {% if data['user-full-name'] %}
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">{{ data['user-full-name'] }}</a></th>
-        <td class="govuk-table__cell">-</td>
+        <td class="govuk-table__cell">{{ data['user-organisation'] }}</td>
         <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--active">Active</span></td>
       </tr>
       {% endif %}
