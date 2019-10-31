@@ -308,3 +308,16 @@ a.pagination__link:focus {
 .autocomplete__option {
     font-family: "GDS Transport", Arial, sans-serif;
 }
+
+/**
+ * Fix the big margin between details components when inside list items
+ * Fix the awkward height of an individual list item when in a list with details
+ * elements
+ */
+.govuk-list.signin li .govuk-details {
+    margin-bottom: 0;
+}
+
+.govuk-list.signin li {
+    min-height: 30px;
+}
