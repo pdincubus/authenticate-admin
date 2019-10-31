@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Organisation added - {{serviceName}}
+    Organisation added - {{serviceName}}
 {% endblock %}
 
 {% block header %}
     {{ super() }}
 
-    {% include "v3/includes/nav-service.html" %}
+    {% include "v3/includes/nav.html" %}
 {% endblock %}
 
 {% block content %}
@@ -19,9 +19,9 @@
 
     <p>An invitation has been sent to {{data['organisation-admin-email-address']}}</p>
 
-    <a href="organisation-list" class="govuk-link">View all organisations</a><br>
-    <a href="organisation-add" class="govuk-link">Add another organisation</a><br>
-    <a href="dashboard-service-health-assessment" class="govuk-link">Go to the dashboard</a>
+    <a href="organisation-list" class="govuk-link">View all partner organisations</a><br>
+    <a href="organisation-add" class="govuk-link">Add another partner organisation</a><br>
+    <a href="dashboard-root" class="govuk-link">Go to the dashboard</a>
   </div>
 </div>
 {% endblock %}

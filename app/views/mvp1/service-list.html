@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l listing-page">Services</h1>
+
+  <a href="service-add" class="govuk-button listing-page">Add new service</a>
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header govuk-!-width-half">Name</th>
+        <th scope="col" class="govuk-table__header govuk-table__header--numeric govuk-!-width-one-quarter">Partner organisations</th>
+        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Users</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      {% if data['service-name'] %}
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="service-edit" class="govuk-link">{{ data['service-name'] }}</a></th>
+        <td class="govuk-table__cell govuk-table__cell--numeric">-</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">-</td>
+      </tr>
+      {% endif %}
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="dashboard-service-health-assessment" class="govuk-link">Health Assessment</a></th>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="organisation-list" class="govuk-link">17</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list" class="govuk-link">167</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="dashboard-service-traps" class="govuk-link">TRAPS</a></th>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="organisation-list" class="govuk-link">23</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list" class="govuk-link">184</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="service-edit" class="govuk-link">PRAP</a></th>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="organisation-list" class="govuk-link">43</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list" class="govuk-link">1004</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="service-edit" class="govuk-link">SYI</a></th>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="organisation-list" class="govuk-link">3</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list" class="govuk-link">66</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="service-edit" class="govuk-link">CYI</a></th>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="organisation-list" class="govuk-link">12</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list" class="govuk-link">96</a></td>
+      </tr>
+
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="service-edit" class="govuk-link">VBI</a></th>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="organisation-list" class="govuk-link">9</a></td>
+        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list" class="govuk-link">288</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="govuk-!-margin-top-9">
+    <a href="dashboard-root" class="govuk-link">Back to dashboard</a>
+  </p>
+{% endblock %}

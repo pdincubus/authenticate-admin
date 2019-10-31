@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Set up your service - email templates - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="service-edit-admin-user" method="post" class="form">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Set up your service</span>
+                        Choose your email templates
+                    </legend>
+
+                    {{ govukRadios({
+                        idPrefix: "service-email-templates",
+                        name: "service-email-templates",
+                        fieldset: {
+                            legend: {
+                                text: "Email templates",
+                                isPageHeading: false
+                            }
+                        },
+                        items: [
+                            {
+                                value: "Health",
+                                text: "Health",
+                                checked: checked("['service-email-templates']", "Health")
+                            },
+                            {
+                                value: "PRaPs",
+                                text: "PRaPs",
+                                checked: checked("['service-email-templates']", "PRaPs")
+                            },
+                            {
+                                value: "Default",
+                                text: "Default",
+                                checked: checked("['service-email-templates']", "Default")
+                            }
+                        ]
+                    }) }}
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -6,8 +6,6 @@
 
 {% block header %}
     {{ super() }}
-
-    {% include "v3/includes/nav-service.html" %}
 {% endblock %}
 
 {% block content %}
@@ -19,8 +17,8 @@
 
     <p>An invitation has been sent to {{data['organisation-admin-email-address']}}</p>
 
-    <a href="organisation-list" class="govuk-link">View all organisations</a><br>
-    <a href="organisation-add" class="govuk-link">Add another organisation</a><br>
+    <a href="organisation-list-health-assessment" class="govuk-link">View all organisations</a><br>
+    <a href="organisation-add-health-assessment" class="govuk-link">Add another organisation</a><br>
     <a href="dashboard-service-health-assessment" class="govuk-link">Go to the dashboard</a>
   </div>
 </div>

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Set up your service - add a connection - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="service-edit-connection-list" method="post" class="form">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Set up your service</span>
+                        Connection details
+                    </legend>
+
+
+                    {{ govukInput({
+                        label: {
+                            text: "Connection name"
+                        },
+                        id: "service-connection-name",
+                        name: "service-connection-name",
+                        classes: "govuk-!-width-three-quarters",
+                        value: data["service-connection-name"]
+                    }) }}
+
+                    {{ govukTextarea({
+                        label: {
+                            text: "Callback URLs"
+                        },
+                        id: "service-connection-callbacks",
+                        name: "service-connection-callbacks",
+                        classes: "govuk-!-width-three-quarters",
+                        hint: {
+                            text: "One URL per line, including protocol (http:// or https://)."
+                        },
+                        value: data["service-connection-callbacks"]
+                    }) }}
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Set up your service - add admin user - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="service-edit-connection-2" method="post" class="form">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Set up your service</span>
+                        Check your connections
+                    </legend>
+
+                    {{ govukSummaryList({
+                        rows: [
+                            {
+                                key: {
+                                    html: data["service-connection-name"]
+                                },
+                                value: {
+                                    html: data["service-connection-callbacks"]
+                                },
+                                actions: {
+                                    items: [
+                                        {
+                                            href: "service-edit-connection",
+                                            text: "Change",
+                                            visuallyHiddenText: "connection information"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                key: {
+                                    html: data["service-connection-name-2"]
+                                },
+                                value: {
+                                    html:  data["service-connection-callbacks-2"]
+                                },
+                                actions: {
+                                    items: [
+                                        {
+                                            href: "service-edit-connection-2",
+                                            text: "Change",
+                                            visuallyHiddenText: "connection information"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }) }}
+
+                    {{ govukButton({
+                        text: "Add another connection",
+                        disabled: true
+                    }) }}
+
+                    <a href="service-edit-policies" class="govuk-button">
+                        Continue
+                    </a>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

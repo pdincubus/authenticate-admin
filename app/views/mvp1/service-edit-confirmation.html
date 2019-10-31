@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Service updated - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+        titleText: data["service-name"] + " service updated"
+    }) }}
+
+    <a href="service-list" class="govuk-link">View all services</a><br>
+    <a href="service-add" class="govuk-link">Add another service</a><br>
+    <a href="dashboard-root" class="govuk-link">Go to the dashboard</a>
+  </div>
+</div>
+{% endblock %}

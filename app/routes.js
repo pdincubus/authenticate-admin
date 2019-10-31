@@ -53,15 +53,15 @@ router.post('/v3/user-add-type', function (req, res) {
     let userType = req.session.data['user-access-rights'];
 
     switch (userType) {
-        case 'Super Admin':
+        case 'System admin':
             res.redirect('/v3/user-add-super');
             break;
 
-        case 'Service Admin':
+        case 'Service admin':
             res.redirect('/v3/user-add-service');
             break;
 
-        case 'Organisation Admin':
+        case 'Organisation admin':
             res.redirect('/v3/user-add-organisation');
             break;
 
@@ -71,6 +71,24 @@ router.post('/v3/user-add-type', function (req, res) {
 
         default:
             res.redirect('/v3/user-add-user');
+            break;
+    }
+});
+
+router.post('/mvp1/user-add-type', function (req, res) {
+    let userType = req.session.data['user-access-rights'];
+
+    switch (userType) {
+        case 'Service admin':
+            res.redirect('/mvp1/user-add-service-health-assessment');
+            break;
+
+        case 'User':
+            res.redirect('/mvp1/user-add-user-health-assessment');
+            break;
+
+        default:
+            res.redirect('/mvp1/user-add-user-health-assessment');
             break;
     }
 });

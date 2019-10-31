@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    User details - {{siteName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">Capita</span>User details
+    </h1>
+
+    {{ govukSummaryList({
+        rows: [
+            {
+                key: {
+                    text: "Name"
+                },
+                value: {
+                    text: data['user-full-name']
+                },
+                actions: {
+                    items: [
+                        {
+                            href: "user-edit",
+                            text: "Change",
+                            visuallyHiddenText: "name"
+                        }
+                    ]
+                }
+            },
+            {
+                key: {
+                    text: "Email address"
+                },
+                value: {
+                    text: data['user-email-address']
+                },
+                actions: {
+                    items: [
+                        {
+                            href: "user-edit",
+                            text: "Change",
+                            visuallyHiddenText: "email address"
+                        }
+                    ]
+                }
+            },
+            {
+                key: {
+                    text: "Phone number"
+                },
+                value: {
+                    text: data['user-phone-number']
+                },
+                actions: {
+                    items: [
+                        {
+                            href: "user-edit",
+                            text: "Change",
+                            visuallyHiddenText: "phone number"
+                        }
+                    ]
+                }
+            },
+            {
+                key: {
+                    text: "Access rights"
+                },
+                value: {
+                    text: data['user-access-rights']
+                },
+                actions: {
+                    items: [
+                        {
+                            href: "user-edit",
+                            text: "Change",
+                            visuallyHiddenText: "permissions"
+                        }
+                    ]
+                }
+            },
+            {
+                key: {
+                    text: "Status"
+                },
+                value: {
+                    html: '<span class="govuk-tag govuk-tag">Active</span>'
+                }
+            },
+            {
+                key: {
+                    text: "Last logged in"
+                },
+                value: {
+                    html: '21 October 2019'
+                }
+            },
+            {
+                key: {
+                    text: "Created"
+                },
+                value: {
+                    html: '9 April 1982, 7:52pm'
+                }
+            }
+        ]
+    }) }}
+
+    <a href="#" class="govuk-button">Re-send invite</a>
+    <a href="#" class="govuk-button govuk-button--secondary">Suspend user</a>
+    <a href="#" class="govuk-button govuk-button--warning">Delete user</a>
+
+    <p class="govuk-!-margin-top-9">
+        <a href="user-list-capita" class="govuk-link">Back users list</a>
+    </p>
+{% endblock %}

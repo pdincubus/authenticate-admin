@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Set up your service - add admin user - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+
+    {% include "v3/includes/nav.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="service-edit-connection-2" method="post" class="form">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Set up your service</span>
+                        Check your connections
+                    </legend>
+
+                    {{ govukSummaryList({
+                        rows: [
+                            {
+                                key: {
+                                    text: "Connection"
+                                },
+                                value: {
+                                    html: data["service-connection-name"] + "<br>" + data["service-connection-callbacks"]
+                                },
+                                actions: {
+                                    items: [
+                                        {
+                                            href: "service-edit",
+                                            text: "Change",
+                                            visuallyHiddenText: "connection information"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }) }}
+
+                    {{ govukButton({
+                        text: "Add another connection"
+                    }) }}
+
+                    <a href="service-edit-policies" class="govuk-button" disabled>
+                        Continue
+                    </a>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

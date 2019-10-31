@@ -1,0 +1,28 @@
+{{ govukRadios({
+  idPrefix: "user-access-rights",
+  name: "user-access-rights",
+  fieldset: {
+    legend: {
+      text: "Access rights",
+      isPageHeading: false
+    }
+  },
+  items: [
+    {
+      value: "Service admin",
+      text: "Service admin",
+      hint: {
+        html: "Admin for one service<br>Invite users to their service"
+      },
+      checked: checked("['user-access-rights']", "Service admin")
+    },
+    {
+      value: "User",
+      text: "User",
+      hint: {
+        text: "Can access a service"
+      },
+      checked: checked("['user-access-rights']", "User")
+    }
+  ]
+}) }}
