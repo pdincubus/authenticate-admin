@@ -286,5 +286,14 @@ a.pagination__link:focus {
 }
 
 .govuk-tag--l3 {
-    background-color:  govuk-colour('turquoise');
+    background-color: govuk-colour('turquoise');
+}
+
+.govuk-tag--pending {
+    background-color: govuk-colour("yellow");
+    color: #000;
+}
+
+.govuk-tag--inactive {
+    background-color: govuk-colour("dark-grey");
 }
