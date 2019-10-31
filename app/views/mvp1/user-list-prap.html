@@ -18,7 +18,6 @@
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Name</th>
         <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Organisation</th>
-        <th scope="col" class="govuk-table__header">User level</th>
         <th scope="col" class="govuk-table__header">Status</th>
       </tr>
     </thead>
@@ -28,17 +27,6 @@
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">{{ data['user-full-name'] }}</a></th>
         <td class="govuk-table__cell">-</td>
-        <td class="govuk-table__cell">
-            {% if data['user-access-rights'] == 'Super Admin' %}
-                <span class="govuk-tag govuk-tag--l1">L1</span> Super admin
-            {% elif data['user-access-rights'] == 'Service Admin' %}
-                <span class="govuk-tag govuk-tag--l2">L2</span> Service admin
-            {% elif data['user-access-rights'] == 'Organisation Admin' %}
-                <span class="govuk-tag govuk-tag--l3">L3</span> Organisation admin
-            {% else %}
-                L1 User
-            {% endif %}
-        </td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
       {% endif %}
@@ -46,63 +34,54 @@
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Gary Speed</a></th>
         <td class="govuk-table__cell">Capita</td>
-        <td class="govuk-table__cell">L4 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--inactive">Suspended</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Gordon Strachan</a></th>
         <td class="govuk-table__cell">G3S</td>
-        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--l2">L2</span> Service admin</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Gary McAllister</a></th>
         <td class="govuk-table__cell">Capita</td>
-        <td class="govuk-table__cell">L4 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Tony Dorigo</a></th>
         <td class="govuk-table__cell">Capita</td>
-        <td class="govuk-table__cell">L4 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Mel Sterland</a></th>
         <td class="govuk-table__cell">Capita</td>
-        <td class="govuk-table__cell">L4 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">John Doe</a></th>
         <td class="govuk-table__cell">Capita</td>
-        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--l2">L2</span> Service admin</td>
         <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--inactive">Suspended</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Jackson Smith</a></th>
         <td class="govuk-table__cell">Capita</td>
-        <td class="govuk-table__cell">L4 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Jessie Smith</a></th>
         <td class="govuk-table__cell">Capita</td>
-        <td class="govuk-table__cell">L4 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
 
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">John Smith</a></th>
         <td class="govuk-table__cell">Capita</td>
-        <td class="govuk-table__cell">L4 User</td>
         <td class="govuk-table__cell"><span class="govuk-tag">Active</span></td>
       </tr>
     </tbody>
@@ -125,11 +104,11 @@
       </li>
 
       <li class="pagination__item">
-        <a class="pagination__link" href="user-list-user-prap-2" aria-label="Page 2">2</a>
+        <a class="pagination__link" href="user-list-prap-2" aria-label="Page 2">2</a>
       </li>
 
       <li class="pagination__item">
-        <a class="pagination__link" href="user-list-user-prap-2" aria-label="Next page">
+        <a class="pagination__link" href="user-list-prap-2" aria-label="Next page">
           Next <span aria-hidden="true" role="presentation">&raquo;</span>
         </a>
       </li>
@@ -137,6 +116,6 @@
   </nav>
 
   <p class="govuk-!-margin-top-9">
-    <a href="dashboard-service-user-prap" class="govuk-link">Back to dashboard</a>
+    <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
   </p>
 {% endblock %}
