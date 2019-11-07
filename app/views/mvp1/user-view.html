@@ -12,7 +12,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">
-                <span class="govuk-caption-l">Capita</span>User details
+                User details
             </h1>
 
             {{ govukSummaryList({
@@ -46,7 +46,7 @@
                             text: "Status"
                         },
                         value: {
-                            html: '<span class="govuk-tag govuk-tag">Active</span>'
+                            html: "Active"
                         }
                     },
                     {
@@ -68,12 +68,12 @@
                 ]
             }) }}
 
-            <a href="#" class="govuk-button">Re-send invite</a>
-            <a href="#" class="govuk-button govuk-button--secondary">Suspend user</a>
+            <a href="#" class="govuk-button govuk-!-margin-right-1">Re-send invite</a>
+            <a href="#" class="govuk-button govuk-button--secondary govuk-!-margin-right-1">Suspend user</a>
             <a href="#" class="govuk-button govuk-button--warning">Delete user</a>
 
             <p class="govuk-!-margin-top-9">
-                <a href="user-list-prap" class="govuk-link">Back users list</a>
+                <a href="user-list-prap" class="govuk-link">Back to users list</a>
             </p>
         </div>
     </div>

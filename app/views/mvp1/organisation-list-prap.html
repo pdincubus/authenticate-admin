@@ -24,20 +24,38 @@
                 <tbody class="govuk-table__body">
                     {% if data['organisation-name'] %}
                     <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">{{ data['organisation-name'] }}</th>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">-</td>
+                        <th scope="row" class="govuk-table__header"><a href="user-list-prap-g3s" class="govuk-link">{{ data['organisation-name'] }}</a></th>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
                     </tr>
                     {% endif %}
 
                     <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">G3S</th>
-                        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list-prap" class="govuk-link">37</a></td>
+                            <th scope="row" class="govuk-table__header"><a href="user-list-prap-capita" class="govuk-link">Capita</a></th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list-prap-capita" class="govuk-link">13</a></td>
+                        </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header"><a href="user-list-prap-g3s" class="govuk-link">G4S</a></th>
+                        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list-prap-g3s" class="govuk-link">15</a></td>
                     </tr>
 
                     <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">Providers R Us</th>
-                        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list-prap" class="govuk-link">31</a></td>
+                            <th scope="row" class="govuk-table__header"><a href="user-list-prap-croydon" class="govuk-link">London Borough of Croydon Council</a></th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list-prap-croydon" class="govuk-link">15</a></td>
+                        </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header"><a href="user-list-prap-remploy" class="govuk-link">Remploy</a></th>
+                        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list-prap-remploy" class="govuk-link">23</a></td>
                     </tr>
+
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header"><a href="user-list-prap-remploy" class="govuk-link">Serco</a></th>
+                        <td class="govuk-table__cell govuk-table__cell--numeric"><a href="user-list-prap-remploy" class="govuk-link">16</a></td>
+                    </tr>
+
+                    
                 </tbody>
             </table>
 

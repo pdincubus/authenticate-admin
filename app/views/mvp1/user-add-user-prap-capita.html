@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add new user - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="user-confirmation-prap" method="post" class="form">
+                {{ govukFieldset({
+                    legend: {
+                        html: '<h1 class="govuk-heading-l listing-page"><span class="govuk-caption-l">Capita</span> 
+                           Add a new user</h1>',
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                    }
+                })}}
+
+                {{ govukInput({
+                    label: {
+                        text: "Full name"
+                    },
+                    id: "user-full-name",
+                    name: "user-full-name",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Email address"
+                    },
+                    id: "user-email-address",
+                    name: "user-email-address",
+                    type: "email",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -9,15 +9,18 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-l listing-page">PRaP Users</h1>
+  <h1 class="govuk-heading-l listing-page"><span class="govuk-caption-l">G4S</span> 
+      Users</h1>
 
-  <a href="user-add-prap" class="govuk-button listing-page">Add new user</a>
+  
+
+  <a href="user-add-user-prap-g3s" class="govuk-button listing-page">Add new user</a>
 
   <table class="govuk-table">
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
-        <th scope="col" class="govuk-table__header">Name</th>
-        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Organisation</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Email address</th>
         <th scope="col" class="govuk-table__header">Status</th>
       </tr>
     </thead>
@@ -26,63 +29,63 @@
       {% if data['user-full-name'] %}
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">{{ data['user-full-name'] }}</a></th>
-        <td class="govuk-table__cell">{{ data['user-organisation'] }}</td>
-        <td class="govuk-table__cell">Active</td>
+        <td class="govuk-table__cell">{{ data['user-email-address'] }}</td>
+        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--active">Active</span></td>
       </tr>
       {% endif %}
 
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Gary Speed</a></th>
-        <td class="govuk-table__cell">Capita</td>
+        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Matt Hayes</a></th>
+        <td class="govuk-table__cell">matt.hayes@g4s.co.uk</td>
         <td class="govuk-table__cell">Suspended</td>
       </tr>
 
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Gordon Strachan</a></th>
-        <td class="govuk-table__cell">G3S</td>
+        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Mick Brown</a></th>
+        <td class="govuk-table__cell">mick.brown@g4s.co.uk</td>
         <td class="govuk-table__cell">Pending activation</td>
       </tr>
 
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Gary McAllister</a></th>
-        <td class="govuk-table__cell">Capita</td>
+        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">April Vokey</a></th>
+        <td class="govuk-table__cell">april.vokey@g4s.co.uk</td>
         <td class="govuk-table__cell">Active</td>
       </tr>
 
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Tony Dorigo</a></th>
-        <td class="govuk-table__cell">Capita</td>
+        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">John Wilson</a></th>
+        <td class="govuk-table__cell">john.wilson@g4s.co.uk</td>
         <td class="govuk-table__cell">Active</td>
       </tr>
 
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Mel Sterland</a></th>
-        <td class="govuk-table__cell">Capita</td>
+        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Paul Young</a></th>
+        <td class="govuk-table__cell">paul.young@g4s.co.uk</td>
         <td class="govuk-table__cell">Active</td>
       </tr>
 
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">John Doe</a></th>
-        <td class="govuk-table__cell">Capita</td>
+        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Marina Gibson</a></th>
+        <td class="govuk-table__cell">marina.gibson@g4s.co.uk</td>
         <td class="govuk-table__cell">Suspended</td>
       </tr>
 
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Jackson Smith</a></th>
-        <td class="govuk-table__cell">Capita</td>
+        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Jeremy Wade</a></th>
+        <td class="govuk-table__cell">jeremy.wade@g4s.co.uk</td>
         <td class="govuk-table__cell">Active</td>
       </tr>
 
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Jessie Smith</a></th>
-        <td class="govuk-table__cell">Capita</td>
+        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Neville Fickling</a></th>
+        <td class="govuk-table__cell">neville.fickling@g4s.co.uk</td>
         <td class="govuk-table__cell">Active</td>
       </tr>
 
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">John Smith</a></th>
-        <td class="govuk-table__cell">Capita</td>
-        <td class="govuk-table__cell">Active</td>
+        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Bob Nudd</a></th>
+        <td class="govuk-table__cell">bob.nudd@g4s.co.uk</td>
+        <td class="govuk-table__cell ">Active</td>
       </tr>
     </tbody>
   </table>
