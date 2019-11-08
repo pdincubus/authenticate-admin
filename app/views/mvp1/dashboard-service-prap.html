@@ -17,7 +17,16 @@
 
     <p class="govuk-heading-xl govuk-!-margin-bottom-5">
       <span class="govuk-visually-hidden">There are currently</span>
-      5
+
+      {% if data['organisation-name'] %}
+          6</td>
+
+      {% else %}
+
+          5</td>
+
+      {% endif %}
+      
       <span class="govuk-visually-hidden">organisations in the system</span>
     </p>
 
@@ -37,7 +46,18 @@
 
     <p class="govuk-heading-xl govuk-!-margin-bottom-5">
       <span class="govuk-visually-hidden">There are currently</span>
-      74
+      
+
+      {% if data['user-full-name'] %}
+          75</td>
+
+      {% else %}
+
+          74</td>
+
+      {% endif %}
+
+
       <span class="govuk-visually-hidden">users in the system</span>
     </p>
 
