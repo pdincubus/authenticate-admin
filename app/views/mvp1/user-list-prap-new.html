@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Users - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l listing-page"><span class="govuk-caption-l">{{ data['organisation-name'] }}</span> 
+      Users</h1>
+
+  
+
+  <a href="user-add-user-prap-new" class="govuk-button listing-page">Add new user</a>
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name</th>
+        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Email address</th>
+        <th scope="col" class="govuk-table__header">Status</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      {% if data['user-full-name'] %}
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">{{ data['user-full-name'] }}</a></th>
+        <td class="govuk-table__cell">{{ data['user-email-address'] }}</td>
+        <td class="govuk-table__cell">Active</td>
+      </tr>
+      {% endif %}
+
+      
+    </tbody>
+  </table>
+
+ 
+
+  <p class="govuk-!-margin-top-9">
+    <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+  </p>
+{% endblock %}
