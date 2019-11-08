@@ -25,7 +25,16 @@
                     {% if data['organisation-name'] %}
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header"><a href="user-list-prap-new" class="govuk-link">{{ data['organisation-name'] }}</a></th>
-                        <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            
+                                {% if data['user-full-name'] %}
+                                <a href="user-list-prap-new" class="govuk-link">1</a></td>
+
+                            {% else %}
+
+                            0</td>
+
+                            {% endif %}
                     </tr>
                     {% endif %}
 
