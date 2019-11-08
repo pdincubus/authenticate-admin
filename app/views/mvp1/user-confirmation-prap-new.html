@@ -11,8 +11,14 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+    
+
       {{ govukPanel({
-        titleText: data["user-full-name"] + " created in " + data['organisation-name']
+
+      
+        titleText: "User added",
+  
+        html: data["user-full-name"] + " added to " + data["organisation-name"]
       }) }}
 
       <p>An invitation has been sent to {{data['user-email-address']}}</p>
