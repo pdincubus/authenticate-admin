@@ -12,7 +12,7 @@
       value: "System admin",
       text: "System admin",
       hint: {
-        html: "Add a group of services, used by a specific part of DWP<br>Invite group admins<br>Add a set of users who do not work for DWP, such as a supplier or a local authority<br>Add a service<br>Invite service admins"
+        html: "Add a service<br>Invite service admins<br>Add a non-DWP organisation, such as a supplier or a local authority, so they can use a service"
       },
       checked: checked("['user-access-rights']", "System admin")
     },
@@ -25,12 +25,12 @@
       checked: checked("['user-access-rights']", "Service admin")
     },
     {
-      value: "Organisation admin",
-      text: "Organisation admin",
+      value: "Non-DWP organisation admin",
+      text: "Non-DWP organisation admin",
       hint: {
-        html: "Invite users who work for their organisation to use this service"
+        html: "Invite users from a non-DWP organisation to use a service"
       },
-      checked: checked("['operator-admin-access-rights']", "Organisation admin")
+      checked: checked("['operator-admin-access-rights']", "Non-DWP organisation admin")
     },
     {
       value: "User",
