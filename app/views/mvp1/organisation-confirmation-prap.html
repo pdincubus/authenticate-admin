@@ -10,11 +10,16 @@
 
 {% block content %}
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    {{ govukPanel({
+    <div class="govuk-grid-column-two-thirds">
+        {{ govukPanel({
+            titleText: "Organisation added",
+            html: data["organisation-name"]
+        }) }}
 
-      
-      titleText: "Organisation added",
+        <p>
+            <a href="user-add-user-prap-new" class="govuk-link">
+                Add a user to {{ data['organisation-name'] }}
+            </a><br>
 
       html: data["organisation-name"]
     }) }}
@@ -23,5 +28,10 @@
     
     <p><a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a></p>
   </div>
+            <a href="dashboard-service-prap" class="govuk-link">
+                Go to the dashboard
+            </a>
+        </p>
+    </div>
 </div>
 {% endblock %}

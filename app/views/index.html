@@ -17,7 +17,7 @@
         </h2>
 
         {% set currentVersionHtml %}
-            <time datetime="2019-10-31" class="govuk-caption-l">31 October 2019</time>
+            <time datetime="2019-11-11" class="govuk-caption-l">11 November 2019</time>
 
             <h2 class="govuk-heading-l">MVP v1</h2>
 
@@ -31,14 +31,18 @@
                 <li>
                     Make everything as if viewed by a PRaP service admin
                 </li>
+                <li>
+                    Added a little more dynamicism to make better use of prototype data
+                </li>
+                <li>
+                    Fleshed out user list pages so that each sample organisation has their own list of users
+                </li>
             </ul>
 
             <a href="/mvp1/signin" class="govuk-button">View MVP prototype</a>
+        {% endset %}
 
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-            <h3 class="govuk-heading-m">General changes</h3>
-
+        {% set previousVersionsHtml %}
             <time datetime="2019-10-24" class="govuk-caption-l">24 October 2019</time>
 
             <h2 class="govuk-heading-l" id="v3">v3</h2>
@@ -171,9 +175,7 @@
                     </tr>
                 </tbody>
             </table>
-        {% endset %}
 
-        {% set previousVersionsHtml %}
             <time datetime="2019-10-21" class="govuk-caption-l">21 October 2019</time>
 
             <h2 class="govuk-heading-l">v2</h2>
