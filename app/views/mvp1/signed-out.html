@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Dashboard - PRaP - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="citizen-details-b" method="post">
+
+          <h1 class="govuk-heading-l">You have signed out</h1>
+
+          <p><a href="signin">Sign in again</a></p>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
