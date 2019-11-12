@@ -20,13 +20,26 @@
                     }
                 })}}
 
+                {{ govukErrorSummary({
+                    titleText: "There is a problem",
+                    errorList: [
+                        {
+                            text: "The organisation already exists",
+                            href: "#organisation-name"
+                        }
+                    ]
+                }) }}
+
                 {{ govukInput({
                     label: {
                     text: "Organisation name"
                     },
                     id: "organisation-name",
                     name: "organisation-name",
-                    classes: "govuk-!-width-three-quarters"
+                    classes: "govuk-!-width-three-quarters",
+                    errorMessage: {
+                        text: "Enter an organisation name"
+                    }
                 }) }}
 
                 {{ govukButton({

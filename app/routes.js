@@ -93,4 +93,33 @@ router.post('/mvp1/user-add-type', function (req, res) {
     }
 });
 
+router.post('/mvp1/organisation-check-prap', function (req, res) {
+    let orgName = req.session.data['organisation-name'];
+    let orgNameExists = false;
+
+    let orgList = [
+        'BPDTS',
+        'Capita',
+        'DWP',
+        'MoJ',
+        'MoD',
+        'NHS',
+        'Remploy',
+        'G4S',
+        'London Borough of Croydon Council'
+    ];
+
+    orgList.forEach(org => {
+        if (orgName === org) {
+            orgNameExists = true;
+        }
+    });
+
+    if (orgNameExists) {
+        res.redirect('/mvp1/organisation-exists-prap');
+    } else {
+        res.redirect('/mvp1/organisation-confirmation-prap');
+    }
+});
+
 module.exports = router;
