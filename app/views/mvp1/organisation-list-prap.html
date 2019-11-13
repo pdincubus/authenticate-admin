@@ -44,7 +44,9 @@
 
                         <td class="govuk-table__cell">
                             {% if data['user-full-name'] %}
-                                <a href="user-list-prap-new" class="govuk-link">View user</a>
+                                    <a href="user-list-prap-new" class="govuk-link">View user</a>
+                                {% else %}
+                                    <a href="user-add-user-prap-new" class="govuk-link">Add user</a>
                             {% endif %}
                         </td>
                     </tr>
