@@ -8,6 +8,11 @@
     {{ super() }}
 {% endblock %}
 
+{% block beforeContent %}
+  {% include '../includes/back-button.njk' %}
+{% endblock %}
+
+
 {% block content %}
   <h1 class="govuk-heading-l listing-page"><span class="govuk-caption-l">London Borough of Croydon Council</span>Users</h1>
 

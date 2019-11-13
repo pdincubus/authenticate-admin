@@ -6,6 +6,11 @@
     {{ super() }}
 {% endblock %}
 
+{% block beforeContent %}
+  {% include '../includes/back-button.njk' %}
+{% endblock %}
+
+
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
