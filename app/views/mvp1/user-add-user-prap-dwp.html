@@ -8,18 +8,23 @@
     {{ super() }}
 {% endblock %}
 
+{% block beforeContent %}
+  {% include '../includes/back-button.njk' %}
+{% endblock %}
+
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <form action="user-confirmation-prap" method="post" class="form">
                 {{ govukFieldset({
                     legend: {
-                        html: '<h1 class="govuk-heading-l listing-page"><span class="govuk-caption-l">DWP</span> 
-                            Add a user</h1>',
+                        html: 'Add an admin for this service',
                         classes: "govuk-fieldset__legend--l",
                         isPageHeading: true
                     }
                 })}}
+
+                <p>This user must be a DWP employee.</p>
 
                 {{ govukInput({
                     label: {
@@ -28,6 +33,7 @@
                     id: "user-full-name",
                     name: "user-full-name",
                     classes: "govuk-!-width-three-quarters"
+
                 }) }}
 
                 {{ govukInput({
