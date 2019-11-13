@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l listing-page">Organisations using PRaP</h1>
+
+            <a href="organisation-add-prap" class="govuk-button listing-page">Add an organisation</a>
+
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header govuk-!-width-half">Name</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Users</th>
+                    </tr>
+                </thead>
+
+                <tbody class="govuk-table__body">
+                    {% if data['organisation-name'] %}
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            {{ data['organisation-name'] }}
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            <a href="user-list-prap-new" class="govuk-link">
+                            {% if data['user-full-name'] %}
+                                1
+                            {% else %}
+                                0
+                            {% endif %}
+                            </a>
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+
+            <p class="govuk-!-margin-top-9">
+                <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
