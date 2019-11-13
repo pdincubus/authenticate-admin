@@ -24,12 +24,12 @@
 
 
         {{ govukRadios({
-          classes: "govuk-radios--small",
+          classes: "govuk-radios",
           idPrefix: "suspend-check",
           name: "suspend-check",
           fieldset: {
             legend: {
-              text: "Are you sure you want to suspend David Batty?",
+              text: "Are you sure you want to suspend " + data["user-full-name"] + "?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }

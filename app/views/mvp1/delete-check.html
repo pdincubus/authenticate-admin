@@ -24,12 +24,12 @@
 
 
         {{ govukRadios({
-          classes: "govuk-radios--small",
+          classes: "govuk-radios",
           idPrefix: "delete-check",
           name: "delete-check",
           fieldset: {
             legend: {
-              text: "Are you sure you want to delete David Batty?",
+              text: "Are you sure you want to delete " + data["user-full-name"] + "?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
