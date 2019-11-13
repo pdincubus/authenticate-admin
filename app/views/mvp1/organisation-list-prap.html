@@ -23,7 +23,7 @@
                     <tr class="govuk-table__row">
                         <th scope="col" class="govuk-table__header govuk-!-width-half">Name</th>
                         <th scope="col" class="govuk-table__header govuk-table__header--numeric">Users</th>
-                        <tr class="govuk-table__header"></tr>
+                        <th scope="col" class="govuk-table__header"></th>
                     </tr>
                 </thead>
 
@@ -31,7 +31,7 @@
                     {% if data['organisation-name'] %}
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="user-list-prap-new" class="govuk-link">{{ data['organisation-name'] }}</a>
+                            {{ data['organisation-name'] }}
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -52,7 +52,7 @@
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="user-list-prap-capita" class="govuk-link">Capita</a>
+                            Capita
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -66,7 +66,7 @@
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="user-list-prap-g3s" class="govuk-link">G4S</a>
+                            G4S
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -80,7 +80,7 @@
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="user-list-prap-croydon" class="govuk-link">London Borough of Croydon Council</a>
+                            London Borough of Croydon Council
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -94,7 +94,7 @@
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="user-list-prap-remploy" class="govuk-link">Remploy</a>
+                            Remploy
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -109,7 +109,7 @@
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="user-list-prap-serco" class="govuk-link">Serco</a>
+                            Serco
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
