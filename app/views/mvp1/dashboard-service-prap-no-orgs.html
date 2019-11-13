@@ -55,17 +55,25 @@
             <span class="govuk-visually-hidden">users in the system</span>
         </p>
 
-        {% if data['organisation-name'] %}
         <ul class="govuk-list">
+            {% if data['organisation-name'] %}
             <li>
                 <a href="user-add-user-prap-new" class="govuk-link">Add a user</a>
             </li>
+            {% endif %}
 
+            <li>
+                <a href="user-add-user-prap-dwp" class="govuk-link">Add an admin for this service</a>
+            </li>
+
+            {% if data['organisation-name'] %}
             <li>
                 <a href="user-list-prap" class="govuk-link">View all users</a>
             </li>
+            {% endif %}
         </ul>
-        {% else %}
+
+        {% if not data['organisation-name'] %}
         <p>
             You need to <a href="organisation-add-prap-empty" class="govuk-link">add an organisation</a> before you can add users.
         </p>
