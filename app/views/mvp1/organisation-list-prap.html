@@ -23,6 +23,7 @@
                     <tr class="govuk-table__row">
                         <th scope="col" class="govuk-table__header govuk-!-width-half">Name</th>
                         <th scope="col" class="govuk-table__header govuk-table__header--numeric">Users</th>
+                        <tr class="govuk-table__header"></tr>
                     </tr>
                 </thead>
 
@@ -35,9 +36,15 @@
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
                             {% if data['user-full-name'] %}
-                                <a href="user-list-prap-new" class="govuk-link">1</a>
+                                1
                             {% else %}
                                 0
+                            {% endif %}
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            {% if data['user-full-name'] %}
+                                <a href="user-list-prap-new" class="govuk-link">View user</a>
                             {% endif %}
                         </td>
                     </tr>
@@ -49,7 +56,11 @@
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
-                            <a href="user-list-prap-capita" class="govuk-link">13</a>
+                            13
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="user-list-prap-capita" class="govuk-link">View users</a>
                         </td>
                     </tr>
 
@@ -59,7 +70,11 @@
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
-                            <a href="user-list-prap-g3s" class="govuk-link">15</a>
+                            15
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="user-list-prap-capita" class="govuk-link">View users</a>
                         </td>
                     </tr>
 
@@ -69,7 +84,11 @@
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
-                            <a href="user-list-prap-croydon" class="govuk-link">15</a>
+                            15
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="user-list-prap-capita" class="govuk-link">View users</a>
                         </td>
                     </tr>
 
@@ -79,7 +98,11 @@
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
-                            <a href="user-list-prap-remploy" class="govuk-link">23</a>
+                            23
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="user-list-prap-capita" class="govuk-link">View users</a>
                         </td>
                     </tr>
 
@@ -90,7 +113,11 @@
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
-                            <a href="user-list-prap-serco" class="govuk-link">7</a>
+                            7
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="user-list-prap-capita" class="govuk-link">View users</a>
                         </td>
                     </tr>
                 </tbody>
