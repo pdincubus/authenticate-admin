@@ -29,7 +29,7 @@
     </thead>
 
     <tbody class="govuk-table__body">
-      {% if data['serco-user-full-name'] %}
+      {% if data['user-organisation'] == 'Serco' %}
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">{{ data['serco-user-full-name'] }}</a></th>
         <td class="govuk-table__cell">{{ data['serco-user-email-address'] }}</td>
