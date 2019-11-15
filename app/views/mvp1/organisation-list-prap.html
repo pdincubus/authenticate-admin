@@ -58,7 +58,11 @@
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
-                            13
+                            {% if data['user-organisation'] == 'Capita' %}
+                                14
+                            {% else %}
+                                13
+                            {% endif %}
                         </td>
 
                         <td class="govuk-table__cell">
@@ -72,7 +76,11 @@
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
-                            15
+                            {% if data['user-organisation'] == 'G4S' %}
+                                16
+                            {% else %}
+                                15
+                            {% endif %}
                         </td>
 
                         <td class="govuk-table__cell">
@@ -86,7 +94,11 @@
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
-                            15
+                            {% if data['user-organisation'] == 'London Borough of Croydon Council' %}
+                                16
+                            {% else %}
+                                15
+                            {% endif %}
                         </td>
 
                         <td class="govuk-table__cell">
@@ -100,7 +112,12 @@
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
-                            23
+                            {% if data['user-organisation'] == 'Remploy' %}
+                                24
+                            {% else %}
+                                23
+                            {% endif %}
+                            
                         </td>
 
                         <td class="govuk-table__cell">
@@ -115,7 +132,12 @@
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
-                            7
+                            {% if data['user-organisation'] == 'Serco' %}
+                                8
+                            {% else %}
+                                7
+                            {% endif %}
+                            
                         </td>
 
                         <td class="govuk-table__cell">
