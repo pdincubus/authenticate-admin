@@ -15,31 +15,29 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="user-add-user-prap" method="post" class="form">
-                {{ govukFieldset({
-                    legend: {
-                        html: '<span class="govuk-caption-l">Add a user</span>Who is the user employed by?',
-                        classes: "govuk-fieldset__legend--l",
-                        isPageHeading: true
-                    }
-                })}}
-
-                <div class="govuk-form-group">
-                    <label class="govuk-label govuk-visually-hidden" for="user-organisation">
-                        Organisation
-                    </label>
-
-                    <select class="govuk-select form-control" name="user-organisation" id="user-organisation">
-                        <option value="" selected>Choose an organisation</option>
-                        <option value="Capita">Capita</option>
-                        <option value="DWP">DWP</option>
-                        <option value="Serco">Serco</option>
-                        <option value="Remploy">Remploy</option>
-                        <option value="G4S">G4S</option>
-                        <option value="London Borough of Croydon Council">London Borough of Croydon Council</option>
-                        <option value="{{ data['organisation-name'] }}">{{ data['organisation-name'] }}</option>
-                    </select>
-                </div>
+            <form action="user-add-check-is-dwp" method="post" class="form">
+                {{ govukRadios({
+                    classes: "govuk-radios",
+                    idPrefix: "user-is-dwp",
+                    name: "user-is-dwp",
+                    fieldset: {
+                        legend: {
+                            html: '<span class="govuk-caption-l">Add a user</span>Is the user employed by the Department for Work and Pensions?',
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "yes",
+                            text: "Yes"
+                        },
+                        {
+                            value: "no",
+                            text: "No"
+                        }
+                    ]
+                }) }}
 
                 {{ govukButton({
                     text: "Continue"
@@ -47,15 +45,4 @@
             </form>
         </div>
     </div>
-{% endblock %}
-
-{% block pageScripts %}
-<link rel="stylesheet" href="/public/javascripts/accessible-autocomplete.min.css">
-<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
-<script type="text/javascript">
-    accessibleAutocomplete.enhanceSelectElement({
-        defaultValue: '',
-        selectElement: document.getElementById('user-organisation')
-    });
-</script>
 {% endblock %}

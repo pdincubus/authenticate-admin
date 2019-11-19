@@ -22,7 +22,7 @@
                 </thead>
 
                 <tbody class="govuk-table__body">
-                    {% if data['organisation-name'] %}
+                    {% if data['organisation-name'] and data['organisation-name'] != 'dwp' %}
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
                             {{ data['organisation-name'] }}
@@ -39,6 +39,22 @@
                         </td>
                     </tr>
                     {% endif %}
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            DWP
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            <a href="user-list-prap-new" class="govuk-link">
+                            {% if data['user-full-name'] and data['organisation-name'] == 'dwp' %}
+                                1
+                            {% else %}
+                                0
+                            {% endif %}
+                            </a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
 

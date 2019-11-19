@@ -15,16 +15,14 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="user-admin-confirmation-prap" method="post" class="form">
+            <form action="user-confirmation-prap" method="post" class="form">
                 {{ govukFieldset({
                     legend: {
-                        html: 'Add a service admin',
+                        html: '<span class="govuk-caption-l">Add a user</span>DWP user details',
                         classes: "govuk-fieldset__legend--l",
                         isPageHeading: true
                     }
                 })}}
-
-                <p>The admin must be a DWP employee.</p>
 
                 {{ govukInput({
                     label: {
@@ -45,6 +43,10 @@
                     type: "email",
                     classes: "govuk-!-width-three-quarters"
                 }) }}
+
+                {% include './includes/user-access-rights-prap.html' %}
+
+                <input type="hidden" value="dwp" id="user-organisation" name="user-organisation">
 
                 {{ govukButton({
                     text: "Continue"

@@ -19,9 +19,9 @@
             <span class="govuk-visually-hidden">There are currently</span>
 
             {% if data['organisation-name'] %}
-                1
+                2
             {% else %}
-                0
+                1
             {% endif %}
 
             <span class="govuk-visually-hidden">organisations in the system</span>
@@ -32,11 +32,9 @@
                 <a href="organisation-add-prap-empty" class="govuk-link">Add an organisation</a>
             </li>
 
-            {% if data['organisation-name'] %}
             <li>
                 <a href="organisation-list-prap-from-empty" class="govuk-link">View all organisations</a>
             </li>
-            {% endif %}
         </ul>
     </div>
 
@@ -56,28 +54,14 @@
         </p>
 
         <ul class="govuk-list">
-            {% if data['organisation-name'] %}
             <li>
                 <a href="user-add-user-prap-new" class="govuk-link">Add a user</a>
             </li>
-            {% endif %}
 
-            <li>
-                <a href="user-add-user-prap-dwp" class="govuk-link">Add a service admin</a>
-            </li>
-
-            {% if data['organisation-name'] %}
             <li>
                 <a href="user-list-prap" class="govuk-link">View all users</a>
             </li>
-            {% endif %}
         </ul>
-
-        {% if not data['organisation-name'] %}
-        <p>
-            You need to <a href="organisation-add-prap-empty" class="govuk-link">add an organisation</a> before you can add users.
-        </p>
-        {% endif %}
     </div>
 </div>
 {% endblock %}

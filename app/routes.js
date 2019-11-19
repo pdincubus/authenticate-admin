@@ -122,4 +122,14 @@ router.post('/mvp1/organisation-check-prap', function (req, res) {
     }
 });
 
+router.post('/mvp1/user-add-check-is-dwp', function (req, res) {
+    const isDWPUser = (req.session.data['user-is-dwp'] === 'yes');
+
+    if (isDWPUser) {
+        res.redirect('/mvp1/user-add-user-prap-dwp');
+    } else {
+        res.redirect('/mvp1/user-add-user-prap-org');
+    }
+});
+
 module.exports = router;
