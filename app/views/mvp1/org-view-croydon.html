@@ -57,51 +57,38 @@
                 ]
             }) }}
 
-            <form id="form" method="post" action="reinvite-confirm">
-            
-            {{ govukRadios({
-                classes: "govuk-radios",
-                idPrefix: "user-task",
-                name: "user-task",
-                fieldset: {
-                  legend: {
-                    text: "Which task would you like to perform?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--m"
-                  }
-                },
-                items: [
-                  {
-                    value: "suspend",
-                    text: "Suspend the organisation"
-                  },
-                  {
-                    value: "delete",
-                    text: "Delete the organisation"
-                  }
-                ]
-              }) }}
+            <form id="form" method="post" action="org-actions">
+                {{ govukRadios({
+                    classes: "govuk-radios",
+                    idPrefix: "user-task",
+                    name: "user-task",
+                    fieldset: {
+                        legend: {
+                            text: "Which task would you like to perform?",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--m"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "suspend",
+                            text: "Suspend the organisation"
+                        },
+                        {
+                            value: "delete",
+                            text: "Delete the organisation"
+                        }
+                    ]
+                }) }}
 
+                <input type="hidden" value="London Borough of Croydon Council" name="user-organisation" id="user-organisation">
 
-              <input type="submit" class="govuk-button govuk-!-margin-right-1" value="Continue" id="submit">
-
-
-
-        </form>
+                <input type="submit" class="govuk-button govuk-!-margin-right-1" value="Continue" id="submit">
+            </form>
 
             <p class="govuk-!-margin-top-9">
                 <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
             </p>
-
         </div>
     </div>
-
-
-    <script>
-        var nextPageRoutes = {
-          reinvite: 'reinvite-confirm.html',
-          suspend: 'suspend-check.html',
-          delete: 'delete-check.html',
-        }
-      </script>
 {% endblock %}

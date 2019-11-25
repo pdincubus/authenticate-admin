@@ -132,4 +132,32 @@ router.post('/mvp1/user-add-check-is-dwp', function (req, res) {
     }
 });
 
+router.post('/mvp1/org-actions', function (req, res) {
+    const orgAction = req.session.data['org-task'];
+
+    console.log(orgAction);
+
+    if (orgAction == 'suspend') {
+        res.redirect('/mvp1/org-suspend-check');
+    } else if (orgAction == 'delete') {
+        res.redirect('/mvp1/org-delete-check');
+    }
+});
+
+router.post('/mvp1/org-delete', function (req, res) {
+    if (req.session.data['delete-check'] === 'yes') {
+        res.redirect('/mvp1/org-delete-confirm');
+    } else {
+        res.redirect('/mvp1/org-list');
+    }
+});
+
+router.post('/mvp1/org-suspend', function (req, res) {
+    if (req.session.data['suspend-check'] === 'yes') {
+        res.redirect('/mvp1/org-suspend-confirm');
+    } else {
+        res.redirect('/mvp1/org-list');
+    }
+});
+
 module.exports = router;

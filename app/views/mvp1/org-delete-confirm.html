@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Delete organisation - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukPanel({
+                titleText: "Organisation deleted"
+            }) }}
+
+            <p>{{ data['user-organisation'] }} has been deleted.</p>
+
+            <p>
+                <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
