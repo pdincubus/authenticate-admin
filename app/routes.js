@@ -148,7 +148,7 @@ router.post('/mvp1/org-delete', function (req, res) {
     if (req.session.data['delete-check'] === 'yes') {
         res.redirect('/mvp1/org-delete-confirm');
     } else {
-        res.redirect('/mvp1/org-list');
+        res.redirect('/mvp1/org-view');
     }
 });
 
@@ -156,7 +156,7 @@ router.post('/mvp1/org-suspend', function (req, res) {
     if (req.session.data['suspend-check'] === 'yes') {
         res.redirect('/mvp1/org-suspend-confirm');
     } else {
-        res.redirect('/mvp1/org-list');
+        res.redirect('/mvp1/org-view');
     }
 });
 
