@@ -16,11 +16,19 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">
-                G4S
+                Organisation details
             </h1>
 
             {{ govukSummaryList({
                 rows: [
+                    {
+                        key: {
+                            text: "Name"
+                        },
+                        value: {
+                            text: 'G4S'
+                        }
+                    },
                     {
                         key: {
                             text: "Users"
