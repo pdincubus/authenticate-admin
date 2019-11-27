@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  User added - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+
+      {{ govukPanel({
+
+      
+        titleText: "User added",
+  
+        html: data["user-full-name"] + " added to " + data["organisation-name"]
+      }) }}
+
+      <p>An invitation has been sent to {{data['user-email-address']}}</p>
+
+      <p>
+        <a href="#" class="govuk-link">Add another user to {{ data['organisation-name'] }}</a></p>
+
+      <p>
+      <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a></p>
+    </div>
+  </div>
+{% endblock %}
