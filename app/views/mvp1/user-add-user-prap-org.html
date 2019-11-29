@@ -62,6 +62,11 @@
                     }) }}
                 </fieldset>
             </form>
+
+            {% if data['org-error'] %}
+                <a href="/mvp1/organisation-add-prap" class="govuk-link">Add an organisation</a><br>
+                <a href="/mvp1/organisation-list-prap" class="govuk-link">View all organisations</a>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
