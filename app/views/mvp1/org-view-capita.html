@@ -14,146 +14,146 @@
 
 {% block content %}
     <div class="govuk-grid-row">
-        <h1 class="govuk-heading-l">
-            <span class="govuk-caption-l">Organisation</span>
-            Capita
-        </h1>
+        <div class="govuk-width-container">
+            <h1 class="govuk-heading-l">
+                Capita
+            </h1>
 
-        <div class="govuk-card--contacts">
-            <div class="govuk-card__primary">
-                <h2 class="govuk-heading-m">Company details</h2>
+            <div class="govuk-card--contacts">
+                <div class="govuk-card__primary">
+                    <h2 class="govuk-heading-m">Company details</h2>
 
-                <p>
-                    12 The Street<br>
-                    The Place<br>
-                    The Place<br>
-                    Sheffield<br>
-                    S11 1AA
-                </p>
+                    <p>
+                        Hartshead House<br>
+                        2 Cutlers Gate<br>
+                        Sheffield<br>
+                        S4 7TL
+                    </p>
 
-                <p>
-                    Company number: 123456789
-                </p>
+                    <p>
+                        Company number: 2081330
+                    </p>
 
-                <p>
-                    <a href="#" class="govuk-link">Edit organisation details</a>
-                </p>
+                    <p>
+                        <a href="#" class="govuk-link">Edit organisation details</a>
+                    </p>
+                </div>
+
+                <div class="govuk-card__secondary">
+                    <h2 class="govuk-heading-m">Primary contact</h2>
+
+                    <p>
+                        Dave Smith<br>
+                        0114 2222222<br>
+                        <a href="mailto:dave.smith@capita.co.uk" class="govuk-link">dave.smith@capita.co.uk</a>
+                    </p>
+
+                    <p>
+                        <a href="#" class="govuk-link">Edit contact details</a>
+                    </p>
+                </div>
             </div>
 
-            <div class="govuk-card__secondary">
-                <h2 class="govuk-heading-m">Primary contact</h2>
+            <div class="govuk-cards govuk-cards--2">
+                <div class="govuk-cards--2__item govuk-card--dashboard">
+                    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Users</h2>
 
-                <p>
-                    Dave Smith<br>
-                    01234 567890<br>
-                    <a href="mailto:dave@smith.com" class="govuk-link">dave@smith.com</a>
-                </p>
+                    <p class="govuk-heading-xl govuk-!-margin-bottom-5">
+                        <span class="govuk-visually-hidden">There are currently</span>
 
-                <p>
-                    <a href="#" class="govuk-link">Edit contact details</a>
-                </p>
+                        {% if data['user-full-name'] %}
+                            75
+                        {% else %}
+                            74
+                        {% endif %}
+
+                        <span class="govuk-visually-hidden">users in the system</span>
+                    </p>
+
+                    <ul class="govuk-list">
+                        <li>
+                            <a href="user-add-user-prap-capita" class="govuk-link">Add a user</a>
+                        </li>
+
+                        <li>
+                            <a href="user-list-prap-capita" class="govuk-link">View all users</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="govuk-cards--2__item govuk-card--dashboard">
+                    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Services</h2>
+
+                    <p class="govuk-heading-xl govuk-!-margin-bottom-5">
+                        <span class="govuk-visually-hidden">There are currently</span>
+
+                        4
+
+                        <span class="govuk-visually-hidden">services in the system</span>
+                    </p>
+
+                    <ul class="govuk-list">
+                        <li>
+                            <a href="#" class="govuk-link">View all services</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="govuk-cards--2__item govuk-card--dashboard">
+                    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Contracts</h2>
+
+                    <p class="govuk-heading-xl govuk-!-margin-bottom-5">
+                        <span class="govuk-visually-hidden">There are currently</span>
+
+                        4
+
+                        <span class="govuk-visually-hidden">contracts in the system</span>
+                    </p>
+
+                    <ul class="govuk-list">
+                        <li>
+                            <a href="#" class="govuk-link">View all contracts</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
 
-        <div class="govuk-cards govuk-cards--2">
-            <div class="govuk-cards--2__item govuk-card--dashboard">
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Users</h2>
-
-                <p class="govuk-heading-xl govuk-!-margin-bottom-5">
-                    <span class="govuk-visually-hidden">There are currently</span>
-
-                    {% if data['user-full-name'] %}
-                        75
-                    {% else %}
-                        74
-                    {% endif %}
-
-                    <span class="govuk-visually-hidden">users in the system</span>
-                </p>
-
-                <ul class="govuk-list">
-                    <li>
-                        <a href="user-add-user-prap-capita" class="govuk-link">Add a user</a>
-                    </li>
-
-                    <li>
-                        <a href="user-list-prap-capita" class="govuk-link">View all users</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="govuk-cards--2__item govuk-card--dashboard">
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Services</h2>
-
-                <p class="govuk-heading-xl govuk-!-margin-bottom-5">
-                    <span class="govuk-visually-hidden">There are currently</span>
-
-                    4
-
-                    <span class="govuk-visually-hidden">services in the system</span>
-                </p>
-
-                <ul class="govuk-list">
-                    <li>
-                        <a href="#" class="govuk-link">View all services</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="govuk-cards--2__item govuk-card--dashboard">
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Contracts</h2>
-
-                <p class="govuk-heading-xl govuk-!-margin-bottom-5">
-                    <span class="govuk-visually-hidden">There are currently</span>
-
-                    4
-
-                    <span class="govuk-visually-hidden">contracts in the system</span>
-                </p>
-
-                <ul class="govuk-list">
-                    <li>
-                        <a href="#" class="govuk-link">View all contracts</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <form id="form" method="post" action="org-actions">
-            {{ govukRadios({
-                classes: "govuk-radios",
-                idPrefix: "org-task",
-                name: "org-task",
-                fieldset: {
-                    legend: {
-                        text: "Manage organisation and users",
-                        isPageHeading: true,
-                        classes: "govuk-fieldset__legend--m govuk-!-margin-top-6"
-                    }
-                },
-                items: [
-                    {
-                        value: "remove-by-contract",
-                        text: "Remove users by contract"
+            <form id="form" method="post" action="org-actions">
+                {{ govukRadios({
+                    classes: "govuk-radios",
+                    idPrefix: "org-task",
+                    name: "org-task",
+                    fieldset: {
+                        legend: {
+                            text: "Manage organisation and users",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--m govuk-!-margin-top-7"
+                        }
                     },
-                    {
-                        value: "remove-by-service",
-                        text: "Remove users by service"
-                    },
-                    {
-                        value: "delete",
-                        text: "Delete entire organisation"
-                    }
-                ]
-            }) }}
+                    items: [
+                        {
+                            value: "remove-by-contract",
+                            text: "Remove users by contract"
+                        },
+                        {
+                            value: "remove-by-service",
+                            text: "Remove users by service"
+                        },
+                        {
+                            value: "delete",
+                            text: "Delete entire organisation"
+                        }
+                    ]
+                }) }}
 
-            <input type="hidden" value="Capita" name="organisation-name" id="organisation-name">
+                <input type="hidden" value="Capita" name="organisation-name" id="organisation-name">
 
-            <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">Continue</button>
-        </form>
+                <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">Continue</button>
+            </form>
 
-        <p class="govuk-!-margin-top-9">
-            <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
-        </p>
+            <p class="govuk-!-margin-top-9">
+                <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+            </p>
+        </div>
     </div>
 {% endblock %}
