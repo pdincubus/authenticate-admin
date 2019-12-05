@@ -15,12 +15,16 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            {% if data['org-error']%}
+            {% set errorSummaryMessage %}
+                We have not found an organisation with this name. Check the name has been entered correctly, view organisations to look for the user’s employer or add a new organisation.
+            {% endset %}
+
+            {% if data['org-error'] %}
                 {{ govukErrorSummary({
                     titleText: "There is a problem",
                     errorList: [
                         {
-                            text: "The organisation you have chosen does not exist",
+                            text: errorSummaryMessage,
                             href: "#organisation-name"
                         }
                     ]
@@ -38,7 +42,7 @@
                     <div class="govuk-form-group{% if data['org-error'] %} govuk-form-group--error{% endif %}">
                         {% if data['org-error'] %}
                         <span id="organisation-error-message" class="govuk-error-message">
-                            <span class="govuk-visually-hidden">Error:</span> Organisation name must exist
+                            <span class="govuk-visually-hidden">Error:</span> {{ errorSummaryMessage }}
                         </span>
                         {% endif %}
 
@@ -63,7 +67,7 @@
                 </fieldset>
             </form>
 
-            
+
                 <p class="govuk-!-margin-top-6">
                     <a href="/mvp1/organisation-add-prap" class="govuk-link">
                         Add an organisation
@@ -73,7 +77,7 @@
                         View all organisations
                     </a>
                 </p>
-           
+
         </div>
     </div>
 {% endblock %}

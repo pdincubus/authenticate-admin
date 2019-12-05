@@ -163,8 +163,6 @@ router.post('/mvp1/org-suspend', function (req, res) {
 router.post('/mvp1/user-add-org-check', function (req, res) {
     const orgName = req.session.data['organisation-name'].toLowerCase();
 
-    console.log(orgName);
-
     if (
         orgName == 'capita'
         || orgName == 'serco'
@@ -174,9 +172,11 @@ router.post('/mvp1/user-add-org-check', function (req, res) {
         || orgName == 'sheffield city council'
     ) {
         req.session.data['org-error'] = false;
+
         res.redirect('/mvp1/user-add-user-prap');
     } else {
         req.session.data['org-error'] = true;
+
         res.redirect('/mvp1/user-add-user-prap-org');
     }
 });
