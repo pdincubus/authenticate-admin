@@ -54,7 +54,11 @@
                     <p class="govuk-heading-xl govuk-!-margin-bottom-5">
                         <span class="govuk-visually-hidden">There are currently</span>
 
-                        {% if data['contact-1-name'] %}
+                        {% if data['contact-3-name'] and data['contact-2-name'] and data['contact-1-name'] %}
+                        3
+                        {% elseif data['contact-2-name'] and data['contact-1-name'] %}
+                        2
+                        {% elseif data['contact-1-name'] %}
                         1
                         {% else %}
                         0
