@@ -181,4 +181,25 @@ router.post('/mvp1/user-add-org-check', function (req, res) {
     }
 });
 
+router.post('/dev1/user-add-org-check', function (req, res) {
+    const orgName = req.session.data['organisation-name'].toLowerCase();
+
+    if (
+        orgName == 'capita'
+        || orgName == 'serco'
+        || orgName == 'remploy'
+        || orgName == 'g4s'
+        || orgName == 'london borough of croydon council'
+        || orgName == 'sheffield city council'
+    ) {
+        req.session.data['org-error'] = false;
+
+        res.redirect('/mvp1/user-add-user-prap');
+    } else {
+        req.session.data['org-error'] = true;
+
+        res.redirect('/mvp1/user-add-user-prap-org');
+    }
+});
+
 module.exports = router;
