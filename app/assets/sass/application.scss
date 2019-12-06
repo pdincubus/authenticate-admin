@@ -234,13 +234,9 @@ a.pagination__link:focus {
 /**
  * V2 cards with background colour
  */
-.govuk-cards--2,
-.govuk-cards--3 {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.govuk-cards::after {
+.govuk-cards::after,
+.govuk-cards--2::after,
+.govuk-cards--3::after {
     content: '';
     display: block;
     clear: both;
@@ -252,16 +248,17 @@ a.pagination__link:focus {
     background-color: #f3f2f1;
     padding: 20px;
     margin-bottom: 20px;
+    float: left;
 
     :last-child {
         margin-bottom: 0;
     }
 
     @include govuk-media-query($from: desktop) {
-        flex: 0 1 31.9%;
+        width: calc(33% - 11px);
 
         &.govuk-card--company {
-            flex: 0 0 66%;
+            width: calc(66.8% - 10px);
         }
 
         &:not(:nth-child(3n+3)) {
@@ -274,10 +271,10 @@ a.pagination__link:focus {
     }
 
     @include govuk-media-query($from: tablet, $until: desktop) {
-        flex: 0 1 calc(50% - 8px);
+        width: calc(50% - 8px);
 
         &.govuk-card--company {
-            flex: 0 0 66%;
+            width: calc(66% - 8px);
         }
 
         &:not(:nth-child(2n+2)) {
@@ -290,10 +287,10 @@ a.pagination__link:focus {
     }
 
     @include govuk-media-query($until: tablet) {
-        flex: 1 0 100%;
+        width: 100%;
 
         &.govuk-card--company {
-            flex: 0 0 100%;
+            width: 100%;
         }
     }
 }
@@ -320,6 +317,14 @@ a.pagination__link:focus {
 
     :first-child {
         margin-top: 0;
+    }
+
+    @include govuk-media-query($from: desktop) {
+        min-height: 240px;
+    }
+
+    @include govuk-media-query($from: tablet, $until: desktop) {
+        min-height: 240px;
     }
 }
 
