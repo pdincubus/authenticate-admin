@@ -322,11 +322,11 @@ a.pagination__link:focus {
     }
 
     @include govuk-media-query($from: desktop) {
-        min-height: 290px;
+        min-height: 310px;
     }
 
     @include govuk-media-query($from: tablet, $until: desktop) {
-        min-height: 290px;
+        min-height: 310px;
     }
 }
 
