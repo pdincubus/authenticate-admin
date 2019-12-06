@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check organisation details - {{siteName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include '../includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+                <span class="govuk-caption-l">Add an organisation</span>
+                <h1 class="govuk-heading-l">Check organisation details</h1>
+                
+
+                <form action="organisation-confirmation-prap" method="post" class="form">
+
+
+
+                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Name
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                              {{ data['organisation-name'] }}
+                          </dd>
+                          <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                              Change<span class="govuk-visually-hidden"> name</span>
+                            </a>
+                          </dd>
+                        </div>
+
+
+                        {% if data['add-org-address'] == 'add-org-address-yes' %}
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Address
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                              {{ data["address-line-1"] }} <br> {{ data["address-line-2"] }} <br> {{ data["address-town"] }} <br> {{data["address-postcode"] }}
+                          </dd>
+                          <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                              Change<span class="govuk-visually-hidden"> date of birth</span>
+                            </a>
+                          </dd>
+                        </div>
+                        {% else %}
+                        {% endif %}
+
+
+                        {% if data['add-org-contacts'] == 'add-org-contacts-yes' %}
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Contact
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                              {{ data["contact-1-name"] }} <br> {{ data["contact-1-job-title"] }} <br> {{ data["contact-1-email"] }} <br> {{ data["contact-1-phone"] }}
+                          </dd>
+                          <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                              Change<span class="govuk-visually-hidden"> address</span>
+                            </a>
+                          </dd>
+                        </div>
+                        {% else %}
+                        {% endif %}
+
+
+                        {% if data['add-additional-org-contact'] == 'add-additional-org-contact-yes' %}
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Additional contact
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                              {{ data["contact-2-name"] }} <br> {{ data["contact-2-job-title"] }} <br> {{ data["contact-2-email"] }} <br> {{ data["contact-2-phone"] }}
+
+                          </dd>
+                          <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                              Change<span class="govuk-visually-hidden"> contact details</span>
+                            </a>
+                          </dd>
+                        </div>
+                        {% else %}
+                        {% endif %}
+
+
+
+                        {% if data['add-another-additional-org-contact'] == 'add-another-additional-org-contact-yes' %}
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Additional contact
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                              {{ data["contact-3-name"] }} <br> {{ data["contact-3-job-title"] }} <br> {{ data["contact-3-email"] }} <br> {{ data["contact-3-phone"] }}
+
+                          </dd>
+                          <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                              Change<span class="govuk-visually-hidden"> contact details</span>
+                            </a>
+                          </dd>
+                        </div>
+                        {% else %}
+                        {% endif %}
+
+
+
+
+                      </dl>
+                      
+
+           
+
+                <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">
+                    Add {{ data['organisation-name'] }}
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

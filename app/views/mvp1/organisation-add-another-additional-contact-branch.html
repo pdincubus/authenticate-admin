@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add new organisation - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include '../includes/back-button.njk' %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="organisation-add-another-additional-contact" method="post" class="form">
+                {{ govukFieldset({
+                    legend: {
+                    html: '<span class="govuk-caption-l">Add an organisation</span>Do you want to add another additional organisation contact?',
+                    classes: "govuk-fieldset__legend--l",
+                    isPageHeading: true
+                    }
+                })}}
+
+                <span id="dob-hint" class="govuk-hint">
+                    Another additional organisation contact is not required to allow user access to the service.
+                  </span>
+
+                {{ govukRadios({
+                    classes: "govuk-radios",
+                    idPrefix: "add-another-additional-org-contact",
+                    name: "add-another-additional-org-contact",
+                    
+                    items: [
+                      {
+                        value: "add-another-additional-org-contact-yes",
+                        text: "Yes"
+                      },
+                      {
+                        value: "add-another-additional-org-contact-no",
+                        text: "No"
+                      }
+                    ]
+                  }) }}
+
+
+                  
+                   
+
+                    <button type="submit" class="govuk-button" id="submit">
+                      Continue
+                  </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
