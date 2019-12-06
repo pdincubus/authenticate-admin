@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Organisation details - {{siteName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include '../includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-width-container">
+            <h1 class="govuk-heading-l">
+                London Borough of Croydon Council
+            </h1>
+
+            <div class="govuk-cards govuk-cards--3">
+                <div class="govuk-cards--2__item govuk-card--company">
+                    <h2 class="govuk-heading-m">Company details</h2>
+
+                    <p>
+                        Access Croydon<br>
+                        Bernard Weatherill House<br>
+                        8 Mint Walk<br>
+                        Croydon<br>
+                        CR0 1EA
+
+                    </p>
+
+                    <p>
+                        Company number: 04992204
+                    </p>
+
+                    <p>
+                        <a href="#" class="govuk-link">Edit organisation details</a>
+                    </p>
+                </div>
+
+                <div class="govuk-cards--2__item govuk-card--contacts">
+                    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Contacts</h2>
+
+                    <p class="govuk-heading-xl govuk-!-margin-bottom-5">
+                        <span class="govuk-visually-hidden">There are currently</span>
+
+                        4
+
+                        <span class="govuk-visually-hidden">contacts in the system</span>
+                    </p>
+
+                    <ul class="govuk-list">
+                        <li>
+                            <a href="#" class="govuk-link">Add a contact</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="govuk-link">View all contacts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="govuk-cards govuk-cards--2">
+                <div class="govuk-cards--2__item govuk-card--dashboard">
+                    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Users</h2>
+
+                    <p class="govuk-heading-xl govuk-!-margin-bottom-5">
+                        <span class="govuk-visually-hidden">There are currently</span>
+
+                        {% if data['user-full-name'] %}
+                            16
+                        {% else %}
+                            15
+                        {% endif %}
+
+                        <span class="govuk-visually-hidden">users in the system</span>
+                    </p>
+
+                    <ul class="govuk-list">
+                        <li>
+                            <a href="user-add-user-prap-G4S" class="govuk-link">Add a user</a>
+                        </li>
+
+                        <li>
+                            <a href="user-list-prap-G4S" class="govuk-link">View all users</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="govuk-cards--2__item govuk-card--dashboard">
+                    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Services</h2>
+
+                    <p class="govuk-heading-xl govuk-!-margin-bottom-5">
+                        <span class="govuk-visually-hidden">There are currently</span>
+
+                        2
+
+                        <span class="govuk-visually-hidden">services in the system</span>
+                    </p>
+
+                    <ul class="govuk-list">
+                        <li>
+                            <a href="#" class="govuk-link">View all services</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="govuk-cards--2__item govuk-card--dashboard">
+                    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Teams</h2>
+
+                    <p class="govuk-heading-xl govuk-!-margin-bottom-5">
+                        <span class="govuk-visually-hidden">There are currently</span>
+
+                        2
+
+                        <span class="govuk-visually-hidden">teams in the system</span>
+                    </p>
+
+                    <ul class="govuk-list">
+                        <li>
+                            <a href="#" class="govuk-link">View all teams</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <form id="form" method="post" action="org-actions">
+                {{ govukRadios({
+                    classes: "govuk-radios",
+                    idPrefix: "org-task",
+                    name: "org-task",
+                    fieldset: {
+                        legend: {
+                            text: "Manage organisation and users",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--m govuk-!-margin-top-7"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "remove-by-contract",
+                            text: "Remove users by contract"
+                        },
+                        {
+                            value: "remove-by-service",
+                            text: "Remove users by service"
+                        },
+                        {
+                            value: "delete",
+                            text: "De-activate London Borough of Croydon Council"
+                        }
+                    ]
+                }) }}
+
+                <input type="hidden" value="G4S" name="organisation-name" id="organisation-name">
+
+                <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">Continue</button>
+            </form>
+
+            <p class="govuk-!-margin-top-9">
+                <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
