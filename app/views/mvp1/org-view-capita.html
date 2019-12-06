@@ -19,8 +19,8 @@
                 Capita
             </h1>
 
-            <div class="govuk-card--contacts">
-                <div class="govuk-card__primary">
+            <div class="govuk-cards govuk-cards--3">
+                <div class="govuk-cards--2__item govuk-card--company">
                     <h2 class="govuk-heading-m">Company details</h2>
 
                     <p>
@@ -39,18 +39,30 @@
                     </p>
                 </div>
 
-                <div class="govuk-card__secondary">
-                    <h2 class="govuk-heading-m">Primary contact</h2>
+                <div class="govuk-cards--2__item govuk-card--contacts">
+                    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Contacts</h2>
 
-                    <p>
-                        Dave Smith<br>
-                        0114 2222222<br>
-                        <a href="mailto:dave.smith@capita.co.uk" class="govuk-link">dave.smith@capita.co.uk</a>
+                    <p class="govuk-heading-xl govuk-!-margin-bottom-5">
+                        <span class="govuk-visually-hidden">There are currently</span>
+
+                        {% if data['user-full-name'] %}
+                            75
+                        {% else %}
+                            74
+                        {% endif %}
+
+                        <span class="govuk-visually-hidden">contacts in the system</span>
                     </p>
 
-                    <p>
-                        <a href="#" class="govuk-link">Edit contact details</a>
-                    </p>
+                    <ul class="govuk-list">
+                        <li>
+                            <a href="#" class="govuk-link">Add a contact</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="govuk-link">View all contacts</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -100,19 +112,19 @@
                 </div>
 
                 <div class="govuk-cards--2__item govuk-card--dashboard">
-                    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Contracts</h2>
+                    <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Teams</h2>
 
                     <p class="govuk-heading-xl govuk-!-margin-bottom-5">
                         <span class="govuk-visually-hidden">There are currently</span>
 
                         4
 
-                        <span class="govuk-visually-hidden">contracts in the system</span>
+                        <span class="govuk-visually-hidden">teams in the system</span>
                     </p>
 
                     <ul class="govuk-list">
                         <li>
-                            <a href="#" class="govuk-link">View all contracts</a>
+                            <a href="#" class="govuk-link">View all teams</a>
                         </li>
                     </ul>
                 </div>
@@ -141,7 +153,7 @@
                         },
                         {
                             value: "delete",
-                            text: "Delete entire organisation"
+                            text: "De-activate Capita"
                         }
                     ]
                 }) }}
