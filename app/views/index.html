@@ -128,264 +128,260 @@
                 </tbody>
             </table>
 
-
-
-     <details class="govuk-details govuk-!-margin-top-9">
+            <details class="govuk-details govuk-!-margin-top-9">
                 <summary class="govuk-details__summary">
                   <span class="govuk-details__summary-text">
                     Other prototype versions
                   </span>
                 </summary>
-        <div class="govuk-details__text">
 
+                <div class="govuk-details__text">
+                    <time datetime="2019-11-27" class="govuk-caption-m">27 November 2019</time>
 
-            <time datetime="2019-11-27" class="govuk-caption-m">27 November 2019</time>
+                    <h2 class="govuk-heading-l">v4</h2>
 
-            <h2 class="govuk-heading-l">v4</h2>
+                    <a href="/v4/signin" class="govuk-button govuk-!-margin-right-1">View v4 prototype</a>
+                    <a href="/v4/dashboard-service-prap-no-orgs" class="govuk-button">View 'no organisations' dashboard</a>
 
-            <a href="/v4/signin" class="govuk-button govuk-!-margin-right-1">View v4 prototype</a>
-            <a href="/v4/dashboard-service-prap-no-orgs" class="govuk-button">View 'no organisations' dashboard</a>
-
-            <h3 class="govuk-heading-s">General changes</h3>
-
-            <ul class="govuk-list govuk-list--bullet">
-                <li>
-                    'Is user employed by the DWP?' question in Add User journey
-                </li>
-            </ul>
-
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-            <time datetime="2019-10-24" class="govuk-caption-m">24 October 2019</time>
-
-            <h2 class="govuk-heading-l" id="v3">v3</h2>
-
-            <a href="/v3/dashboard-root" class="govuk-button govuk-!-margin-right-1">View as System admin</a>
-            <a href="/v3/dashboard-service-health-assessment" class="govuk-button govuk-!-margin-right-1">View as Service admin</a>
-            <a href="/v3/user-list-capita" class="govuk-button">View as Organisation admin</a>
-
-            <h3 class="govuk-heading-s">General changes</h3>
-
-            <ul class="govuk-list govuk-list--bullet">
-                <li>
-                    Remove Service Groups
-                </li>
-                <li>
-                    Add new 'Add user' journey with permissions first
-                </li>
-                <li>
-                    Example pagination on User List pages
-                </li>
-                <li>
-                    Update individual user view pages
-                </li>
-                <li>
-                    Organisation admin users no longer land on a dashboard page, they go directly to the users list
-                </li>
-                <li>
-                    Create 'Health Assessment' service admin journey pages
-                </li>
-                <li>
-                    Create 'Capita' organisation admin journey pages
-                </li>
-                <li>
-                    Add organisation choice into user edit journey
-                </li>
-                <li>
-                    Add 'level' to user titles
-                </li>
-                <li>
-                    Various content updates
-                </li>
-                <li>
-                    Updated 'service add' journey from dev feedback for system admins
-                </li>
-                <li>
-                    Updated 'service edit' journey to match new 'service add' steps
-                </li>
-            </ul>
-
-            <h3 class="govuk-heading-s">Confidence level</h3>
-
-            <table class="govuk-table">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header" scope="col">User journey step</th>
-                        <th class="govuk-table__header" scope="col">Confidence</th>
-                    </tr>
-                </thead>
-
-                <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v3/dashboard-root">Super admin dashboard</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--high">high</span></td>
-                    </tr>
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v3/dashboard-service-health-assessment">Service admin dashboard</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--high">high</span></td>
-                    </tr>
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v3/user-list-capita">Organisation user list landing</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                    </tr>
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v3/service-add">Add a new service</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
-                    </tr>
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v3/organisation-add">Add a new organisation</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                    </tr>
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v3/user-add">Add a new user (as a super admin)</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                    </tr>
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v3/user-add-health-assessment">Add a new user (as a service admin)</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                    </tr>
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v3/user-add-capita">Add a new user (as an organisation admin)</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                    </tr>
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v3/user-view">View a user (as an organisation admin)</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                    </tr>
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v3/user-edit">Edit a user</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <time datetime="2019-10-21" class="govuk-caption-m">21 October 2019</time>
-
-            <h2 class="govuk-heading-l">v2</h2>
-
-            <a href="/v2/dashboard-root" class="govuk-button">Open prototype</a>
-
-            <h3 class="govuk-heading-s">General changes</h3>
-
-            <ul class="govuk-list govuk-list--bullet">
-                <li>
-                    Various text content changes
-                </li>
-                <li>
-                    'Back' links position change on <a href="/v2/operator-add" class="govuk-link">Add service group</a> and <a href="/v2/operator-edit" class="govuk-link">Edit service group</a> journeys
-                </li>
-                <li>
-                    <a href="/v2/dashboard-root" class="govuk-link">Dashboard cards</a> now have a background colour and border
-                </li>
-                <li>
-                    Added missing 'caption' to <a href="/v2/operator-summary" class="govuk-link">Add service group summary page</a>
-                </li>
-                <li>
-                    Changed several container elements from one-half to two-thirds width
-                </li>
-                <li>
-                    Added some new dashboards for service groups/services
-                </li>
-                <li>
-                    A different approach to choosing user permissions
-                </li>
-            </ul>
-
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-            <time datetime="2019-10-16" class="govuk-caption-m">16 October 2019</time>
-
-            <h2 class="govuk-heading-l">v1</h2>
-
-            <a href="/v1/dashboard-root" class="govuk-button">Open prototype</a>
-
-            <h3 class="govuk-heading-s">UR Goals</h3>
-
-            <ul class="govuk-list govuk-list--bullet">
-                <li>
-                    To understand more about the role of service management
-                </li>
-
-                <li>
-                    To explore the journey for a system admin adding a service group.
+                    <h3 class="govuk-heading-s">General changes</h3>
 
                     <ul class="govuk-list govuk-list--bullet">
                         <li>
-                            Check understanding of the dashboard
-                        </li>
-
-                        <li>
-                            Explore whether the flow of the journey/screens make sense to users
-                        </li>
-
-                        <li>
-                            Explore users understanding of the permissions/roles
+                            'Is user employed by the DWP?' question in Add User journey
                         </li>
                     </ul>
-                </li>
-            </ul>
 
-            <h3 class="govuk-heading-s">Findings</h3>
+                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-            <ul class="govuk-list govuk-list--bullet">
-                <li>
-                    Users did not understand the term 'Service Groups'
-                </li>
-            </ul>
+                    <time datetime="2019-10-24" class="govuk-caption-m">24 October 2019</time>
 
-            <h3 class="govuk-heading-s">Confidence level</h3>
+                    <h2 class="govuk-heading-l" id="v3">v3</h2>
+
+                    <a href="/v3/dashboard-root" class="govuk-button govuk-!-margin-right-1">View as System admin</a>
+                    <a href="/v3/dashboard-service-health-assessment" class="govuk-button govuk-!-margin-right-1">View as Service admin</a>
+                    <a href="/v3/user-list-capita" class="govuk-button">View as Organisation admin</a>
+
+                    <h3 class="govuk-heading-s">General changes</h3>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                            Remove Service Groups
+                        </li>
+                        <li>
+                            Add new 'Add user' journey with permissions first
+                        </li>
+                        <li>
+                            Example pagination on User List pages
+                        </li>
+                        <li>
+                            Update individual user view pages
+                        </li>
+                        <li>
+                            Organisation admin users no longer land on a dashboard page, they go directly to the users list
+                        </li>
+                        <li>
+                            Create 'Health Assessment' service admin journey pages
+                        </li>
+                        <li>
+                            Create 'Capita' organisation admin journey pages
+                        </li>
+                        <li>
+                            Add organisation choice into user edit journey
+                        </li>
+                        <li>
+                            Add 'level' to user titles
+                        </li>
+                        <li>
+                            Various content updates
+                        </li>
+                        <li>
+                            Updated 'service add' journey from dev feedback for system admins
+                        </li>
+                        <li>
+                            Updated 'service edit' journey to match new 'service add' steps
+                        </li>
+                    </ul>
+
+                    <h3 class="govuk-heading-s">Confidence level</h3>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="col">User journey step</th>
+                                <th class="govuk-table__header" scope="col">Confidence</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v3/dashboard-root">Super admin dashboard</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--high">high</span></td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v3/dashboard-service-health-assessment">Service admin dashboard</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--high">high</span></td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v3/user-list-capita">Organisation user list landing</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v3/service-add">Add a new service</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v3/organisation-add">Add a new organisation</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v3/user-add">Add a new user (as a super admin)</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v3/user-add-health-assessment">Add a new user (as a service admin)</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v3/user-add-capita">Add a new user (as an organisation admin)</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v3/user-view">View a user (as an organisation admin)</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v3/user-edit">Edit a user</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <time datetime="2019-10-21" class="govuk-caption-m">21 October 2019</time>
+
+                    <h2 class="govuk-heading-l">v2</h2>
+
+                    <a href="/v2/dashboard-root" class="govuk-button">Open prototype</a>
+
+                    <h3 class="govuk-heading-s">General changes</h3>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                            Various text content changes
+                        </li>
+                        <li>
+                            'Back' links position change on <a href="/v2/operator-add" class="govuk-link">Add service group</a> and <a href="/v2/operator-edit" class="govuk-link">Edit service group</a> journeys
+                        </li>
+                        <li>
+                            <a href="/v2/dashboard-root" class="govuk-link">Dashboard cards</a> now have a background colour and border
+                        </li>
+                        <li>
+                            Added missing 'caption' to <a href="/v2/operator-summary" class="govuk-link">Add service group summary page</a>
+                        </li>
+                        <li>
+                            Changed several container elements from one-half to two-thirds width
+                        </li>
+                        <li>
+                            Added some new dashboards for service groups/services
+                        </li>
+                        <li>
+                            A different approach to choosing user permissions
+                        </li>
+                    </ul>
+
+                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+                    <time datetime="2019-10-16" class="govuk-caption-m">16 October 2019</time>
+
+                    <h2 class="govuk-heading-l">v1</h2>
+
+                    <a href="/v1/dashboard-root" class="govuk-button">Open prototype</a>
+
+                    <h3 class="govuk-heading-s">UR Goals</h3>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                            To understand more about the role of service management
+                        </li>
+
+                        <li>
+                            To explore the journey for a system admin adding a service group.
+
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>
+                                    Check understanding of the dashboard
+                                </li>
+
+                                <li>
+                                    Explore whether the flow of the journey/screens make sense to users
+                                </li>
+
+                                <li>
+                                    Explore users understanding of the permissions/roles
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="govuk-heading-s">Findings</h3>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                            Users did not understand the term 'Service Groups'
+                        </li>
+                    </ul>
+
+                    <h3 class="govuk-heading-s">Confidence level</h3>
 
 
 
-            <table class="govuk-table">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header" scope="col">User journey step</th>
-                        <th class="govuk-table__header" scope="col">Confidence</th>
-                    </tr>
-                </thead>
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="col">User journey step</th>
+                                <th class="govuk-table__header" scope="col">Confidence</th>
+                            </tr>
+                        </thead>
 
-                <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v1/dashboard-root">System admin dashboard</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
-                    </tr>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v1/dashboard-root">System admin dashboard</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
+                            </tr>
 
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v1/operator-list">Service Group landing</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                    </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v1/operator-list">Service Group landing</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                            </tr>
 
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/v1/operator-add">Add a Service Group</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                    </tr>
-                </tbody>
-            </table>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/v1/operator-add">Add a Service Group</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-            <h3 class="govuk-heading-s">Useful links</h3>
+                    <h3 class="govuk-heading-s">Useful links</h3>
 
-            <ul class="govuk-list">
-                <li>
-                    <a class="govuk-link" href="/public/files/discussion/admin-portal-discussion-guide-add-a-service-group-1.docx">Discussion guide</a>
-                </li>
+                    <ul class="govuk-list">
+                        <li>
+                            <a class="govuk-link" href="/public/files/discussion/admin-portal-discussion-guide-add-a-service-group-1.docx">Discussion guide</a>
+                        </li>
 
-                <li>
-                    <a class="govuk-link" href="/public/files/insights/v1-add-service-group.pdf">UR Insights - add a service group</a>
-                </li>
-            </ul>
-
-            </div>
-        </details>
+                        <li>
+                            <a class="govuk-link" href="/public/files/insights/v1-add-service-group.pdf">UR Insights - add a service group</a>
+                        </li>
+                    </ul>
+                </div>
+            </details>
         {% endset %}
 
         {% set devVersionsHtml %}

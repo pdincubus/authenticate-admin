@@ -16,7 +16,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-width-container">
             <h1 class="govuk-heading-l">
-                G4S
+                {{ data['organisation-name'] }}
             </h1>
 
             <div class="govuk-cards govuk-cards--3">
@@ -24,15 +24,7 @@
                     <h2 class="govuk-heading-m">Company details</h2>
 
                     <p>
-                        5th Floor<br>
-                        Southside<br>
-                        105 Victoria Street<br>
-                        London<br>
-                        SW1E 6QT
-                    </p>
-
-                    <p>
-                        Company number: 04992207
+                        ORG ADDRESS HERE
                     </p>
 
                     <p>
@@ -46,20 +38,10 @@
                     <p class="govuk-heading-xl govuk-!-margin-bottom-5">
                         <span class="govuk-visually-hidden">There are currently</span>
 
-                        3
+                        0
 
                         <span class="govuk-visually-hidden">contacts in the system</span>
                     </p>
-
-                    <ul class="govuk-list">
-                        <li>
-                            <a href="#" class="govuk-link">Add a contact</a>
-                        </li>
-
-                        <li>
-                            <a href="#" class="govuk-link">View all contacts</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
 
@@ -71,23 +53,25 @@
                         <span class="govuk-visually-hidden">There are currently</span>
 
                         {% if data['user-full-name'] %}
-                            55
+                            1
                         {% else %}
-                            54
+                            0
                         {% endif %}
 
                         <span class="govuk-visually-hidden">users in the system</span>
                     </p>
 
+                    {% if data['user-full-name'] %}
                     <ul class="govuk-list">
                         <li>
-                            <a href="user-add-user-prap-G4S" class="govuk-link">Add a user</a>
+                            <a href="user-add-user-prap-{{ data['organisation-name'] }}" class="govuk-link">Add a user</a>
                         </li>
 
                         <li>
-                            <a href="user-list-prap-G4S" class="govuk-link">View all users</a>
+                            <a href="user-list-prap-{{ data['organisation-name'] }}" class="govuk-link">View all users</a>
                         </li>
                     </ul>
+                    {% endif %}
                 </div>
 
                 <div class="govuk-cards--2__item govuk-card--dashboard">
@@ -96,16 +80,10 @@
                     <p class="govuk-heading-xl govuk-!-margin-bottom-5">
                         <span class="govuk-visually-hidden">There are currently</span>
 
-                        4
+                        0
 
                         <span class="govuk-visually-hidden">services in the system</span>
                     </p>
-
-                    <ul class="govuk-list">
-                        <li>
-                            <a href="#" class="govuk-link">View all services</a>
-                        </li>
-                    </ul>
                 </div>
 
                 <div class="govuk-cards--2__item govuk-card--dashboard">
@@ -114,16 +92,10 @@
                     <p class="govuk-heading-xl govuk-!-margin-bottom-5">
                         <span class="govuk-visually-hidden">There are currently</span>
 
-                        4
+                        0
 
                         <span class="govuk-visually-hidden">teams in the system</span>
                     </p>
-
-                    <ul class="govuk-list">
-                        <li>
-                            <a href="#" class="govuk-link">View all teams</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
 
@@ -150,12 +122,12 @@
                         },
                         {
                             value: "delete",
-                            text: "De-activate G4S"
+                            text: "De-activate organisation"
                         }
                     ]
                 }) }}
 
-                <input type="hidden" value="G4S" name="organisation-name" id="organisation-name">
+                <input type="hidden" value="{{ data['organisation-name'] }}" name="organisation-name" id="organisation-name">
 
                 <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">Continue</button>
             </form>
