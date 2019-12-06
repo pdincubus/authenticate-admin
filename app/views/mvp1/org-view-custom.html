@@ -103,7 +103,13 @@
                             <a href="user-list-prap-{{ data['organisation-name'] }}" class="govuk-link">View all users</a>
                         </li>
                     </ul>
-                    {% endif %}
+                    {% else %}
+                    <ul class="govuk-list">
+                            <li>
+                                <a href="user-add-user-prap-new" class="govuk-link">Add a user</a>
+                            </li>
+                        </ul>
+                        {% endif %}
                 </div>
 
                 <div class="govuk-cards--2__item govuk-card--dashboard">
