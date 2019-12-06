@@ -256,6 +256,7 @@ a.pagination__link:focus {
 
     @include govuk-media-query($from: desktop) {
         width: calc(33% - 11px);
+        min-height: 220px;
 
         &.govuk-card--company {
             width: calc(66.8% - 10px);
@@ -272,6 +273,7 @@ a.pagination__link:focus {
 
     @include govuk-media-query($from: tablet, $until: desktop) {
         width: calc(50% - 8px);
+        min-height: 220px;
 
         &.govuk-card--company {
             width: calc(66% - 8px);
