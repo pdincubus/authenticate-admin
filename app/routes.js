@@ -122,6 +122,35 @@ router.post('/mvp1/organisation-check-prap', function (req, res) {
     }
 });
 
+router.post('/dev1/organisation-check-prap', function (req, res) {
+    let orgName = req.session.data['organisation-name'];
+    let orgNameExists = false;
+
+    let orgList = [
+        'BPDTS',
+        'Capita',
+        'DWP',
+        'MoJ',
+        'MoD',
+        'NHS',
+        'Remploy',
+        'G4S',
+        'London Borough of Croydon Council'
+    ];
+
+    orgList.forEach(org => {
+        if (orgName === org) {
+            orgNameExists = true;
+        }
+    });
+
+    if (orgNameExists) {
+        res.redirect('/dev1/organisation-exists-prap');
+    } else {
+        res.redirect('/dev1/organisation-confirmation-prap');
+    }
+});
+
 router.post('/v4/user-add-check-is-dwp', function (req, res) {
     const isDWPUser = (req.session.data['user-is-dwp'] === 'yes');
 
