@@ -19,9 +19,9 @@
 
     {% set panelContent %}
         {% if data["organisation-name"] == 'dwp' %}
-            {{ data["user-full-name"] }} added to the Department for Work and Pensions
+            {{ data["user-first-name"] +  data["user-last-name"] }} added to the Department for Work and Pensions
         {% else %}
-            {{ data["user-full-name"] }} added to {{ data["organisation-name"] }}
+            {{ data["user-first-name"] + ' ' + data["user-last-name"] }} added to {{ data["organisation-name"] }}
         {% endif %}
     {% endset %}
 
