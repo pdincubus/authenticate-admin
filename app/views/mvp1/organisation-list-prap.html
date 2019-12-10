@@ -28,26 +28,6 @@
                 </thead>
 
                 <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">
-                            <a href="org-view-dwp" class="govuk-link">
-                                DWP
-                            </a>
-                        </th>
-
-                        <td class="govuk-table__cell govuk-table__cell--numeric">
-                            {% if data['user-full-name'] and data['organisation-name'] == 'dwp' %}
-                                133
-                            {% else %}
-                                132
-                            {% endif %}
-                        </td>
-
-                        <td class="govuk-table__cell">
-                                        <a href="user-list-prap-dwp" class="govuk-link">View users</a>
-                        </td>
-                    </tr>
-
                     {% if data['organisation-name'] %}
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
@@ -91,6 +71,26 @@
 
                         <td class="govuk-table__cell">
                             <a href="user-list-prap-capita" class="govuk-link">View users</a>
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="org-view-dwp" class="govuk-link">
+                                DWP
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['user-full-name'] and data['organisation-name'] == 'dwp' %}
+                                133
+                            {% else %}
+                                132
+                            {% endif %}
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="user-list-prap-dwp" class="govuk-link">View users</a>
                         </td>
                     </tr>
 
