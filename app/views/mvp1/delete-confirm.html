@@ -9,34 +9,23 @@ Delete user - {{serviceName}}
 {% endblock %}
 
 {% block content %}
+    {% if data['delete-check'] == 'delete-no' %}
+    <script>
+        window.location.href = 'user-view'
+    </script>
+    {% endif %}
 
-{% if data['delete-check'] == 'delete-no' %}
-<script>
-    window.location.href = 'user-view'
-</script>
-{% endif %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukPanel({
+                titleText: "User deleted"
+            }) }}
 
+            <p>{{ data['user-first-name'] }} {{ data['user-last-name'] }} has been deleted.</p>
 
-
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      
-
-        {{ govukPanel({
-
-      
-          titleText: "User deleted"
-  
-    
-        }) }}
-
-
-
-      <p>{{ data['user-full-name'] }} has been deleted.</p>
-
-   
-      <p><a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a></p>
+            <p>
+                <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+            </p>
+        </div>
     </div>
-  </div>
 {% endblock %}

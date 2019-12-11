@@ -30,7 +30,7 @@
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
                             <a href="user-list-prap-new" class="govuk-link">
-                            {% if data['user-full-name'] %}
+                            {% if data['user-first-name'] and data['user-last-name'] %}
                                 1
                             {% else %}
                                 0
@@ -47,7 +47,7 @@
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
                             <a href="user-list-prap-new" class="govuk-link">
-                            {% if data['user-full-name'] and data['organisation-name'] == 'dwp' %}
+                            {% if data['user-first-name'] and data['user-last-name'] and data['organisation-name'] == 'dwp' %}
                                 1
                             {% else %}
                                 0

@@ -11,16 +11,25 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-                <h1 class="govuk-heading-l listing-page"><span class="govuk-caption-l">{{ data['organisation-name'] }}</span> 
+                <h1 class="govuk-heading-l listing-page"><span class="govuk-caption-l">{{ data['organisation-name'] }}</span>
                     Add a user</h1>
             <form action="user-confirmation-prap-new" method="post" class="form">
-               
+
                 {{ govukInput({
                     label: {
-                        text: "Full name"
+                        text: "First name"
                     },
-                    id: "user-full-name",
-                    name: "user-full-name",
+                    id: "user-first-name",
+                    name: "user-first-name",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Last name"
+                    },
+                    id: "user-last-name",
+                    name: "user-last-name",
                     classes: "govuk-!-width-three-quarters"
                 }) }}
 

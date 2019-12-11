@@ -8,26 +8,17 @@
     {{ super() }}
 {% endblock %}
 
-
-
-
 {% block content %}
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
-
       <form id="form" method="post" action="delete-confirm">
-
-
         {{ govukRadios({
           classes: "govuk-radios",
           idPrefix: "delete-check",
           name: "delete-check",
           fieldset: {
             legend: {
-              text: "Are you sure you want to delete " + data["user-full-name"] + "?",
+              text: "Are you sure you want to delete " + data["user-first-name"] + data["user-last-name"] + "?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -45,14 +36,9 @@
         }) }}
 
 
-        <input type="submit" class="govuk-button govuk-!-margin-right-1" value="Continue" id="submit">
-
+        <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">Continue</button>
         <a href="user-view" class="govuk-button govuk-button--secondary">Cancel</a>
-
-
       </form>
-     
-
     </div>
   </div>
 {% endblock %}

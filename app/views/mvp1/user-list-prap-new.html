@@ -21,7 +21,7 @@
 
     <a href="user-add-user-prap-new" class="govuk-button listing-page">Add user</a>
 
-    {% if data['user-full-name'] %}
+    {% if data['user-first-name'] and data['user-last-name'] %}
     <table class="govuk-table">
         <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -34,7 +34,9 @@
         <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">
-                    <a href="user-view" class="govuk-link">{{ data['user-full-name'] }}</a>
+                    <a href="user-view" class="govuk-link">
+                        {{ data['user-first-name'] }} {{ data['user-last-name'] }}
+                    </a>
                 </th>
                 <td class="govuk-table__cell">{{ data['user-email-address'] }}</td>
                 <td class="govuk-table__cell">Active</td>
