@@ -28,14 +28,21 @@
 
                 {{ govukInput({
                     label: {
-                        text: "Full name"
+                        text: "First name"
                     },
-                    id: "user-full-name",
-                    name: "user-full-name",
+                    id: "user-first-name",
+                    name: "user-first-name",
                     classes: "govuk-!-width-three-quarters"
                 }) }}
 
-
+                {{ govukInput({
+                    label: {
+                        text: "Last name"
+                    },
+                    id: "user-last-name",
+                    name: "user-last-name",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
 
                 {{ govukInput({
                     label: {
@@ -47,11 +54,7 @@
                     classes: "govuk-!-width-three-quarters"
                 }) }}
 
-
-
-
                 <input class="govuk-input" id="organisation-name" name="organisation-name" value="Capita" type="hidden" >
-
 
                 {{ govukButton({
                     text: "Continue"

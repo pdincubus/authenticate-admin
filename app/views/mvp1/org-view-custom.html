@@ -84,7 +84,7 @@
                     <p class="govuk-heading-xl govuk-!-margin-bottom-5">
                         <span class="govuk-visually-hidden">There are currently</span>
 
-                        {% if data['user-full-name'] %}
+                        {% if data['user-first-name'] and data['user-last-name'] %}
                             1
                         {% else %}
                             0
@@ -93,7 +93,7 @@
                         <span class="govuk-visually-hidden">users in the system</span>
                     </p>
 
-                    {% if data['user-full-name'] %}
+                    {% if data['user-first-name'] and data['user-last-name'] %}
                     <ul class="govuk-list">
                         <li>
                             <a href="user-add-user-prap-{{ data['organisation-name'] }}" class="govuk-link">Add a user</a>

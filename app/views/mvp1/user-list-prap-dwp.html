@@ -32,7 +32,11 @@
     <tbody class="govuk-table__body">
       {% if data['organisation-name'] == 'DWP' %}
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">{{ data['user-full-name'] }}</a></th>
+        <th scope="row" class="govuk-table__header">
+            <a href="user-view" class="govuk-link">
+                {{ data['user-first-name'] }} {{ data['user-last-name'] }}
+            </a>
+        </th>
         <td class="govuk-table__cell">{{ data['user-email-address'] }}</td>
         <td class="govuk-table__cell">Pending activation</td>
       </tr>
@@ -129,12 +133,12 @@
         <li class="pagination__item">
             <a class="pagination__link" href="user-list-prap-remploy-2" aria-label="Page 4">4</a>
           </li>
-    
+
           <li class="pagination__item">
               <a class="pagination__link" href="user-list-prap-remploy-3" aria-label="Page 5">5</a>
             </li>
 
-    
+
 
       <li class="pagination__item">
         <a class="pagination__link" href="user-list-prap-remploy-2" aria-label="Next page">

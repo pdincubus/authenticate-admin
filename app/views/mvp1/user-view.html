@@ -20,7 +20,7 @@
             </h1>
 
             {% set userStatus %}
-                {% if data['user-full-name'] %}
+                {% if data['user-first-name'] and data['user-last-name'] %}
                 Pending activation
                 {% else %}
                 Active
@@ -28,7 +28,7 @@
             {% endset %}
 
             {% set userCreated %}
-                {% if data['user-full-name'] %}
+                {% if data['user-first-name'] and data['user-last-name'] %}
                 <div id="current-time"></div>
                 {% else %}
                 9 April 1982, 7:52pm
@@ -42,7 +42,7 @@
                             text: "Name"
                         },
                         value: {
-                            text: data['user-full-name']
+                            text: data['user-first-name'] + " " + data['user-last-name']
                         }
                     },
                     {
@@ -111,7 +111,7 @@
                     },
                     {
                         value: "delete",
-                        text: "Delete the user"
+                        text: "Delete " + data['user-first-name'] + " " + data['user-last-name']
                     }
                     ]
                 }) }}

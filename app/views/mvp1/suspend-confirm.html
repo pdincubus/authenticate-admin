@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Suspend user - {{serviceName}}
+    Suspend user - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -9,34 +9,20 @@ Suspend user - {{serviceName}}
 {% endblock %}
 
 {% block content %}
+    {% if data['suspend-check'] == 'suspend-no' %}
+    <script>
+        window.location.href = 'user-view'
+    </script>
+    {% endif %}
 
-{% if data['suspend-check'] == 'suspend-no' %}
-<script>
-    window.location.href = 'user-view'
-</script>
-{% endif %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukPanel({
+            titleText: "User suspended"
+            }) }}
 
-
-
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      
-
-        {{ govukPanel({
-
-      
-          titleText: "User suspended"
-  
-    
-        }) }}
-
-
-
-      <p>{{ data['user-full-name'] }} has been suspended.</p>
-
-   
-      <p><a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a></p>
+            <p>{{ data['user-first-name'] }} {{ data['user-last-name'] }} has been suspended.</p>
+            <p><a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a></p>
+        </div>
     </div>
-  </div>
 {% endblock %}
