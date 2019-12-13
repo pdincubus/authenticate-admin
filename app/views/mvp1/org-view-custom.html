@@ -110,11 +110,17 @@
                     </ul>
                     {% else %}
                     <ul class="govuk-list">
+                            {% if data['organisation-name'] and data['address-line-1'] and data['contact-1-first-name'] %}
                             <li>
                                 <a href="user-add-user-prap-new" class="govuk-link">Add a user</a>
                             </li>
+                            {% else %}
+                            <li>
+                                    <a href="organisation-complete-details" class="govuk-link">Add a user</a>
+                            </li>
+                            {% endif %}
                         </ul>
-                        {% endif %}
+                    {% endif %}
                 </div>
 
                 <div class="govuk-cards--2__item govuk-card--dashboard">
