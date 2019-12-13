@@ -36,11 +36,20 @@
                      
                         {{ govukInput({
                           label: {
-                            html: 'Full name'
+                            html: 'First name'
                           },
                           classes: "govuk-!-width-two-thirds",
-                          id: "contact-3-name",
-                          name: "contact-3-name"
+                          id: "contact-3-first-name",
+                          name: "contact-3-first-name"
+                        }) }}
+
+                        {{ govukInput({
+                          label: {
+                            html: 'Last name'
+                          },
+                          classes: "govuk-!-width-two-thirds",
+                          id: "contact-3-last-name",
+                          name: "contact-3-last-name"
                         }) }}
                       
                         {{ govukInput({

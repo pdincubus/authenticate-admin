@@ -19,14 +19,14 @@
             <form action="organisation-add-another-additional-contact" method="post" class="form">
                 {{ govukFieldset({
                     legend: {
-                    html: '<span class="govuk-caption-l">Add an organisation</span>Do you want to add another additional organisation contact?',
+                    html: '<span class="govuk-caption-l">Add an organisation</span>Do you want to add any more contacts for the organisation?',
                     classes: "govuk-fieldset__legend--l",
                     isPageHeading: true
                     }
                 })}}
 
                 <span id="dob-hint" class="govuk-hint">
-                    Another additional organisation contact is not required to allow user access to the service.
+                  This is optional. You do not have to add more than 2 contacts.
                   </span>
 
                 {{ govukRadios({

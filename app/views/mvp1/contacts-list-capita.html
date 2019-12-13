@@ -22,9 +22,11 @@
   <table class="govuk-table">
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
-        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name</th>
-        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Email address</th>
+        <th scope="col" class="govuk-table__header">Name</th>
+        <th scope="col" class="govuk-table__header">Job title</th>
+        <th scope="col" class="govuk-table__header">Email address</th>
         <th scope="col" class="govuk-table__header">Telephone number</th>
+        <th scope="col" class="govuk-table__header"> </th>
       </tr>
     </thead>
 
@@ -42,21 +44,39 @@
       {% endif %}
 
       <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Sarah Hodge</a></th>
+          <th scope="row" class="govuk-table__header">Sarah Hodge</th>
+          <td class="govuk-table__cell">Project Manager</td>
           <td class="govuk-table__cell">sarah.hodge@capita.co.uk</td>
           <td class="govuk-table__cell">07700 127681</td>
+          <td class="govuk-table__cell govuk-table__cell--numeric">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+           </td>
         </tr>
 
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">David Healy</a></th>
+        <th scope="row" class="govuk-table__header">David Healy</th>
+        <td class="govuk-table__cell">HR Manager</td>
         <td class="govuk-table__cell">david.healy@capita.co.uk</td>
         <td class="govuk-table__cell">07798 948522</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> contact details</span>
+            </a>
+         </td>
       </tr>
 
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Robert Hulse</a></th>
+        <th scope="row" class="govuk-table__header">Robert Hulse</th>
+        <td class="govuk-table__cell">Finance Manager</td>
         <td class="govuk-table__cell">robert.hulse@capita.co.uk</td>
         <td class="govuk-table__cell">07798 935793</td>
+        <td class="govuk-table__cell govuk-table__cell--numeric">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> contact details</span>
+          </a>
+       </td>
       </tr>
 
     </tbody>
