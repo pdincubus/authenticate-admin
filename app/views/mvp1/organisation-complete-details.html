@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check organisation details - {{siteName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include '../includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+                <span class="govuk-caption-l">Add a user</span>
+                <h1 class="govuk-heading-l">We need more information about {{ data['organisation-name'] }} before you can add users</h1>
+
+                <p>We need:</p>
+
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+                    <li>{{ data['organisation-name'] }}’s address</li>
+                    <li>details of 2 contacts who work for {{ data['organisation-name'] }}</li>
+                    <li>details of a second contact who works for {{ data['organisation-name'] }}</li>
+                </ul>
+                
+
+              
+                <form action="/form-handler" method="post" novalidate>
+
+                    {{ govukRadios({
+                      idPrefix: "where-do-you-live",
+                      name: "where-do-you-live",
+                      fieldset: {
+                        legend: {
+                          text: "Do you want to complete these details now?",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--m"
+                        }
+                      },
+                      items: [
+                        {
+                          value: "org-complete-details-yes",
+                          text: "Yes"
+                        },
+                        {
+                          value: "org-complete-details-no",
+                          text: "No, go back to dashboard"
+                        }
+                      ]
+                    }) }}
+            
+                    {{ govukButton({
+                      text: "Continue"
+                    }) }}
+                  </form>
+
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

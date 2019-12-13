@@ -28,7 +28,26 @@
                 </thead>
 
                 <tbody class="govuk-table__body">
-                    {% if data['organisation-name'] %}
+                    {% if data['add-org-address'] == 'add-org-address-no' %}
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="org-view-custom" class="govuk-link">
+                                {{ data['organisation-name'] }} 
+                            </a> 
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                                0
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="#" class="govuk-link">Complete details</a>
+                        </td>
+                    </tr>
+                    {% endif %}
+
+
+                    {% if data['organisation-name'] and data['add-org-address-yes'] %}
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
                             <a href="org-view-custom" class="govuk-link">
@@ -53,6 +72,12 @@
                         </td>
                     </tr>
                     {% endif %}
+
+
+
+
+
+
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
