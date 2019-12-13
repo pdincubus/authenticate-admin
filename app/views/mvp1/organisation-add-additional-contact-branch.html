@@ -19,14 +19,14 @@
             <form action="organisation-add-additional-contact" method="post" class="form">
                 {{ govukFieldset({
                     legend: {
-                    html: '<span class="govuk-caption-l">Add an organisation</span>Do you want to add an additional organisation contact?',
+                    html: '<span class="govuk-caption-l">Add an organisation</span>Do you want to add a second contact for the organisation now?',
                     classes: "govuk-fieldset__legend--l",
                     isPageHeading: true
                     }
                 })}}
 
                 <span id="dob-hint" class="govuk-hint">
-                    An additional organisation contact is required to allow user access to the service.
+                  You will not be able to add users to this organisation until you add a second contact.
                   </span>
 
                 {{ govukRadios({
@@ -41,7 +41,7 @@
                       },
                       {
                         value: "add-additional-org-contact-no",
-                        text: "No"
+                        text: "No, I will add them later"
                       }
                     ]
                   }) }}
