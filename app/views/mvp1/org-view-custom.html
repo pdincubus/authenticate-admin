@@ -21,7 +21,7 @@
 
             <div class="govuk-cards govuk-cards--3">
                 <div class="govuk-cards--2__item govuk-card--company">
-                    <h2 class="govuk-heading-m">Company details</h2>
+                    <h2 class="govuk-heading-m">Organisation address</h2>
 
                     {% if data['address-line-1'] %}
                     <p>
@@ -43,9 +43,16 @@
                     </p>
                     {% endif %}
 
+                    {% if data['address-line-1'] %}
                     <p>
-                        <a href="organisation-edit-details" class="govuk-link">Edit organisation details</a>
+                        <a href="organisation-edit-details" class="govuk-link">Edit organisation address</a>
                     </p>
+                    
+                    {% else %}
+                    <p>
+                        <a href="organisation-add-address-only" class="govuk-link">Add organisation address</a>
+                    </p>
+                    {% endif %}
                 </div>
 
                 <div class="govuk-cards--2__item govuk-card--contacts">
@@ -54,11 +61,11 @@
                     <p class="govuk-heading-xl govuk-!-margin-bottom-5">
                         <span class="govuk-visually-hidden">There are currently</span>
 
-                        {% if data['contact-3-name'] and data['contact-2-name'] and data['contact-1-name'] %}
+                        {% if data['contact-3-first-name'] and data['contact-2-first-name'] and data['contact-1-first-name'] %}
                         3
-                        {% elseif data['contact-2-name'] and data['contact-1-name'] %}
+                        {% elseif data['contact-2-first-name'] and data['contact-1-first-name'] %}
                         2
-                        {% elseif data['contact-1-name'] %}
+                        {% elseif data['contact-1-first-name'] %}
                         1
                         {% else %}
                         0
@@ -66,13 +73,11 @@
 
                         <span class="govuk-visually-hidden">contacts in the system</span>
 
-                        {% if data['contact-1-name'] %}
                         <ul class="govuk-list">
                             <li>
                                 <a href="#" class="govuk-link">Add a contact</a>
                             </li>
                         </ul>
-                        {% endif %}
                     </p>
                 </div>
             </div>
