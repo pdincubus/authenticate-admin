@@ -23,14 +23,16 @@
                 <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
                     <li>{{ data['organisation-name'] }}’s address</li>
                     <li>details of 2 contacts who work for {{ data['organisation-name'] }}</li>
+
+                    
                     <!--<li>details of a second contact who works for {{ data['organisation-name'] }}</li>-->
                 </ul>
               
                 <form action="/form-handler" method="post" novalidate>
 
                     {{ govukRadios({
-                      idPrefix: "where-do-you-live",
-                      name: "where-do-you-live",
+                      idPrefix: "org-complete-details",
+                      name: "org-complete-details",
                       fieldset: {
                         legend: {
                           text: "Do you want to complete these details now?",
