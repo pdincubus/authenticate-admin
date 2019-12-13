@@ -385,3 +385,129 @@ a.pagination__link:focus {
 .govuk-link:visited, a:visited {
   color:#1d70b8;
 }
+
+/**
+ * Megasearch
+*/
+.govuk-megasearch {
+    position: relative;
+}
+
+.govuk-megasearch__results {
+    position: absolute;
+    top: calc(100% - 2px);
+    left: 0;
+    right: 40px;
+    padding: 10px;
+    background-color: #fff;
+    border-width: 0 2px 2px;
+    border-style: solid;
+    border-color: #000;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s opacity ease, .25s z-index ease;
+
+    &.is_active {
+        z-index: 1;
+        opacity: 1;
+    }
+}
+
+.govuk-input--search {
+    padding-right: 44px;
+}
+
+.govuk-button--search {
+    height: 36px;
+    width: 40px;
+    line-height: 36px;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    padding: 0;
+    margin: 0;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
+    border-left: 2px solid #000;
+    color: #fff;
+    text-align: center;
+    background-color: govuk-colour("green");
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background-color: #005a30;
+    }
+}
+
+.govuk-megasearch__title {
+    margin-bottom: 10px;
+    padding-top: 0;
+}
+
+.govuk-body + .govuk-megasearch__title {
+     border-top: 1px solid $govuk-border-colour;
+}
+
+.govuk-megasearch__list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.govuk-megasearch__item:not(:last-of-type) {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid govuk-colour("light-grey") ;
+}
+
+.govuk-megasearch__item {
+    min-height: 30px;
+}
+
+.govuk-megasearch__item .govuk-link {
+    float: right;
+}
+
+.govuk-megasearch__result,
+.govuk-megasearch__identifier,
+.govuk-megasearch__item .govuk-link {
+    line-height: 30px;
+    min-height: 30px;
+}
+
+.govuk-megasearch__result {
+    float: left;
+    font-weight: bold;
+    display: block;
+    font-family: $govuk-font-family;
+}
+
+.govuk-megasearch__identifier {
+    padding-left: 15px;
+    font-weight: normal;
+    color: govuk-colour("mid-grey");
+}
+
+.govuk-megasearch__all-results {
+    font-size: 16px;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    border-bottom: 1px solid $govuk-border-colour;
+}
+
+.govuk-megasearch__all-results:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-top: 1px solid $govuk-border-colour;
+    padding-top: 10px;
+    margin-top: 0;
+}
+
+.dirty-height-hack {
+    min-height: 70vh;
+}

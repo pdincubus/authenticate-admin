@@ -1,0 +1,346 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Dashboard - HTDS - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds dirty-height-hack">
+        <h1 class="govuk-heading-l">Search example</h1>
+
+        <p>Search for 'xyz' or 'cap'</p>
+
+        <form class="govuk-megasearch" aria-live="assertive" method="post" action="mega-search-results">
+            <fielset class="govuk-fieldset">
+                <legend class="govuk-legend govuk-heading-m">
+                    Search
+                </legend>
+
+                <label for="govuk-megasearch-input" class="govuk-label govuk-visually-hidden">
+                    Keywords
+                </label>
+
+                <span id="mega-search-input-hint" class="govuk-hint">
+                    Search by user, organisation or service. Minimum 3 characters.
+                </span>
+
+                <input
+                    type="text"
+                    name="govuk-megasearch-input"
+                    id="govuk-megasearch-input"
+                    class="govuk-input govuk-input--search"
+                    aria-describedby="mega-search-input-hint"
+                >
+
+                <button
+                    type="submit"
+                    id="govuk-megasearch-submit"
+                    class="govuk-body govuk-button--search"
+                >
+                    Go
+                </button>
+
+                <!-- No results -->
+                <div
+                    class="govuk-megasearch__results"
+                    id="govuk-megasearch-results-none"
+                    aria-hidden="true"
+                >
+                    <p class="govuk-heading-s govuk-megasearch__title">
+                        Organisations
+                    </p>
+
+                    <ul class="govuk-megasearch__list">
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                No results found in organisations
+                            </span>
+                        </li>
+                    </ul>
+
+                    <p class="govuk-heading-s govuk-megasearch__title">
+                        Users
+                    </p>
+
+                    <ul class="govuk-megasearch__list">
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                No results found in users
+                            </span>
+                        </li>
+                    </ul>
+
+                    <p class="govuk-heading-s govuk-megasearch__title">
+                        Services
+                    </p>
+
+                    <ul class="govuk-megasearch__list">
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                No results found in services
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- XYZ results -->
+                <div
+                    class="govuk-megasearch__results"
+                    id="govuk-megasearch-results-xyz"
+                    aria-hidden="true"
+                >
+                    <p class="govuk-heading-s govuk-megasearch__title">
+                        Organisations
+                    </p>
+
+                    <ul class="govuk-megasearch__list">
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                XYZ Ltd.
+
+                                <span class="govuk-megasearch__identifier">
+                                    Company number: 123546
+                                </span>
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                XYZa Inc.
+
+                                <span class="govuk-megasearch__identifier">
+                                    Company number: 3214791
+                                </span>
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                abXYZ Limited
+
+                                <span class="govuk-megasearch__identifier">
+                                    Company number: 9876543
+                                </span>
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+                    </ul>
+
+                    <p class="govuk-megasearch__all-results">
+                        View <a href="#" class="govuk-link">all organisation results</a>
+                    </p>
+
+                    <p class="govuk-heading-s govuk-megasearch__title">
+                        Users
+                    </p>
+
+                    <ul class="govuk-megasearch__list">
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                Johnny XYZ
+
+                                <span class="govuk-megasearch__identifier">
+                                    Organisation: Capita, Staff ID: 876521
+                                </span>
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                Jackie XYZ
+
+                                <span class="govuk-megasearch__identifier">
+                                    Organisation: Remploy, Staff ID: aaa2222
+                                </span>
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                WXYZ Johnson
+
+                                <span class="govuk-megasearch__identifier">
+                                    Organisation: G4S, Staff ID: 091918a
+                                </span>
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+                    </ul>
+
+                    <p class="govuk-megasearch__all-results">
+                        View <a href="#" class="govuk-link">all user results</a>
+                    </p>
+
+                    <p class="govuk-heading-s govuk-megasearch__title">
+                        Services
+                    </p>
+
+                    <ul class="govuk-megasearch__list">
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                No results found in services
+                            </span>
+                        </li>
+                    </ul>
+
+                    <p class="govuk-megasearch__all-results">
+                        Or view <a href="#" class="govuk-link">all search results</a>
+                    </p>
+                </div>
+
+                <!-- cap results -->
+                <div
+                    class="govuk-megasearch__results"
+                    id="govuk-megasearch-results-cap"
+                    aria-hidden="true"
+                >
+                    <p class="govuk-heading-s govuk-megasearch__title">
+                        Organisations
+                    </p>
+
+                    <ul class="govuk-megasearch__list">
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                Capita Ltd.
+
+                                <span class="govuk-megasearch__identifier">
+                                    Company number: 123546
+                                </span>
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                Cap Inc.
+
+                                <span class="govuk-megasearch__identifier">
+                                    Company number: 3214791
+                                </span>
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                Capota Limited
+
+                                <span class="govuk-megasearch__identifier">
+                                    Company number: 9876543
+                                </span>
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+                    </ul>
+
+                    <p class="govuk-megasearch__all-results">
+                        View <a href="#" class="govuk-link">all organisation results</a>
+                    </p>
+
+                    <p class="govuk-heading-s govuk-megasearch__title">
+                        Users
+                    </p>
+
+                    <ul class="govuk-megasearch__list">
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                Johnny Captain
+
+                                <span class="govuk-megasearch__identifier">
+                                    Organisation: Capita, Staff ID: 876521
+                                </span>
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                Jackie Caplain
+
+                                <span class="govuk-megasearch__identifier">
+                                    Organisation: Remploy, Staff ID: aaa2222
+                                </span>
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                Captain Johnson
+
+                                <span class="govuk-megasearch__identifier">
+                                    Organisation: G4S, Staff ID: 091918a
+                                </span>
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+                    </ul>
+
+                    <p class="govuk-megasearch__all-results">
+                        View <a href="#" class="govuk-link">all user results</a>
+                    </p>
+
+                    <p class="govuk-heading-s govuk-megasearch__title">
+                        Services
+                    </p>
+
+                    <ul class="govuk-megasearch__list">
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                Captain Service
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                Capital Service
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+
+                        <li class="govuk-megasearch__item">
+                            <span class="govuk-megasearch__result">
+                                CAPITAL Service
+                            </span>
+
+                            <a href="#" class="govuk-link">View</a>
+                        </li>
+                    </ul>
+
+                    <p class="govuk-megasearch__all-results">
+                        View <a href="#" class="govuk-link">all service results</a>
+                    </p>
+
+                    <p class="govuk-megasearch__all-results">
+                        Or view <a href="#" class="govuk-link">all search results</a>
+                    </p>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}
