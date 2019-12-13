@@ -16,8 +16,6 @@ var megasearchResultsElemNone = document.getElementById('govuk-megasearch-result
 
 if (megasearchInputElem) {
     megasearchInputElem.addEventListener('input', function(e) {
-        console.log(this.value);
-
         if (this.value.toLowerCase() === 'xyz') {
             megasearchResultsElemXYZ.classList.add('is_active');
             megasearchResultsElemXYZ.setAttribute('aria-hidden', false);
