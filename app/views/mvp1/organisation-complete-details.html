@@ -15,52 +15,52 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-                <span class="govuk-caption-l">Add a user</span>
-                <h1 class="govuk-heading-l">We need more information about {{ data['organisation-name'] }} before you can add users</h1>
+            <span class="govuk-caption-l">Add a user</span>
+            <h1 class="govuk-heading-l">We need more information about {{ data['organisation-name'] }} before you can add users</h1>
 
-                <p>We need:</p>
+            <p>We need:</p>
 
-                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
-                    <li>{{ data['organisation-name'] }}’s address</li>
+            <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+                {% if not data['contact-1-first-name'] and not data['contact-2-first-name'] %}
                     <li>details of 2 contacts who work for {{ data['organisation-name'] }}</li>
+                {% endif %}
 
-                    
-                    <!--<li>details of a second contact who works for {{ data['organisation-name'] }}</li>-->
-                </ul>
-              
-                <form action="/form-handler" method="post" novalidate>
+                {% if data['contact-1-first-name'] and not data['contact-2-first-name'] %}
+                    <li>details of a second contact who works for {{ data['organisation-name'] }}</li>
+                {% endif %}
 
-                    {{ govukRadios({
-                      idPrefix: "org-complete-details",
-                      name: "org-complete-details",
-                      fieldset: {
+                {% if not data['address-line-1'] %}
+                    <li>{{ data['organisation-name'] }}’s address</li>
+                {% endif %}
+            </ul>
+
+            <form action="org-add-details-check" method="post" novalidate>
+                {{ govukRadios({
+                    idPrefix: "org-complete-details",
+                    name: "org-complete-details",
+                    fieldset: {
                         legend: {
-                          text: "Do you want to complete these details now?",
-                          isPageHeading: true,
-                          classes: "govuk-fieldset__legend--m"
+                            text: "Do you want to complete these details now?",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--m"
                         }
-                      },
-                      items: [
+                    },
+                    items: [
                         {
-                          value: "org-complete-details-yes",
-                          text: "Yes"
+                            value: "yes",
+                            text: "Yes"
                         },
                         {
-                          value: "org-complete-details-no",
-                          text: "No, go back to dashboard"
+                            value: "no",
+                            text: "No, go back to dashboard"
                         }
-                      ]
-                    }) }}
-            
-                    {{ govukButton({
-                      text: "Continue"
-                    }) }}
-                  </form>
+                    ]
+                }) }}
 
-
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
         </div>
     </div>
-
-
-
 {% endblock %}

@@ -231,4 +231,53 @@ router.post('/dev1/user-add-org-check', function (req, res) {
     }
 });
 
+router.post('/mvp1/organisation-add-address-check', function (req, res) {
+    const checkChoice = req.session.data['add-org-address'];
+
+    if (checkChoice === 'yes') {
+        res.redirect('/mvp1/organisation-add-address');
+    } else {
+        res.redirect('/mvp1/organisation-add-contacts-branch');
+    }
+});
+
+router.post('/mvp1/organisation-add-contact-check', function (req, res) {
+    const checkChoice = req.session.data['add-org-contacts'];
+
+    if (checkChoice === 'yes') {
+        res.redirect('/mvp1/organisation-add-contact');
+    } else {
+        res.redirect('/mvp1/organisation-add-check');
+    }
+});
+
+router.post('/mvp1/organisation-add-additional-contact-check', function (req, res) {
+    const checkChoice = req.session.data['add-additional-org-contact'];
+
+    if (checkChoice === 'yes') {
+        res.redirect('/mvp1/organisation-add-additional-contact');
+    } else {
+        res.redirect('/mvp1/organisation-add-check');
+    }
+});
+
+router.post('/mvp1/org-add-details-check', function (req, res) {
+    const orgCompleteDetails = req.session.data['org-complete-details'].toLowerCase();
+    const orgAddress = req.session.data['address-line-1'];
+    const orgContact1 = req.session.data['contact-1-first-name'];
+    const orgContact2 = req.session.data['contact-2-first-name'];
+
+    if (orgCompleteDetails === 'yes') {
+        if (orgContact1 && !orgContact2) {
+            res.redirect('/mvp1/organisation-add-additional-contact');
+        } else if (!orgContact1 && !orgContact2) {
+            res.redirect('/mvp1/organisation-add-contact');
+        } else if (!orgAddress) {
+            res.redirect('/mvp1/organisation-add-address-only');
+        }
+    } else if (orgCompleteDetails === 'no') {
+        res.redirect('/mvp1/org-view-custom');
+    }
+});
+
 module.exports = router;

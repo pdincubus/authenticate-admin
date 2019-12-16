@@ -14,9 +14,13 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-l listing-page">Organisations using HTDS</h1>
+            <h1 class="govuk-heading-l listing-page">
+                Organisations using HTDS
+            </h1>
 
-            <a href="organisation-add-name" class="govuk-button listing-page">Add an organisation</a>
+            <a href="organisation-add-name" class="govuk-button listing-page">
+                Add an organisation
+            </a>
 
             <table class="govuk-table">
                 <thead class="govuk-table__head">
@@ -28,60 +32,47 @@
                 </thead>
 
                 <tbody class="govuk-table__body">
-                    
+                    {% if data['organisation-name'] %}
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">
+                                <a href="org-view-custom" class="govuk-link">
+                                    {{ data['organisation-name'] }}
+                                </a>
+                            </th>
 
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                {% if data['user-first-name'] and data['user-last-name'] %}
+                                    1
+                                {% else %}
+                                    0
+                                {% endif %}
+                            </td>
 
-                    {% if data['organisation-name'] and data['address-line-1'] and data['contact-1-first-name'] %}
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">
-                            <a href="org-view-custom" class="govuk-link">
-                                {{ data['organisation-name'] }}
-                            </a>
-                        </th>
-
-                        <td class="govuk-table__cell govuk-table__cell--numeric">
-                            {% if data['user-first-name'] and data['user-last-name'] %}
-                                1
-                            {% else %}
-                                0
-                            {% endif %}
-                        </td>
-
-                        <td class="govuk-table__cell">
-                            {% if data['user-first-name'] and data['user-last-name'] %}
+                            <td class="govuk-table__cell">
+                                {% if not data['contact-1-first-name'] and not data['contact-2-first-name'] and not data['address-line-1'] %}
+                                    <a href="organisation-complete-details" class="govuk-link">
+                                        Complete organisation details (no contacts or address)
+                                    </a>
+                                {% elseif not data['contact-1-first-name'] and not data['contact-2-first-name'] and data['address-line-1'] %}
+                                    <a href="organisation-complete-details" class="govuk-link">
+                                        Add organisation contacts (missing 2 contacts)
+                                    </a>
+                                {% elseif data['contact-1-first-name'] and data['contact-2-first-name'] and not data['address-line-1'] %}
+                                    <a href="organisation-complete-details" class="govuk-link">
+                                        Complete organisation details (missing address)
+                                    </a>
+                                {% elseif data['contact-1-first-name'] and not data['contact-2-first-name'] and not data['address-line-1'] %}
+                                    <a href="organisation-complete-details" class="govuk-link">
+                                        Complete organisation details (missing 1 contact and address)
+                                    </a>
+                                {% elseif data['user-first-name'] and data['user-last-name'] %}
                                     <a href="user-list-prap-new" class="govuk-link">View user</a>
                                 {% else %}
                                     <a href="user-add-user-prap-new" class="govuk-link">Add user</a>
-                            {% endif %}
-                        </td>
-                    </tr>
-
-                    {% else %}
-
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">
-                            <a href="org-view-custom" class="govuk-link">
-                                {{ data['organisation-name'] }} 
-                            </a> 
-                        </th>
-
-                        <td class="govuk-table__cell govuk-table__cell--numeric">
-                                0
-                        </td>
-
-                        <td class="govuk-table__cell">
-                            <a href="organisation-complete-details" class="govuk-link">Add user</a>
-                        </td>
-                    </tr>
-
-
+                                {% endif %}
+                            </td>
+                        </tr>
                     {% endif %}
-
-
-
-
-
-
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
@@ -184,7 +175,6 @@
                         </td>
                     </tr>
 
-
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
                             <a href="org-view-serco" class="govuk-link">
@@ -209,7 +199,9 @@
             </table>
 
             <p class="govuk-!-margin-top-9">
-                <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+                <a href="dashboard-service-prap" class="govuk-link">
+                    Back to dashboard
+                </a>
             </p>
         </div>
     </div>

@@ -17,12 +17,8 @@
         <div class="govuk-grid-column-two-thirds">
                 <span class="govuk-caption-l">Add an organisation</span>
                 <h1 class="govuk-heading-l">Check organisation details</h1>
-                
 
                 <form action="organisation-confirmation-prap" method="post" class="form">
-
-
-
                     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
                         <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__key">
@@ -38,8 +34,7 @@
                           </dd>
                         </div>
 
-
-                        {% if data['add-org-address'] == 'add-org-address-yes' %}
+                        {% if data['address-line-1'] %}
                         <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__key">
                             Address
@@ -56,8 +51,7 @@
                         {% else %}
                         {% endif %}
 
-
-                        {% if data['add-org-contacts'] == 'add-org-contacts-yes' %}
+                        {% if data['contact-1-first-name'] %}
                         <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__key">
                             Contact
@@ -75,7 +69,7 @@
                         {% endif %}
 
 
-                        {% if data['add-additional-org-contact'] == 'add-additional-org-contact-yes' %}
+                        {% if data['contact-2-first-name'] %}
                         <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__key">
                             Second contact
@@ -93,9 +87,7 @@
                         {% else %}
                         {% endif %}
 
-
-
-                        {% if data['add-another-additional-org-contact'] == 'add-another-additional-org-contact-yes' %}
+                        {% if data['contact-3-first-name'] %}
                         <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__key">
                             Additional contact
@@ -112,23 +104,12 @@
                         </div>
                         {% else %}
                         {% endif %}
-
-
-
-
                       </dl>
-                      
-
-           
 
                 <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">
                     Add {{ data['organisation-name'] }}
                 </button>
             </form>
-
         </div>
     </div>
-
-
-
 {% endblock %}

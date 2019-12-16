@@ -9,50 +9,44 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include '../includes/back-button.njk' %}
+    {% include '../includes/back-button.njk' %}
 {% endblock %}
-
 
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="organisation-add-contact" method="post" class="form">
+            <form action="organisation-add-contact-check" method="post" class="form">
                 {{ govukFieldset({
                     legend: {
-                    html: '<span class="govuk-caption-l">Add an organisation</span>Do you want to add contacts for the organisation now?',
-                    classes: "govuk-fieldset__legend--l",
-                    isPageHeading: true
+                        html: '<span class="govuk-caption-l">Add an organisation</span>Do you want to add contacts for the organisation now?',
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
                     }
                 })}}
 
                 <span id="dob-hint" class="govuk-hint">
-                  You will not be able to add users to this organisation until you add at least 2 contacts.
-                  </span>
+                    You will not be able to add users to this organisation until you add at least 2 contacts.
+                </span>
 
                 {{ govukRadios({
                     classes: "govuk-radios",
                     idPrefix: "add-org-contacts",
                     name: "add-org-contacts",
-                    
                     items: [
-                      {
-                        value: "add-org-contacts-yes",
-                        text: "Yes"
-                      },
-                      {
-                        value: "add-org-contacts-no",
-                        text: "No, I will add them later"
-                      }
+                        {
+                            value: "yes",
+                            text: "Yes"
+                        },
+                        {
+                            value: "no",
+                            text: "No, I will add them later"
+                        }
                     ]
-                  }) }}
+                }) }}
 
-
-                  
-                   
-
-                    <button type="submit" class="govuk-button" id="submit">
-                      Continue
-                  </button>
+                <button type="submit" class="govuk-button" id="submit">
+                    Continue
+                </button>
             </form>
         </div>
     </div>

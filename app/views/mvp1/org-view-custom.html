@@ -47,7 +47,7 @@
                     <p>
                         <a href="organisation-edit-address" class="govuk-link">Edit organisation address</a>
                     </p>
-                    
+
                     {% else %}
                     <p>
                         <a href="organisation-add-address-only" class="govuk-link">Add organisation address</a>
@@ -75,7 +75,7 @@
 
                         <ul class="govuk-list">
                             <li>
-                                <a href="#" class="govuk-link">Add a contact</a>
+                                <a href="organisation-add-contact" class="govuk-link">Add a contact</a>
                             </li>
                         </ul>
                     </p>
@@ -110,15 +110,15 @@
                     </ul>
                     {% else %}
                     <ul class="govuk-list">
-                            {% if data['organisation-name'] and data['address-line-1'] and data['contact-1-first-name'] %}
+                        {% if data['organisation-name'] and data['address-line-1'] and data['contact-1-first-name'] and data['contact-2-first-name'] %}
                             <li>
                                 <a href="user-add-user-prap-new" class="govuk-link">Add a user</a>
                             </li>
-                            {% else %}
+                        {% else %}
                             <li>
-                                    <a href="organisation-complete-details" class="govuk-link">Add a user</a>
+                                <a href="organisation-complete-details" class="govuk-link">Add a user</a>
                             </li>
-                            {% endif %}
+                        {% endif %}
                         </ul>
                     {% endif %}
                 </div>
