@@ -199,6 +199,7 @@ router.post('/mvp1/user-add-org-check', function (req, res) {
         || orgName == 'g4s'
         || orgName == 'london borough of croydon council'
         || orgName == 'sheffield city council'
+        || orgName
     ) {
         req.session.data['org-error'] = false;
 
@@ -220,6 +221,7 @@ router.post('/dev1/user-add-org-check', function (req, res) {
         || orgName == 'g4s'
         || orgName == 'london borough of croydon council'
         || orgName == 'sheffield city council'
+        || orgName
     ) {
         req.session.data['org-error'] = false;
 

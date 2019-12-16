@@ -98,17 +98,6 @@
                         <span class="govuk-visually-hidden">users in the system</span>
                     </p>
 
-                    {% if data['user-first-name'] and data['user-last-name'] %}
-                    <ul class="govuk-list">
-                        <li>
-                            <a href="user-add-user-prap-{{ data['organisation-name'] }}" class="govuk-link">Add a user</a>
-                        </li>
-
-                        <li>
-                            <a href="user-list-prap-{{ data['organisation-name'] }}" class="govuk-link">View all users</a>
-                        </li>
-                    </ul>
-                    {% else %}
                     <ul class="govuk-list">
                         {% if data['organisation-name'] and data['address-line-1'] and data['contact-1-first-name'] and data['contact-2-first-name'] %}
                             <li>
@@ -119,6 +108,12 @@
                                 <a href="organisation-complete-details" class="govuk-link">Add a user</a>
                             </li>
                         {% endif %}
+
+                        {% if data['user-first-name'] and data['user-last-name'] %}
+                            <li>
+                                <a href="user-list-prap-new" class="govuk-link">View all users</a>
+                            </li>
+                        {% else %}
                         </ul>
                     {% endif %}
                 </div>
