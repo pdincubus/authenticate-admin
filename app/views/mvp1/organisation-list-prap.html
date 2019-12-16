@@ -7,9 +7,8 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include '../includes/back-button.njk' %}
+    {% include '../includes/back-button.njk' %}
 {% endblock %}
-
 
 {% block content %}
     <div class="govuk-grid-row">
@@ -51,24 +50,28 @@
                             <td class="govuk-table__cell">
                                 {% if not data['contact-1-first-name'] and not data['contact-2-first-name'] and not data['address-line-1'] %}
                                     <a href="organisation-complete-details" class="govuk-link">
-                                        Complete organisation details (no contacts or address)
+                                        Complete details
                                     </a>
                                 {% elseif not data['contact-1-first-name'] and not data['contact-2-first-name'] and data['address-line-1'] %}
                                     <a href="organisation-complete-details" class="govuk-link">
-                                        Add organisation contacts (missing 2 contacts)
+                                        Add contacts
                                     </a>
                                 {% elseif data['contact-1-first-name'] and data['contact-2-first-name'] and not data['address-line-1'] %}
                                     <a href="organisation-complete-details" class="govuk-link">
-                                        Complete organisation details (missing address)
+                                        Complete details
                                     </a>
                                 {% elseif data['contact-1-first-name'] and not data['contact-2-first-name'] and not data['address-line-1'] %}
                                     <a href="organisation-complete-details" class="govuk-link">
-                                        Complete organisation details (missing 1 contact and address)
+                                        Complete details
                                     </a>
                                 {% elseif data['user-first-name'] and data['user-last-name'] %}
-                                    <a href="user-list-prap-new" class="govuk-link">View user</a>
+                                    <a href="user-list-prap-new" class="govuk-link">
+                                        View user
+                                    </a>
                                 {% else %}
-                                    <a href="user-add-user-prap-new" class="govuk-link">Add user</a>
+                                    <a href="user-add-user-prap-new" class="govuk-link">
+                                        Add user
+                                    </a>
                                 {% endif %}
                             </td>
                         </tr>
