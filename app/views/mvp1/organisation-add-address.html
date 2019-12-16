@@ -48,7 +48,6 @@
                         name: "address-town"
                     }) }}
 
-
                     {{ govukInput({
                         label: {
                             text: "Postcode"
@@ -58,6 +57,8 @@
                         name: "address-postcode"
                     }) }}
                 {% endcall %}
+
+                {% include './includes/contacts-and-address.html' %}
 
                 {{ govukButton({
                     text: "Continue"

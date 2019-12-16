@@ -15,96 +15,113 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-                <span class="govuk-caption-l">Add an organisation</span>
-                <h1 class="govuk-heading-l">Check organisation details</h1>
+            <span class="govuk-caption-l">Add an organisation</span>
+            <h1 class="govuk-heading-l">Check organisation details</h1>
 
-                <form action="organisation-confirmation-prap" method="post" class="form">
-                    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                        <div class="govuk-summary-list__row">
-                          <dt class="govuk-summary-list__key">
+            <form action="organisation-confirmation-prap" method="post" class="form">
+                <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
                             Name
-                          </dt>
-                          <dd class="govuk-summary-list__value">
-                              {{ data['organisation-name'] }}
-                          </dd>
-                          <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
-                              Change<span class="govuk-visually-hidden"> name</span>
-                            </a>
-                          </dd>
-                        </div>
+                        </dt>
 
-                        {% if data['address-line-1'] %}
+                        <dd class="govuk-summary-list__value">
+                            {{ data['organisation-name'] }}
+                        </dd>
+
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="#">
+                                Change<span class="govuk-visually-hidden"> name</span>
+                            </a>
+                        </dd>
+                    </div>
+
+                    {% if data['address-line-1'] %}
                         <div class="govuk-summary-list__row">
-                          <dt class="govuk-summary-list__key">
-                            Address
-                          </dt>
-                          <dd class="govuk-summary-list__value">
-                              {{ data["address-line-1"] }} <br> {{ data["address-line-2"] }} <br> {{ data["address-town"] }} <br> {{data["address-postcode"] }}
-                          </dd>
-                          <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
-                              Change<span class="govuk-visually-hidden"> date of birth</span>
-                            </a>
-                          </dd>
-                        </div>
-                        {% else %}
-                        {% endif %}
+                            <dt class="govuk-summary-list__key">
+                                Address
+                            </dt>
 
-                        {% if data['contact-1-first-name'] %}
+                            <dd class="govuk-summary-list__value">
+                                {{ data["address-line-1"] }}<br>
+                                {{ data["address-line-2"] }}<br>
+                                {{ data["address-town"] }}<br>
+                                {{data["address-postcode"] }}
+                            </dd>
+
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">
+                                    Change<span class="govuk-visually-hidden"> date of birth</span>
+                                </a>
+                            </dd>
+                        </div>
+                    {% endif %}
+
+                    {% if data['contact-1-first-name'] %}
                         <div class="govuk-summary-list__row">
-                          <dt class="govuk-summary-list__key">
-                            Contact
-                          </dt>
-                          <dd class="govuk-summary-list__value">
-                              {{ data["contact-1-first-name"] }} {{ data["contact-1-last-name"] }}<br> {{ data["contact-1-job-title"] }} <br> {{ data["contact-1-email"] }} <br> {{ data["contact-1-phone"] }}
-                          </dd>
-                          <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
-                              Change<span class="govuk-visually-hidden"> address</span>
-                            </a>
-                          </dd>
+                            <dt class="govuk-summary-list__key">
+                                Contact
+                            </dt>
+
+                            <dd class="govuk-summary-list__value">
+                                {{ data["contact-1-first-name"] }} {{ data["contact-1-last-name"] }}<br>
+                                {{ data["contact-1-job-title"] }}<br>
+                                {{ data["contact-1-email"] }}<br>
+                                {{ data["contact-1-phone"] }}
+                            </dd>
+
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">
+                                    Change<span class="govuk-visually-hidden"> address</span>
+                                </a>
+                            </dd>
                         </div>
-                        {% else %}
-                        {% endif %}
+                    {% endif %}
 
-
-                        {% if data['contact-2-first-name'] %}
+                    {% if data['contact-2-first-name'] %}
                         <div class="govuk-summary-list__row">
-                          <dt class="govuk-summary-list__key">
-                            Second contact
-                          </dt>
-                          <dd class="govuk-summary-list__value">
-                              {{ data["contact-2-first-name"] }} {{ data["contact-2-last-name"] }}<br> {{ data["contact-2-job-title"] }} <br> {{ data["contact-2-email"] }} <br> {{ data["contact-2-phone"] }}
+                            <dt class="govuk-summary-list__key">
+                                Second contact
+                            </dt>
 
-                          </dd>
-                          <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
-                              Change<span class="govuk-visually-hidden"> contact details</span>
-                            </a>
-                          </dd>
+                            <dd class="govuk-summary-list__value">
+                                {{ data["contact-2-first-name"] }} {{ data["contact-2-last-name"] }}<br>
+                                {{ data["contact-2-job-title"] }}<br>
+                                {{ data["contact-2-email"] }}<br>
+                                {{ data["contact-2-phone"] }}
+                            </dd>
+
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">
+                                    Change<span class="govuk-visually-hidden"> contact details</span>
+                                </a>
+                            </dd>
                         </div>
-                        {% else %}
-                        {% endif %}
+                    {% endif %}
 
-                        {% if data['contact-3-first-name'] %}
+                    {% if data['contact-3-first-name'] %}
                         <div class="govuk-summary-list__row">
-                          <dt class="govuk-summary-list__key">
-                            Additional contact
-                          </dt>
-                          <dd class="govuk-summary-list__value">
-                              {{ data["contact-3-first-name"] }} {{ data["contact-3-last-name"] }}<br> {{ data["contact-3-job-title"] }} <br> {{ data["contact-3-email"] }} <br> {{ data["contact-3-phone"] }}
+                            <dt class="govuk-summary-list__key">
+                                Additional contact
+                            </dt>
 
-                          </dd>
-                          <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="#">
-                              Change<span class="govuk-visually-hidden"> contact details</span>
-                            </a>
-                          </dd>
+                            <dd class="govuk-summary-list__value">
+                                {{ data["contact-3-first-name"] }} {{ data["contact-3-last-name"] }}<br>
+                                {{ data["contact-3-job-title"] }}<br>
+                                {{ data["contact-3-email"] }}<br>
+                                {{ data["contact-3-phone"] }}
+                            </dd>
+
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="#">
+                                    Change<span class="govuk-visually-hidden"> contact details</span>
+                                </a>
+                            </dd>
                         </div>
-                        {% else %}
-                        {% endif %}
-                      </dl>
+                    {% endif %}
+                </dl>
+
+                {% include './includes/contacts-and-address.html' %}
 
                 <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">
                     Add {{ data['organisation-name'] }}
