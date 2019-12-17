@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  {{serviceName}}
+    {{serviceName}}
 {% endblock %}
 
 {% block content %}
-  {{releaseVersion | log}}
+    {{releaseVersion | log}}
 
     <h1 class="govuk-heading-xl">
         {{serviceName}}
@@ -17,127 +17,20 @@
         </h2>
 
         {% set researchVersionsHtml %}
-            <time datetime="2019-11-11" class="govuk-caption-m">11 November 2019</time>
+            <time datetime="2019-12-17" class="govuk-caption-m">17 December 2019</time>
 
-            <h2 class="govuk-heading-l">MVP v1</h2>
+            <h2 class="govuk-heading-l">v5</h2>
 
-            <a href="/mvp1/signin" class="govuk-button govuk-!-margin-right-1">View MVP prototype</a>
-            <a href="/mvp1/dashboard-service-prap-no-orgs" class="govuk-button">View 'no organisations' dashboard</a>
+            <a href="/v5/signin" class="govuk-button govuk-!-margin-right-1">View v5 prototype</a>
+            <a href="/v5/dashboard-service-prap-no-orgs" class="govuk-button">View 'no organisations' dashboard</a>
 
             <h3 class="govuk-heading-s">General changes</h3>
 
             <ul class="govuk-list govuk-list--bullet">
                 <li>
-                    Added an 'interstitial' page to prompt users to complete organisation details before adding users to an incomplete organisation
-                </li>
-                <li>
-                    First attempt at <a href="/mvp1/mega-search-example">'MEGASEARCHATRON'</a>. With separate view for no-js users/The Blackwell Effect
-                </li>
-                <li>
-                    Expanded 'Add an organisation' journey to include address and contact details
-                </li>
-                <li>
-                    Add first attempt at <a href="/mvp1/org-view-capita" class="govuk-link">organisation view</a> page
-                </li>
-                <li>
-                    Slim down files to show only service admin routes
-                </li>
-                <li>
-                    Strip out lots of user information from user list, and user view
-                </li>
-                <li>
-                    Make everything as if viewed by a <del>PRaP</del> HTDS service admin
-                </li>
-                <li>
-                    Added a little more dynamicism to make better use of prototype data
-                </li>
-                <li>
-                    Fleshed out user list pages so that each sample organisation has their own list of users
-                </li>
-                <li>
-                    Added a 'no organisation' service admin dashboard view
-                </li>
-                <li>
-                    Added typeahead example to choose organisation on add new user journey
-                </li>
-                <li>
-                    Improved the suspend/delete actions on the User View page
-                </li>
-                <li>
-                    Added sign in/sign out views
-                </li>
-                <li>
-                    Changed organisation list views to make functionality more obvious
-                </li>
-                <li>
-                    Made typeahead minLength before searching 3 characters
-                </li>
-                <li>
-                    Change 'full name' to 'first name' and 'last name'
+                    Complete re-organisation of views to allow for better URLs, etc
                 </li>
             </ul>
-
-            <h3 class="govuk-heading-s">UR Goals</h3>
-
-            <ul class="govuk-list govuk-list--bullet">
-                <li>
-                    Goal 1
-                </li>
-            </ul>
-
-            <h3 class="govuk-heading-s">Findings</h3>
-
-            <ul class="govuk-list govuk-list--bullet">
-                <li>
-                    Finding/recommendation 1
-                </li>
-            </ul>
-
-            <h3 class="govuk-heading-s">Useful links</h3>
-
-            <ul class="govuk-list">
-                <li>
-                    <a class="govuk-link" href="/public/files/insights/mvp1-add-organisation-and-user.pdf">UR Insights - add an organisation and user</a>
-                </li>
-            </ul>
-
-            <h3 class="govuk-heading-s">Confidence level</h3>
-
-            <table class="govuk-table">
-                <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th class="govuk-table__header" scope="col">User journey step</th>
-                        <th class="govuk-table__header" scope="col">Confidence</th>
-                    </tr>
-                </thead>
-
-                <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/mvp1/dashboard-service-prap">Service admin dashboard</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--high">high</span></td>
-                    </tr>
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/mvp1/organisation-list-prap">Organisation list landing</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                    </tr>
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/mvp1/organisation-add-prap">Add a new organisation</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
-                    </tr>
-
-                   <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/mvp1/user-add-user-prap-org">Add a new user (as a service admin)</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
-                    </tr>
-
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell"><a href="/mvp1/user-list-prap">View all users for a service</a></td>
-                        <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
-                    </tr>
-                </tbody>
-            </table>
 
             <details class="govuk-details govuk-!-margin-top-9">
                 <summary class="govuk-details__summary">
@@ -147,6 +40,129 @@
                 </summary>
 
                 <div class="govuk-details__text">
+                    <time datetime="2019-11-11" class="govuk-caption-m">11 November 2019</time>
+
+                    <h2 class="govuk-heading-l">MVP v1</h2>
+
+                    <a href="/mvp1/signin" class="govuk-button govuk-!-margin-right-1">View MVP prototype</a>
+                    <a href="/mvp1/dashboard-service-prap-no-orgs" class="govuk-button">View 'no organisations' dashboard</a>
+
+                    <h3 class="govuk-heading-s">General changes</h3>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                            Added an 'interstitial' page to prompt users to complete organisation details before adding users to an incomplete organisation
+                        </li>
+                        <li>
+                            First attempt at <a href="/mvp1/mega-search-example">'MEGASEARCHATRON'</a>. With separate view for no-js users/The Blackwell Effect
+                        </li>
+                        <li>
+                            Expanded 'Add an organisation' journey to include address and contact details
+                        </li>
+                        <li>
+                            Add first attempt at <a href="/mvp1/org-view-capita" class="govuk-link">organisation view</a> page
+                        </li>
+                        <li>
+                            Slim down files to show only service admin routes
+                        </li>
+                        <li>
+                            Strip out lots of user information from user list, and user view
+                        </li>
+                        <li>
+                            Make everything as if viewed by a <del>PRaP</del> HTDS service admin
+                        </li>
+                        <li>
+                            Added a little more dynamicism to make better use of prototype data
+                        </li>
+                        <li>
+                            Fleshed out user list pages so that each sample organisation has their own list of users
+                        </li>
+                        <li>
+                            Added a 'no organisation' service admin dashboard view
+                        </li>
+                        <li>
+                            Added typeahead example to choose organisation on add new user journey
+                        </li>
+                        <li>
+                            Improved the suspend/delete actions on the User View page
+                        </li>
+                        <li>
+                            Added sign in/sign out views
+                        </li>
+                        <li>
+                            Changed organisation list views to make functionality more obvious
+                        </li>
+                        <li>
+                            Made typeahead minLength before searching 3 characters
+                        </li>
+                        <li>
+                            Change 'full name' to 'first name' and 'last name'
+                        </li>
+                    </ul>
+
+                    <h3 class="govuk-heading-s">UR Goals</h3>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                            Goal 1
+                        </li>
+                    </ul>
+
+                    <h3 class="govuk-heading-s">Findings</h3>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                            Finding/recommendation 1
+                        </li>
+                    </ul>
+
+                    <h3 class="govuk-heading-s">Useful links</h3>
+
+                    <ul class="govuk-list">
+                        <li>
+                            <a class="govuk-link" href="/public/files/insights/mvp1-add-organisation-and-user.pdf">UR Insights - add an organisation and user</a>
+                        </li>
+                    </ul>
+
+                    <h3 class="govuk-heading-s">Confidence level</h3>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="col">User journey step</th>
+                                <th class="govuk-table__header" scope="col">Confidence</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/mvp1/dashboard-service-prap">Service admin dashboard</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--high">high</span></td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/mvp1/organisation-list-prap">Organisation list landing</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/mvp1/organisation-add-prap">Add a new organisation</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
+                            </tr>
+
+                        <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/mvp1/user-add-user-prap-org">Add a new user (as a service admin)</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--low">low</span></td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell"><a href="/mvp1/user-list-prap">View all users for a service</a></td>
+                                <td class="govuk-table__cell"><span class="govuk-tag govuk-tag--medium">medium</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
                     <time datetime="2019-11-27" class="govuk-caption-m">27 November 2019</time>
 
                     <h2 class="govuk-heading-l">v4</h2>

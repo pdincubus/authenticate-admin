@@ -17,6 +17,76 @@
         <form action="user-list-prap-sorted" method="post" id="search-refine" class="govuk-grid-row govuk-!-margin-right-0 govuk-!-margin-left-0 govuk-sort-filter">
             <fieldset class="govuk-grid-column-one-half govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    Filter results
+                </legend>
+
+                {{ govukSelect({
+                    id: "filterorg",
+                    name: "filterorg",
+                    label: {
+                        text: "Organisation"
+                    },
+                    items: [
+                        {
+                            value: "",
+                            text: "All organisations"
+                        },
+                        {
+                            value: "Capita",
+                            text: "Capita"
+                        },
+                        {
+                            value: "G4S",
+                            text: "G4S"
+                        },
+                        {
+                            value: "London Borough of Croydon Council",
+                            text: "London Borough of Croydon Council"
+                        },
+                        {
+                            value: "Remploy",
+                            text: "Remploy"
+                        },
+                        {
+                            value: "Serco",
+                            text: "Serco"
+                        }
+                    ]
+                }) }}
+
+                {{ govukSelect({
+                    id: "filterstatus",
+                    name: "filterstatus",
+                    label: {
+                        text: "Status"
+                    },
+                    items: [
+                        {
+                            value: "",
+                            text: "All statuses"
+                        },
+                        {
+                            value: "active",
+                            text: "active"
+                        },
+                        {
+                            value: "inactive",
+                            text: "inactive"
+                        },
+                        {
+                            value: "pending activation",
+                            text: "pending activation"
+                        },
+                        {
+                            value: "invite expired",
+                            text: "invite expired"
+                        }
+                    ]
+                }) }}
+            </fieldset>
+
+            <fieldset class="govuk-grid-column-one-half govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                     Sort results
                 </legend>
 
@@ -94,76 +164,6 @@
                 }) }}
             </fieldset>
 
-            <fieldset class="govuk-grid-column-one-half govuk-fieldset">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                    Filter results
-                </legend>
-
-                {{ govukSelect({
-                    id: "filterorg",
-                    name: "filterorg",
-                    label: {
-                        text: "Organisation"
-                    },
-                    items: [
-                        {
-                            value: "",
-                            text: "All organisations"
-                        },
-                        {
-                            value: "Capita",
-                            text: "Capita"
-                        },
-                        {
-                            value: "G4S",
-                            text: "G4S"
-                        },
-                        {
-                            value: "London Borough of Croydon Council",
-                            text: "London Borough of Croydon Council"
-                        },
-                        {
-                            value: "Remploy",
-                            text: "Remploy"
-                        },
-                        {
-                            value: "Serco",
-                            text: "Serco"
-                        }
-                    ]
-                }) }}
-
-                {{ govukSelect({
-                    id: "filterstatus",
-                    name: "filterstatus",
-                    label: {
-                        text: "Status"
-                    },
-                    items: [
-                        {
-                            value: "",
-                            text: "All statuses"
-                        },
-                        {
-                            value: "active",
-                            text: "active"
-                        },
-                        {
-                            value: "inactive",
-                            text: "inactive"
-                        },
-                        {
-                            value: "pending activation",
-                            text: "pending activation"
-                        },
-                        {
-                            value: "invite expired",
-                            text: "invite expired"
-                        }
-                    ]
-                }) }}
-            </fieldset>
-
             <button class="govuk-button govuk-filters-button" data-module="govuk-button">
                 Refine results
             </button>
@@ -178,7 +178,7 @@
         </a>
 
         {{ govukDetails({
-            summaryText: "Sort and filter results",
+            summaryText: "Filter and sort users",
             html: sortFilterHtml
         }) }}
 

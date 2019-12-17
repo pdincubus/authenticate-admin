@@ -515,10 +515,16 @@ a.pagination__link:focus {
 /**
  * Filters and sorting
  */
-.govuk-filters-button {
+.govuk-filters-button,
+.govuk-filter-reset {
     clear: both;
     float: left;
     margin-bottom: 0;
+}
+
+p.govuk-filter-reset {
+    display: block;
+    margin-top: 20px;
 }
 
 .govuk-sort-filter .is_hidden {

@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Dashboard - HTDS - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-l">HTDS</h1>
+
+<div class="govuk-cards govuk-cards--2">
+    <div class="govuk-cards--2__item govuk-card--dashboard">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Organisations</h2>
+
+        <p class="govuk-heading-xl govuk-!-margin-bottom-5">
+            <span class="govuk-visually-hidden">There are currently</span>
+
+            {% if data['organisation-name'] %}
+                6
+            {% else %}
+                5
+            {% endif %}
+
+            <span class="govuk-visually-hidden">organisations in the system</span>
+        </p>
+
+        <ul class="govuk-list">
+            <li>
+                <a href="organisation-add-name" class="govuk-link">Add an organisation</a>
+            </li>
+
+            <li>
+                <a href="organisation-list-prap" class="govuk-link">View all organisations</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="govuk-cards--2__item govuk-card--dashboard">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Users</h2>
+
+        <p class="govuk-heading-xl govuk-!-margin-bottom-5">
+            <span class="govuk-visually-hidden">There are currently</span>
+
+            {% if data['user-first-name'] and data['user-last-name'] %}
+                75
+            {% else %}
+                74
+            {% endif %}
+
+            <span class="govuk-visually-hidden">users in the system</span>
+        </p>
+
+        <ul class="govuk-list">
+            <li>
+                <a href="user-add-user-prap-org" class="govuk-link">Add a user</a>
+            </li>
+
+            <li>
+                <a href="user-list-prap" class="govuk-link">View all users</a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
