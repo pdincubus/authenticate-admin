@@ -327,4 +327,24 @@ router.post('/v5/l2/orgs/add/contacts-branch', function (req, res) {
     }
 });
 
+router.post('/v5/l2/orgs/add/contacts-2-branch', function (req, res) {
+    const checkChoice = req.session.data['add-additional-org-contact'];
+
+    if (checkChoice === 'yes') {
+        res.redirect('/v5/l2/orgs/add/contact-2');
+    } else {
+        res.redirect('/v5/l2/orgs/add/summary');
+    }
+});
+
+router.post('/v5/l2/orgs/add/contacts-3-branch', function (req, res) {
+    const checkChoice = req.session.data['add-another-additional-org-contact'];
+
+    if (checkChoice === 'yes') {
+        res.redirect('/v5/l2/orgs/add/contact-3');
+    } else {
+        res.redirect('/v5/l2/orgs/add/summary');
+    }
+});
+
 module.exports = router;
