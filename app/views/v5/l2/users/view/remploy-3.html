@@ -9,16 +9,16 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include '../includes/back-button.njk' %}
+    {% include 'includes/back-button.njk' %}
 {% endblock %}
 
-
 {% block content %}
+    <h1 class="govuk-heading-l listing-page">
+        <span class="govuk-caption-l">Remploy</span>
+        Users
+    </h1>
 
-  <h1 class="govuk-heading-l listing-page"><span class="govuk-caption-l">Remploy</span>Users</h1>
-
-
-  <a href="user-add-user-prap-remploy" class="govuk-button listing-page">Add a user</a>
+    <a href="user-add-user-prap-remploy" class="govuk-button listing-page">Add a user</a>
 
   <table class="govuk-table">
     <thead class="govuk-table__head">
