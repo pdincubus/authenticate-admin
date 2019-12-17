@@ -1,0 +1,264 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Users - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    {% set sortFilterHtml %}
+        <form action="all" method="post" id="search-refine" class="govuk-grid-row govuk-!-margin-right-0 govuk-!-margin-left-0 govuk-sort-filter">
+            <fieldset class="govuk-grid-column-one-half govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    Filter results
+                </legend>
+
+                {{ govukSelect({
+                    id: "filterorg",
+                    name: "filterorg",
+                    label: {
+                        text: "Organisation"
+                    },
+                    items: [
+                        {
+                            value: "",
+                            text: "All organisations"
+                        },
+                        {
+                            value: "Capita",
+                            text: "Capita",
+                            selected: true
+                        },
+                        {
+                            value: "G4S",
+                            text: "G4S"
+                        },
+                        {
+                            value: "London Borough of Croydon Council",
+                            text: "London Borough of Croydon Council"
+                        },
+                        {
+                            value: "Remploy",
+                            text: "Remploy"
+                        },
+                        {
+                            value: "Serco",
+                            text: "Serco"
+                        }
+                    ]
+                }) }}
+
+                {{ govukSelect({
+                    id: "filterstatus",
+                    name: "filterstatus",
+                    label: {
+                        text: "Status"
+                    },
+                    items: [
+                        {
+                            value: "",
+                            text: "All statuses"
+                        },
+                        {
+                            value: "active",
+                            text: "active",
+                            selected: true
+                        },
+                        {
+                            value: "inactive",
+                            text: "inactive"
+                        },
+                        {
+                            value: "pending activation",
+                            text: "pending activation"
+                        },
+                        {
+                            value: "invite expired",
+                            text: "invite expired"
+                        }
+                    ]
+                }) }}
+            </fieldset>
+
+            <fieldset class="govuk-grid-column-one-half govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    Sort results
+                </legend>
+
+                {{ govukSelect({
+                    id: "sort-order",
+                    name: "sort-order",
+                    label: {
+                        text: "Sort by"
+                    },
+                    items: [
+                        {
+                            value: "firstname",
+                            text: "First name",
+                            selected: true
+                        },
+                        {
+                            value: "lastname",
+                            text: "Last name"
+                        },
+                        {
+                            value: "organisation",
+                            text: "Organisation"
+                        },
+                        {
+                            value: "status",
+                            text: "Status"
+                        }
+                    ]
+                }) }}
+
+                {{ govukRadios({
+                    classes: "govuk-radios--inline govuk-radios--small",
+                    idPrefix: "sort-order",
+                    name: "sort-order",
+                    fieldset: {
+                        legend: {
+                            text: "Sort order",
+                            isPageHeading: false
+                        },
+                        classes: "sort-order-1"
+                    },
+                    items: [
+                        {
+                            value: "az",
+                            text: "A-Z",
+                            checked: true
+                        },
+                        {
+                            value: "za",
+                            text: "Z-A"
+                        }
+                    ]
+                }) }}
+
+                {{ govukRadios({
+                    classes: "govuk-radios--inline govuk-radios--small",
+                    idPrefix: "sort-order2",
+                    name: "sort-order2",
+                    fieldset: {
+                        legend: {
+                            text: "Sort order",
+                            isPageHeading: false
+                        },
+                        classes: "sort-order-2 is_hidden"
+                    },
+                    items: [
+                        {
+                            value: "active",
+                            text: "Active ... Invite expired"
+                        },
+                        {
+                            value: "expired",
+                            text: "Invite expired ... Active"
+                        }
+                    ]
+                }) }}
+            </fieldset>
+
+            <button class="govuk-button govuk-filters-button" data-module="govuk-button">
+                Refine results
+            </button>
+
+            <p class="govuk-filter-reset">
+                <a href="all" class="govuk-link">
+                    Reset filters and sorting
+                </a>
+            </p>
+        </form>
+    {% endset %}
+
+    <div class="govuk-width-container">
+        <h1 class="govuk-heading-l listing-page">Users</h1>
+
+        <a href="users/add/start" class="govuk-button listing-page">
+            Add a user
+        </a>
+
+        {{ govukDetails({
+            summaryText: "Filter and sort users",
+            html: sortFilterHtml
+        }) }}
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name <span class="govuk-sorted-by">(Currently sorted by name, a-z)</span></th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation</th>
+                    <th scope="col" class="govuk-table__header">Status</th>
+                </tr>
+            </thead>
+
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Chris Fairclough</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Gary McAllister</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">John Lukic</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell ">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Lee Chapman</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Mel Sterland</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Rod Wallace</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Steve Hodge</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell ">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Tony Dorigo</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <nav role="navigation" aria-label="Pagination">
+            <div class="pagination__summary">
+                Showing 1 &ndash; 8 of 8 users
+            </div>
+        </nav>
+
+        <p class="govuk-!-margin-top-9">
+            <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+        </p>
+    </div>
+{% endblock %}
