@@ -170,10 +170,14 @@
             <button class="govuk-button govuk-filters-button" data-module="govuk-button">
                 Refine results
             </button>
+
+            <a href="user-list-prap" class="govuk-button">
+                Reset filters and sorting
+            </a>
         </form>
     {% endset %}
 
-    <div class="govuk-grid-row">
+    <div class="govuk-width-container">
         <h1 class="govuk-heading-l listing-page">Users</h1>
 
         <a href="user-add-user-prap-org" class="govuk-button listing-page">
@@ -188,7 +192,7 @@
         <table class="govuk-table">
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name <span class="govuk-sorted-by">(Currently sorted by name, a-z)</span></th>
                     <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation</th>
                     <th scope="col" class="govuk-table__header">Status</th>
                 </tr>
@@ -196,13 +200,25 @@
 
             <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Chris Fairclough</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Gary McAllister</a></th>
                     <td class="govuk-table__cell">Capita</td>
                     <td class="govuk-table__cell">Active</td>
                 </tr>
 
                 <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Tony Dorigo</a></th>
+                    <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">John Lukic</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell ">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Lee Chapman</a></th>
                     <td class="govuk-table__cell">Capita</td>
                     <td class="govuk-table__cell">Active</td>
                 </tr>
@@ -220,25 +236,13 @@
                 </tr>
 
                 <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Lee Chapman</a></th>
-                    <td class="govuk-table__cell">Capita</td>
-                    <td class="govuk-table__cell">Active</td>
-                </tr>
-
-                <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Steve Hodge</a></th>
                     <td class="govuk-table__cell">Capita</td>
                     <td class="govuk-table__cell ">Active</td>
                 </tr>
 
                 <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">John Lukic</a></th>
-                    <td class="govuk-table__cell">Capita</td>
-                    <td class="govuk-table__cell ">Active</td>
-                </tr>
-
-                <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Chris Fairclough</a></th>
+                    <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">Tony Dorigo</a></th>
                     <td class="govuk-table__cell">Capita</td>
                     <td class="govuk-table__cell">Active</td>
                 </tr>

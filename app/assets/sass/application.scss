@@ -524,3 +524,18 @@ a.pagination__link:focus {
 .govuk-sort-filter .is_hidden {
     display: none;
 }
+
+.govuk-sorted-by {
+    text-indent: 115%;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    display: inline-block;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #000;
+    vertical-align: middle;
+    margin-left: 12px;
+    margin-top: -2px;
+}
