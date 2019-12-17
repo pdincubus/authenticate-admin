@@ -511,3 +511,16 @@ a.pagination__link:focus {
 .dirty-height-hack {
     min-height: 70vh;
 }
+
+/**
+ * Filters and sorting
+ */
+.govuk-filters-button {
+    clear: both;
+    float: left;
+    margin-bottom: 0;
+}
+
+.govuk-sort-filter .is_hidden {
+    display: none;
+}

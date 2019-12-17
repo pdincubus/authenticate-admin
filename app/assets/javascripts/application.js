@@ -55,3 +55,22 @@ if (megasearchInputElem) {
         }
     });
 }
+
+
+/**
+ * Some hacks for fake sort/filter form
+ */
+var filtersBlock = document.getElementById('search-refine');
+var sortChoices1 = filtersBlock.querySelector('.sort-order-1');
+var sortChoices2 = filtersBlock.querySelector('.sort-order-2');
+var sortOrderChoice = document.getElementById('sort-order');
+
+sortOrderChoice.addEventListener('change', function (e) {
+    if (this.value === 'status') {
+        sortChoices2.classList.remove('is_hidden');
+        sortChoices1.classList.add('is_hidden');
+    } else {
+        sortChoices2.classList.add('is_hidden');
+        sortChoices1.classList.remove('is_hidden');
+    }
+});
