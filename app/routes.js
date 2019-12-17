@@ -282,4 +282,49 @@ router.post('/mvp1/org-add-details-check', function (req, res) {
     }
 });
 
+/**
+ * new routes after complete re-organisation
+ */
+router.post('/v5/l2/users/add/org-check', function (req, res) {
+    const orgName = req.session.data['organisation-name'].toLowerCase();
+
+    if (
+        orgName == 'capita'
+        || orgName == 'serco'
+        || orgName == 'remploy'
+        || orgName == 'g4s'
+        || orgName == 'london borough of croydon council'
+        || orgName == 'sheffield city council'
+        || orgName
+    ) {
+        req.session.data['org-error'] = false;
+
+        res.redirect('/v5/l2/users/add/details');
+    } else {
+        req.session.data['org-error'] = true;
+
+        res.redirect('/v5/l2/users/add/start');
+    }
+});
+
+router.post('/v5/l2/orgs/add/address-branch', function (req, res) {
+    const checkChoice = req.session.data['add-org-address'];
+
+    if (checkChoice === 'yes') {
+        res.redirect('/v5/l2/orgs/add/address');
+    } else {
+        res.redirect('/v5/l2/orgs/add/contacts-check');
+    }
+});
+
+router.post('/v5/l2/orgs/add/contacts-branch', function (req, res) {
+    const checkChoice = req.session.data['add-org-contacts'];
+
+    if (checkChoice === 'yes') {
+        res.redirect('/v5/l2/orgs/add/contact');
+    } else {
+        res.redirect('/v5/l2/orgs/add/summary');
+    }
+});
+
 module.exports = router;
