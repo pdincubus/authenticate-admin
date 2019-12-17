@@ -34,7 +34,7 @@
                     {% if data['organisation-name'] %}
                         <tr class="govuk-table__row">
                             <th scope="row" class="govuk-table__header">
-                                <a href="new" class="govuk-link">
+                                <a href="custom" class="govuk-link">
                                     {{ data['organisation-name'] }}
                                 </a>
                             </th>
@@ -65,11 +65,11 @@
                                         Complete details
                                     </a>
                                 {% elseif data['user-first-name'] and data['user-last-name'] %}
-                                    <a href="../../users/view/new" class="govuk-link">
+                                    <a href="../../users/view/custom" class="govuk-link">
                                         View user
                                     </a>
                                 {% else %}
-                                    <a href="../../users/add/start-new" class="govuk-link">
+                                    <a href="../../users/add/start-custom" class="govuk-link">
                                         Add user
                                     </a>
                                 {% endif %}
