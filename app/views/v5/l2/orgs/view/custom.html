@@ -101,17 +101,17 @@
                     <ul class="govuk-list">
                         {% if data['organisation-name'] and data['address-line-1'] and data['contact-1-first-name'] and data['contact-2-first-name'] %}
                             <li>
-                                <a href="user-add-user-prap-new" class="govuk-link">Add a user</a>
+                                <a href="../../users/add/details-custom" class="govuk-link">Add a user</a>
                             </li>
                         {% else %}
                             <li>
-                                <a href="organisation-complete-details" class="govuk-link">Add a user</a>
+                                <a href="../add/inactive-until-updated" class="govuk-link">Add a user</a>
                             </li>
                         {% endif %}
 
                         {% if data['user-first-name'] and data['user-last-name'] %}
                             <li>
-                                <a href="user-list-prap-new" class="govuk-link">View all users</a>
+                                <a href="../../users/view/custom" class="govuk-link">View all users</a>
                             </li>
                         {% else %}
                         </ul>
