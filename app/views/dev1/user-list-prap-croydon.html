@@ -33,7 +33,7 @@
     <tbody class="govuk-table__body">
       {% if data['organisation-name'] == 'London Borough of Croydon Council' %}
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">{{ data['user-full-name'] }}</a></th>
+        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">{{ data["user-first-name"] + ' ' + data["user-last-name"] }}</a></th>
         <td class="govuk-table__cell">{{ data['user-email-address'] }}</td>
         <td class="govuk-table__cell">Pending activation</td>
       </tr>
