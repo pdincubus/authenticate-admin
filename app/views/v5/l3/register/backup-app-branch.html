@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Sign up - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Would you like to use an app as a backup login?</h1>
+            <p>You'll need a smartphone to do this.</p>
+            <p>An app doesn’t require phone signal to work. This might be useful if your office has poor phone signal.</p>
+     
+            {{ govukRadios({
+              idPrefix: "app-backup",
+              name: "app-backup",
+              fieldset: {
+                legend: {
+                  classes: "govuk-fieldset__legend--l"
+                }
+              },
+              items: [
+                {
+                  value: "app-backup-yes",
+                  text: "Yes, I’ll use an app as a backup"
+                },
+                {
+                  value: "app-backup-yes",
+                  text: "No, I’ll just use text messages"
+                }
+              ]
+            }) }}
+
+            {{ govukButton({
+              text: "Continue",
+              href: "qrcode.html"
+          }) }}
+
+  </div>
+{% endblock %}

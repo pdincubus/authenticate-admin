@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Sign up - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Enter your mobile phone number</h1>
+            <p>It must be a mobile phone number. Landlines will not be accepted.</p>
+      
+            {{ govukDetails({
+                summaryText: "Why can't I use a landline?",
+                text: "We’re going to use this number to check it’s you signing in. As some landlines are used by many people, they aren’t as secure."
+            }) }}
+     
+            <div class="govuk-form-group govuk-!-margin-top-6">
+                <label class="govuk-label" for="width-20">
+                    Mobile phone number
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+            </div>
+                  
+            {{ govukButton({
+                text: "Send code",
+                href: "code-in-message.html"
+            }) }}
+  </div>
+{% endblock %}
