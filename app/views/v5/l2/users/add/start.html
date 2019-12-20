@@ -25,7 +25,7 @@
                     errorList: [
                         {
                             text: errorSummaryMessage,
-                            href: "#organisation-name"
+                            href: "#organisation-name-existing"
                         }
                     ]
                 }) }}
@@ -50,7 +50,7 @@
                             Organisation
                         </label>
 
-                        <select class="govuk-select form-control" name="organisation-name" id="organisation-name">
+                        <select class="govuk-select form-control" name="organisation-name-existing" id="organisation-name-existing">
                             <option value="" selected>Choose an organisation</option>
                             <option value="Capita">Capita</option>
                             <option value="Serco">Serco</option>
@@ -86,7 +86,7 @@
     <script type="text/javascript">
         accessibleAutocomplete.enhanceSelectElement({
             defaultValue: '',
-            selectElement: document.getElementById('organisation-name'),
+            selectElement: document.getElementById('organisation-name-existing'),
             minLength: 3,
             tNoResults: function() { return 'No organisations found.'; }
         });

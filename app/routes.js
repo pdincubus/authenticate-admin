@@ -286,16 +286,18 @@ router.post('/mvp1/org-add-details-check', function (req, res) {
  * new routes after complete re-organisation
  */
 router.post('/v5/l2/users/add/org-check', function (req, res) {
-    const orgName = req.session.data['organisation-name'].toLowerCase();
+    const chosenOrgName = req.session.data['organisation-name-existing'].toLowerCase();
+    const orgName = req.session.data['organisation-name'];
 
     if (
-        orgName == 'capita'
-        || orgName == 'serco'
-        || orgName == 'remploy'
-        || orgName == 'g4s'
-        || orgName == 'london borough of croydon council'
-        || orgName == 'sheffield city council'
-        || orgName
+        chosenOrgName == 'capita'
+        || chosenOrgName == 'serco'
+        || chosenOrgName == 'remploy'
+        || chosenOrgName == 'g4s'
+        || chosenOrgName == 'london borough of croydon council'
+        || chosenOrgName == 'sheffield city council'
+        || (chosenOrgName == orgName && orgName !== null)
+        || (chosenOrgName == orgName.toLowerCase() && orgName !== undefined)
     ) {
         req.session.data['org-error'] = false;
 
