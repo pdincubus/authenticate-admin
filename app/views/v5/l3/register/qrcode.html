@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Sign up - {{serviceName}}
+    Setup device - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -50,7 +50,7 @@
                   
                   {{ govukButton({
                     text: "Continue",
-                    href: "qrcode.html"
+                    href: "auth-app"
                 }) }}
 
                 <p><a href="backup-app-branch">I don't want to set this up</a></p>

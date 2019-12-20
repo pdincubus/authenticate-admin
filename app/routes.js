@@ -398,4 +398,15 @@ router.post('/v5/l2/orgs/edit/suspend', function (req, res) {
     }
 });
 
+router.post('/v5/l3/register/app', function (req, res) {
+    if (req.session.data['app-backup'] === 'app-backup-yes') {
+        res.redirect('/v5/l3/register/qrcode');
+    } else {
+        res.redirect('/v5/l3/register/registration-complete');
+    }
+});
+
+
+
+
 module.exports = router;

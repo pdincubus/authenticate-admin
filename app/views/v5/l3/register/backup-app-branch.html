@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Sign up - {{serviceName}}
+    Authenticator app backup - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -27,30 +27,29 @@
             <p>You'll need a smartphone to do this.</p>
             <p>An app doesn’t require phone signal to work. This might be useful if your office has poor phone signal.</p>
      
-            {{ govukRadios({
-              idPrefix: "app-backup",
-              name: "app-backup",
-              fieldset: {
-                legend: {
-                  classes: "govuk-fieldset__legend--l"
-                }
-              },
-              items: [
-                {
-                  value: "app-backup-yes",
-                  text: "Yes, I’ll use an app as a backup"
+            <form id="form" method="post" action="app">
+              {{ govukRadios({
+                idPrefix: "app-backup",
+                name: "app-backup",
+                fieldset: {
+                  legend: {
+                    classes: "govuk-fieldset__legend--l"
+                  }
                 },
-                {
-                  value: "app-backup-yes",
-                  text: "No, I’ll just use text messages"
-                }
-              ]
-            }) }}
+                items: [
+                  {
+                    value: "app-backup-yes",
+                    text: "Yes, I’ll use an app as a backup"
+                  },
+                  {
+                    value: "app-backup-no",
+                    text: "No, I’ll just use text messages"
+                  }
+                ]
+              }) }}
 
-            {{ govukButton({
-              text: "Continue",
-              href: "qrcode.html"
-          }) }}
+              <input type="submit" class="govuk-button govuk-!-margin-right-1" value="Continue" id="submit">
+            </form>
 
   </div>
 {% endblock %}

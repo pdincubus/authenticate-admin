@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Sign up - {{serviceName}}
+    Enter code - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -35,7 +35,7 @@
                   
             {{ govukButton({
                 text: "Continue",
-                href: "backup-app-branch.html"
+                href: "registration-complete"
             }) }}
 
             <p>If you’d rather sign in using a text message, you’ll have to <a href="enter-mobile">start again</a>.</p>
