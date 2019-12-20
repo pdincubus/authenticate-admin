@@ -8,9 +8,6 @@
     {{ super() }}
 {% endblock %}
 
-{% block beforeContent %}
-    {% include 'includes/back-button.njk' %}
-{% endblock %}
 
 {% block content %}
     <h1 class="govuk-heading-l listing-page">
@@ -38,26 +35,26 @@
                         </a>
                     </th>
                     <td class="govuk-table__cell">{{ data['user-email-address'] }}</td>
-                    <td class="govuk-table__cell">Pending activation</td>
+                    <td class="govuk-table__cell">Invite sent</td>
                 </tr>
             {% endif %}
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">John McKenzie</a></th>
                 <td class="govuk-table__cell">j.mckenzie@croydon.gov.uk</td>
-                <td class="govuk-table__cell">Inactive</td>
+                <td class="govuk-table__cell">Access expired</td>
                 </tr>
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Peter Ridsdale</a></th>
                 <td class="govuk-table__cell">p.ridsdale@croydon.gov.uk</td>
-                <td class="govuk-table__cell">Inactive</td>
+                <td class="govuk-table__cell">Access expired</td>
             </tr>
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Leslie Silver</a></th>
                 <td class="govuk-table__cell">l.silver@croydon.gov.uk</td>
-                <td class="govuk-table__cell">Pending activation</td>
+                <td class="govuk-table__cell">Invite sent</td>
             </tr>
 
             <tr class="govuk-table__row">
@@ -121,6 +118,6 @@
     </nav>
 
     <p class="govuk-!-margin-top-9">
-        <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+        <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
     </p>
 {% endblock %}

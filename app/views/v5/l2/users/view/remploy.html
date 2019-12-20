@@ -8,10 +8,6 @@
     {{ super() }}
 {% endblock %}
 
-{% block beforeContent %}
-    {% include 'includes/back-button.njk' %}
-{% endblock %}
-
 
 {% block content %}
     <h1 class="govuk-heading-l listing-page">
@@ -124,15 +120,15 @@
       </li>
 
       <li class="pagination__item">
-        <a class="pagination__link" href="user-list-prap-remploy-2" aria-label="Page 2">2</a>
+        <a class="pagination__link" href="remploy-2" aria-label="Page 2">2</a>
       </li>
 
       <li class="pagination__item">
-          <a class="pagination__link" href="user-list-prap-remploy-3" aria-label="Page 3">3</a>
+          <a class="pagination__link" href="employ-3" aria-label="Page 3">3</a>
         </li>
 
       <li class="pagination__item">
-        <a class="pagination__link" href="user-list-prap-remploy-2" aria-label="Next page">
+        <a class="pagination__link" href="remploy-2" aria-label="Next page">
           Next <span aria-hidden="true" role="presentation">&raquo;</span>
         </a>
       </li>
@@ -140,6 +136,6 @@
   </nav>
 
   <p class="govuk-!-margin-top-9">
-    <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+    <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
   </p>
 {% endblock %}

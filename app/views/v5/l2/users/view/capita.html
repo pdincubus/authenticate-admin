@@ -8,9 +8,6 @@
     {{ super() }}
 {% endblock %}
 
-{% block beforeContent %}
-    {% include 'includes/back-button.njk' %}
-{% endblock %}
 
 {% block content %}
     <h1 class="govuk-heading-l listing-page">
@@ -38,26 +35,26 @@
                         </a>
                     </th>
                     <td class="govuk-table__cell">{{ data['user-email-address'] }}</td>
-                    <td class="govuk-table__cell">Pending activation</td>
+                    <td class="govuk-table__cell">Invite sent</td>
                 </tr>
             {% endif %}
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">David Batty</a></th>
                 <td class="govuk-table__cell">david.batty@capita.co.uk</td>
-                <td class="govuk-table__cell">Inactive</td>
+                <td class="govuk-table__cell">Access expired</td>
             </tr>
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Gary Speed</a></th>
                 <td class="govuk-table__cell">gary.speed@capita.co.uk</td>
-                <td class="govuk-table__cell">Inactive</td>
+                <td class="govuk-table__cell">Access expired</td>
             </tr>
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Gordon Strachan</a></th>
                 <td class="govuk-table__cell">gordon.strachan@capita.co.uk</td>
-                <td class="govuk-table__cell">Pending activation</td>
+                <td class="govuk-table__cell">Invite sent</td>
             </tr>
 
             <tr class="govuk-table__row">

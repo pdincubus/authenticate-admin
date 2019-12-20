@@ -8,10 +8,6 @@
     {{ super() }}
 {% endblock %}
 
-{% block beforeContent %}
-  {% include '../includes/back-button.njk' %}
-{% endblock %}
-
 
 {% block content %}
   <h1 class="govuk-heading-l listing-page"><span class="govuk-caption-l">G4S</span>
@@ -33,7 +29,7 @@
     <tbody class="govuk-table__body">
       {% if data['organisation-name'] == 'G4S' %}
       <tr class="govuk-table__row">
-        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">{{ data['user-full-name'] }}</a></th>
+        <th scope="row" class="govuk-table__header"><a href="user-view" class="govuk-link">{{ data["user-first-name"] + ' ' + data["user-last-name"] }}</a></th>
         <td class="govuk-table__cell">{{ data['user-email-address'] }}</td>
         <td class="govuk-table__cell">Pending activation</td>
       </tr>

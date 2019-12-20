@@ -8,10 +8,6 @@
     {{ super() }}
 {% endblock %}
 
-{% block beforeContent %}
-    {% include 'includes/back-button.njk' %}
-{% endblock %}
-
 
 {% block content %}
     <h1 class="govuk-heading-l listing-page">
@@ -39,20 +35,20 @@
                         </a>
                     </th>
                     <td class="govuk-table__cell">{{ data['user-email-address'] }}</td>
-                    <td class="govuk-table__cell">Pending activation</td>
+                    <td class="govuk-table__cell">Invite sent</td>
                 </tr>
             {% endif %}
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Matt Hayes</a></th>
                 <td class="govuk-table__cell">matt.hayes@g4s.co.uk</td>
-                <td class="govuk-table__cell">Inactive</td>
+                <td class="govuk-table__cell">Access expired</td>
             </tr>
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Mick Brown</a></th>
                 <td class="govuk-table__cell">mick.brown@g4s.co.uk</td>
-                <td class="govuk-table__cell">Pending activation</td>
+                <td class="govuk-table__cell">Invite sent</td>
             </tr>
 
             <tr class="govuk-table__row">
@@ -76,7 +72,7 @@
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Marina Gibson</a></th>
                 <td class="govuk-table__cell">marina.gibson@g4s.co.uk</td>
-                <td class="govuk-table__cell">Inactive</td>
+                <td class="govuk-table__cell">Access expired</td>
             </tr>
 
             <tr class="govuk-table__row">

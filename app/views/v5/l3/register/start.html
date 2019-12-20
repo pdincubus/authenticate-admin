@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Sign up - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Register with DWP Authenticate</h1>
+      <p>DWP Authenticate will allow you to access the Provider Referrals and Payments system service.</p>
+
+      {{ govukButton({
+        text: "Start registration",
+        href: "create-new-password.html",
+        isStartButton: true
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">Before you start</h2> 
+
+      <p>You'll need your mobile phone</p>
+
+      {{ govukDetails({
+        summaryText: "Why do I need a mobile phone?",
+        text: "After you’ve registered, you’ll use your mobile phone when you sign in. This makes the service more secure. It helps prove you’re the person using the service."
+      }) }}
+     
+    </div>
+  </div>
+{% endblock %}
