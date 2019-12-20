@@ -286,16 +286,18 @@ router.post('/mvp1/org-add-details-check', function (req, res) {
  * new routes after complete re-organisation
  */
 router.post('/v5/l2/users/add/org-check', function (req, res) {
-    const orgName = req.session.data['organisation-name'].toLowerCase();
+    const chosenOrgName = req.session.data['organisation-name-existing'].toLowerCase();
+    const orgName = req.session.data['organisation-name'];
 
     if (
-        orgName == 'capita'
-        || orgName == 'serco'
-        || orgName == 'remploy'
-        || orgName == 'g4s'
-        || orgName == 'london borough of croydon council'
-        || orgName == 'sheffield city council'
-        || orgName
+        chosenOrgName == 'capita'
+        || chosenOrgName == 'serco'
+        || chosenOrgName == 'remploy'
+        || chosenOrgName == 'g4s'
+        || chosenOrgName == 'london borough of croydon council'
+        || chosenOrgName == 'sheffield city council'
+        || (chosenOrgName == orgName && orgName !== null)
+        || (chosenOrgName == orgName.toLowerCase() && orgName !== undefined)
     ) {
         req.session.data['org-error'] = false;
 
@@ -363,6 +365,36 @@ router.post('/v5/l2/orgs/add/details-branch', function (req, res) {
         }
     } else if (orgCompleteDetails === 'no') {
         res.redirect('/v5/l2/orgs/view/custom');
+    }
+});
+
+router.post('/v5/l2/orgs/view/actions-branch', function (req, res) {
+    const orgAction = req.session.data['org-task'];
+
+    console.log(orgAction);
+
+    if (orgAction == 'delete') {
+        res.redirect('/v5/l2/orgs/edit/delete-check');
+    } else if (orgAction == 'delete-users-by-team') {
+        res.redirect('/v5/l2/orgs/edit/delete-by-team-check');
+    } else if (orgAction == 'delete-users-by-service') {
+        res.redirect('/v5/l2/orgs/edit/delete-by-service-check');
+    }
+});
+
+router.post('/v5/l2/orgs/edit/delete', function (req, res) {
+    if (req.session.data['delete-check'] === 'yes') {
+        res.redirect('/v5/l2/orgs/edit/delete-confirm');
+    } else {
+        res.redirect('/v5/l2/orgs/view/all');
+    }
+});
+
+router.post('/v5/l2/orgs/edit/suspend', function (req, res) {
+    if (req.session.data['suspend-check'] === 'yes') {
+        res.redirect('/v5/l2/orgs/edit/suspend-confirm');
+    } else {
+        res.redirect('/v5/l2/orgs/view/all');
     }
 });
 
