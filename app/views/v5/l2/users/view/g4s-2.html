@@ -8,10 +8,6 @@
     {{ super() }}
 {% endblock %}
 
-{% block beforeContent %}
-    {% include 'includes/back-button.njk' %}
-{% endblock %}
-
 
 {% block content %}
     <h1 class="govuk-heading-l listing-page">
@@ -34,13 +30,13 @@
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Bruce Sandison</a></th>
                 <td class="govuk-table__cell">bruce.sandison@g4s.co.uk</td>
-                <td class="govuk-table__cell">Inactive</td>
+                <td class="govuk-table__cell">Access expired</td>
             </tr>
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Rex Hunt</a></th>
                 <td class="govuk-table__cell">rex.hunt@g4s.co.uk</td>
-                <td class="govuk-table__cell">Pending activation</td>
+                <td class="govuk-table__cell">Invite sent</td>
             </tr>
 
             <tr class="govuk-table__row">
