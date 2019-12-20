@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Organisation details - {{siteName}}
+    Organisation details - London Borough of Croydon Council
 {% endblock %}
 
 {% block header %}
@@ -29,10 +29,7 @@
                         8 Mint Walk<br>
                         Croydon<br>
                         CR0 1EA
-
                     </p>
-
-                    <!--<p>Company number: 04992204</p>-->
 
                     <p>
                         <a href="#" class="govuk-link">Edit organisation details</a>
@@ -140,12 +137,12 @@
                     },
                     items: [
                         {
-                            value: "remove-by-team",
-                            text: "Remove users by team"
+                            value: "delete-users-by-team",
+                            text: "Delete users by team"
                         },
                         {
-                            value: "remove-by-service",
-                            text: "Remove users by service"
+                            value: "delete-users-by-service",
+                            text: "Delete users by service"
                         },
                         {
                             value: "delete",
@@ -160,7 +157,7 @@
             </form>
 
             <p class="govuk-!-margin-top-9">
-                <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+                <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
             </p>
         </div>
     </div>

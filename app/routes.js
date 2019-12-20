@@ -366,4 +366,34 @@ router.post('/v5/l2/orgs/add/details-branch', function (req, res) {
     }
 });
 
+router.post('/v5/l2/orgs/view/actions-branch', function (req, res) {
+    const orgAction = req.session.data['org-task'];
+
+    console.log(orgAction);
+
+    if (orgAction == 'delete') {
+        res.redirect('/v5/l2/orgs/edit/delete-check');
+    } else if (orgAction == 'delete-users-by-team') {
+        res.redirect('/v5/l2/orgs/edit/delete-by-team-check');
+    } else if (orgAction == 'delete-users-by-service') {
+        res.redirect('/v5/l2/orgs/edit/delete-by-service-check');
+    }
+});
+
+router.post('/v5/l2/orgs/edit/delete', function (req, res) {
+    if (req.session.data['delete-check'] === 'yes') {
+        res.redirect('/v5/l2/orgs/edit/delete-confirm');
+    } else {
+        res.redirect('/v5/l2/orgs/view/all');
+    }
+});
+
+router.post('/v5/l2/orgs/edit/suspend', function (req, res) {
+    if (req.session.data['suspend-check'] === 'yes') {
+        res.redirect('/v5/l2/orgs/edit/suspend-confirm');
+    } else {
+        res.redirect('/v5/l2/orgs/view/all');
+    }
+});
+
 module.exports = router;
