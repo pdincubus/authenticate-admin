@@ -72,11 +72,19 @@
 
                         <span class="govuk-visually-hidden">contacts in the system</span>
 
-                        <ul class="govuk-list">
-                            <li>
-                                <a href="organisation-add-contact" class="govuk-link">Add a contact</a>
-                            </li>
-                        </ul>
+                        {% if data['contact-1-first-name'] %}
+                            <ul class="govuk-list">
+                                <li><a href="organisation-add-contact" class="govuk-link">Add a contact</a></li>
+                                <li><a href="organisation-add-contact" class="govuk-link">View all contacts</a></li>
+                                
+                            </ul>
+                        {% else %}
+                            <ul class="govuk-list">
+                                <li><a href="organisation-add-contact" class="govuk-link">Add a contact</a></li>
+                            </ul>
+                        {% endif %}
+
+
                     </p>
                 </div>
             </div>
