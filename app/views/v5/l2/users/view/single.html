@@ -88,31 +88,27 @@
                 ]
             }) }}
 
-            <form id="form" method="post" action="reinvite-confirm">
+            <form id="form" method="post" action="edit-branch">
                 {{ govukRadios({
                     classes: "govuk-radios",
                     idPrefix: "user-task",
                     name: "user-task",
                     fieldset: {
-                    legend: {
-                        text: "Change user's status",
-                        isPageHeading: true,
-                        classes: "govuk-fieldset__legend--m"
-                    }
+                        legend: {
+                            text: "Change user's status",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--m"
+                        }
                     },
                     items: [
-                    {
-                        value: "reinvite",
-                        text: "Resend invitation"
-                    },
-                    {
-                        value: "suspend",
-                        text: "Remove user's access"
-                    },
-                    {
-                        value: "delete",
-                        text: "Delete " + data['user-first-name'] + " " + data['user-last-name']
-                    }
+                        {
+                            value: "reinvite",
+                            text: "Resend invitation"
+                        },
+                        {
+                            value: "delete",
+                            text: "Delete " + data['user-first-name'] + " " + data['user-last-name']
+                        }
                     ]
                 }) }}
 
@@ -122,18 +118,12 @@
             </form>
 
             <p class="govuk-!-margin-top-9">
-                <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+                <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
             </p>
         </div>
     </div>
 
     <script>
-        var nextPageRoutes = {
-          reinvite: 'reinvite-confirm.html',
-          suspend: 'suspend-check.html',
-          delete: 'delete-check.html',
-        };
-
         var currentDateElem = document.getElementById('current-time');
 
         //9 April 1982, 7:52pm

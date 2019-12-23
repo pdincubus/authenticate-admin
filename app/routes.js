@@ -398,6 +398,28 @@ router.post('/v5/l2/orgs/edit/suspend', function (req, res) {
     }
 });
 
+router.post('/v5/l2/users/view/edit-branch', function (req, res) {
+    const editChoice = req.session.data['user-task'];
+
+    if (editChoice === 'reinvite') {
+        res.redirect('/v5/l2/users/edit/reinvite');
+    } else if (editChoice === 'delete') {
+        res.redirect('/v5/l2/users/edit/delete-check');
+    }
+});
+
+router.post('/v5/l2/users/edit/delete-branch', function (req, res) {
+    const deleteChoice = req.session.data['delete-check'];
+
+    if (deleteChoice === 'yes') {
+        res.redirect('/v5/l2/users/edit/delete-confirm');
+    } else {
+        res.redirect('/v5/l2/users/view/single');
+    }
+});
+
+/** All level 3 (Org admin users) routes */
+
 router.post('/v5/l3/register/app', function (req, res) {
     if (req.session.data['app-backup'] === 'app-backup-yes') {
         res.redirect('/v5/l3/register/qrcode');
@@ -405,8 +427,5 @@ router.post('/v5/l3/register/app', function (req, res) {
         res.redirect('/v5/l3/register/registration-complete');
     }
 });
-
-
-
 
 module.exports = router;
