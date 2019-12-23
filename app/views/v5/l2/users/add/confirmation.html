@@ -21,7 +21,7 @@
         {% if data["organisation-name"] == 'dwp' %}
             {{ data["user-first-name"] }} {{ data['user-last-name'] }} added to the Department for Work and Pensions
         {% else %}
-            {{ data["user-first-name"] }} {{ data['user-last-name'] }} added to {{ data["organisation-name-existing"] }}
+            {{ data["user-first-name"] }} {{ data['user-last-name'] }} added to {{ data["organisation-name"] }}
         {% endif %}
     {% endset %}
 
@@ -35,13 +35,13 @@
             <p>An invitation has been sent to {{data['user-email-address']}}</p>
 
             <p>
-                {% if data['organisation-name-existing'] == 'dwp' %}
+                {% if data['organisation-name'] == 'dwp' %}
                     <a href="user-add-user-prap-dwp" class="govuk-link">
                         Add another DWP user
                     </a>
                 {% else %}
                     <a href="javascript:window.history.back()" class="govuk-link">
-                        Add another user to {{ data['organisation-name-existing'] }}
+                        Add another user to {{ data['organisation-name'] }}
                     </a>
                 {% endif %}
             </p>
