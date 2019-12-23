@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  User added - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+{% if data['user-task'] == 'suspend' %}
+<script>
+    window.location.href = 'suspend-check.html'
+</script>
+{% endif %}
+
+{% if data['user-task'] == 'delete' %}
+<script>
+    window.location.href = 'delete-check.html'
+</script>
+{% endif %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+        {{ govukPanel({
+
+      
+          titleText: "Invitiation resent"
+  
+    
+        }) }}
+
+
+
+      <p>An invitation has been resent to {{data['user-email-address']}}</p>
+
+   
+      <p><a href="../../dashboard" class="govuk-link">Back to dashboard</a></p>
+    </div>
+  </div>
+{% endblock %}
