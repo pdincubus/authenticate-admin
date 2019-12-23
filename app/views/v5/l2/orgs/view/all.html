@@ -31,11 +31,11 @@
                 </thead>
 
                 <tbody class="govuk-table__body">
-                    {% if data['organisation-name'] %}
+                    {% if data['organisation-name-custom'] %}
                         <tr class="govuk-table__row">
                             <th scope="row" class="govuk-table__header">
                                 <a href="custom" class="govuk-link">
-                                    {{ data['organisation-name'] }}
+                                    {{ data['organisation-name-custom'] }}
                                 </a>
                             </th>
 
@@ -49,19 +49,19 @@
 
                             <td class="govuk-table__cell">
                                 {% if not data['contact-1-first-name'] and not data['contact-2-first-name'] and not data['address-line-1'] %}
-                                    <a href="inactive-until-updated" class="govuk-link">
+                                    <a href="../add/inactive-until-updated" class="govuk-link">
                                         Complete details
                                     </a>
                                 {% elseif not data['contact-1-first-name'] and not data['contact-2-first-name'] and data['address-line-1'] %}
-                                    <a href="inactive-until-updated" class="govuk-link">
+                                    <a href="../add/inactive-until-updated" class="govuk-link">
                                         Add contacts
                                     </a>
                                 {% elseif data['contact-1-first-name'] and data['contact-2-first-name'] and not data['address-line-1'] %}
-                                    <a href="inactive-until-updated" class="govuk-link">
+                                    <a href="../add/inactive-until-updated" class="govuk-link">
                                         Complete details
                                     </a>
                                 {% elseif data['contact-1-first-name'] and not data['contact-2-first-name'] and not data['address-line-1'] %}
-                                    <a href="inactive-until-updated" class="govuk-link">
+                                    <a href="../add/inactive-until-updated" class="govuk-link">
                                         Complete details
                                     </a>
                                 {% elseif data['user-first-name'] and data['user-last-name'] %}

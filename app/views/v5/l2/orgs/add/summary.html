@@ -26,7 +26,7 @@
                         </dt>
 
                         <dd class="govuk-summary-list__value">
-                            {{ data['organisation-name'] }}
+                            {{ data['organisation-name-custom'] }}
                         </dd>
 
                         <dd class="govuk-summary-list__actions">
@@ -120,6 +120,8 @@
                         </div>
                     {% endif %}
                 </dl>
+
+                <input type="hidden" name="organisation-name" id="organisation-name" value="{{ data['organisation-name-custom'] }}">
 
                 {% include './includes/contacts-and-address.html' %}
 

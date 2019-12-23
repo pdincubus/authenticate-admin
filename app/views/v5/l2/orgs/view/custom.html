@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Organisation details - {{ data['organisation-name'] }}
+    Organisation details - {{ data['organisation-name-custom'] }}
 {% endblock %}
 
 {% block header %}
@@ -16,7 +16,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-width-container">
             <h1 class="govuk-heading-l">
-                {{ data['organisation-name'] }}
+                {{ data['organisation-name-custom'] }}
             </h1>
 
             <div class="govuk-cards govuk-cards--3">
@@ -76,7 +76,7 @@
                             <ul class="govuk-list">
                                 <li><a href="organisation-add-contact" class="govuk-link">Add a contact</a></li>
                                 <li><a href="organisation-add-contact" class="govuk-link">View all contacts</a></li>
-                                
+
                             </ul>
                         {% else %}
                             <ul class="govuk-list">
@@ -106,7 +106,7 @@
                     </p>
 
                     <ul class="govuk-list">
-                        {% if data['organisation-name'] and data['address-line-1'] and data['contact-1-first-name'] and data['contact-2-first-name'] %}
+                        {% if data['organisation-name-custom'] and data['address-line-1'] and data['contact-1-first-name'] and data['contact-2-first-name'] %}
                             <li>
                                 <a href="../../users/add/details-custom" class="govuk-link">Add a user</a>
                             </li>
@@ -178,7 +178,7 @@
                     ]
                 }) }}
 
-                <input type="hidden" value="{{ data['organisation-name'] }}" name="organisation-name" id="organisation-name">
+                <input type="hidden" value="{{ data['organisation-name-custom'] }}" name="organisation-name" id="organisation-name">
 
                 <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">Continue</button>
             </form>
