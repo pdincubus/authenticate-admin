@@ -19,7 +19,7 @@
                         <span class="govuk-caption-l">{{ data['organisation-name-custom'] }}</span>
                         Add a contact
                     </h1>
-            <form action="contacts-2-check" method="post" class="form">
+            <form action="contact-added-confirmation" method="post" class="form">
                 {% call govukFieldset({
                     legend: {
                         html: '',
@@ -33,8 +33,8 @@
                             html: 'First name'
                         },
                         classes: "govuk-!-width-two-thirds",
-                        id: "contact-1-first-name",
-                        name: "contact-1-first-name"
+                        id: "contact-0-first-name",
+                        name: "contact-0-first-name"
                     }) }}
 
                     {{ govukInput({
@@ -42,8 +42,8 @@
                             html: 'Last name'
                         },
                         classes: "govuk-!-width-two-thirds",
-                        id: "contact-1-last-name",
-                        name: "contact-1-last-name"
+                        id: "contact-0-last-name",
+                        name: "contact-0-last-name"
                     }) }}
 
                     {{ govukInput({
@@ -51,8 +51,8 @@
                             html: 'Job title (optional)'
                         },
                         classes: "govuk-!-width-two-thirds",
-                        id: "contact-1-job-title",
-                        name: "contact-1-job-title"
+                        id: "contact-0-job-title",
+                        name: "contact-0-job-title"
                     }) }}
 
                     {{ govukInput({
@@ -60,8 +60,8 @@
                             text: "Email address"
                         },
                         classes: "govuk-!-width-two-thirds",
-                        id: "contact-1-email",
-                        name: "contact-1-email"
+                        id: "contact-0-email",
+                        name: "contact-0-email"
                     }) }}
 
                     {{ govukInput({
@@ -69,8 +69,8 @@
                             text: "Phone number"
                         },
                         classes: "govuk-!-width-two-thirds",
-                        id: "contact-1-phone",
-                        name: "contact-1-phone"
+                        id: "contact-0-phone",
+                        name: "contact-0-phone"
                     }) }}
                 {% endcall %}
 
