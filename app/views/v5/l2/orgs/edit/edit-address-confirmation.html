@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Organisation added - {{ data['organisation-name'] }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        {{ govukPanel({
+            titleText: "Organisation address updated",
+            html: data["organisation-name-custom"]
+        }) }}
+
+
+        <p>
+            <a href="../../dashboard" class="govuk-link">
+                Back to dashboard
+            </a>
+        </p>
+    </div>
+</div>
+{% endblock %}
