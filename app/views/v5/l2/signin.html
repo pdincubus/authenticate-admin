@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Sign in - {{serviceName}}
+    Sign in - {{ data['prototype-service'] }}
 {% endblock %}
 
 {% block header %}
@@ -30,7 +30,7 @@
             }
         })}}
 
-        <p>To use <strong>HTDS</strong>, you need to prove it's you signing in.</p>
+        <p>To use <strong>{{ data['prototype-service'] }}</strong>, you need to prove it's you signing in.</p>
 
         {{ govukInput({
             label: {
