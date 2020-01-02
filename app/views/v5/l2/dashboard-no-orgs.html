@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="govuk-heading-l">HTDS</h1>
+<h1 class="govuk-heading-l">{{ data['prototype-service'] }}</h1>
 
 <div class="govuk-cards govuk-cards--2">
     <div class="govuk-cards--2__item govuk-card--dashboard">
@@ -29,11 +29,11 @@
 
         <ul class="govuk-list">
             <li>
-                <a href="organisation-add-prap-empty" class="govuk-link">Add an organisation</a>
+                <a href="orgs/add/start" class="govuk-link">Add an organisation</a>
             </li>
 
             <li>
-                <a href="organisation-list-prap-from-empty" class="govuk-link">View all organisations</a>
+                <a href="orgs/view/all" class="govuk-link">View all organisations</a>
             </li>
         </ul>
     </div>
@@ -55,11 +55,11 @@
 
         <ul class="govuk-list">
             <li>
-                <a href="user-add-user-prap-new" class="govuk-link">Add a user</a>
+                <a href="users/add/start" class="govuk-link">Add a user</a>
             </li>
 
             <li>
-                <a href="user-list-prap" class="govuk-link">View all users</a>
+                <a href="users/view/all" class="govuk-link">View all users</a>
             </li>
         </ul>
     </div>
