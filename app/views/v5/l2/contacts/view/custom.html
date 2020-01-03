@@ -12,11 +12,8 @@
     {% include 'includes/back-button.njk' %}
 {% endblock %}
 
-
 {% block content %}
-
     <div class="govuk-width-container">
-
         <h1 class="govuk-heading-l listing-page">
             <span class="govuk-caption-l">{{ data['organisation-name-custom'] }}</span>
             Contacts
@@ -54,7 +51,6 @@
                     </tr>
                 {% endif %}
 
-
                 {% if data['contact-2-first-name'] %}
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
@@ -72,8 +68,6 @@
                         </td>
                     </tr>
                 {% endif %}
-
-
 
                 {% if data['contact-3-first-name'] %}
                     <tr class="govuk-table__row">
@@ -111,13 +105,8 @@
                         </td>
                     </tr>
                 {% endif %}
-
-
-
             </tbody>
         </table>
-
-
 
         <p class="govuk-!-margin-top-9">
             <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
