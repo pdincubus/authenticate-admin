@@ -28,20 +28,22 @@
             html: data['prototype-service']
         }) }}
 
-        <p>You'll be able to access this service soon. We'll send you an email when you can.</p>
+        <p>You will be able to access this service soon. We will send you an email when you have access.</p>
 
-        <h2 class="govuk-heading-m govuk-!-margin-top-6">Your sign-in details</h2>
-        <p>You'll sign in using b2ctest77@gmail.com</p>
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">Your username</h2>
+        <p>Your username to sign in will be b2ctest77@gmail.com</p>
 
         <h2 class="govuk-heading-m">Contact us</h2>
 
         {% if data['prototype-service'] == 'PRaP' %}
-        <ul class="govuk-list">
-            <li><strong>PRaP Operational Support Team</strong></li>
-            <li>Available: Monday to Friday, 9:00am to 4:00pm</li>
-            <li>Telephone: 0345 604 5406</li>
-            <li>Email: prap.support@dwp.gsi.gov.uk</li>
-        </ul>
+        
+        <p>PRaP Operational Support Team</p>
+        <p>Opening times: <br>
+        Monday to Friday: 9:00am to 4:00pm</p>
+        <p>Telephone:<br> 
+        0345 604 5406</p>
+        <p>Email:<br> 
+        <a href="#">prap.support@dwp.gsi.gov.uk</a></p>
         {% endif %}
     </div>
 </div>

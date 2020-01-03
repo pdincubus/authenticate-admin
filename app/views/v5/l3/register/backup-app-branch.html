@@ -23,9 +23,10 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Would you like to use an app as a backup login?</h1>
-            <p>You'll need a smartphone to do this.</p>
-            <p>An app doesn’t require phone signal to work. This might be useful if your office has poor phone signal.</p>
+        <h1 class="govuk-heading-l">Do you want to use an authenticator app to access your account?</h1>
+        <p>You can use an authenticator app to access your account. This will let you sign in without a phone signal.</p> 
+        <p>If you set up an authenticator app, you can choose how to sign in to your account. You will be able to use the app or receive a code in a text message.</p>
+        <p>You need a smartphone or tablet to use an authenticator app.</p>
      
             <form id="form" method="post" action="app">
               {{ govukRadios({
@@ -39,11 +40,11 @@
                 items: [
                   {
                     value: "app-backup-yes",
-                    text: "Yes, I’ll use an app as a backup"
+                    text: "Yes, set up authenticator app"
                   },
                   {
                     value: "app-backup-no",
-                    text: "No, I’ll just use text messages"
+                    text: "No, I will just use text messages"
                   }
                 ]
               }) }}
