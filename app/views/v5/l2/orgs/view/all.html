@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 
-{% block pageTitle %}{% endblock %}
+{% block pageTitle %}
+    Organisations using {{ data['prototype-service'] }}
+{% endblock %}
 
 {% block header %}
     {{ super() }}
@@ -14,7 +16,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l listing-page">
-                Organisations using HTDS
+                Organisations using {{ data['prototype-service'] }}
             </h1>
 
             <a href="../add/start" class="govuk-button listing-page">

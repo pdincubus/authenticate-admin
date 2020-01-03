@@ -25,7 +25,7 @@
     <div class="govuk-grid-column-two-thirds">
         {{ govukPanel({
             titleText: "Registration complete",
-            html: "Provider Referrals and Payments system"
+            html: data['prototype-service']
         }) }}
 
         <p>You'll be able to access this service soon. We'll send you an email when you can.</p>
@@ -34,13 +34,15 @@
         <p>You'll sign in using b2ctest77@gmail.com</p>
 
         <h2 class="govuk-heading-m">Contact us</h2>
+
+        {% if data['prototype-service'] == 'PRaP' %}
         <ul class="govuk-list">
             <li><strong>PRaP Operational Support Team</strong></li>
             <li>Available: Monday to Friday, 9:00am to 4:00pm</li>
             <li>Telephone: 0345 604 5406</li>
             <li>Email: prap.support@dwp.gsi.gov.uk</li>
         </ul>
-
+        {% endif %}
     </div>
 </div>
 {% endblock %}
