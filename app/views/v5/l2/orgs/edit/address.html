@@ -15,14 +15,13 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-                <h1 class="govuk-heading-l listing-page">
-                        <span class="govuk-caption-l">{{ data['organisation-name-custom'] }}</span>
-                        Edit organisation address
-                    </h1>
-            <form action="edit-address-confirmation" method="post" class="form">
-                {% call govukFieldset({
-                    
-                }) %}
+            <h1 class="govuk-heading-l listing-page">
+                <span class="govuk-caption-l">{{ data['organisation-name-edit'] }}</span>
+                Edit organisation address
+            </h1>
+
+            <form action="edit-confirm" method="post" class="form">
+                {% call govukFieldset({}) %}
                     {{ govukInput({
                         label: {
                             html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
@@ -61,7 +60,6 @@
                         value: data['address-postcode']
                     }) }}
                 {% endcall %}
-
 
                 {{ govukButton({
                     text: "Continue"

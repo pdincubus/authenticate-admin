@@ -15,10 +15,11 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-                <h1 class="govuk-heading-l listing-page">
-                        <span class="govuk-caption-l">{{ data['organisation-name-custom'] }}</span>
-                        Add a contact
-                    </h1>
+            <h1 class="govuk-heading-l listing-page">
+                <span class="govuk-caption-l">{{ data['organisation-name-contact'] }}</span>
+                Add a contact
+            </h1>
+
             <form action="confirmation" method="post" class="form">
                 {% call govukFieldset({
                     legend: {
@@ -73,7 +74,6 @@
                         name: "contact-0-phone"
                     }) }}
                 {% endcall %}
-
 
                 {{ govukButton({
                     text: "Continue"

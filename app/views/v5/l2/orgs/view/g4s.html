@@ -31,9 +31,10 @@
                         SW1E 6QT
                     </p>
 
-                    <p>
-                        <a href="#" class="govuk-link">Edit organisation details</a>
-                    </p>
+                    <form id="form" method="post" action="../edit/address">
+                        <input type="hidden" name="organisation-name-edit" id="organisation-name-edit" value="G4S">
+                        <button type="submit" class="govuk-body govuk-link">Edit organisation details</button>
+                    </form>
                 </div>
 
                 <div class="govuk-cards--2__item govuk-card--contacts">
@@ -49,7 +50,10 @@
 
                     <ul class="govuk-list">
                         <li>
-                            <a href="../../contacts/add/details-custom" class="govuk-link">Add a contact</a>
+                            <form id="form" method="post" action="../../contacts/add/details">
+                                <input type="hidden" name="organisation-name-contact" id="organisation-name-contact" value="G4S">
+                                <button type="submit" class="govuk-body govuk-link">Add a contact</button>
+                            </form>
                         </li>
 
                         <li>

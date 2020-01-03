@@ -545,3 +545,18 @@ p.govuk-filter-reset {
     margin-left: 12px;
     margin-top: -2px;
 }
+
+/**
+ * In some places we've used a button that needs to look like a link purely
+ * because of how the prototype kit passes data around. Sorreh!
+ */
+ button.govuk-link {
+     border: 0;
+     padding: 0;
+     margin: 0;
+     font-family: $govuk-font-family;
+     cursor: pointer;
+     background-color: transparent;
+     color: $govuk-link-colour;
+     text-decoration: underline;
+ }

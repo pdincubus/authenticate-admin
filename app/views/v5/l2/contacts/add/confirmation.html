@@ -11,7 +11,7 @@
 {% block content %}
 
     {% set panelContent %}
-        {{ data["contact-0-first-name"] }} {{ data['contact-0-last-name'] }} added to {{ data["organisation-name-custom"] }}
+        {{ data["contact-0-first-name"] }} {{ data['contact-0-last-name'] }} added to {{ data["organisation-name-contact"] }}
     {% endset %}
 
 
@@ -21,7 +21,6 @@
             titleText: "Contact added",
             html: panelContent
         }) }}
-
 
         <p>
             <a href="../../dashboard" class="govuk-link">
