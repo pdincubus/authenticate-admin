@@ -19,7 +19,6 @@
                 Contact details
             </h1>
 
-
             {{ govukSummaryList({
                 rows: [
                     {
@@ -46,7 +45,7 @@
                             text: data["contact-3-email"]
                         }
                     },
-                    
+
                     {
                         key: {
                             text: "Telephone number"
@@ -96,36 +95,4 @@
             </p>
         </div>
     </div>
-
-    <script>
-        var currentDateElem = document.getElementById('current-time');
-
-        //9 April 1982, 7:52pm
-        var currentDate = new Date();
-        var currentDay = currentDate.getDate();
-        var currentMonth = currentDate.getMonth();
-        var currentYear = currentDate.getFullYear();
-        var currentHour = currentDate.getHours();
-        var currentMinutes = currentDate.getMinutes();
-        var currentTimeOfDay = (currentDate.getHours() < 12) ? 'am' : 'pm';
-
-        var months = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'Spetember',
-            'October',
-            'November',
-            'December'
-        ];
-
-        var currentStamp = currentDay + ' ' + months[currentMonth] + ' ' + currentYear + ', ' + currentHour + ':' + currentMinutes + currentTimeOfDay;
-
-        currentDateElem.innerHTML = currentStamp;
-    </script>
 {% endblock %}

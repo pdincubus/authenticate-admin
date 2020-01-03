@@ -80,7 +80,10 @@
 
                     <ul class="govuk-list">
                         <li>
-                            <a href="../../users/add/details-capita" class="govuk-link">Add a user</a>
+                            <form id="form" method="post" action="../../users/add/details">
+                                <input type="hidden" name="organisation-name-existing" id="organisation-name-existing" value="Capita">
+                                <button type="submit" class="govuk-body govuk-link">Add a user</button>
+                            </form>
                         </li>
 
                         <li>

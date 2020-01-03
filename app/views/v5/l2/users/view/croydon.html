@@ -15,7 +15,10 @@
         Users
     </h1>
 
-    <a href="../add/details-croydon" class="govuk-button listing-page">Add a user</a>
+    <form id="form" method="post" action="../add/details">
+        <input type="hidden" name="organisation-name-existing" id="organisation-name-existing" value="London Borough of Croydon Council">
+        <button type="submit" class="govuk-button listing-page">Add a user</button>
+    </form>
 
     <table class="govuk-table">
         <thead class="govuk-table__head">

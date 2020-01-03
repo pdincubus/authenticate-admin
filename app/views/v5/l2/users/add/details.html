@@ -13,12 +13,21 @@
 {% endblock %}
 
 {% block content %}
+    {% set legendContent %}
+        {% if data['organisation-name-existing'] %}
+            <span class="govuk-caption-l">{{ data['organisation-name-existing'] }}</span>
+            Add a user
+        {% else %}
+            <span class="govuk-caption-l">Add a user</span>User details
+        {% endif %}
+    {% endset %}
+
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <form action="confirmation" method="post" class="form">
                 {{ govukFieldset({
                     legend: {
-                        html: '<span class="govuk-caption-l">Add a user</span>User details',
+                        html: legendContent,
                         classes: "govuk-fieldset__legend--l",
                         isPageHeading: true
                     }
