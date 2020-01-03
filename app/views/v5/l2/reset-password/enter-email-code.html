@@ -23,13 +23,14 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">We've sent you an email</h1>
-            <p>We sent it to {{ data['reset-email-address'] }}. It contains your password reset code and should arrive within a few minutes.</p>
+        <h1 class="govuk-heading-l">We have sent you an email with your code</h1>
+            <p>It should arrive in a few minutes.</p>
+            <p>We sent it to {{ data['reset-email-address'] }}.</p>
       
             <form action="code-in-message" method="post" class="form">
                 <div class="govuk-form-group govuk-!-margin-top-6">
                     <label class="govuk-label" for="width-20">
-                        Code in email
+                        Code
                     </label>
                     <input class="govuk-input govuk-input--width-20" id="width-20" name="reset-code" type="text">
                 </div>
@@ -39,6 +40,6 @@
                 }) }}
             </form>
 
-            <p><a href="resend-email">I didn't get the email</a></p>
+            <p><a href="resend-email">I did not get the email</a></p>
   </div>
 {% endblock %}
