@@ -108,7 +108,10 @@
                     <ul class="govuk-list">
                         {% if data['organisation-name-custom'] and data['address-line-1'] and data['contact-1-first-name'] and data['contact-2-first-name'] %}
                             <li>
-                                <a href="../../users/add/details-custom" class="govuk-link">Add a user</a>
+                                <form id="form" method="post" action="../../users/add/details">
+                                    <input type="hidden" name="organisation-name-existing" id="organisation-name-existing" value="{{ data['organisation-name-custom'] }}">
+                                    <button type="submit" class="govuk-body govuk-link">Add a user</button>
+                                </form>
                             </li>
                         {% else %}
                             <li>

@@ -19,7 +19,10 @@
         Users
     </h1>
 
-    <a href="../add/details-custom" class="govuk-button listing-page">Add user</a>
+    <form id="form" method="post" action="../add/details">
+        <input type="hidden" name="organisation-name-existing" id="organisation-name-existing" value="{{ data['organisation-name'] }}">
+        <button type="submit" class="govuk-button listing-page">Add a user</button>
+    </form>
 
     {% if data['user-first-name'] and data['user-last-name'] %}
         <table class="govuk-table">
