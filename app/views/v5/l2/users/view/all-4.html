@@ -14,10 +14,12 @@
 
     <a href="../add/start" class="govuk-button listing-page">Add a user</a>
 
+    {% include "./includes/sorting-filtering.html" %}
+
     <table class="govuk-table">
         <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name <span class="govuk-sorted-by">(Currently sorted by name, a-z)</span></th>
                 <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation</th>
                 <th scope="col" class="govuk-table__header">Status</th>
             </tr>
@@ -25,32 +27,8 @@
 
         <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Leslie Silver</a></th>
-                <td class="govuk-table__cell">London Borough of Croydon Council</td>
-                <td class="govuk-table__cell">Invite sent</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Ken Bates</a></th>
-                <td class="govuk-table__cell">London Borough of Croydon Council</td>
-                <td class="govuk-table__cell ">Active</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Massimo Cellino</a></th>
-                <td class="govuk-table__cell">London Borough of Croydon Council</td>
-                <td class="govuk-table__cell ">Active</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Andy Radrizzani</a></th>
-                <td class="govuk-table__cell">London Borough of Croydon Council</td>
-                <td class="govuk-table__cell">Active</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Trevor Birch</a></th>
-                <td class="govuk-table__cell">London Borough of Croydon Council</td>
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Gary McAllister</a></th>
+                <td class="govuk-table__cell">Capita</td>
                 <td class="govuk-table__cell">Active</td>
             </tr>
 
@@ -61,27 +39,51 @@
             </tr>
 
             <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Bill Fotherby</a></th>
-                <td class="govuk-table__cell">London Borough of Croydon Council</td>
-                <td class="govuk-table__cell">Active</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Manny Cussins</a></th>
-                <td class="govuk-table__cell">London Borough of Croydon Council</td>
-                <td class="govuk-table__cell">Active</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Albert Morris</a></th>
-                <td class="govuk-table__cell">London Borough of Croydon Council</td>
-                <td class="govuk-table__cell">Active</td>
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Gordon Strachan</a></th>
+                <td class="govuk-table__cell">Capita</td>
+                <td class="govuk-table__cell">Invite sent</td>
             </tr>
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Harry Reynolds</a></th>
                 <td class="govuk-table__cell">London Borough of Croydon Council</td>
                 <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Imre Varadi</a></th>
+                <td class="govuk-table__cell">Remploy</td>
+                <td class="govuk-table__cell ">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Janet Sheridan</a></th>
+                <td class="govuk-table__cell">Remploy</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Jeremy Wade</a></th>
+                <td class="govuk-table__cell">G4S</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Jonathon Giles</a></th>
+                <td class="govuk-table__cell">Serco</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Jonathon Giles</a></th>
+                <td class="govuk-table__cell">Serco</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">John Lukic</a></th>
+                <td class="govuk-table__cell">Capita</td>
+                <td class="govuk-table__cell ">Active</td>
             </tr>
         </tbody>
     </table>

@@ -14,10 +14,12 @@
 
     <a href="../add/start" class="govuk-button listing-page">Add a user</a>
 
+    {% include "./includes/sorting-filtering.html" %}
+
     <table class="govuk-table">
         <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name <span class="govuk-sorted-by">(Currently sorted by name, a-z)</span></th>
                 <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation</th>
                 <th scope="col" class="govuk-table__header">Status</th>
             </tr>
@@ -25,38 +27,14 @@
 
         <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Neville Fickling</a></th>
-                <td class="govuk-table__cell">G4S</td>
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">David Weatherall</a></th>
+                <td class="govuk-table__cell">Remploy</td>
                 <td class="govuk-table__cell">Active</td>
             </tr>
 
             <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Bob Nudd</a></th>
-                <td class="govuk-table__cell">G4S</td>
-                <td class="govuk-table__cell ">Active</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Robert Church</a></th>
-                <td class="govuk-table__cell">G4S</td>
-                <td class="govuk-table__cell ">Active</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Bruce Sandison</a></th>
-                <td class="govuk-table__cell">G4S</td>
-                <td class="govuk-table__cell">Access expired</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Rex Hunt</a></th>
-                <td class="govuk-table__cell">G4S</td>
-                <td class="govuk-table__cell">Invite sent</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Robson Green</a></th>
-                <td class="govuk-table__cell">G4S</td>
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">David White</a></th>
+                <td class="govuk-table__cell">Remploy</td>
                 <td class="govuk-table__cell">Active</td>
             </tr>
 
@@ -67,20 +45,44 @@
             </tr>
 
             <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Ali Hamidi</a></th>
-                <td class="govuk-table__cell">G4S</td>
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Debbie Kerr</a></th>
+                <td class="govuk-table__cell">Remploy</td>
                 <td class="govuk-table__cell">Active</td>
             </tr>
 
             <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">John McKenzie</a></th>
-                <td class="govuk-table__cell">London Borough of Croydon Council</td>
-                <td class="govuk-table__cell">Access expired</td>
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Donald Revie</a></th>
+                <td class="govuk-table__cell">Serco</td>
+                <td class="govuk-table__cell">Active</td>
             </tr>
 
             <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Peter Ridsdale</a></th>
-                <td class="govuk-table__cell">London Borough of Croydon Council</td>
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Donald Revie</a></th>
+                <td class="govuk-table__cell">Serco</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Edward Gray</a></th>
+                <td class="govuk-table__cell">Serco</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Edward Gray</a></th>
+                <td class="govuk-table__cell">Serco</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Frank Strandli</a></th>
+                <td class="govuk-table__cell">Remploy</td>
+                <td class="govuk-table__cell ">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Gary Speed</a></th>
+                <td class="govuk-table__cell">Capita</td>
                 <td class="govuk-table__cell">Access expired</td>
             </tr>
         </tbody>

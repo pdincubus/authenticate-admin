@@ -1,0 +1,161 @@
+{% set sortFilterHtml %}
+    <form action="all-sorted" method="post" id="search-refine" class="govuk-grid-row govuk-!-margin-right-0 govuk-!-margin-left-0 govuk-sort-filter">
+        <fieldset class="govuk-grid-column-one-half govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                Filter results
+            </legend>
+
+            {{ govukSelect({
+                id: "filterorg",
+                name: "filterorg",
+                label: {
+                    text: "Organisation"
+                },
+                items: [
+                    {
+                        value: "",
+                        text: "All organisations"
+                    },
+                    {
+                        value: "Capita",
+                        text: "Capita"
+                    },
+                    {
+                        value: "G4S",
+                        text: "G4S"
+                    },
+                    {
+                        value: "London Borough of Croydon Council",
+                        text: "London Borough of Croydon Council"
+                    },
+                    {
+                        value: "Remploy",
+                        text: "Remploy"
+                    },
+                    {
+                        value: "Serco",
+                        text: "Serco"
+                    }
+                ]
+            }) }}
+
+            {{ govukSelect({
+                id: "filterstatus",
+                name: "filterstatus",
+                label: {
+                    text: "Status"
+                },
+                items: [
+                    {
+                        value: "",
+                        text: "All statuses"
+                    },
+                    {
+                        value: "active",
+                        text: "Active"
+                    },
+                    {
+                        value: "inactive",
+                        text: "Inactive"
+                    },
+                    {
+                        value: "invite sent",
+                        text: "Invite sent"
+                    },
+                    {
+                        value: "invite expired",
+                        text: "Invite expired"
+                    }
+                ]
+            }) }}
+        </fieldset>
+
+        <fieldset class="govuk-grid-column-one-half govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                Sort results
+            </legend>
+
+            {{ govukSelect({
+                id: "sort-order",
+                name: "sort-order",
+                label: {
+                    text: "Sort by"
+                },
+                items: [
+                    {
+                        value: "firstname",
+                        text: "First name",
+                        selected: true
+                    },
+                    {
+                        value: "lastname",
+                        text: "Last name"
+                    },
+                    {
+                        value: "organisation",
+                        text: "Organisation"
+                    },
+                    {
+                        value: "status",
+                        text: "Status"
+                    }
+                ]
+            }) }}
+
+            {{ govukRadios({
+                classes: "govuk-radios--inline govuk-radios--small",
+                idPrefix: "sort-order",
+                name: "sort-order",
+                fieldset: {
+                    legend: {
+                        text: "Sort order",
+                        isPageHeading: false
+                    },
+                    classes: "sort-order-1"
+                },
+                items: [
+                    {
+                        value: "az",
+                        text: "A-Z"
+                    },
+                    {
+                        value: "za",
+                        text: "Z-A"
+                    }
+                ]
+            }) }}
+
+            {{ govukRadios({
+                classes: "govuk-radios--inline govuk-radios--small",
+                idPrefix: "sort-order2",
+                name: "sort-order2",
+                fieldset: {
+                    legend: {
+                        text: "Sort order",
+                        isPageHeading: false
+                    },
+                    classes: "sort-order-2 is_hidden"
+                },
+                items: [
+                    {
+                        value: "active",
+                        text: "Active ... Invite expired"
+                    },
+                    {
+                        value: "expired",
+                        text: "Invite expired ... Active"
+                    }
+                ]
+            }) }}
+        </fieldset>
+
+        <button class="govuk-button govuk-filters-button" data-module="govuk-button">
+            Refine results
+        </button>
+    </form>
+{% endset %}
+
+{{ govukDetails({
+    summaryText: "Filter and sort users",
+    html: sortFilterHtml
+}) }}
