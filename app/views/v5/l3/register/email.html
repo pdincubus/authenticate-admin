@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block pageTitle %}Invitation to use PRaP{% endblock %}
+{% block pageTitle %}Register your {{ data['prototype-service'] }} account{% endblock %}
 
 {% block header %}
 
@@ -59,7 +59,7 @@
                     </p>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        You have been invited to use PRaP.
+                        DWP have invited you to use {{ data['prototype-service'] }}.
                     </p>
 
                     <h2 style="Margin: 0 0 20px 0; padding: 0; font-size: 27px; line-height: 35=
@@ -68,7 +68,7 @@
                     </h2>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        You will not be able to use PRaP until you sign up to your account. This should only take a few minutes.
+                        You must register your account before you can use {{ data['prototype-service'] }}. This should only take a few minutes.
                     </p>
 
                     <div class="govuk-inset-text">
@@ -85,7 +85,13 @@
                     </p>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        <a href="start" class="govuk-link">https://linktoyourservice.org.uk</a>
+                        <a href="start" class="govuk-link">
+                            {% if data['prototype-service'] == "HTDS" %}
+                                https://htds-login-url.gov.uk
+                            {% elseif data['prototype-service'] == "PRaP" %}
+                                https://prap-login-url.gov.uk
+                            {% endif %}
+                        </a>
                     </p>
 
                     <h2 style="Margin: 0 0 20px 0; padding: 0; font-size: 27px; line-height: 35=
@@ -94,20 +100,29 @@
                     </h2>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        If you have any problems signing up, contact the PRaP Operational Support Team
+                        If you have any problems registering, contact {% if data['prototype-service'] == "HTDS" %}the HTDS Support Team{% elseif data['prototype-service'] == "PRaP" %}the PRaP Operational Support Team{% endif %}
                     </p>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
                         Email:<br>
-                        <a href="mailto:prap.support@dwp.gsi.gov.uk" class="govuk-link">prap.support@dwp.gsi.gov.uk</a>
+                        {% if data['prototype-service'] == "HTDS" %}
+                            <a href="mailto:htds.support@dwp.gsi.gov.uk" class="govuk-link">htds.support@dwp.gsi.gov.uk</a>
+                        {% elseif data['prototype-service'] == "PRaP" %}
+                            <a href="mailto:prap.support@dwp.gsi.gov.uk" class="govuk-link">prap.support@dwp.gsi.gov.uk</a>
+                        {% endif %}
                     </p>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        Telephone: <a href="tel:03456045406" class="govuk-link">0345 604 5406</a>
+                        Telephone:
+                        {% if data['prototype-service'] == "HTDS" %}
+                            <a href="tel:03456045406" class="govuk-link">0345 000000</a>
+                        {% elseif data['prototype-service'] == "PRaP" %}
+                            <a href="tel:03456045406" class="govuk-link">0345 604 5406</a>
+                        {% endif %}
                     </p>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        Opening times:Monday to Friday: 9:00am to 4:00pm
+                        Opening times: Monday to Friday: 9:00am to 4:00pm
                     </p>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
@@ -119,7 +134,7 @@
                     </p>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        PRaP Operational Support Team
+                        {% if data['prototype-service'] == "HTDS" %}HTDS Support Team{% elseif data['prototype-service'] == "PRaP" %}PRaP Operational Support Team{% endif %}
                     </p>
                 </td>
 

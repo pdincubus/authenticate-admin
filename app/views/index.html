@@ -48,6 +48,33 @@
                 </fieldset>
             </form>
 
+            <form action="/v5/l3/register/email" method="post" class="form">
+                <fieldset class="govuk-fieldset">
+                    {{ govukSelect({
+                        id: "prototype-service",
+                        name: "prototype-service",
+                        label: {
+                            text: "Service"
+                        },
+                        items: [
+                            {
+                                value: "HTDS",
+                                text: "HDTS",
+                                selected: true
+                            },
+                            {
+                                value: "PRaP",
+                                text: "PRaP"
+                            }
+                        ]
+                    }) }}
+
+                    <button type="submit" class="govuk-button govuk-!-margin-right-1">
+                        View L3 user registration journey
+                    </button>
+                </fieldset>
+            </form>
+
             <h3 class="govuk-heading-s">General changes</h3>
 
             <ul class="govuk-list govuk-list--bullet">
