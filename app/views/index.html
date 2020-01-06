@@ -69,6 +69,24 @@
                         ]
                     }) }}
 
+                    {{ govukInput({
+                        label: {
+                            text: "First name"
+                        },
+                        id: "prototype-firstname",
+                        name: "prototype-firstname",
+                        classes: "govuk-!-width-one-quarter"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Last name"
+                        },
+                        id: "prototype-lastname",
+                        name: "prototype-lastname",
+                        classes: "govuk-!-width-one-quarter"
+                    }) }}
+
                     <button type="submit" class="govuk-button govuk-!-margin-right-1">
                         View L3 user registration journey
                     </button>
