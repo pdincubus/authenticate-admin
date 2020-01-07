@@ -448,10 +448,16 @@ router.post('/v5/index-check', function (req, res) {
             res.redirect('/v5/l2/users/reset-password/start');
             break;
         case 'l2-dashboard':
-            res.redirect('/v5/l2/signin');
+            res.redirect('/v5/l2/email');
+            break;
+        case 'l3-dashboard':
+            res.redirect('/v5/l3/email');
+            break;
+        case 'l4-dashboard':
+            res.redirect('/v5/l4/email');
             break;
         default:
-            res.redirect('/v5/l2/signin');
+            res.redirect('/v5/l2/email');
             break;
     }
 });
