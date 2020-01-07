@@ -21,75 +21,109 @@
 
             <h2 class="govuk-heading-l">v5</h2>
 
-            <form action="/v5/l2/signin" method="post" class="form">
+            <form action="/v5/index-check" method="post" class="form">
                 <fieldset class="govuk-fieldset">
-                    {{ govukSelect({
-                        id: "prototype-service",
-                        name: "prototype-service",
-                        label: {
-                            text: "Service"
-                        },
-                        items: [
-                            {
-                                value: "HTDS",
-                                text: "HDTS",
-                                selected: true
-                            },
-                            {
-                                value: "PRaP",
-                                text: "PRaP"
-                            }
-                        ]
-                    }) }}
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half">
+                            {{ govukSelect({
+                                id: "prototype-service",
+                                name: "prototype-service",
+                                label: {
+                                    text: "Service"
+                                },
+                                items: [
+                                    {
+                                        value: "HTDS",
+                                        text: "HDTS",
+                                        selected: true
+                                    },
+                                    {
+                                        value: "PRaP",
+                                        text: "PRaP"
+                                    }
+                                ]
+                            }) }}
 
-                    <button type="submit" class="govuk-button govuk-!-margin-right-1">
-                        View as a L2 service admin
-                    </button>
-                </fieldset>
-            </form>
+                            {{ govukSelect({
+                                id: "prototype-route",
+                                name: "prototype-route",
+                                label: {
+                                    text: "Route"
+                                },
+                                items: [
+                                    {
+                                        value: "l2-register",
+                                        text: "View L2 user registration journey"
+                                    },
+                                    {
+                                        value: "l3-register",
+                                        text: "View L3 user registration journey"
+                                    },
+                                    {
+                                        value: "l4-register",
+                                        text: "View L4 user registration journey"
+                                    },
+                                    {
+                                        value: "l2-reset",
+                                        text: "View L2 password reset journey"
+                                    },
+                                    {
+                                        value: "l2-dashboard",
+                                        text: "View as a L2 service admin"
+                                    }
+                                ]
+                            }) }}
 
-            <form action="/v5/l3/register/email" method="post" class="form">
-                <fieldset class="govuk-fieldset">
-                    {{ govukSelect({
-                        id: "prototype-service",
-                        name: "prototype-service",
-                        label: {
-                            text: "Service"
-                        },
-                        items: [
-                            {
-                                value: "HTDS",
-                                text: "HDTS",
-                                selected: true
-                            },
-                            {
-                                value: "PRaP",
-                                text: "PRaP"
-                            }
-                        ]
-                    }) }}
+                            <label for="prototype-organisation" class="govuk-label">Organisation</label>
 
-                    {{ govukInput({
-                        label: {
-                            text: "First name"
-                        },
-                        id: "prototype-firstname",
-                        name: "prototype-firstname",
-                        classes: "govuk-!-width-one-quarter"
-                    }) }}
+                            <span class="govuk-hint">
+                                Used on admin registration journey emails
+                            </span>
 
-                    {{ govukInput({
-                        label: {
-                            text: "Last name"
-                        },
-                        id: "prototype-lastname",
-                        name: "prototype-lastname",
-                        classes: "govuk-!-width-one-quarter"
-                    }) }}
+                            <select class="govuk-select form-control" name="prototype-organisation" id="prototype-organisation">
+                                <option value="" selected>Choose an organisation</option>
+                                <option value="Capita">Capita</option>
+                                <option value="Serco">Serco</option>
+                                <option value="Remploy">Remploy</option>
+                                <option value="G4S">G4S</option>
+                                <option value="London Borough of Croydon Council">London Borough of Croydon Council</option>
+                            </select>
+                        </div>
 
-                    <button type="submit" class="govuk-button govuk-!-margin-right-1">
-                        View L3 user registration journey
-                    </button>
+                        <div class="govuk-grid-column-one-half">
+                            {{ govukInput({
+                                label: {
+                                    text: "First name"
+                                },
+                                id: "prototype-firstname",
+                                name: "prototype-firstname",
+                                classes: "govuk-!-width-one-half",
+                                hint: {
+                                    text: "Used on 'register' journey emails"
+                                }
+                            }) }}
+
+                            {{ govukInput({
+                                label: {
+                                    text: "Last name"
+                                },
+                                id: "prototype-lastname",
+                                name: "prototype-lastname",
+                                classes: "govuk-!-width-one-half",
+                                hint: {
+                                    text: "Used on 'register' journey emails"
+                                }
+                            }) }}
+                        </div>
+                    </div>
+
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-full">
+                            <button type="submit" class="govuk-button govuk-!-margin-right-1 govuk-!-margin-top-7">
+                                Continue
+                            </button>
+                        </div>
+                    </div>
                 </fieldset>
             </form>
 
@@ -112,9 +146,9 @@
                 <li>
                     Make sure there's a view for the organisation choice of 'delete users by team' and 'delete users by service' - just needs content
                 </li>
-                <li>Added journey for <a href="v5/l3/register/email">new user registration</a> with 2FA and Authenticator app backup option</li>
+                <li>Added journey for new user registration with 2FA and Authenticator app backup option</li>
 
-                <li>Added journey for <a href="/v5/l2/reset-password/start">reset password</a></li>
+                <li>Added journey for reset password</li>
 
                 <li>Added pages to view and add organisation contacts</li>
 

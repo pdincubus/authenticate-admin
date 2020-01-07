@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block content %}
+    {% set queryString = '/invitation/IjI3MDJlMTRkLTMzNWQtNGE1Ny04ZWMyLTJiYWZiYmEwNzkyNyI.ENpdtQ.CtE3P5mwPJ2Zr4Jzb-umgYxBBj0675ftyugih' %}
+
     <style type="text/css">
         @media only screen and (min-device-width: 581px) {
         .content {
@@ -94,31 +96,31 @@
                     </p>
 
                     <div class="govuk-inset-text">
-                        You have 72 hours from when this email was sent to sign up.
+                        You have 72 hours from when this email was sent to register.
                     </div>
 
                     <h2 style="Margin: 0 0 20px 0; padding: 0; font-size: 27px; line-height: 35=
                     px; font-weight: bold; color: #0B0C0C;">
-                        How to sign up
+                        How to register
                     </h2>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        This link will take you to DWP Authenticate, where you can sign up:
+                        This link will take you to DWP Authenticate, where you can register:
                     </p>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        <a href="start" class="govuk-link">
+                        <a href="start" class="govuk-link" style="overflow-wrap: break-word; word-wrap: break-word; -ms-word-break: break-all; word-break: break-all; word-break: break-word; -ms-hyphens: auto; -moz-hyphens: auto; -webkit-hyphens: auto; hyphens: auto;">
                             {% if data['prototype-service'] == "HTDS" %}
-                                https://htds-login-url.gov.uk
+                                https://htds-signin-url.gov.uk{{ queryString }}
                             {% elseif data['prototype-service'] == "PRaP" %}
-                                https://prap-login-url.gov.uk
+                                https://prap-signin-url.gov.uk{{ queryString }}
                             {% endif %}
                         </a>
                     </p>
 
                     <h2 style="Margin: 0 0 20px 0; padding: 0; font-size: 27px; line-height: 35=
                     px; font-weight: bold; color: #0B0C0C;">
-                        Problems signing up
+                        Problems registering
                     </h2>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
@@ -137,11 +139,11 @@
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
                         Telephone:<br>
                         <strong>
-                        {% if data['prototype-service'] == "HTDS" %}
-                            0345 000000
-                        {% elseif data['prototype-service'] == "PRaP" %}
-                            0345 604 5406
-                        {% endif %}
+                            {% if data['prototype-service'] == "HTDS" %}
+                                0345 000000
+                            {% elseif data['prototype-service'] == "PRaP" %}
+                                0345 604 5406
+                            {% endif %}
                         </strong>
                     </p>
 

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Register - {{serviceName}}
+    Sign up - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -23,21 +23,14 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Register with DWP Authenticate</h1>
-      <p>Registering your account with DWP Authenticate will let you access the Provider Referrals and Payments system service.</p>
+        <h1 class="govuk-heading-l">Send me a new code</h1>
+            <p>We will send you a text message with a new code.</p>
+      
+                  
+            {{ govukButton({
+                text: "Send new text message",
+                href: "code-in-message"
+            }) }}
 
-      {{ govukButton({
-        text: "Start registration",
-        href: "create-new-password.html",
-        isStartButton: true
-      }) }}
-
-      <h2 class="govuk-heading-m govuk-!-margin-top-6">Before you start</h2> 
-
-      <p>You'll need your mobile phone</p>  
-      <p>After you have registered, we will send you a code to your mobile whenever you want to sign in. This makes 
-        the service more secure by proving it is you signing in. </p>
-     
-    </div>
   </div>
 {% endblock %}
