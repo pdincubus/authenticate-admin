@@ -418,6 +418,14 @@ router.post('/v5/l2/users/edit/delete-branch', function (req, res) {
     }
 });
 
+router.post('/v5/l2/users/register/app', function (req, res) {
+    if (req.session.data['app-backup'] === 'app-backup-yes') {
+        res.redirect('/v5/l2/users/register/qrcode');
+    } else {
+        res.redirect('/v5/l2/users/register/registration-complete');
+    }
+});
+
 /** All level 3 (Org admin users) routes */
 
 router.post('/v5/l3/users/register/app', function (req, res) {
@@ -427,6 +435,17 @@ router.post('/v5/l3/users/register/app', function (req, res) {
         res.redirect('/v5/l3/users/register/registration-complete');
     }
 });
+
+/** All level 4 (Standard users) routes */
+
+router.post('/v5/l4/users/register/app', function (req, res) {
+    if (req.session.data['app-backup'] === 'app-backup-yes') {
+        res.redirect('/v5/l4/users/register/qrcode');
+    } else {
+        res.redirect('/v5/l4/users/register/registration-complete');
+    }
+});
+
 
 /**
  * Routes picked up from 'config' on the index view
