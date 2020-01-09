@@ -45,6 +45,39 @@
                             }) }}
 
                             {{ govukSelect({
+                                id: "prototype-organisation",
+                                name: "prototype-organisation",
+                                label: {
+                                    text: "Organisation"
+                                },
+                                hint: {
+                                    text: "Used on admin registration journey emails"
+                                },
+                                items: [
+                                    {
+                                        value: "Capita",
+                                        text: "Capita"
+                                    },
+                                    {
+                                        value: "Serco",
+                                        text: "Serco"
+                                    },
+                                    {
+                                        value: "Remploy",
+                                        text: "Remploy"
+                                    },
+                                    {
+                                        value: "G4S",
+                                        text: "G4S"
+                                    },
+                                    {
+                                        value: "London Borough of Croydon Council",
+                                        text: "London Borough of Croydon Council"
+                                    }
+                                ]
+                            }) }}
+
+                            {{ govukSelect({
                                 id: "prototype-route",
                                 name: "prototype-route",
                                 label: {
@@ -81,21 +114,6 @@
                                     }
                                 ]
                             }) }}
-
-                            <label for="prototype-organisation" class="govuk-label">Organisation</label>
-
-                            <span class="govuk-hint">
-                                Used on admin registration journey emails
-                            </span>
-
-                            <select class="govuk-select form-control" name="prototype-organisation" id="prototype-organisation">
-                                <option value="" selected>Choose an organisation</option>
-                                <option value="Capita">Capita</option>
-                                <option value="Serco">Serco</option>
-                                <option value="Remploy">Remploy</option>
-                                <option value="G4S">G4S</option>
-                                <option value="London Borough of Croydon Council">London Borough of Croydon Council</option>
-                            </select>
                         </div>
 
                         <div class="govuk-grid-column-one-half">
