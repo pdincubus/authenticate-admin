@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Enter code - {{serviceName}}
+    Code in message - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -23,21 +23,27 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Check your authenticator app</h1>
-            <p>Enter the code for DWP Authenticate.</p>
-     
+        <h1 class="govuk-heading-l">We have sent you a text message with your code</h1>
+            <p>It should arrive in a few minutes.</p>
+            <p>We sent it to 0778 7147346.</p>
+
+            {{ govukDetails({
+                summaryText: "This phone number is wrong",
+                text: "To enter a new number, click the link in your invitation email to register again."
+            }) }}
+
             <div class="govuk-form-group govuk-!-margin-top-6">
                 <label class="govuk-label" for="width-20">
                         Code
                 </label>
                 <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
             </div>
-                  
+
             {{ govukButton({
                 text: "Continue",
-                href: "registration-complete"
+                href: "app-check.html"
             }) }}
 
-            <p>If you would rather sign in using a text message, you will have to <a href="enter-mobile">start again</a>.</p>
+            <p><a href="resend-code">I did not get a code</a></p>
   </div>
 {% endblock %}

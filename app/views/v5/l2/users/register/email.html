@@ -123,6 +123,8 @@
                                 https://htds-signin-url.gov.uk{{ queryString }}
                             {% elseif data['prototype-service'] == "PRaP" %}
                                 https://prap-signin-url.gov.uk{{ queryString }}
+                            {% elseif data['prototype-service'] == "ESF" %}
+                                https://esf-signin-url.gov.uk{{ queryString }}
                             {% endif %}
                         </a>
                     </p>
@@ -133,7 +135,7 @@
                     </h2>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        If you have any problems registering, contact {% if data['prototype-service'] == "HTDS" %}the HTDS Support Team{% elseif data['prototype-service'] == "PRaP" %}the PRaP Operational Support Team{% endif %}.
+                        If you have any problems registering, contact {% if data['prototype-service'] == "HTDS" %}the HTDS Support Team{% elseif data['prototype-service'] == "PRaP" %}the PRaP Operational Support Team{% elseif data['prototype-service'] == "ESF" %}the ESF Operational Support Team{% endif %}.
                     </p>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
@@ -142,6 +144,8 @@
                             <a href="mailto:htds.support@dwp.gsi.gov.uk" class="govuk-link">htds.support@dwp.gsi.gov.uk</a>
                         {% elseif data['prototype-service'] == "PRaP" %}
                             <a href="mailto:prap.support@dwp.gsi.gov.uk" class="govuk-link">prap.support@dwp.gsi.gov.uk</a>
+                        {% elseif data['prototype-service'] == "ESF" %}
+                            <a href="mailto:prap.support@dwp.gsi.gov.uk" class="govuk-link">esf.support@dwp.gsi.gov.uk</a>
                         {% endif %}
                     </p>
 
@@ -152,6 +156,8 @@
                                 0345 000000
                             {% elseif data['prototype-service'] == "PRaP" %}
                                 0345 604 5406
+                            {% elseif data['prototype-service'] == "ESF" %}
+                                0345 000000
                             {% endif %}
                         </strong>
                     </p>
@@ -170,7 +176,7 @@
                     </p>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        {% if data['prototype-service'] == "HTDS" %}HTDS Support Team{% elseif data['prototype-service'] == "PRaP" %}PRaP Operational Support Team{% endif %}
+                        {% if data['prototype-service'] == "HTDS" %}HTDS Support Team{% elseif data['prototype-service'] == "PRaP" %}PRaP Operational Support Team{% elseif data['prototype-service'] == "ESF" %}ESF support team{% endif %}
                     </p>
                 </td>
 

@@ -26,22 +26,22 @@
         <h1 class="govuk-heading-l">We have sent you a text message with your code</h1>
             <p>It should arrive in a few minutes.</p>
             <p>We sent it to a number ending 1234.</p>
-      
+
             {{ govukDetails({
                 summaryText: "This phone number is wrong",
                 text: "Contact your organisation. They can help."
             }) }}
-     
+
             <div class="govuk-form-group govuk-!-margin-top-6">
                 <label class="govuk-label" for="width-20">
                         Code
                 </label>
                 <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
             </div>
-                  
+
             {{ govukButton({
                 text: "Continue to password creation",
-                href: "create-new-password.html"
+                href: "password.html"
             }) }}
 
             <p><a href="resend-code">I did not receive a code</a></p>
