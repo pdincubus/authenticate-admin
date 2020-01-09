@@ -23,24 +23,14 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-l">We have sent you an email with your code</h1>
-            <p>It should arrive in a few minutes.</p>
-            <p>We sent it to {{ data['reset-email-address'] }}.</p>
+            <h1 class="govuk-heading-l">Send me another code</h1>
 
-            <form action="code" method="post" class="form">
-                <div class="govuk-form-group govuk-!-margin-top-6">
-                    <label class="govuk-label" for="width-20">
-                        Code
-                    </label>
-                    <input class="govuk-input govuk-input--width-20" id="width-20" name="reset-code" type="text">
-                </div>
+            <p>We will send you a text message with a new code.</p>
 
-                {{ govukButton({
-                    text: "Continue"
-                }) }}
-            </form>
-
-            <p><a href="resend-email">I did not get the email</a></p>
+            {{ govukButton({
+                text: "Send new code",
+                href: "text-code.html"
+            }) }}
         </div>
     </div>
 {% endblock %}
