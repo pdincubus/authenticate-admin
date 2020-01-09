@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Enter email address - {{serviceName}}
+    Email sent - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -21,23 +21,26 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Enter your email address</h1>
-      
-            <form action="enter-email-code" method="post" class="form">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">We have sent you an email with your code</h1>
+            <p>It should arrive in a few minutes.</p>
+            <p>We sent it to {{ data['reset-email-address'] }}.</p>
+
+            <form action="code" method="post" class="form">
                 <div class="govuk-form-group govuk-!-margin-top-6">
                     <label class="govuk-label" for="width-20">
-                        Email address
+                        Code
                     </label>
-                    <input class="govuk-input govuk-input--width-20" id="width-20" name="reset-email-address" type="text">
+                    <input class="govuk-input govuk-input--width-20" id="width-20" name="reset-code" type="text">
                 </div>
-                    
+
                 {{ govukButton({
-                    text: "Send code"
+                    text: "Continue"
                 }) }}
             </form>
 
-            
-  </div>
+            <p><a href="resend-email">I did not get the email</a></p>
+        </div>
+    </div>
 {% endblock %}
