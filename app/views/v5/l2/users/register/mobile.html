@@ -27,17 +27,18 @@
             <p>You cannot use a landline number. This is because landlines are often used be used by
                 many people, so they are not as secure as mobiles.</p>
 
+            <form action="code" method="post" class="form">
+                <div class="govuk-form-group govuk-!-margin-top-6">
+                    <label class="govuk-label" for="width-20">
+                        Mobile phone number
+                    </label>
+                    <input class="govuk-input govuk-input--width-20" id="width-20" name="mobile-number-code" type="text">
+                </div>
+            
 
-            <div class="govuk-form-group govuk-!-margin-top-6">
-                <label class="govuk-label" for="width-20">
-                    Mobile phone number
-                </label>
-                <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
-            </div>
-
-            {{ govukButton({
-                text: "Send code",
-                href: "code.html"
-            }) }}
+                {{ govukButton({
+                    text: "Send code"
+                }) }}
+            </form>
   </div>
 {% endblock %}
