@@ -15,6 +15,10 @@ $govuk-assets-path: '/govuk/assets/';
 // Components that aren't in Frontend
 @import "components/cookie-banner";
 
+body * {
+    font-family: 'Helvetica Neue', Helvetica, Arial, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif !important;
+}
+
 .govuk-header__nav {
   float: right;
 }
