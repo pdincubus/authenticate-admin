@@ -21,72 +21,72 @@
 {% endblock %}
 
 {% block content %}
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        {{ govukPanel({
-            titleText: "Registration complete",
-            html: data['prototype-service']
-        }) }}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukPanel({
+                titleText: "Registration complete",
+                html: data['prototype-service']
+            }) }}
 
-        <p>You will be able to access this service soon. We will send you an email when you have access.</p>
+            <p>You will be able to access this service soon. We will send you an email when you have access.</p>
 
-        <h2 class="govuk-heading-m govuk-!-margin-top-6">Your username</h2>
-        <p>Your username to sign in will be b2ctest77@gmail.com</p>
+            <h2 class="govuk-heading-m govuk-!-margin-top-6">Your username</h2>
+            <p>Your username to sign in will be b2ctest77@gmail.com</p>
 
-        <h2 class="govuk-heading-m">Contact us</h2>
+            <h2 class="govuk-heading-m">Contact us</h2>
 
-        {% if data['prototype-service'] == 'PRaP' %}
-            <p>PRaP Operational Support Team</p>
+            {% if data['prototype-service'] == 'PRaP' %}
+                <p>PRaP Operational Support Team</p>
 
-            <p>
-                Opening times:<br>
-                <strong>Monday to Friday: 9:00am to 4:00pm</strong>
-            </p>
+                <p>
+                    Opening times:<br>
+                    <strong>Monday to Friday: 9:00am to 4:00pm</strong>
+                </p>
 
-            <p>
-                Telephone:<br>
-                <strong>0345 604 5406</strong>
-            </p>
+                <p>
+                    Telephone:<br>
+                    <strong>0345 604 5406</strong>
+                </p>
 
-            <p>
-                Email:<br>
-                <a href="#" class="govuk-link">prap.support@dwp.gsi.gov.uk</a>
-            </p>
-        {% elseif data['prototype-service'] == 'HTDS' %}
-            <p>HTDS Operational Support Team</p>
+                <p>
+                    Email:<br>
+                    <a href="#" class="govuk-link">prap.support@dwp.gsi.gov.uk</a>
+                </p>
+            {% elseif data['prototype-service'] == 'HTDS' %}
+                <p>HTDS Operational Support Team</p>
 
-            <p>
-                Opening times:<br>
-                <strong>Monday to Friday: 9:00am to 4:00pm</strong>
-            </p>
+                <p>
+                    Opening times:<br>
+                    <strong>Monday to Friday: 9:00am to 4:00pm</strong>
+                </p>
 
-            <p>
-                Telephone:<br>
-                <strong>0345 604 5406</strong>
-            </p>
+                <p>
+                    Telephone:<br>
+                    <strong>0345 604 5406</strong>
+                </p>
 
-            <p>
-                Email:<br>
-                <a href="#" class="govuk-link">htds.support@dwp.gsi.gov.uk</a>
-            </p>
-        {% elseif data['prototype-service'] == 'ESF' %}
-            <p>ESF Operational Support Team</p>
+                <p>
+                    Email:<br>
+                    <a href="#" class="govuk-link">htds.support@dwp.gsi.gov.uk</a>
+                </p>
+            {% elseif data['prototype-service'] == 'ESF' %}
+                <p>ESF Operational Support Team</p>
 
-            <p>
-                Opening times:<br>
-                <strong>Monday to Friday: 9:00am to 4:00pm</strong>
-            </p>
+                <p>
+                    Opening times:<br>
+                    <strong>Monday to Friday: 9:00am to 4:00pm</strong>
+                </p>
 
-            <p>
-                Telephone:<br>
-                <strong>0345 604 5406</strong>
-            </p>
+                <p>
+                    Telephone:<br>
+                    <strong>0345 604 5406</strong>
+                </p>
 
-            <p>
-                Email:<br>
-                <a href="#" class="govuk-link">esf.support@dwp.gsi.gov.uk</a>
-            </p>
-        {% endif %}
+                <p>
+                    Email:<br>
+                    <a href="#" class="govuk-link">esf.support@dwp.gsi.gov.uk</a>
+                </p>
+            {% endif %}
+        </div>
     </div>
-</div>
 {% endblock %}

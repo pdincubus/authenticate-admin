@@ -21,15 +21,17 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Check your authenticator app</h1>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Check your authenticator app</h1>
+
             <p>Enter the code for DWP Authenticate.</p>
 
             <div class="govuk-form-group govuk-!-margin-top-6">
                 <label class="govuk-label" for="width-20">
                         Code
                 </label>
+
                 <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
             </div>
 
@@ -38,6 +40,9 @@
                 href: "complete"
             }) }}
 
-            <p>If you would rather sign in using a text message, you will have to <a href="mobile">start again</a>.</p>
-  </div>
+            <p>
+                If you would rather sign in using a text message, you will have to <a href="mobile">start again</a>.
+            </p>
+        </div>
+    </div>
 {% endblock %}

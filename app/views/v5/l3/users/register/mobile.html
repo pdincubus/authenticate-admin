@@ -21,11 +21,13 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Enter your mobile phone number</h1>
-            <p>You cannot use a landline number. This is because landlines are often used be used by
-                many people, so they are not as secure as mobiles.</p>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Enter your mobile phone number</h1>
+
+            <p>
+                You cannot use a landline number. This is because landlines are often used be used by many people, so they are not as secure as mobiles.
+            </p>
 
             <form action="code" method="post" class="form">
                 <div class="govuk-form-group govuk-!-margin-top-6">
@@ -39,5 +41,6 @@
                     text: "Send code"
                 }) }}
             </form>
-  </div>
+        </div>
+    </div>
 {% endblock %}

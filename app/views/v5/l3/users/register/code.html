@@ -21,10 +21,12 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">We have sent you a text message with your code</h1>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">We have sent you a text message with your code</h1>
+
             <p>It should arrive in a few minutes.</p>
+
             <p>We sent it to {{ data['mobile-number-code'] }}.</p>
 
             {{ govukDetails({
@@ -36,6 +38,7 @@
                 <label class="govuk-label" for="width-20">
                         Code
                 </label>
+
                 <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
             </div>
 
@@ -45,5 +48,6 @@
             }) }}
 
             <p><a href="resend-code">I did not get a code</a></p>
-  </div>
+        </div>
+    </div>
 {% endblock %}

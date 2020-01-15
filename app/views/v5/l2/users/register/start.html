@@ -21,23 +21,25 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Register with DWP Authenticate</h1>
-      <p>Registering your account with DWP Authenticate will let you access the {{ data['prototype-service'] }} service.</p>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Register with DWP Authenticate</h1>
 
-      {{ govukButton({
-        text: "Start registration",
-        href: "password.html",
-        isStartButton: true
-      }) }}
+            <p>Registering your account with DWP Authenticate will let you access the {{ data['prototype-service'] }} service.</p>
 
-      <h2 class="govuk-heading-m govuk-!-margin-top-6">Before you start</h2>
+            {{ govukButton({
+                text: "Start registration",
+                href: "password.html",
+                isStartButton: true
+            }) }}
 
-      <p>You'll need your mobile phone.</p>
-      <p>After you have registered, we will send you a code to your mobile whenever you want to sign in. This makes
-        the service more secure by proving it is you signing in. </p>
+            <h2 class="govuk-heading-m govuk-!-margin-top-6">Before you start</h2>
 
+            <p>You'll need your mobile phone.</p>
+
+            <p>
+                After you have registered, we will send you a code to your mobile whenever you want to sign in. This makes the service more secure by proving it is you signing in.
+            </p>
+        </div>
     </div>
-  </div>
 {% endblock %}
