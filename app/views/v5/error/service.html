@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block pageTitle %}Register your {{ data['prototype-service'] }} account{% endblock %}
+{% block pageTitle %}Sorry, there was a problem sending the invite{% endblock %}
 
 {% block header %}
     {{ super() }}
@@ -12,41 +12,21 @@
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-two-thirds">
                     <h1 class="govuk-heading-xl">
-                        Sorry, there is a problem with the service
+                        Sorry, there was a problem sending the invite
                     </h1>
 
-                    <p class="govuk-body">Try again later.</p>
+                    <p class="govuk-body">We could not send the invite.</p>
 
                     <p class="govuk-body">
-                        We have not saved your answers. When the service is available, you will have to start again.
+                        The user’s details will not be saved if you leave this screen without sending the invite again.
                     </p>
 
                     <p class="govuk-body">
-                        Contact the Tax Credits Helpline if you have any questions.
+                        You can try to send the invite again or return to the dashboard.
                     </p>
 
                     <p class="govuk-body">
-                        Telephone:<br>
-                        <strong class="govuk-!-font-weight-bold">0808 157 3900</strong>
-                    </p>
-
-                    <p class="govuk-body">
-                        Textphone:<br>
-                        <strong class="govuk-!-font-weight-bold">0808 157 3909</strong>
-                    </p>
-
-                    <p class="govuk-body">
-                        Outside UK:<br>
-                        <strong class="govuk-!-font-weight-bold">+44 0808 157 0192</strong>
-                    </p>
-
-                    <p class="govuk-body">
-                        Opening times:<br>
-                        <strong class="govuk-!-font-weight-bold">Monday to Friday: 8am to 8pm</strong>
-                    </p>
-
-                    <p class="govuk-body">
-                        Closed Easter Sunday, Christmas Day, Boxing Day and New Year’s Day.
+                        If the problem continues, try again later.
                     </p>
                 </div>
             </div>
@@ -54,4 +34,6 @@
     </div>
 {% endblock %}
 
-{% block footer %}{% endblock %}
+{% block footer %}
+    {{ super() }}
+{% endblock %}
