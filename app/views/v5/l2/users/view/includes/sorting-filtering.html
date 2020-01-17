@@ -1,5 +1,5 @@
 {% set sortFilterHtml %}
-    <form action="all-sorted" method="post" id="search-refine" class="govuk-grid-row govuk-!-margin-right-0 govuk-!-margin-left-0 govuk-sort-filter">
+    <form action="sorted/all-by-status-reverse" method="post" id="search-refine" class="govuk-grid-row govuk-!-margin-right-0 govuk-!-margin-left-0 govuk-sort-filter">
         <fieldset class="govuk-grid-column-one-half govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                 Filter results
@@ -83,13 +83,9 @@
                 },
                 items: [
                     {
-                        value: "firstname",
-                        text: "First name",
+                        value: "name",
+                        text: "Name",
                         selected: true
-                    },
-                    {
-                        value: "lastname",
-                        text: "Last name"
                     },
                     {
                         value: "organisation",
