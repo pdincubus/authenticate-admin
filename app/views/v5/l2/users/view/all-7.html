@@ -17,13 +17,7 @@
     {% include "./includes/sorting-filtering.html" %}
 
     <table class="govuk-table">
-        <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name <span class="govuk-sorted-by">(Currently sorted by name, a-z)</span></th>
-                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Organisation</th>
-                <th scope="col" class="govuk-table__header">Status</th>
-            </tr>
-        </thead>
+        {% include "./includes/user-view-table-head.html" %}
 
         <tbody class="govuk-table__body">
             <tr class="govuk-table__row">

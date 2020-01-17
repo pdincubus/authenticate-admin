@@ -544,10 +544,19 @@ p.govuk-filter-reset {
     display: inline-block;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    border-top: 8px solid #000;
+    border-top: 8px solid $govuk-link-colour;
     vertical-align: middle;
     margin-left: 12px;
     margin-top: -2px;
+}
+
+.govuk-sorted-by--reverse {
+    border-top: 0;
+    border-bottom: 8px solid $govuk-link-colour;
+}
+
+.govuk-sorted-by--unsorted {
+    border: 0;
 }
 
 /**

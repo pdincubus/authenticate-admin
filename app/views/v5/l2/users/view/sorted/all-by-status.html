@@ -17,30 +17,32 @@
             Add a user
         </a>
 
-        {% include "./includes/sorting-filtering.html" %}
+        {% include "../includes/sorting-filtering.html" %}
 
         <table class="govuk-table">
-            {% include "./includes/user-view-table-head.html" %}
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">
+                        <a href="../all" class="govuk-link">
+                            Name <span class="govuk-sorted-by govuk-sorted-by--unsorted">(Not currently sorted)</span>
+                        </a>
+                    </th>
+
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">
+                        <a href="all-by-org" class="govuk-link">
+                            Organisation <span class="govuk-sorted-by govuk-sorted-by--unsorted">(Not currently sorted)</span>
+                        </a>
+                    </th>
+
+                    <th scope="col" class="govuk-table__header">
+                        <a href="all-by-status-reverse" class="govuk-link">
+                            Status <span class="govuk-sorted-by">(Currently sorted by active - access expired - invite sent - invite expired)</span>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
 
             <tbody class="govuk-table__body">
-                {% if data["user-first-name"] and data["user-last-name"] %}
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">
-                            <a href="single" class="govuk-link">
-                                {{ data["user-first-name"] + ' ' + data["user-last-name"] }}
-                            </a>
-                        </th>
-
-                        <td class="govuk-table__cell">
-                            {{ data['organisation-name'] }}
-                        </td>
-
-                        <td class="govuk-table__cell">
-                            Invite sent
-                        </td>
-                    </tr>
-                {% endif %}
-
                 <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Allan Clarke</a></th>
                     <td class="govuk-table__cell">Serco</td>
@@ -120,35 +122,35 @@
                 </li>
 
                 <li class="pagination__item">
-                    <a class="pagination__link" href="all-2" aria-label="Page 2">2</a>
+                    <a class="pagination__link" href="../all-2" aria-label="Page 2">2</a>
                 </li>
 
                 <li class="pagination__item">
-                    <a class="pagination__link" href="all-3" aria-label="Page 3">3</a>
+                    <a class="pagination__link" href="../all-3" aria-label="Page 3">3</a>
                 </li>
 
                 <li class="pagination__item">
-                    <a class="pagination__link" href="all-4" aria-label="Page 4">4</a>
+                    <a class="pagination__link" href="../all-4" aria-label="Page 4">4</a>
                 </li>
 
                 <li class="pagination__item">
-                    <a class="pagination__link" href="all-5"  aria-label="Page 5">5</a>
+                    <a class="pagination__link" href="../all-5"  aria-label="Page 5">5</a>
                 </li>
 
                 <li class="pagination__item">
-                    <a class="pagination__link" href="all-6" aria-label="Page 6">6</a>
+                    <a class="pagination__link" href="../all-6" aria-label="Page 6">6</a>
                 </li>
 
                 <li class="pagination__item">
-                    <a class="pagination__link" href="all-7" aria-label="Page 7">7</a>
+                    <a class="pagination__link" href="../all-7" aria-label="Page 7">7</a>
                 </li>
 
                 <li class="pagination__item">
-                    <a class="pagination__link" href="all-8" aria-label="Page 8">8</a>
+                    <a class="pagination__link" href="../all-8" aria-label="Page 8">8</a>
                 </li>
 
                 <li class="pagination__item">
-                    <a class="pagination__link" href="all-2" aria-label="Next page">
+                    <a class="pagination__link" href="../all-2" aria-label="Next page">
                         Next <span aria-hidden="true" role="presentation">&raquo;</span>
                     </a>
                 </li>
