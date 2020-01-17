@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Service details - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+                <form action="service-information" method="post" class="form">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <span class="govuk-caption-l">Add your service</span>
+                            Service details
+                        </legend>
+    
+                        {{ govukInput({
+                            label: {
+                                text: "Service name"
+                            },
+                            id: "service-name",
+                            name: "service-name",
+                            classes: "govuk-!-width-three-quarters"
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Service owner"
+                            },
+                            id: "service-owner",
+                            name: "service-owner",
+                            classes: "govuk-!-width-three-quarters"
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Service manager"
+                            },
+                            id: "service-manager",
+                            name: "service-manager",
+                            classes: "govuk-!-width-three-quarters"
+                        }) }}
+
+
+                        {{ govukSelect({
+                            id: "dwp-business-area",
+                            name: "dwp-business-area",
+                            label: {
+                                text: "DWP Business Area"
+                              },
+                            items: [
+                              {
+                                value: "health",
+                                text: "Health"
+                              },
+                              {
+                                value: "universal-credit",
+                                text: "Universal Credit"                              },
+                              {
+                                value: "identity-trust",
+                                text: "Identity and Trust"
+                              }
+                            ]
+                          }) }}
+
+
+                          {{ govukSelect({
+                            id: "go-live",
+                            name: "go-live",
+                            label: {
+                                text: "When do you want to add your service to Authenticate?"
+                              },
+                            items: [
+                              {
+                                value: "asap",
+                                text: "As soon as possible"
+                              },
+                              {
+                                value: "1-month",
+                                text: "Within the next month"                              },
+                              {
+                                value: "3-months",
+                                text: "Within the next three months"
+                              }
+                            ]
+                          }) }}
+    
+                        {{ govukButton({
+                            text: "Continue"
+                        }) }}
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+{% endblock %}

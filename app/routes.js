@@ -446,6 +446,29 @@ router.post('/v5/l4/users/register/app-branch', function (req, res) {
     }
 });
 
+
+/** Onboarding, is service contact also an admin */
+
+router.post('/v5/onboarding/admin-branch', function (req, res) {
+    if (req.session.data['primary-contact-admin-check'] === 'yes') {
+        res.redirect('/v5/onboarding/support-details');
+    } else {
+        res.redirect('/v5/onboarding/service-admins');
+    }
+});
+
+/** Onboarding, add custom data */
+
+router.post('/v5/onboarding/custom-data-branch', function (req, res) {
+    if (req.session.data['custom-data-check'] === 'yes') {
+        res.redirect('/v5/onboarding/custom-data-add');
+    } else {
+        res.redirect('/v5/onboarding/check-your-details');
+    }
+});
+
+
+
 /**
  * Routes picked up from 'config' on the index view
  */
@@ -479,5 +502,8 @@ router.post('/v5/index-check', function (req, res) {
             break;
     }
 });
+
+
+
 
 module.exports = router;

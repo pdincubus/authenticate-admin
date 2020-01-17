@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Service users - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+                <form action="custom-data" method="post" class="form">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <span class="govuk-caption-l">Add your service</span>
+                            Service users
+                        </legend>
+
+                        
+                        {{ govukCheckboxes({
+                            idPrefix: "service-users",
+                            name: "service-users",
+                            fieldset: {
+                                legend: {
+                                  text: "Types of user",
+                                  classes: "govuk-fieldset__legend--m"
+                                }
+                              },
+                            hint: {
+                              text: "Select all that apply."
+                            },
+                            items: [
+                              {
+                                value: "internal-dwp",
+                                text: "Internal DWP"
+                              },
+                              {
+                                value: "other-gov",
+                                text: "Other government departments"
+                              },
+                              {
+                                value: "local-authority",
+                                text: "Local authority"
+                              },
+                              {
+                                value: "external-third-party",
+                                text: "External third party"
+                              }
+                            ]
+                          }) }}
+
+
+                          {{ govukRadios({
+                            idPrefix: "number-of-users",
+                            name: "number-of-users",
+                            fieldset: {
+                              legend: {
+                                text: "Expected number of users",
+                                classes: "govuk-fieldset__legend--m"
+                              }
+                            },
+                            items: [
+                              {
+                                value: "1-50",
+                                text: "1 to 50"
+                              },
+                              {
+                                value: "51-100",
+                                text: "51 to 100"
+                              },
+                              {
+                                value: "101-200",
+                                text: "101 to 200"
+                              },
+                              {
+                                value: "200-above",
+                                text: "200 and above"
+                              }
+                            ]
+                          }) }}
+
+    
+                        {{ govukButton({
+                            text: "Continue"
+                        }) }}
+
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+{% endblock %}

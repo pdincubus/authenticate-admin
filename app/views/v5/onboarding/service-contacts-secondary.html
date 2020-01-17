@@ -1,0 +1,183 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Service contacts - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+                <form id="form" method="post" action="admin-branch">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <span class="govuk-caption-l">Add your service</span>
+                            Service contacts
+                        </legend>
+
+                        <h2 class="govuk-heading-m">Service contact</h2>
+    
+                        {{ govukInput({
+                            label: {
+                                text: "First name"
+                            },
+                            id: "contact-1-first-name",
+                            name: "contact-1-first-name",
+                            value: data['contact-1-first-name'],
+                            classes: "govuk-!-width-three-quarters"
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Last name"
+                            },
+                            id: "contact-1-last-name",
+                            name: "contact-1-last-name",
+                            value: "contact-1-first-name",
+                            classes: "govuk-!-width-three-quarters"
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Email address"
+                            },
+                            id: "contact-1-email-address",
+                            name: "contact-1-email-address",
+                            value: "contact-1-email-address",
+                            classes: "govuk-!-width-three-quarters"
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Telephone number"
+                            },
+                            id: "contact-1-phone",
+                            name: "contact-1-phone",
+                            value: "contact-1-phone",
+                            classes: "govuk-!-width-three-quarters"
+                        }) }}
+
+                        {{ govukRadios({
+                            classes: "govuk-radios--inline",
+                            idPrefix: "primary-contact-admin-check",
+                            name: "primary-contact-admin-check",
+                            fieldset: {
+                              legend: {
+                                text: "Will the primary service contact also be a service administrator?",
+                                classes: "govuk-fieldset__legend--s"
+                              }
+                            },
+                            items: [
+                              {
+                                value: "yes",
+                                text: "Yes"
+                              },
+                              {
+                                value: "no",
+                                text: "No"
+                              }
+                            ]
+                          }) }}
+
+
+
+
+                        <h2 class="govuk-heading-m">Service contact</h2>
+    
+                        {{ govukInput({
+                            label: {
+                                text: "First name"
+                            },
+                            id: "contact-1-first-name",
+                            name: "contact-2-first-name",
+                            classes: "govuk-!-width-three-quarters"
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Last name"
+                            },
+                            id: "contact-2-last-name",
+                            name: "contact-2-last-name",
+                            classes: "govuk-!-width-three-quarters"
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Email address"
+                            },
+                            id: "contact-1-email-address",
+                            name: "contact-1-email-address",
+                            classes: "govuk-!-width-three-quarters"
+                        }) }}
+
+                        {{ govukInput({
+                            label: {
+                                text: "Telephone number"
+                            },
+                            id: "contact-1-phone",
+                            name: "contact-1-phone",
+                            classes: "govuk-!-width-three-quarters"
+                        }) }}
+
+                        {{ govukRadios({
+                            classes: "govuk-radios--inline",
+                            idPrefix: "primary-contact-admin-check",
+                            name: "primary-contact-admin-check",
+                            fieldset: {
+                              legend: {
+                                text: "Will the primary service contact also be a service administrator?",
+                                classes: "govuk-fieldset__legend--s"
+                              }
+                            },
+                            items: [
+                              {
+                                value: "yes",
+                                text: "Yes"
+                              },
+                              {
+                                value: "no",
+                                text: "No"
+                              }
+                            ]
+                          }) }}
+
+
+                        
+                        {{ govukButton({
+                            text: "Add secondary contact",
+                            classes: "govuk-button--secondary",
+                            href: "service-contacts-secondary"
+                        }) }}
+
+                        <div class="govuk-!-padding-bottom-6"></div>
+
+                        {{ govukButton({
+                            text: "Continue"
+                        }) }}
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Custom data - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Data passed by Authenticate</h1>
+      <p>As a result of a successful user authentication, Authenticate will pass data for each user accessing your service.</p> 
+
+      <p>The standard data is:</p>
+      <ul class="govuk-list govuk-list--bullet">
+          <li>First name</li>
+          <li>Last name</li>
+          <li>Email address</li>
+          <li>Organisation name</li>
+      </ul>
+
+      <p>Additional data can be customised beyond this. For instance this could be used to define any specific 
+          user roles or teams you may have within your service.</p>
+
+          {{ govukDetails({
+            summaryText: "Help with additional data",
+            text: "Additional data can be customised beyond this. For instance this could be used to define any specific 
+            user roles or teams you may have within your service"
+          }) }}
+
+          <form id="form" method="post" action="custom-data-branch">
+            {{ govukRadios({
+              classes: "govuk-radios--inline",
+              idPrefix: "custom-data-check",
+              name: "custom-data-check",
+              fieldset: {
+                legend: {
+                  text: "Would you like to setup additional data for your service?",
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                }
+              ]
+            }) }}
+
+
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+          </form>
+
+    </div>
+  </div>
+{% endblock %}
