@@ -427,7 +427,6 @@ router.post('/v5/l2/users/register/app-branch', function (req, res) {
 });
 
 /** All level 3 (Org admin users) routes */
-
 router.post('/v5/l3/users/register/app-branch', function (req, res) {
     if (req.session.data['app-backup'] === 'yes') {
         res.redirect('/v5/l3/users/register/qr');
@@ -437,7 +436,6 @@ router.post('/v5/l3/users/register/app-branch', function (req, res) {
 });
 
 /** All level 4 (Standard users) routes */
-
 router.post('/v5/l4/users/register/app-branch', function (req, res) {
     if (req.session.data['app-backup'] === 'yes') {
         res.redirect('/v5/l4/users/register/qr');
@@ -446,19 +444,42 @@ router.post('/v5/l4/users/register/app-branch', function (req, res) {
     }
 });
 
-
 /** Onboarding, is service contact also an admin */
-
 router.post('/v5/onboarding/admin-branch', function (req, res) {
-    if (req.session.data['primary-contact-admin-check'] === 'yes') {
+    const numContacts = req.session.data['contacts-total'];
+
+    let thereAreAdmins = false;
+
+    console.log(numContacts, 'submitted, check if any are to be admins');
+
+    for (let i = 1; i <= numContacts; i++) {
+        console.log('Checking contact', i, '.', `contact-${i}-admin-check:`, req.session.data[`contact-${i}-admin-check`]);
+
+        const adminCheck = req.session.data[`contact-${i}-admin-check`];
+
+        if (adminCheck === 'yes') {
+            thereAreAdmins = true;
+
+            console.log(i, 'is an admin');
+        } else {
+            console.log(i, 'is not an admin');
+        }
+    }
+
+    console.log('For loop finished');
+
+    if (thereAreAdmins) {
+        console.log('Go to support details');
+
         res.redirect('/v5/onboarding/support-details');
     } else {
+        console.log('Go to add service admins');
+
         res.redirect('/v5/onboarding/service-admins');
     }
 });
 
 /** Onboarding, add custom data */
-
 router.post('/v5/onboarding/custom-data-branch', function (req, res) {
     if (req.session.data['custom-data-check'] === 'yes') {
         res.redirect('/v5/onboarding/custom-data-add');
@@ -466,8 +487,6 @@ router.post('/v5/onboarding/custom-data-branch', function (req, res) {
         res.redirect('/v5/onboarding/check-your-details');
     }
 });
-
-
 
 /**
  * Routes picked up from 'config' on the index view
@@ -502,8 +521,5 @@ router.post('/v5/index-check', function (req, res) {
             break;
     }
 });
-
-
-
 
 module.exports = router;

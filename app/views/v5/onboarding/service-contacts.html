@@ -25,91 +25,183 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form id="form" method="post" action="admin-branch">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Add your service</span>
+                        Service contacts
+                    </legend>
 
-                <form id="form" method="post" action="admin-branch">
-                    <fieldset class="govuk-fieldset">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                            Service contacts
-                        </legend>
+                    <h2 class="govuk-heading-m">Service contact</h2>
 
-                        <h2 class="govuk-heading-m">Service contact</h2>
-    
-                        {{ govukInput({
-                            label: {
-                                text: "First name"
-                            },
-                            id: "contact-1-first-name",
-                            name: "contact-1-first-name",
-                            classes: "govuk-!-width-three-quarters"
-                        }) }}
+                    {{ govukInput({
+                        label: {
+                            text: "First name"
+                        },
+                        id: "contact-1-first-name",
+                        name: "contact-1-first-name",
+                        classes: "govuk-!-width-three-quarters"
+                    }) }}
 
-                        {{ govukInput({
-                            label: {
-                                text: "Last name"
-                            },
-                            id: "contact-1-last-name",
-                            name: "contact-1-last-name",
-                            classes: "govuk-!-width-three-quarters"
-                        }) }}
+                    {{ govukInput({
+                        label: {
+                            text: "Last name"
+                        },
+                        id: "contact-1-last-name",
+                        name: "contact-1-last-name",
+                        classes: "govuk-!-width-three-quarters"
+                    }) }}
 
-                        {{ govukInput({
-                            label: {
-                                text: "Email address"
-                            },
-                            id: "contact-1-email-address",
-                            name: "contact-1-email-address",
-                            classes: "govuk-!-width-three-quarters"
-                        }) }}
+                    {{ govukInput({
+                        label: {
+                            text: "Email address"
+                        },
+                        id: "contact-1-email-address",
+                        name: "contact-1-email-address",
+                        classes: "govuk-!-width-three-quarters"
+                    }) }}
 
-                        {{ govukInput({
-                            label: {
-                                text: "Telephone number"
-                            },
-                            id: "contact-1-phone",
-                            name: "contact-1-phone",
-                            classes: "govuk-!-width-three-quarters"
-                        }) }}
+                    {{ govukInput({
+                        label: {
+                            text: "Telephone number"
+                        },
+                        id: "contact-1-phone",
+                        name: "contact-1-phone",
+                        classes: "govuk-!-width-three-quarters"
+                    }) }}
 
-                        {{ govukRadios({
-                            classes: "govuk-radios--inline",
-                            idPrefix: "primary-contact-admin-check",
-                            name: "primary-contact-admin-check",
-                            fieldset: {
-                              legend: {
+                    {{ govukRadios({
+                        classes: "govuk-radios--inline",
+                        idPrefix: "contact-1-admin-check",
+                        name: "contact-1-admin-check",
+                        fieldset: {
+                            legend: {
                                 text: "Will the primary service contact also be a service administrator?",
                                 classes: "govuk-fieldset__legend--s"
-                              }
-                            },
-                            items: [
-                              {
+                            }
+                        },
+                        items: [
+                            {
                                 value: "yes",
                                 text: "Yes"
-                              },
-                              {
+                            },
+                            {
                                 value: "no",
                                 text: "No"
-                              }
-                            ]
-                          }) }}
+                            }
+                        ]
+                    }) }}
+                </fieldset>
 
+                <div id="additional-contacts"></div>
 
-                        
-                        {{ govukButton({
-                            text: "Add another contact",
-                            classes: "govuk-button--secondary",
-                            href: "service-contacts-secondary"
-                        }) }}
+                <fieldset class="govuk-fieldset">
+                    <button
+                        type="button"
+                        class="govuk-button govuk-button--secondary"
+                        id="onboarding-add-another-contact"
+                    >
+                        Add another contact
+                    </button>
 
-                        <div class="govuk-!-padding-bottom-6"></div>
-
+                    <div class="govuk-!-margin-top-6">
                         {{ govukButton({
                             text: "Continue"
                         }) }}
-                    </fieldset>
-                </form>
-            </div>
-        </div>
+                    </div>
 
+                    <input type="hidden" name="contacts-total" id="contacts-total" value="1">
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pageScripts %}
+    <script>
+        let contactIndex = 1;
+
+        const addAnotherToggle = document.getElementById('onboarding-add-another-contact');
+        const additionalContactsElem = document.getElementById('additional-contacts');
+        const contactsTotalElem = document.getElementById('contacts-total');
+
+        const newContactTemplate = (contactIndex) => {
+            return `<fieldset class="govuk-fieldset">
+                <h2 class="govuk-heading-m">Service contact</h2>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-${contactIndex}-first-name">
+                        First name
+                    </label>
+
+                    <input class="govuk-input govuk-!-width-three-quarters" id="contact-${contactIndex}-first-name" name="contact-${contactIndex}-first-name" type="text">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-${contactIndex}-last-name">
+                        Last name
+                    </label>
+
+                    <input class="govuk-input govuk-!-width-three-quarters" id="contact-${contactIndex}-last-name" name="contact-${contactIndex}-last-name" type="text">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-${contactIndex}-email-address">
+                        Email address
+                    </label>
+
+                    <input class="govuk-input govuk-!-width-three-quarters" id="contact-${contactIndex}-email-address" name="contact-${contactIndex}-email-address" type="text">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-${contactIndex}-phone">
+                        Telephone number
+                    </label>
+
+                    <input class="govuk-input govuk-!-width-three-quarters" id="contact-${contactIndex}-phone" name="contact-${contactIndex}-phone" type="text">
+                </div>
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                            Will this service contact also be a service administrator?
+                        </legend>
+
+                        <div class="govuk-radios govuk-radios--inline">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="contact-${contactIndex}-admin-check" name="contact-${contactIndex}-admin-check" type="radio" value="yes">
+
+                                <label class="govuk-label govuk-radios__label" for="contact-${contactIndex}-admin-check">
+                                    Yes
+                                </label>
+                            </div>
+
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="contact-${contactIndex}-admin-check-2" name="contact-${contactIndex}-admin-check" type="radio" value="no">
+
+                                <label class="govuk-label govuk-radios__label" for="contact-${contactIndex}-admin-check-2">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </fieldset>`;
+        }
+
+        addAnotherToggle.addEventListener('click', () => {
+            console.log('Add another contact,', contactIndex);
+
+            contactIndex += 1;
+
+            const newContactFields = newContactTemplate(contactIndex);
+
+            additionalContactsElem.insertAdjacentHTML('beforeend', newContactFields);
+            contactsTotalElem.value = contactIndex;
+
+            console.log('We added another contact,', contactIndex);
+        });
+    </script>
 {% endblock %}
