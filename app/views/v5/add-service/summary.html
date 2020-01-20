@@ -1,0 +1,445 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check your details - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Check your details</h1>
+
+            <h2 class="govuk-heading-m">Service details</h2>
+
+            {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                    {
+                        key: {
+                            text: "Name"
+                        },
+                        value: {
+                            text: data['service-name']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: "name"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Owner"
+                        },
+                        value: {
+                            text: data['service-owner']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                href: "#",
+                                text: "Change",
+                                visuallyHiddenText: "date of birth"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Manager"
+                        },
+                        value: {
+                            html: data['service-manager']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                href: "#",
+                                text: "Change",
+                                visuallyHiddenText: "address"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "DWP business area"
+                        },
+                        value: {
+                            html: data['dwp-business-area']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                href: "#",
+                                text: "Change",
+                                visuallyHiddenText: "contact details"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Addition timeline"
+                        },
+                        value: {
+                            html: data['go-live']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: "contact details"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }) }}
+
+            <h2 class="govuk-heading-m">Information used in the service</h2>
+
+            {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                    {
+                        key: {
+                            text: "Information types"
+                        },
+                        value: {
+                            text: data['service-information']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: "previous application number"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }) }}
+
+            <h2 class="govuk-heading-m">Service contacts</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Contact
+                    </dt>
+
+                    <dd class="govuk-summary-list__value">
+                        {{ data['contact-1-first-name'] }} {{ data['contact-1-last-name'] }}<br>
+                        {{ data['contact-1-email-address'] }}<br>
+                        {{ data['contact-1-phone'] }}<br>
+                        Is {% if data['contact-1-admin-check'] != 'yes' %}not{% endif %} an administrator
+                    </dd>
+
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> previous contact details</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+
+            <h2 class="govuk-heading-m">Service administrators</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Administrator
+                    </dt>
+
+                    <dd class="govuk-summary-list__value">
+                        {{ data['admin-1-first-name'] }} {{ data['admin-1-last-name'] }}<br>
+                        {{ data['admin-1-email-address'] }}<br>
+                        {{ data['admin-1-phone'] }}<br>
+                    </dd>
+
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> administrator details</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+
+            <h2 class="govuk-heading-m">Support details</h2>
+
+            {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                    {
+                        key: {
+                            text: "Email"
+                        },
+                        value: {
+                            text: data['support-email']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: "support email address"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Telephone number"
+                        },
+                        value: {
+                            text: data['support-phone-number']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " support telephone number"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Office location"
+                        },
+                        value: {
+                            html: data['support-address-line-1'] + '<br>' + data['support-address-line-2'] + '<br>' + data['support-address-town'] + '<br>' + data['support-address-postcode']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " office address"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Opening hours"
+                        },
+                        value: {
+                            text: data['support-opening-hours']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " support hours"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }) }}
+
+            <h2 class="govuk-heading-m">Technical details</h2>
+
+            {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                    {
+                        key: {
+                            text: "Environment URL"
+                        },
+                        value: {
+                            text: data['environment-url']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " enivronment URL"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Staging URL"
+                        },
+                        value: {
+                            text: data['staging-url']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " staging URL"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Production URL"
+                        },
+                        value: {
+                            text: data['production-url']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " production URL"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }) }}
+
+            <h2 class="govuk-heading-m">Service users</h2>
+
+            {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                    {
+                        key: {
+                            text: "Types of user"
+                        },
+                        value: {
+                            text: data['service-users']
+                        },
+                        actions: {
+                        items: [
+                            {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: " types of user"
+                            }
+                        ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Expected number of users"
+                        },
+                        value: {
+                            text: data['number-of-users']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " expected number of users"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }) }}
+
+            <h2 class="govuk-heading-m">Additional data</h2>
+
+            {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                {
+                    key: {
+                    text: "Data group"
+                    },
+                    value: {
+                    text: " "
+                    },
+                    actions: {
+                    items: [
+                        {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "previous application number"
+                        }
+                    ]
+                    }
+                },
+                {
+                    key: {
+                    text: "Data group items"
+                    },
+                    value: {
+                    text: " "
+                    },
+                    actions: {
+                    items: [
+                        {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "licence type"
+                        }
+                    ]
+                    }
+                }
+                ]
+            }) }}
+
+            <form action="/form-handler" method="post" novalidate>
+                <input type="hidden" name="answers-checked" value="true">
+
+                {{ govukButton({
+                    text: "Accept and send"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pageScripts %}
+    <script>
+        const additionalContact = (contactIndex) => {
+            return `<div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Contact ${contactIndex}
+                </dt>
+
+                <dd class="govuk-summary-list__value">
+                    Content
+                </dd>
+
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> contact details</span>
+                    </a>
+                </dd>
+            </div>`;
+        }
+    </script>
+{% endblock %}

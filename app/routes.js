@@ -445,7 +445,7 @@ router.post('/v5/l4/users/register/app-branch', function (req, res) {
 });
 
 /** Onboarding, is service contact also an admin */
-router.post('/v5/onboarding/admin-branch', function (req, res) {
+router.post('/v5/add-service/admin-branch', function (req, res) {
     const numContacts = req.session.data['contacts-total'];
 
     let thereAreAdmins = false;
@@ -471,20 +471,20 @@ router.post('/v5/onboarding/admin-branch', function (req, res) {
     if (thereAreAdmins) {
         console.log('Go to support details');
 
-        res.redirect('/v5/onboarding/support-details');
+        res.redirect('/v5/add-service/support');
     } else {
         console.log('Go to add service admins');
 
-        res.redirect('/v5/onboarding/service-admins');
+        res.redirect('/v5/add-service/admins');
     }
 });
 
 /** Onboarding, add custom data */
-router.post('/v5/onboarding/custom-data-branch', function (req, res) {
+router.post('/v5/add-service/custom-data-branch', function (req, res) {
     if (req.session.data['custom-data-check'] === 'yes') {
-        res.redirect('/v5/onboarding/custom-data-add');
+        res.redirect('/v5/add-service/custom-data-add');
     } else {
-        res.redirect('/v5/onboarding/check-your-details');
+        res.redirect('/v5/add-service/summary');
     }
 });
 
