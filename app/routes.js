@@ -435,6 +435,28 @@ router.post('/v5/l3/users/register/app-branch', function (req, res) {
     }
 });
 
+router.post('/v5/l3/users/view/edit-branch', function (req, res) {
+    const editChoice = req.session.data['user-task'];
+
+    if (editChoice === 'reinvite') {
+        res.redirect('/v5/l3/users/edit/reinvite');
+    } else if (editChoice === 'delete') {
+        res.redirect('/v5/l3/users/edit/delete-check');
+    }
+});
+
+router.post('/v5/l3/users/edit/delete-branch', function (req, res) {
+    const deleteChoice = req.session.data['delete-check'];
+
+    if (deleteChoice === 'yes') {
+        res.redirect('/v5/l3/users/edit/delete-confirm');
+    } else {
+        res.redirect('/v5/l3/users/view/single');
+    }
+});
+
+
+
 /** All level 4 (Standard users) routes */
 router.post('/v5/l4/users/register/app-branch', function (req, res) {
     if (req.session.data['app-backup'] === 'yes') {
