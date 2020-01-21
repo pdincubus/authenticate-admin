@@ -17,11 +17,11 @@
         </h2>
 
         {% set researchVersionsHtml %}
-            <time datetime="2019-12-17" class="govuk-caption-m">17 December 2019</time>
+            <time datetime="2020-01-21" class="govuk-caption-m">21 January 2020</time>
 
-            <h2 class="govuk-heading-l">v5</h2>
+            <h2 class="govuk-heading-l">v6</h2>
 
-            <form action="/v5/index-check" method="post" class="form">
+            <form action="/v6/index-check" method="post" class="form">
                 <fieldset class="govuk-fieldset">
                     <div class="govuk-grid-row">
                         <div class="govuk-grid-column-one-half">
@@ -161,51 +161,7 @@
 
             <ul class="govuk-list govuk-list--bullet">
                 <li>
-                    Front-loaded the sign in and register journeys with fake email for journey completeness
-                </li>
-
-                <li>
-                    Complete re-organisation of view templates to allow for better URLs, etc
-                </li>
-
-                <li>
-                    Start creating journeys for other level users
-                </li>
-
-                <li>
-                    'Inactive' and 'Pending activation' changed to 'Access expired' and 'Invite sent'. Changes made as original terms not understood well by users
-                </li>
-
-                <li>
-                    Removed 'back' link on user list pages with pagination
-                </li>
-
-                <li>
-                    Make sure there's a view for the organisation choice of 'delete users by team' and 'delete users by service' - just needs content
-                </li>
-
-                <li>
-                    Added journey for new user registration with 2FA and Authenticator app backup option
-                </li>
-
-                <li>Added journey for reset password</li>
-
-                <li>Added pages to view and add organisation contacts</li>
-
-                <li>Added page to edit organisation address</li>
-
-                <li>Added <a href="/v5/error/service" class="govuk-link">service error</a> page</li>
-
-                <li>
-                    Removed GDS Transport from font family
-                </li>
-
-                <li>
-                    Added clickable sorting table heading column titles and some faux sorted views
-                </li>
-
-                <li>
-                    Added initial user journey for <a href="/v5/add-service/start" class="govuk-link">Add your service</a> 
+                    Added more to <a href="/v6/add-service/start" class="govuk-link">Add your service</a> journey
                 </li>
             </ul>
 
@@ -217,6 +173,200 @@
                 </summary>
 
                 <div class="govuk-details__text">
+                    <time datetime="2019-12-17" class="govuk-caption-m">17 December 2019</time>
+
+                    <h2 class="govuk-heading-l">v5</h2>
+
+                    <form action="/v5/index-check" method="post" class="form">
+                        <fieldset class="govuk-fieldset">
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-one-half">
+                                    {{ govukSelect({
+                                        id: "prototype-service",
+                                        name: "prototype-service",
+                                        label: {
+                                            text: "Service"
+                                        },
+                                        items: [
+                                            {
+                                                value: "HTDS",
+                                                text: "HTDS",
+                                                selected: true
+                                            },
+                                            {
+                                                value: "PRaP",
+                                                text: "PRaP"
+                                            },
+                                            {
+                                                value: "ESF",
+                                                text: "ESF"
+                                            }
+                                        ]
+                                    }) }}
+
+                                    {{ govukSelect({
+                                        id: "prototype-organisation",
+                                        name: "prototype-organisation",
+                                        label: {
+                                            text: "Organisation"
+                                        },
+                                        hint: {
+                                            text: "Used on admin registration journey emails"
+                                        },
+                                        items: [
+                                            {
+                                                value: "Capita",
+                                                text: "Capita"
+                                            },
+                                            {
+                                                value: "Serco",
+                                                text: "Serco"
+                                            },
+                                            {
+                                                value: "Remploy",
+                                                text: "Remploy"
+                                            },
+                                            {
+                                                value: "G4S",
+                                                text: "G4S"
+                                            },
+                                            {
+                                                value: "London Borough of Croydon Council",
+                                                text: "London Borough of Croydon Council"
+                                            }
+                                        ]
+                                    }) }}
+
+                                    {{ govukSelect({
+                                        id: "prototype-route",
+                                        name: "prototype-route",
+                                        label: {
+                                            text: "Route"
+                                        },
+                                        items: [
+                                            {
+                                                value: "l2-register",
+                                                text: "View L2 user registration journey"
+                                            },
+                                            {
+                                                value: "l3-register",
+                                                text: "View L3 user registration journey"
+                                            },
+                                            {
+                                                value: "l4-register",
+                                                text: "View L4 user registration journey"
+                                            },
+                                            {
+                                                value: "l2-reset",
+                                                text: "View L2 password reset journey"
+                                            },
+                                            {
+                                                value: "l2-dashboard",
+                                                text: "View as a L2 service admin"
+                                            },
+                                            {
+                                                value: "l3-dashboard",
+                                                text: "View as a L3 organisation admin"
+                                            },
+                                            {
+                                                value: "l4-dashboard",
+                                                text: "View as a L4 standard user"
+                                            }
+                                        ]
+                                    }) }}
+                                </div>
+
+                                <div class="govuk-grid-column-one-half">
+                                    {{ govukInput({
+                                        label: {
+                                            text: "First name"
+                                        },
+                                        id: "prototype-firstname",
+                                        name: "prototype-firstname",
+                                        classes: "govuk-!-width-one-half",
+                                        hint: {
+                                            text: "Used on 'register' and 'sign in' journey emails"
+                                        }
+                                    }) }}
+
+                                    {{ govukInput({
+                                        label: {
+                                            text: "Last name"
+                                        },
+                                        id: "prototype-lastname",
+                                        name: "prototype-lastname",
+                                        classes: "govuk-!-width-one-half",
+                                        hint: {
+                                            text: "Used on 'register' and 'sign in' journey emails"
+                                        }
+                                    }) }}
+                                </div>
+                            </div>
+
+                            <div class="govuk-grid-row">
+                                <div class="govuk-grid-column-full">
+                                    <button type="submit" class="govuk-button govuk-!-margin-right-1 govuk-!-margin-top-7">
+                                        Continue
+                                    </button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <h3 class="govuk-heading-s">General changes</h3>
+
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                            Front-loaded the sign in and register journeys with fake email for journey completeness
+                        </li>
+
+                        <li>
+                            Complete re-organisation of view templates to allow for better URLs, etc
+                        </li>
+
+                        <li>
+                            Start creating journeys for other level users
+                        </li>
+
+                        <li>
+                            'Inactive' and 'Pending activation' changed to 'Access expired' and 'Invite sent'. Changes made as original terms not understood well by users
+                        </li>
+
+                        <li>
+                            Removed 'back' link on user list pages with pagination
+                        </li>
+
+                        <li>
+                            Make sure there's a view for the organisation choice of 'delete users by team' and 'delete users by service' - just needs content
+                        </li>
+
+                        <li>
+                            Added journey for new user registration with 2FA and Authenticator app backup option
+                        </li>
+
+                        <li>Added journey for reset password</li>
+
+                        <li>Added pages to view and add organisation contacts</li>
+
+                        <li>Added page to edit organisation address</li>
+
+                        <li>Added <a href="/v5/error/service" class="govuk-link">service error</a> page</li>
+
+                        <li>
+                            Removed GDS Transport from font family
+                        </li>
+
+                        <li>
+                            Added clickable sorting table heading column titles and some faux sorted views
+                        </li>
+
+                        <li>
+                            Added initial user journey for <a href="/v5/add-service/start" class="govuk-link">Add your service</a>
+                        </li>
+                    </ul>
+
+                    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
                     <time datetime="2019-11-11" class="govuk-caption-m">11 November 2019</time>
 
                     <h2 class="govuk-heading-l">MVP v1</h2>

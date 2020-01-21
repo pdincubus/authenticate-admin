@@ -1,0 +1,628 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Check your details - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Check your details</h1>
+
+            <h2 class="govuk-heading-m">Service details</h2>
+
+            {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                    {
+                        key: {
+                            text: "Name"
+                        },
+                        value: {
+                            text: data['service-name']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: "name"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Owner"
+                        },
+                        value: {
+                            text: data['service-owner']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                href: "#",
+                                text: "Change",
+                                visuallyHiddenText: "date of birth"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Manager"
+                        },
+                        value: {
+                            html: data['service-manager']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                href: "#",
+                                text: "Change",
+                                visuallyHiddenText: "address"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "DWP business area"
+                        },
+                        value: {
+                            html: data['dwp-business-area']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                href: "#",
+                                text: "Change",
+                                visuallyHiddenText: "contact details"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Addition timeline"
+                        },
+                        value: {
+                            html: data['go-live']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: "contact details"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }) }}
+
+            <h2 class="govuk-heading-m">Information used in the service</h2>
+
+            {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                    {
+                        key: {
+                            text: "Information types"
+                        },
+                        value: {
+                            text: data['service-information']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: "previous application number"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }) }}
+
+            <h2 class="govuk-heading-m">Service contacts</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9" id="contacts">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Contact
+                    </dt>
+
+                    <dd class="govuk-summary-list__value">
+                        {{ data['contact-1-first-name'] }} {{ data['contact-1-last-name'] }}<br>
+                        {{ data['contact-1-email-address'] }}<br>
+                        {{ data['contact-1-phone'] }}<br>
+                        Is {% if data['contact-1-admin-check'] != 'yes' %}not{% endif %} an administrator
+                    </dd>
+
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> previous contact details</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+
+            <h2 class="govuk-heading-m">Service administrators</h2>
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9" id="admins">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Administrator
+                    </dt>
+
+                    <dd class="govuk-summary-list__value">
+                        {{ data['admin-1-first-name'] }} {{ data['admin-1-last-name'] }}<br>
+                        {{ data['admin-1-email-address'] }}<br>
+                        {{ data['admin-1-phone'] }}<br>
+                    </dd>
+
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> administrator details</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
+
+            <h2 class="govuk-heading-m">Support details</h2>
+
+            {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                    {
+                        key: {
+                            text: "Email"
+                        },
+                        value: {
+                            text: data['support-email']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: "support email address"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Telephone number"
+                        },
+                        value: {
+                            text: data['support-phone-number']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " support telephone number"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Office location"
+                        },
+                        value: {
+                            html: data['support-address-line-1'] + '<br>' + data['support-address-line-2'] + '<br>' + data['support-address-town'] + '<br>' + data['support-address-postcode']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " office address"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Opening hours"
+                        },
+                        value: {
+                            text: data['support-opening-hours']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " support hours"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }) }}
+
+            <h2 class="govuk-heading-m">Technical details</h2>
+
+            {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                    {
+                        key: {
+                            text: "Environment URL"
+                        },
+                        value: {
+                            text: data['environment-url']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " enivronment URL"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Staging URL"
+                        },
+                        value: {
+                            text: data['staging-url']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " staging URL"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Production URL"
+                        },
+                        value: {
+                            text: data['production-url']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " production URL"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }) }}
+
+            <h2 class="govuk-heading-m">Service users</h2>
+
+            {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                    {
+                        key: {
+                            text: "Types of user"
+                        },
+                        value: {
+                            text: data['service-users']
+                        },
+                        actions: {
+                        items: [
+                            {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: " types of user"
+                            }
+                        ]
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Expected number of users"
+                        },
+                        value: {
+                            text: data['number-of-users']
+                        },
+                        actions: {
+                            items: [
+                                {
+                                    href: "#",
+                                    text: "Change",
+                                    visuallyHiddenText: " expected number of users"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }) }}
+
+            <h2 class="govuk-heading-m">Additional data</h2>
+
+            {{ govukSummaryList({
+                classes: 'govuk-!-margin-bottom-9',
+                rows: [
+                    {
+                        key: {
+                        text: "Data group"
+                        },
+                        value: {
+                        text: " "
+                        },
+                        actions: {
+                        items: [
+                            {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "previous application number"
+                            }
+                        ]
+                        }
+                    },
+                    {
+                        key: {
+                        text: "Data group items"
+                        },
+                        value: {
+                        text: " "
+                        },
+                        actions: {
+                        items: [
+                            {
+                                href: "#",
+                                text: "Change",
+                                visuallyHiddenText: "licence type"
+                            }
+                        ]
+                        }
+                    }
+                ]
+            }) }}
+
+            <form action="/form-handler" method="post" novalidate>
+                <input type="hidden" name="answers-checked" value="true">
+
+                {{ govukButton({
+                    text: "Accept and send"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pageScripts %}
+    <script>
+        let contactIndex = 1;
+        let adminIndex = 1;
+
+        const pageData = {
+            {% for name, content in data %}
+                "{{ name }}": "{{ content }}",
+            {% endfor %}
+        };
+
+        const additionalContact = (contactIndex) => {
+            return `<div class="govuk-summary-list__row" id="contact-row-${contactIndex}">
+                <dt class="govuk-summary-list__key">
+                    Contact ${contactIndex}
+                </dt>
+
+                <dd class="govuk-summary-list__value"></dd>
+
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> contact details</span>
+                    </a>
+                </dd>
+            </div>`;
+        }
+
+        const additionalAdmin = (adminIndex) => {
+            return `<div class="govuk-summary-list__row" id="admin-row-${adminIndex}">
+                <dt class="govuk-summary-list__key">
+                    Administrator ${adminIndex}
+                </dt>
+
+                <dd class="govuk-summary-list__value"></dd>
+
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> contact details</span>
+                    </a>
+                </dd>
+            </div>`;
+        }
+
+        const additionalContactsElem = document.getElementById('contacts');
+        const additionalAdminsElem = document.getElementById('admins');
+        const numContacts = {{ data['contacts-total'] }};
+        const numAdmins = {{ data['admins-total'] }};
+
+        for (let i = 1; i < numContacts; i++) {
+            console.log('Add another contact,', contactIndex);
+
+            contactIndex += 1;
+
+            const newContactDetails = additionalContact(contactIndex);
+
+            additionalContactsElem.insertAdjacentHTML('beforeend', newContactDetails);
+
+            console.log('We added another contact,', contactIndex);
+        };
+
+        for (let i = 1; i < numAdmins; i++) {
+            console.log('Add another contact,', adminIndex);
+
+            adminIndex += 1;
+
+            const newAdminDetails = additionalAdmin(adminIndex);
+
+            additionalAdminsElem.insertAdjacentHTML('beforeend', newAdminDetails);
+
+            console.log('We added another admin,', adminIndex);
+        };
+
+        /**
+         * Nasty nasty hacky
+          */
+        const contact2FirstName = pageData['contact-2-first-name'];
+        const contact2LastName = pageData['contact-2-last-name'];
+        const contact2Email = pageData['contact-2-email-address'];
+        const contact2Phone = pageData['contact-2-phone'];
+        const contact2Elem = document.getElementById('contact-row-2');
+
+        console.log(contact2FirstName);
+
+        if (contact2FirstName) {
+            contact2Elem.querySelector(".govuk-summary-list__value").innerHTML = `
+                ${contact2FirstName} ${contact2LastName}<br>
+                ${contact2Email}<br>
+                ${contact2Phone}
+            `;
+        }
+
+        const contact3FirstName = pageData['contact-3-first-name'];
+        const contact3LastName = pageData['contact-3-last-name'];
+        const contact3Email = pageData['contact-3-email-address'];
+        const contact3Phone = pageData['contact-3-phone'];
+        const contact3Elem = document.getElementById('contact-row-3');
+
+        console.log(contact3FirstName);
+
+        if (contact3FirstName) {
+            contact3Elem.querySelector(".govuk-summary-list__value").innerHTML = `
+                ${contact3FirstName} ${contact3LastName}<br>
+                ${contact3Email}<br>
+                ${contact3Phone}
+            `;
+        }
+
+        const contact4FirstName = pageData['contact-4-first-name'];
+        const contact4LastName = pageData['contact-4-last-name'];
+        const contact4Email = pageData['contact-4-email-address'];
+        const contact4Phone = pageData['contact-4-phone'];
+        const contact4Elem = document.getElementById('contact-row-4');
+
+        console.log(contact4FirstName);
+
+        if (contact4FirstName) {
+            contact4Elem.querySelector(".govuk-summary-list__value").innerHTML = `
+                ${contact4FirstName} ${contact4LastName}<br>
+                ${contact4Email}<br>
+                ${contact4Phone}
+            `;
+        }
+
+        const contact5FirstName = pageData['contact-5-first-name'];
+        const contact5LastName = pageData['contact-5-last-name'];
+        const contact5Email = pageData['contact-5-email-address'];
+        const contact5Phone = pageData['contact-5-phone'];
+        const contact5Elem = document.getElementById('contact-row-5');
+
+        console.log(contact5FirstName);
+
+        if (contact5FirstName) {
+            contact5Elem.querySelector(".govuk-summary-list__value").innerHTML = `
+                ${contact5FirstName} ${contact5LastName}<br>
+                ${contact5Email}<br>
+                ${contact5Phone}
+            `;
+        }
+
+        const admin2FirstName = pageData['admin-2-first-name'];
+        const admin2LastName = pageData['admin-2-last-name'];
+        const admin2Email = pageData['admin-2-email-address'];
+        const admin2Phone = pageData['admin-2-phone'];
+        const admin2Elem = document.getElementById('admin-row-2');
+
+        console.log(admin2FirstName);
+
+        if (admin2FirstName) {
+            admin2Elem.querySelector(".govuk-summary-list__value").innerHTML = `
+                ${admin2FirstName} ${admin2LastName}<br>
+                ${admin2Email}<br>
+                ${admin2Phone}
+            `;
+        }
+
+        const admin3FirstName = pageData['admin-3-first-name'];
+        const admin3LastName = pageData['admin-3-last-name'];
+        const admin3Email = pageData['admin-3-email-address'];
+        const admin3Phone = pageData['admin-3-phone'];
+        const admin3Elem = document.getElementById('admin-row-3');
+
+        console.log(admin3FirstName);
+
+        if (admin3FirstName) {
+            admin3Elem.querySelector(".govuk-summary-list__value").innerHTML = `
+                ${admin3FirstName} ${admin3LastName}<br>
+                ${admin3Email}<br>
+                ${admin3Phone}
+            `;
+        }
+
+        const admin4FirstName = pageData['admin-4-first-name'];
+        const admin4LastName = pageData['admin-4-last-name'];
+        const admin4Email = pageData['admin-4-email-address'];
+        const admin4Phone = pageData['admin-4-phone'];
+        const admin4Elem = document.getElementById('admin-row-4');
+
+        console.log(admin4FirstName);
+
+        if (admin4FirstName) {
+            admin4Elem.querySelector(".govuk-summary-list__value").innerHTML = `
+                ${admin4FirstName} ${admin4LastName}<br>
+                ${admin4Email}<br>
+                ${admin4Phone}
+            `;
+        }
+
+        const admin5FirstName = pageData['admin-5-first-name'];
+        const admin5LastName = pageData['admin-5-last-name'];
+        const admin5Email = pageData['admin-5-email-address'];
+        const admin5Phone = pageData['admin-5-phone'];
+        const admin5Elem = document.getElementById('admin-row-5');
+
+        console.log(admin5FirstName);
+
+        if (admin5FirstName) {
+            admin5Elem.querySelector(".govuk-summary-list__value").innerHTML = `
+                ${admin5FirstName} ${admin5LastName}<br>
+                ${admin5Email}<br>
+                ${admin5Phone}
+            `;
+        }
+    </script>
+{% endblock %}

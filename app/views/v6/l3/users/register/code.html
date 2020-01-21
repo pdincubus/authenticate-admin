@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Code in message - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">We have sent you a text message with your code</h1>
+
+            <p>It should arrive in a few minutes.</p>
+
+            <p>We sent it to {{ data['mobile-number-code'] }}.</p>
+
+            {{ govukDetails({
+                summaryText: "This phone number is wrong",
+                text: "To enter a new number, click the link in your invitation email to register again."
+            }) }}
+
+            <div class="govuk-form-group govuk-!-margin-top-6">
+                <label class="govuk-label" for="width-20">
+                        Code
+                </label>
+
+                <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+            </div>
+
+            {{ govukButton({
+                text: "Continue",
+                href: "app-check.html"
+            }) }}
+
+            <p><a href="resend-code">I did not get a code</a></p>
+        </div>
+    </div>
+{% endblock %}

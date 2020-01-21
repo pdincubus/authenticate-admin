@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add new organisation - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l listing-page">
+                <span class="govuk-caption-l">{{ data['organisation-name-edit'] }}</span>
+                Edit organisation address
+            </h1>
+
+            <form action="edit-confirm" method="post" class="form">
+                {% call govukFieldset({}) %}
+                    {{ govukInput({
+                        label: {
+                            html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+                        },
+                        id: "address-line-1",
+                        name: "address-line-1",
+                        value: data['address-line-1']
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+                        },
+                        id: "address-line-2",
+                        name: "address-line-2",
+                        value: data['address-line-2']
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Town or city"
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        id: "address-town",
+                        name: "address-town",
+                        value: data['address-town']
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Postcode"
+                        },
+                        classes: "govuk-input--width-10",
+                        id: "address-postcode",
+                        name: "address-postcode",
+                        value: data['address-postcode']
+                    }) }}
+                {% endcall %}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Authenticator app backup - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Do you want to use an authenticator app to access your account?</h1>
+
+            <p>
+                You can use an authenticator app to access your account. This will let you sign in without a phone signal.
+            </p>
+
+            <p>
+                If you set up an authenticator app, you can choose how to sign in to your account. You will be able to use the app or receive a code in a text message.
+            </p>
+
+            <p>You need a smartphone or tablet to use an authenticator app.</p>
+
+            <form id="form" method="post" action="app-branch">
+                {{ govukRadios({
+                    idPrefix: "app-backup",
+                    name: "app-backup",
+                    fieldset: {
+                        legend: {
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "yes",
+                            text: "Yes, set up authenticator app"
+                        },
+                        {
+                            value: "no",
+                            text: "No, I will just use text messages"
+                        }
+                    ]
+                }) }}
+
+                <input type="submit" class="govuk-button govuk-!-margin-right-1" value="Continue" id="submit">
+            </form>
+        </div>
+    </div>
+{% endblock %}
