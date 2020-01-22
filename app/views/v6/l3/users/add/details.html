@@ -13,14 +13,9 @@
 {% endblock %}
 
 {% block content %}
-    {% set legendContent %}
-        {% if data['organisation-name-existing'] %}
-            <span class="govuk-caption-l">{{ data['organisation-name-existing'] }}</span>
-            Add a user
-        {% else %}
-            <span class="govuk-caption-l">Add a user</span>User details
-        {% endif %}
-    {% endset %}
+
+    <span class="govuk-caption-l">{{ data['prototype-organisation'] }}</span>
+    <h1 class="govuk-heading-l">Add a user</h1>
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
