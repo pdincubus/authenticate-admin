@@ -21,19 +21,30 @@
 {% endblock %}
 
 {% block content %}
+
+    {% set panelContent %}
+        Admin for {{ data["prototype-service"] }} 
+    {% endset %}
+
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             {{ govukPanel({
                 titleText: "Registration complete",
-                html: data['prototype-service']
+                html: panelContent 
             }) }}
 
-            <p>You will be able to access this service soon. We will send you an email when you have access.</p>
+            <h2 class="govuk-heading-s"> What happens next</h2>
+            <p>We will send you an email with instructions on how to sign in.</p>
 
-            <h2 class="govuk-heading-m govuk-!-margin-top-6">Your username</h2>
-            <p>Your username to sign in will be b2ctest77@gmail.com</p>
 
-            <h2 class="govuk-heading-m">Contact us</h2>
+            <h2 class="govuk-heading-s">Your username</h2>
+            <p>When you sign in, your username will be b2ctest77@gmail.com</p>
+
+            <h2 class="govuk-heading-s">Your permissions</h2>
+            <p>You will be able to give {{ data['prototype-organisation'] }} employees access to {{ data['prototype-service'] }} and manage their access.</p>
+
+
+            <h2 class="govuk-heading-s">Contact us</h2>
 
             {% if data['prototype-service'] == 'PRaP' %}
                 <p>PRaP Operational Support Team</p>
