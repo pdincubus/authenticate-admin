@@ -763,7 +763,7 @@ router.post('/v6/add-service/admin-branch', function (req, res) {
 /** Onboarding, add custom data */
 router.post('/v6/add-service/custom-data-branch', function (req, res) {
     if (req.session.data['custom-data-check'] === 'yes') {
-        res.redirect('/v6/add-service/custom-data-add');
+        res.redirect('/v6/add-service/group-name');
     } else {
         res.redirect('/v6/add-service/summary');
     }

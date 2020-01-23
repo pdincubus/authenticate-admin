@@ -371,45 +371,39 @@
 
             <h2 class="govuk-heading-m">Additional data</h2>
 
-            {{ govukSummaryList({
-                classes: 'govuk-!-margin-bottom-9',
-                rows: [
-                    {
-                        key: {
-                        text: "Data group"
-                        },
-                        value: {
-                        text: " "
-                        },
-                        actions: {
-                        items: [
-                            {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "previous application number"
-                            }
-                        ]
-                        }
-                    },
-                    {
-                        key: {
-                        text: "Data group items"
-                        },
-                        value: {
-                        text: " "
-                        },
-                        actions: {
-                        items: [
-                            {
-                                href: "#",
-                                text: "Change",
-                                visuallyHiddenText: "licence type"
-                            }
-                        ]
-                        }
-                    }
-                ]
-            }) }}
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9" id="data-items">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Data group name
+                    </dt>
+
+                    <dd class="govuk-summary-list__value">
+                        {{ data['data-group-name'] }}
+                    </dd>
+
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> data group name</span>
+                        </a>
+                    </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Data group item 1
+                    </dt>
+
+                    <dd class="govuk-summary-list__value">
+                        {{ data['data-group-item-1'] }}
+                    </dd>
+
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                            Change<span class="govuk-visually-hidden"> data group item 1</span>
+                        </a>
+                    </dd>
+                </div>
+            </dl>
 
             <form action="/form-handler" method="post" novalidate>
                 <input type="hidden" name="answers-checked" value="true">
@@ -426,6 +420,7 @@
     <script>
         let contactIndex = 1;
         let adminIndex = 1;
+        let dataItemIndex = 1;
 
         const pageData = {
             {% for name, content in data %}
@@ -465,10 +460,28 @@
             </div>`;
         }
 
+        const additionalDataItem = (dataItemIndex) => {
+            return `<div class="govuk-summary-list__row" id="data-item-row-${dataItemIndex}">
+                <dt class="govuk-summary-list__key">
+                    Data group item ${dataItemIndex}
+                </dt>
+
+                <dd class="govuk-summary-list__value"></dd>
+
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> data item ${dataItemIndex}</span>
+                    </a>
+                </dd>
+            </div>`;
+        }
+
         const additionalContactsElem = document.getElementById('contacts');
         const additionalAdminsElem = document.getElementById('admins');
+        const additionalDataItemsElem = document.getElementById('data-items');
         const numContacts = {{ data['contacts-total'] }};
         const numAdmins = {{ data['admins-total'] }};
+        const numDataItems = {{ data['data-items-total'] }};
 
         for (let i = 1; i < numContacts; i++) {
             console.log('Add another contact,', contactIndex);
@@ -483,7 +496,7 @@
         };
 
         for (let i = 1; i < numAdmins; i++) {
-            console.log('Add another contact,', adminIndex);
+            console.log('Add another admin,', adminIndex);
 
             adminIndex += 1;
 
@@ -492,6 +505,18 @@
             additionalAdminsElem.insertAdjacentHTML('beforeend', newAdminDetails);
 
             console.log('We added another admin,', adminIndex);
+        };
+
+        for (let i = 1; i < numDataItems; i++) {
+            console.log('Add another data item,', dataItemIndex);
+
+            dataItemIndex += 1;
+
+            const newDataItemDetails = additionalDataItem(dataItemIndex);
+
+            additionalDataItemsElem.insertAdjacentHTML('beforeend', newDataItemDetails);
+
+            console.log('We added another data item,', dataItemIndex);
         };
 
         /**
@@ -623,6 +648,42 @@
                 ${admin5Email}<br>
                 ${admin5Phone}
             `;
+        }
+
+        const dataItem2Value = pageData['data-group-item-2'];
+        const dataItem2Elem = document.getElementById('data-item-row-2');
+
+        console.log(dataItem2Value);
+
+        if (dataItem2Value) {
+            dataItem2Elem.querySelector(".govuk-summary-list__value").innerHTML = dataItem2Value;
+        }
+
+        const dataItem3Value = pageData['data-group-item-3'];
+        const dataItem3Elem = document.getElementById('data-item-row-3');
+
+        console.log(dataItem3Value);
+
+        if (dataItem3Value) {
+            dataItem3Elem.querySelector(".govuk-summary-list__value").innerHTML = dataItem3Value;
+        }
+
+        const dataItem4Value = pageData['data-group-item-4'];
+        const dataItem4Elem = document.getElementById('data-item-row-4');
+
+        console.log(dataItem4Value);
+
+        if (dataItem4Value) {
+            dataItem4Elem.querySelector(".govuk-summary-list__value").innerHTML = dataItem4Value;
+        }
+
+        const dataItem5Value = pageData['data-group-item-5'];
+        const dataItem5Elem = document.getElementById('data-item-row-5');
+
+        console.log(dataItem5Value);
+
+        if (dataItem5Value) {
+            dataItem5Elem.querySelector(".govuk-summary-list__value").innerHTML = dataItem5Value;
         }
     </script>
 {% endblock %}
