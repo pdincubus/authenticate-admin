@@ -418,64 +418,6 @@
 
 {% block pageScripts %}
     <script>
-        let contactIndex = 1;
-        let adminIndex = 1;
-        let dataItemIndex = 1;
-
-        const pageData = {
-            {% for name, content in data %}
-                "{{ name }}": "{{ content }}",
-            {% endfor %}
-        };
-
-        const additionalContact = (contactIndex) => {
-            return `<div class="govuk-summary-list__row" id="contact-row-${contactIndex}">
-                <dt class="govuk-summary-list__key">
-                    Contact ${contactIndex}
-                </dt>
-
-                <dd class="govuk-summary-list__value"></dd>
-
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> contact details</span>
-                    </a>
-                </dd>
-            </div>`;
-        }
-
-        const additionalAdmin = (adminIndex) => {
-            return `<div class="govuk-summary-list__row" id="admin-row-${adminIndex}">
-                <dt class="govuk-summary-list__key">
-                    Administrator ${adminIndex}
-                </dt>
-
-                <dd class="govuk-summary-list__value"></dd>
-
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> contact details</span>
-                    </a>
-                </dd>
-            </div>`;
-        }
-
-        const additionalDataItem = (dataItemIndex) => {
-            return `<div class="govuk-summary-list__row" id="data-item-row-${dataItemIndex}">
-                <dt class="govuk-summary-list__key">
-                    Data group item ${dataItemIndex}
-                </dt>
-
-                <dd class="govuk-summary-list__value"></dd>
-
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> data item ${dataItemIndex}</span>
-                    </a>
-                </dd>
-            </div>`;
-        }
-
         const additionalContactsElem = document.getElementById('contacts');
         const additionalAdminsElem = document.getElementById('admins');
         const additionalDataItemsElem = document.getElementById('data-items');
@@ -483,40 +425,44 @@
         const numAdmins = {{ data['admins-total'] }};
         const numDataItems = {{ data['data-items-total'] }};
 
-        for (let i = 1; i < numContacts; i++) {
-            console.log('Add another contact,', contactIndex);
+        const additionalItem = (rowIndex, rowName, rowTitle, rowDescriptor) => {
+            return `<div class="govuk-summary-list__row" id="${rowName}-row-${rowIndex}">
+                <dt class="govuk-summary-list__key">
+                    ${rowTitle} ${rowIndex}
+                </dt>
 
-            contactIndex += 1;
+                <dd class="govuk-summary-list__value"></dd>
 
-            const newContactDetails = additionalContact(contactIndex);
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="#">
+                        Change<span class="govuk-visually-hidden"> ${rowDescriptor} ${rowIndex}</span>
+                    </a>
+                </dd>
+            </div>`;
+        }
+
+        const pageData = {
+            {% for name, content in data %}
+                "{{ name }}": "{{ content }}",
+            {% endfor %}
+        };
+
+        for (let i = 2; i <= numContacts; i++) {
+            const newContactDetails = additionalItem(i, 'contact', 'Contact', 'contact details');
 
             additionalContactsElem.insertAdjacentHTML('beforeend', newContactDetails);
-
-            console.log('We added another contact,', contactIndex);
         };
 
-        for (let i = 1; i < numAdmins; i++) {
-            console.log('Add another admin,', adminIndex);
-
-            adminIndex += 1;
-
-            const newAdminDetails = additionalAdmin(adminIndex);
+        for (let i = 2; i <= numAdmins; i++) {
+            const newAdminDetails = additionalItem(i, 'admin', 'Administrator', 'admin details');
 
             additionalAdminsElem.insertAdjacentHTML('beforeend', newAdminDetails);
-
-            console.log('We added another admin,', adminIndex);
         };
 
-        for (let i = 1; i < numDataItems; i++) {
-            console.log('Add another data item,', dataItemIndex);
-
-            dataItemIndex += 1;
-
-            const newDataItemDetails = additionalDataItem(dataItemIndex);
+        for (let i = 2; i <= numDataItems; i++) {
+            const newDataItemDetails = additionalItem(i, 'data-item', 'Data group item', 'data item details');
 
             additionalDataItemsElem.insertAdjacentHTML('beforeend', newDataItemDetails);
-
-            console.log('We added another data item,', dataItemIndex);
         };
 
         /**
@@ -527,8 +473,6 @@
         const contact2Email = pageData['contact-2-email-address'];
         const contact2Phone = pageData['contact-2-phone'];
         const contact2Elem = document.getElementById('contact-row-2');
-
-        console.log(contact2FirstName);
 
         if (contact2FirstName) {
             contact2Elem.querySelector(".govuk-summary-list__value").innerHTML = `
@@ -544,8 +488,6 @@
         const contact3Phone = pageData['contact-3-phone'];
         const contact3Elem = document.getElementById('contact-row-3');
 
-        console.log(contact3FirstName);
-
         if (contact3FirstName) {
             contact3Elem.querySelector(".govuk-summary-list__value").innerHTML = `
                 ${contact3FirstName} ${contact3LastName}<br>
@@ -559,8 +501,6 @@
         const contact4Email = pageData['contact-4-email-address'];
         const contact4Phone = pageData['contact-4-phone'];
         const contact4Elem = document.getElementById('contact-row-4');
-
-        console.log(contact4FirstName);
 
         if (contact4FirstName) {
             contact4Elem.querySelector(".govuk-summary-list__value").innerHTML = `
@@ -576,8 +516,6 @@
         const contact5Phone = pageData['contact-5-phone'];
         const contact5Elem = document.getElementById('contact-row-5');
 
-        console.log(contact5FirstName);
-
         if (contact5FirstName) {
             contact5Elem.querySelector(".govuk-summary-list__value").innerHTML = `
                 ${contact5FirstName} ${contact5LastName}<br>
@@ -591,8 +529,6 @@
         const admin2Email = pageData['admin-2-email-address'];
         const admin2Phone = pageData['admin-2-phone'];
         const admin2Elem = document.getElementById('admin-row-2');
-
-        console.log(admin2FirstName);
 
         if (admin2FirstName) {
             admin2Elem.querySelector(".govuk-summary-list__value").innerHTML = `
@@ -608,8 +544,6 @@
         const admin3Phone = pageData['admin-3-phone'];
         const admin3Elem = document.getElementById('admin-row-3');
 
-        console.log(admin3FirstName);
-
         if (admin3FirstName) {
             admin3Elem.querySelector(".govuk-summary-list__value").innerHTML = `
                 ${admin3FirstName} ${admin3LastName}<br>
@@ -623,8 +557,6 @@
         const admin4Email = pageData['admin-4-email-address'];
         const admin4Phone = pageData['admin-4-phone'];
         const admin4Elem = document.getElementById('admin-row-4');
-
-        console.log(admin4FirstName);
 
         if (admin4FirstName) {
             admin4Elem.querySelector(".govuk-summary-list__value").innerHTML = `
@@ -640,8 +572,6 @@
         const admin5Phone = pageData['admin-5-phone'];
         const admin5Elem = document.getElementById('admin-row-5');
 
-        console.log(admin5FirstName);
-
         if (admin5FirstName) {
             admin5Elem.querySelector(".govuk-summary-list__value").innerHTML = `
                 ${admin5FirstName} ${admin5LastName}<br>
@@ -653,16 +583,12 @@
         const dataItem2Value = pageData['data-group-item-2'];
         const dataItem2Elem = document.getElementById('data-item-row-2');
 
-        console.log(dataItem2Value);
-
         if (dataItem2Value) {
             dataItem2Elem.querySelector(".govuk-summary-list__value").innerHTML = dataItem2Value;
         }
 
         const dataItem3Value = pageData['data-group-item-3'];
         const dataItem3Elem = document.getElementById('data-item-row-3');
-
-        console.log(dataItem3Value);
 
         if (dataItem3Value) {
             dataItem3Elem.querySelector(".govuk-summary-list__value").innerHTML = dataItem3Value;
@@ -671,16 +597,12 @@
         const dataItem4Value = pageData['data-group-item-4'];
         const dataItem4Elem = document.getElementById('data-item-row-4');
 
-        console.log(dataItem4Value);
-
         if (dataItem4Value) {
             dataItem4Elem.querySelector(".govuk-summary-list__value").innerHTML = dataItem4Value;
         }
 
         const dataItem5Value = pageData['data-group-item-5'];
         const dataItem5Elem = document.getElementById('data-item-row-5');
-
-        console.log(dataItem5Value);
 
         if (dataItem5Value) {
             dataItem5Elem.querySelector(".govuk-summary-list__value").innerHTML = dataItem5Value;
