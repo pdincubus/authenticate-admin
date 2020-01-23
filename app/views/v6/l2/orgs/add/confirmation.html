@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Organisation added - {{ data['organisation-name'] }}
+  Organisation added - {{ data['organisation-name-custom'] }}
 {% endblock %}
 
 {% block header %}
@@ -13,13 +13,13 @@
         <div class="govuk-grid-column-two-thirds">
             {{ govukPanel({
                 titleText: "Organisation added",
-                html: data["organisation-name"]
+                html: data["organisation-name-custom"]
             }) }}
 
             {% if data['contact-1-first-name'] and data['contact-2-first-name'] and data['address-line-1'] %}
             <p>
                 <a href="../../users/add/custom" class="govuk-link">
-                    Add a user to {{ data['organisation-name'] }}
+                    Add a user to {{ data['organisation-name-custom'] }}
                 </a>
             </p>
             {% endif %}

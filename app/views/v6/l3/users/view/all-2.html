@@ -25,7 +25,7 @@
     <table class="govuk-table">
         <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name <span class="govuk-sorted-by">(Currently sorted by name, a-z)</span></th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name</th>
                 <th scope="col" class="govuk-table__header govuk-!-width-one-third">Email address</th>
                 <th scope="col" class="govuk-table__header">Status</th>
             </tr>
@@ -34,19 +34,19 @@
         <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Rod Wallace</a></th>
-                <td class="govuk-table__cell">rod.wallace@capita.co.uk</td>
+                <td class="govuk-table__cell">rod.wallace@{{ data['prototype-organisation-machine'] }}</td>
                 <td class="govuk-table__cell">Active</td>
             </tr>
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Steve Hodge</a></th>
-                <td class="govuk-table__cell">steve.hodge@capita.co.uk</td>
+                <td class="govuk-table__cell">steve.hodge@{{ data['prototype-organisation-machine'] }}</td>
                 <td class="govuk-table__cell ">Active</td>
             </tr>
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Tony Dorigo</a></th>
-                <td class="govuk-table__cell">tony.dorigo@capita.co.uk</td>
+                <td class="govuk-table__cell">tony.dorigo@{{ data['prototype-organisation-machine'] }}</td>
                 <td class="govuk-table__cell">Active</td>
             </tr>
         </tbody>

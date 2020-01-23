@@ -60,26 +60,43 @@
                                 items: [
                                     {
                                         value: "Capita",
-                                        text: "Capita"
+                                        text: "Capita",
+                                        attributes: {
+                                            "data-machine": "capita.co.uk"
+                                        }
                                     },
                                     {
                                         value: "Serco",
-                                        text: "Serco"
+                                        text: "Serco",
+                                        attributes: {
+                                            "data-machine": "serco.com"
+                                        }
                                     },
                                     {
                                         value: "Remploy",
-                                        text: "Remploy"
+                                        text: "Remploy",
+                                        attributes: {
+                                            "data-machine": "remploy.uk"
+                                        }
                                     },
                                     {
                                         value: "G4S",
-                                        text: "G4S"
+                                        text: "G4S",
+                                        attributes: {
+                                            "data-machine": "g4s.com"
+                                        }
                                     },
                                     {
                                         value: "London Borough of Croydon Council",
-                                        text: "London Borough of Croydon Council"
+                                        text: "London Borough of Croydon Council",
+                                        attributes: {
+                                            "data-machine": "london-croydon.gov.uk"
+                                        }
                                     }
                                 ]
                             }) }}
+
+                            <input type="hidden" id="prototype-organisation-machine" name="prototype-organisation-machine" value="capita">
 
                             {{ govukSelect({
                                 id: "prototype-route",
@@ -162,6 +179,10 @@
             <ul class="govuk-list govuk-list--bullet">
                 <li>
                     Added more to <a href="/v6/add-service/start" class="govuk-link">Add your service</a> journey
+                </li>
+
+                <li>
+                    Stripped back 'add org' journey to only take organisation name until we know more about how these will work.
                 </li>
             </ul>
 
@@ -369,7 +390,7 @@
 
                     <ul class="govuk-list">
                         <li>
-                            <a class="govuk-link" href="/public/files/discussion/sign-up-sign-in-add-organisation-find-specific-user.ppt">Discussion guide</a>
+                            <a class="govuk-link" href="/public/files/insights/sign-up-sign-in-add-organisation-find-specific-user.ppt">UR playback</a>
                         </li>
                     </ul>
 
@@ -800,4 +821,15 @@
             ]
         }) }}
     </div>
+{% endblock %}
+
+{% block pageScripts %}
+    <script>
+        var orgNameElem = document.getElementById('prototype-organisation');
+        var orgNameMachineElem = document.getElementById('prototype-organisation-machine');
+
+        orgNameElem.addEventListener('change', function(e) {
+            orgNameMachineElem.value = e.target.options[e.target.selectedIndex].dataset.machine;
+        });
+    </script>
 {% endblock %}
