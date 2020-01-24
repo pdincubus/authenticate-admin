@@ -86,51 +86,48 @@
                         DWP have invited you to be an admin for {{ data['prototype-service'] }}.
                     </p>
 
-                    <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        This will let you:
-                    </p>
-
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li>give people access to {{ data['prototype-service'] }} and manage their access</li>
-                        <li>add organisations, such as a local authority or contractor, so that their employees can use {{ data['prototype-service'] }}</li>
-                    </ul>
-
-                    <h2 style="Margin: 0 0 20px 0; padding: 0; font-size: 27px; line-height: 35=
-        px; font-weight: bold; color: #0B0C0C;">
+                    <h2 style="Margin: 0 0 10px 0; padding: 0; font-size: 24px; line-height: 35px; font-weight: bold; color: #0B0C0C;">
                         What you must do next
                     </h2>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        You must register your account before you can become an admin. This should only take a few minutes.
+                            You must register your account. This should only take a few minutes.
                     </p>
 
                     <div class="govuk-inset-text">
-                        You have 72 hours from when this email was sent to register.
-                    </div>
+                            You have 72 hours from when this email was sent to register.
+                        </div>
+                    <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
+                            This link will take you to DWP Authenticate, where you can register:
+                        </p>
 
-                    <h2 style="Margin: 0 0 20px 0; padding: 0; font-size: 27px; line-height: 35=
-                    px; font-weight: bold; color: #0B0C0C;">
-                        How to register
+                    <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
+                            <a href="start" class="govuk-link" style="overflow-wrap: break-word; word-wrap: break-word; -ms-word-break: break-all; word-break: break-all; word-break: break-word; -ms-hyphens: auto; -moz-hyphens: auto; -webkit-hyphens: auto; hyphens: auto;">
+                                {% if data['prototype-service'] == "HTDS" %}
+                                    https://htds-signin-url.gov.uk{{ queryString }}
+                                {% elseif data['prototype-service'] == "PRaP" %}
+                                    https://prap-signin-url.gov.uk{{ queryString }}
+                                {% elseif data['prototype-service'] == "ESF" %}
+                                    https://esf-signin-url.gov.uk{{ queryString }}
+                                {% endif %}
+                            </a>
+                        </p>
+                    
+                    <h2 style="Margin: 0 0 10px 0; padding: 0; font-size: 24px; line-height: 35px; font-weight: bold; color: #0B0C0C;">
+                        Your permissions
                     </h2>
-
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        This link will take you to DWP Authenticate, where you can register:
+                            You will be able to:
                     </p>
 
-                    <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        <a href="start" class="govuk-link" style="overflow-wrap: break-word; word-wrap: break-word; -ms-word-break: break-all; word-break: break-all; word-break: break-word; -ms-hyphens: auto; -moz-hyphens: auto; -webkit-hyphens: auto; hyphens: auto;">
-                            {% if data['prototype-service'] == "HTDS" %}
-                                https://htds-signin-url.gov.uk{{ queryString }}
-                            {% elseif data['prototype-service'] == "PRaP" %}
-                                https://prap-signin-url.gov.uk{{ queryString }}
-                            {% elseif data['prototype-service'] == "ESF" %}
-                                https://esf-signin-url.gov.uk{{ queryString }}
-                            {% endif %}
-                        </a>
-                    </p>
+                    <ul style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
+                        <li>give people access to  {{ data['prototype-service'] }} and manage their access</li>
+                        <li>add organisations, such as a local authority or contractor, so that their employees can use  {{ data['prototype-service'] }}</li>
+                    </ul>
 
-                    <h2 style="Margin: 0 0 20px 0; padding: 0; font-size: 27px; line-height: 35=
-                    px; font-weight: bold; color: #0B0C0C;">
+                   
+
+                    <h2 style="Margin: 0 0 10px 0; padding: 0; font-size: 24px; line-height: 35px; font-weight: bold; color: #0B0C0C;">
                         Problems registering
                     </h2>
 
