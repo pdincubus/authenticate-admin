@@ -760,6 +760,31 @@ router.post('/v6/add-service/admin-branch', function (req, res) {
     }
 });
 
+router.post('/v6/l2/signin-branch', function (req, res) {
+    if (req.session.data['prototype-service'] === 'HTDS') {
+        res.redirect('/v6/l2/dashboard');
+    } else {
+        res.redirect('/v6/l2/signin-code');
+    }
+});
+
+
+router.post('/v6/l3/signin-branch', function (req, res) {
+    if (req.session.data['prototype-service'] === 'HTDS') {
+        res.redirect('/v6/l3/dashboard');
+    } else {
+        res.redirect('/v6/l3/signin-code');
+    }
+});
+
+router.post('/v6/l4/signin-branch', function (req, res) {
+    if (req.session.data['prototype-service'] === 'HTDS') {
+        res.redirect('/v6/l4/dashboard');
+    } else {
+        res.redirect('/v6/l4/signin-code');
+    }
+});
+
 /** Onboarding, add custom data */
 router.post('/v6/add-service/custom-data-branch', function (req, res) {
     if (req.session.data['custom-data-check'] === 'yes') {
