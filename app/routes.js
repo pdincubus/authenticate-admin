@@ -785,8 +785,43 @@ router.post('/v6/l4/signin-branch', function (req, res) {
     }
 });
 
+router.post('/v6/l2/users/register/register-branch', function (req, res) {
+    console.log('L2 register');
+    console.log(req.session.data['prototype-service']);
+
+    if (req.session.data['prototype-service'] === 'HTDS') {
+        res.redirect('/v6/l2/users/register/complete');
+    } else {
+        res.redirect('/v6/l2/users/register/mobile');
+    }
+});
+
+router.post('/v6/l3/users/register/register-branch', function (req, res) {
+    console.log('L3 register');
+    console.log(req.session.data['prototype-service']);
+
+    if (req.session.data['prototype-service'] === 'HTDS') {
+        res.redirect('/v6/l3/users/register/complete');
+    } else {
+        res.redirect('/v6/l3/users/register/mobile');
+    }
+});
+
+router.post('/v6/l4/users/register/register-branch', function (req, res) {
+    console.log('L4 register');
+    console.log(req.session.data['prototype-service']);
+
+    if (req.session.data['prototype-service'] === 'HTDS') {
+        res.redirect('/v6/l4/users/register/complete');
+    } else {
+        res.redirect('/v6/l4/users/register/mobile');
+    }
+});
+
 /** Onboarding, add custom data */
 router.post('/v6/add-service/custom-data-branch', function (req, res) {
+    console.log(req.session.data['prototype-service']);
+
     if (req.session.data['custom-data-check'] === 'yes') {
         res.redirect('/v6/add-service/group-name');
     } else {

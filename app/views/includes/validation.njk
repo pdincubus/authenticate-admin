@@ -102,7 +102,9 @@
                 if ($('#tpas_password_form').valid()) {
                     console.log('Form is valid');
 
-                    window.location.href = 'mobile';
+                    const prototypeService = document.getElementById('prototype-service').value;
+
+                    window.location.href = (prototypeService === 'HTDS') ? 'complete' : 'mobile';
                 } else {
                     console.log('Form is invalid');
 
