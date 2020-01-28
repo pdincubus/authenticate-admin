@@ -23,19 +23,22 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-l">Do you want to use an authenticator app to access your account?</h1>
+            <h1 class="govuk-heading-l">Choose how you will authenticate</h1>
 
             <p>
-                You can use an authenticator app to access your account. This will let you sign in without a phone signal.
+                To keep your account secure, DWP Authenticate will send you a unique code each time you sign in to {{ data['prototype-service'] }}.
             </p>
 
             <p>
-                If you set up an authenticator app, you can choose how to sign in to your account. You will be able to use the app or receive a code in a text message.
+               You can choose to receive these codes by text message or through an authenticator app.
             </p>
 
-            <p>You need a smartphone or tablet to use an authenticator app.</p>
+            <p>
+                You need a smartphone or tablet to use an authenticator app.
+            </p>
 
             <form id="form" method="post" action="app-branch">
+
                 {{ govukRadios({
                     idPrefix: "app-backup",
                     name: "app-backup",
@@ -44,18 +47,25 @@
                             classes: "govuk-fieldset__legend--l"
                         }
                     },
+                    idPrefix: "app-backup",
+                    name: "app-backup",
+                    fieldset: {
+                        legend: {
+                        text: "How do you want to authenticate?",
+                        classes: "govuk-fieldset__legend--m"
+                        }
+                    },
                     items: [
                         {
                             value: "yes",
-                            text: "Yes, set up authenticator app"
+                            text: "Set up an authenticator app"
                         },
                         {
                             value: "no",
-                            text: "No, I will just use text messages"
+                            text: "Receive text messages"
                         }
                     ]
                 }) }}
-
                 <input type="submit" class="govuk-button govuk-!-margin-right-1" value="Continue" id="submit">
             </form>
         </div>
