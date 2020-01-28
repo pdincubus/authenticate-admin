@@ -813,6 +813,9 @@ router.post('/v6/index-check', function (req, res) {
         case 'l2-reset':
             res.redirect('/v6/l2/users/reset-password/start');
             break;
+        case 'l4-reset':
+            res.redirect('/v6/l4/users/reset-password/start');
+            break;
         case 'l2-dashboard':
             res.redirect('/v6/l2/email');
             break;
