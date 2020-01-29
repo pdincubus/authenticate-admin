@@ -59,6 +59,13 @@
                                 },
                                 items: [
                                     {
+                                        value: "CHDA",
+                                        text: "CHDA",
+                                        attributes: {
+                                            "data-machine": "chda.com"
+                                        }
+                                    },
+                                    {
                                         value: "Capita",
                                         text: "Capita",
                                         attributes: {
@@ -96,7 +103,7 @@
                                 ]
                             }) }}
 
-                            <input type="hidden" id="prototype-organisation-machine" name="prototype-organisation-machine" value="capita">
+                            <input type="hidden" id="prototype-organisation-machine" name="prototype-organisation-machine" value="chda.com">
 
                             {{ govukSelect({
                                 id: "prototype-route",
@@ -984,7 +991,11 @@
         var orgNameMachineElem = document.getElementById('prototype-organisation-machine');
 
         orgNameElem.addEventListener('change', function(e) {
-            orgNameMachineElem.value = e.target.options[e.target.selectedIndex].dataset.machine;
+            var newValue = e.target.options[e.target.selectedIndex].dataset.machine;
+
+            console.log('setting machine name to:', newValue)
+
+            orgNameMachineElem.value = newValue;
         });
     </script>
 {% endblock %}
