@@ -34,10 +34,17 @@
                         Support details
                     </legend>
 
-                    {{ govukDetails({
-                        summaryText: "Help with support details",
-                        text: "Support details for your service are required to add your service to Authenticate."
-                        }) }}
+                    <p>Provide details of who your users can contact if they need help with your service.</p>
+
+
+                    {{ govukInput({
+                        label: {
+                            text: "Support team’s name"
+                        },
+                        id: "support-team-name",
+                        name: "support-team-name",
+                        classes: "govuk-!-width-three-quarters"
+                    }) }}
 
                     {{ govukInput({
                         label: {
@@ -107,7 +114,7 @@
                             text: "Opening hours"
                         },
                         hint: {
-                            text: "For example, Monday to Friday, 9am to 5pm"
+                            text: "For example, Monday to Friday: 9am to 5pm"
                         }
                     }) }}
 
@@ -115,7 +122,7 @@
                         text: "Continue"
                     }) }}
 
-                    <p><a href="technical">I'll add these later</a></p>
+                    <p><a href="technical">I will add these later</a></p>
                 </fieldset>
             </form>
         </div>

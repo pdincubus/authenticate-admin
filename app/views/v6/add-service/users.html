@@ -31,7 +31,7 @@
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <span class="govuk-caption-l">Add your service</span>
-                        Service users
+                        Your service’s users
                     </legend>
 
                     {{ govukCheckboxes({
@@ -39,7 +39,7 @@
                         name: "service-users",
                         fieldset: {
                             legend: {
-                                text: "Types of user",
+                                text: "Who are your users employed by?",
                                 classes: "govuk-fieldset__legend--m"
                             }
                         },
@@ -48,7 +48,7 @@
                         },
                         items: [
                             {
-                                value: "Internal DWP",
+                                value: "DWP",
                                 text: "Internal DWP"
                             },
                             {
@@ -56,12 +56,12 @@
                                 text: "Other government departments"
                             },
                             {
-                                value: "Local authority",
-                                text: "Local authority"
+                                value: "Local authorities",
+                                text: "Local authorities"
                             },
                             {
-                                value: "External third party",
-                                text: "External third party"
+                                value: "Third party companies, such as suppliers",
+                                text: "Third party companies, such as suppliers"
                             }
                         ]
                     }) }}
@@ -71,7 +71,7 @@
                         name: "number-of-users",
                         fieldset: {
                             legend: {
-                                text: "Expected number of users",
+                                text: "How many users do you expect your service to have?",
                                 classes: "govuk-fieldset__legend--m"
                             }
                         },
@@ -89,8 +89,8 @@
                                 text: "101 to 200"
                             },
                             {
-                                value: "200 and above",
-                                text: "200 and above"
+                                value: "More than 200",
+                                text: "More than 200"
                             }
                         ]
                     }) }}

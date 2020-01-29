@@ -27,27 +27,22 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-l">Data passed by Authenticate</h1>
+            <h1 class="govuk-heading-l">Data DWP Authenticate will pass to your service</h1>
 
-            <p>As a result of a successful user authentication, Authenticate will pass data for each user accessing your service.</p>
-
-            <p>The standard data is:</p>
+            <p>When a user successfully authenticates, DWP Authenticate will pass the following data about them to your service:</p>
 
             <ul class="govuk-list govuk-list--bullet">
-                <li>First name</li>
-                <li>Last name</li>
-                <li>Email address</li>
-                <li>Organisation name</li>
+                <li>first name</li>
+                <li>last name</li>
+                <li>email address</li>
+                <li>organisation name</li>
             </ul>
 
+            <h2 class="govuk-heading-s">Additional data</h2>
             <p>
-                Additional data can be customised beyond this. For instance this could be used to define any specific user roles or teams you may have within your service.
+                You can define additional data about your users that DWP Authenticate can capture and send. 
+                You can use this feature to define specific user roles or teams you may have within your service.
             </p>
-
-            {{ govukDetails({
-                summaryText: "Help with additional data",
-                text: "Additional data can be customised beyond this. For instance this could be used to define any specific user roles or teams you may have within your service"
-            }) }}
 
             <form id="form" method="post" action="custom-data-branch">
                 {{ govukRadios({
@@ -56,7 +51,7 @@
                     name: "custom-data-check",
                     fieldset: {
                         legend: {
-                            text: "Would you like to setup additional data for your service?",
+                            text: "Would you like DWP Authenticate to send your service additional data?",
                             classes: "govuk-fieldset__legend--s"
                         }
                     },

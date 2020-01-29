@@ -31,10 +31,10 @@
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <span class="govuk-caption-l">Add your service</span>
-                        Service contacts
+                        Who can we contact about your service?
                     </legend>
 
-                    <h2 class="govuk-heading-m">Service contact</h2>
+                    <h2 class="govuk-heading-m">Main contact</h2>
 
                     {{ govukInput({
                         label: {
@@ -78,7 +78,7 @@
                         name: "contact-1-admin-check",
                         fieldset: {
                             legend: {
-                                text: "Will the primary service contact also be a service administrator?",
+                                text: "Will they be inviting users to your service and managing their access?",
                                 classes: "govuk-fieldset__legend--s"
                             }
                         },
@@ -129,7 +129,7 @@
 
         const newContactTemplate = (contactIndex) => {
             return `<fieldset class="govuk-fieldset">
-                <h2 class="govuk-heading-m">Service contact</h2>
+                <h2 class="govuk-heading-m">Contact</h2>
 
                 <div class="govuk-form-group">
                     <label class="govuk-label" for="contact-${contactIndex}-first-name">
@@ -166,7 +166,7 @@
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                            Will this service contact also be a service administrator?
+                            Will they be inviting users to your service and managing their access?
                         </legend>
 
                         <div class="govuk-radios govuk-radios--inline">

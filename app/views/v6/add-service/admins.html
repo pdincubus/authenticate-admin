@@ -31,10 +31,10 @@
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <span class="govuk-caption-l">Add your service</span>
-                        Service administrators
+                        Who will invite users to your service and manage their access?
                     </legend>
 
-                    <h2 class="govuk-heading-m">Primary service administrator</h2>
+                    <h2 class="govuk-heading-m">Main administrator</h2>
 
                     {{ govukInput({
                         label: {
@@ -105,7 +105,7 @@
 
         const newContactTemplate = (adminIndex) => {
             return `<fieldset class="govuk-fieldset">
-                <h2 class="govuk-heading-m">Service administrator</h2>
+                <h2 class="govuk-heading-m">Administrator</h2>
 
                 <div class="govuk-form-group">
                     <label class="govuk-label" for="admin-${adminIndex}-first-name">
