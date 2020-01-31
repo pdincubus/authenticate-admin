@@ -27,11 +27,9 @@
                 titleText: "Your password has been reset"
             }) }}
 
-            <p>Use the new password when you sign in to DWP Authenticate.</p>
+            <p>You are now signed into {{ data['prototype-service'] }}. Use your new password when you next sign in.</p>
 
-            <h2 class="govuk-heading-m govuk-!-margin-top-6">Accessing the {{ data['prototype-service'] }} service</h2>
 
-            <p>You have already been authenticated, so you can continue to this service.</p>
 
             {{ govukButton({
                 text: "Continue"
@@ -39,3 +37,5 @@
         </div>
     </div>
 {% endblock %}
+
+
