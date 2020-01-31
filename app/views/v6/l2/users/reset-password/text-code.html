@@ -23,13 +23,13 @@
 {% block content %}
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-l">We have sent you a text message with your code</h1>
+            <h1 class="govuk-heading-l">We have sent you a code</h1>
             <p>It should arrive in a few minutes.</p>
             <p>We sent it to a number ending 1234.</p>
 
             {{ govukDetails({
-                summaryText: "This phone number is wrong",
-                text: "Contact your organisation. They can help."
+                summaryText: "I do not have access to this phone",
+                text: "Email service support team, if you need the code sent to a new number."
             }) }}
 
             <div class="govuk-form-group govuk-!-margin-top-6">
