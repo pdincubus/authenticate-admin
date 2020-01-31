@@ -36,7 +36,17 @@
 
                     <p>These are the people who will use DWP Authenticate to invite users to your service and manage who has access.</p>
 
-                    <h2 class="govuk-heading-m">Main admin</h2>
+                    <h2 class="govuk-heading-m contains-remove-button">
+                        Main admin
+
+                        <button
+                            type="button"
+                            class="govuk-button govuk-button--secondary remove-button"
+                            data-module="govuk-button"
+                        >
+                            Remove
+                        </button>
+                    </h2>
 
                     {{ govukInput({
                         label: {
@@ -107,7 +117,17 @@
 
         const newContactTemplate = (adminIndex) => {
             return `<fieldset class="govuk-fieldset">
-                <h2 class="govuk-heading-m">Administrator</h2>
+                <h2 class="govuk-heading-m contains-remove-button">
+                    Admin
+
+                    <button
+                        type="button"
+                        class="govuk-button govuk-button--secondary remove-button"
+                        data-module="govuk-button"
+                    >
+                        Remove
+                    </button>
+                </h2>
 
                 <div class="govuk-form-group">
                     <label class="govuk-label" for="admin-${adminIndex}-first-name">

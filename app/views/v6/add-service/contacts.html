@@ -34,7 +34,17 @@
                         Who can we contact about your service?
                     </legend>
 
-                    <h2 class="govuk-heading-m">Main contact</h2>
+                    <h2 class="govuk-heading-m contains-remove-button">
+                        Main contact
+
+                        <button
+                            type="button"
+                            class="govuk-button govuk-button--secondary remove-button"
+                            data-module="govuk-button"
+                        >
+                            Remove
+                        </button>
+                    </h2>
 
                     {{ govukInput({
                         label: {
@@ -129,7 +139,13 @@
 
         const newContactTemplate = (contactIndex) => {
             return `<fieldset class="govuk-fieldset">
-                <h2 class="govuk-heading-m">Contact</h2>
+                <h2 class="govuk-heading-m contains-remove-button">
+                    Contact
+
+                    <button type="button" class="govuk-button govuk-button--secondary remove-button" data-module="govuk-button">
+                        Remove
+                    </button>
+                </h2>
 
                 <div class="govuk-form-group">
                     <label class="govuk-label" for="contact-${contactIndex}-first-name">

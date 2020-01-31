@@ -573,3 +573,15 @@ p.govuk-filter-reset {
      color: $govuk-link-colour;
      text-decoration: underline;
  }
+
+/**
+ * remove buttons in add service journey
+ */
+.remove-button {
+    float: right;
+    margin-bottom: 0;
+}
+
+.contains-remove-button {
+    width: 75%;
+}

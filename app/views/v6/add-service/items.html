@@ -31,18 +31,30 @@
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                         <span class="govuk-caption-l">Add your service</span>
-                        Add items to {{ data['data-group-name'] }}   
+                        Add items to {{ data['data-group-name'] }}
                     </legend>
 
                     <div id="custom-items">
-                        {{ govukInput({
-                            label: {
-                                text: "Additional data group item"
-                            },
-                            id: "data-group-item-1",
-                            name: "data-group-item-1",
-                            classes: "govuk-!-width-three-quarters"
-                        }) }}
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="data-group-item-1">
+                                Additional data group item
+                            </label>
+
+                            <input
+                                class="govuk-input govuk-!-width-three-quarters"
+                                id="data-group-item-1"
+                                name="data-group-item-1"
+                                type="text"
+                            >
+
+                            <button
+                                type="button"
+                                class="govuk-button govuk-button--secondary remove-button"
+                                data-module="govuk-button"
+                            >
+                                Remove
+                            </button>
+                        </div>
                     </div>
 
                     <button
@@ -80,7 +92,20 @@
                     Additional data group item
                 </label>
 
-                <input class="govuk-input govuk-!-width-three-quarters" id="data-group-item-${dataItemIndex}" name="data-group-item-${dataItemIndex}" type="text">
+                <input
+                    class="govuk-input govuk-!-width-three-quarters"
+                    id="data-group-item-${dataItemIndex}"
+                    name="data-group-item-${dataItemIndex}"
+                    type="text"
+                >
+
+                <button
+                    type="button"
+                    class="govuk-button govuk-button--secondary remove-button"
+                    data-module="govuk-button"
+                >
+                    Remove
+                </button>
             </div>`;
         }
 
