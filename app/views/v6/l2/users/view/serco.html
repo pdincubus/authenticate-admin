@@ -22,12 +22,12 @@
 
     {% include "./includes/sorting-filtering-org.html" %}
 
-    <table class="govuk-table">
+    <table class="govuk-table sort" id="users-table">
         <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name <span class="govuk-sorted-by">(Currently sorted by name, a-z)</span></th>
-                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Email address</th>
-                <th scope="col" class="govuk-table__header">Status</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third" data-sort-method="thead">Name</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third" data-sort-method="thead">Email address</th>
+                <th scope="col" class="govuk-table__header" data-sort-method="thead">Status</th>
             </tr>
         </thead>
 
@@ -91,4 +91,13 @@
     <p class="govuk-!-margin-top-9">
         <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
     </p>
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="/public/javascripts/tablesort.min.js"></script>
+    <script src="/public/javascripts/sorts/tablesort.number.min.js"></script>
+
+    <script>
+          new Tablesort(document.getElementById('users-table'));
+    </script>
 {% endblock %}

@@ -44,6 +44,7 @@
     "prompt": "^1.0.0",
     "require-dir": "^1.0.0",
     "sync-request": "^6.0.0",
+    "tablesort": "^5.2.0",
     "universal-analytics": "^0.4.16",
     "uuid": "^3.2.1"
   },
