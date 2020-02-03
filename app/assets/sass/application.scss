@@ -589,7 +589,7 @@ p.govuk-filter-reset {
 /**
  * Table sorting header styles for plugin
  */
-.govuk-table.sort,
+.govuk-table.sort th,
 .govuk-table__header[aria-sort="descending"],
 .govuk-table__header[aria-sort="ascending"] {
     color: $govuk-link-colour;
