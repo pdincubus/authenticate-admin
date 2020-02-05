@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Sign up - {{serviceName}}
+   Send me a new code - {{serviceName}}
 {% endblock %}
 
 {% block header %}
@@ -25,11 +25,11 @@
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">Send me a new code</h1>
 
-            <p>We will send a text message to {{ data['mobile-number-code'] }} with a new code.</p>
+            <p>We will send you a text message with a new code.</p>
 
             {{ govukDetails({
-                summaryText: "This phone number is wrong",
-                text: "To enter a new number, click the link in your invitation email to register again."
+                summaryText: "After several attempts, I have not received a code",
+                text: "Try again later. Click on the link in your registration email when you want to try again."
             }) }}
 
             {{ govukButton({
