@@ -1,7 +1,16 @@
 import React from 'react';
+import format from 'date-fns/format';
 
 const UserView = ({ data }) => {
-    const { firstName, lastName, organisation, email, status } = data;
+    const {
+        firstName,
+        lastName,
+        organisation,
+        email,
+        status,
+        lastLoggedIn,
+        accountCreatedOn
+    } = data;
 
     return (
         <dl className="govuk-summary-list">
@@ -51,7 +60,7 @@ const UserView = ({ data }) => {
                 </dt>
 
                 <dd className="govuk-summary-list__value">
-                    21 October 2019
+                    {format(lastLoggedIn, 'd MMMM yyyy, h:mma')}
                 </dd>
             </div>
 
@@ -61,7 +70,7 @@ const UserView = ({ data }) => {
                 </dt>
 
                 <dd className="govuk-summary-list__value">
-                    9 April 1982, 7:52pm
+                    {format(accountCreatedOn, 'd MMMM yyyy, h:mma')}
                 </dd>
             </div>
         </dl>

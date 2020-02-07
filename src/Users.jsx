@@ -11,14 +11,19 @@ const fakeUsers = Array.apply(0, Array(50)).map((item, index) => {
     const domain = `${organisation.replace(' - ', '-').replace(', ', '-').replace('. ', '-').replace(' ', '-').replace(' ', '-')}.co.uk`.toLowerCase();
     const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
     const userStatuses = ['Active', 'Invite sent', 'Invite Expired', 'Access expired'];
-    const status = userStatuses[Math.floor(Math.random() * userStatuses.length)]
+    const status = userStatuses[Math.floor(Math.random() * userStatuses.length)];
+    const recentDateDistance = (status === 'Access expired') ? 60 : 30;
+    const lastLoggedIn = faker.date.recent(recentDateDistance);
+    const accountCreatedOn = faker.date.past(2);
 
     return {
         firstName,
         lastName,
         email,
         organisation,
-        status
+        status,
+        lastLoggedIn,
+        accountCreatedOn
     };
 });
 
