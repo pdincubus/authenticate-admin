@@ -1,26 +1,31 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import faker from 'faker';
 
-import TableRow from './TableRow';
+import Table from './Table';
+import UserView from './UserView';
 
 const fakeUsers = Array.apply(0, Array(50)).map((item, index) => {
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
     const organisation = faker.company.companyName();
     const domain = `${organisation.replace(' - ', '-').replace(', ', '-').replace('. ', '-').replace(' ', '-').replace(' ', '-')}.co.uk`.toLowerCase();
-    const email = `${firstName}.${lastName}@${domain}`;
+    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
+    const userStatuses = ['Active', 'Invite sent', 'Invite Expired', 'Access expired'];
+    const status = userStatuses[Math.floor(Math.random() * userStatuses.length)]
 
     return {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        organisation: organisation,
+        firstName,
+        lastName,
+        email,
+        organisation,
+        status
     };
 });
 
 const initialState = {
-    users: fakeUsers
+    users: fakeUsers,
+    currentView: 'userList',
+    userData: {},
 };
 
 export default class Users extends Component {
@@ -30,42 +35,68 @@ export default class Users extends Component {
         this.state = {...initialState};
     }
 
+    onUserNameClick (index) {
+        const singleUserData = this.state.users[index];
+
+        this.setState({
+            currentView: 'singleUser',
+            userData: singleUserData,
+        });
+    };
+
+    onSingleUserBack (e) {
+        e.preventDefault();
+
+        this.setState({
+            currentView: 'userList',
+            userData: {},
+        });
+    }
+
     render () {
-        const { users } = this.state;
+        const { users, currentView, userData } = this.state;
 
-        return (
-            <table className="govuk-table">
-                <thead className="govuk-table__head">
-                    <tr className="govuk-table__row">
-                        <th scope="col" className="govuk-table__header govuk-!-width-one-third">
-                            Name
-                        </th>
+        switch (currentView) {
+            case 'singleUser':
+                return (
+                    <div className="govuk-grid-row">
+                        <div className="govuk-grid-column-two-thirds">
+                            <a
+                                href="#"
+                                className="govuk-link govuk-back-link"
+                                onClick={(e) => {this.onSingleUserBack(e)}}
+                            >
+                                Back
+                            </a>
 
-                        <th scope="col" className="govuk-table__header govuk-!-width-one-third">
-                            Organisation
-                        </th>
+                            <h1 className="govuk-heading-l listing-page">User details</h1>
 
-                        <th scope="col" className="govuk-table__header">
-                            Status
-                        </th>
-                    </tr>
-                </thead>
+                            <UserView data={userData} />
 
-                <tbody className="govuk-table__body">
-                    {users.map((user, index) => {
-                        return (
-                            <TableRow
-                                firstName={user.firstName}
-                                lastName={user.lastName}
-                                email={user.email}
-                                organisation={user.organisation}
-                                status={user.status}
-                                key={`${user.firstName}-${user.lastName}-${index}`}
-                            />
-                        );
-                    })}
-                </tbody>
-            </table>
-        );
+                            <p className="govuk-!-margin-top-9">
+                                <a href="#" className="govuk-link">Back to dashboard</a>
+                            </p>
+                        </div>
+                    </div>
+                );
+
+            case 'userList':
+            default:
+                return (
+                    <div>
+                        <h1 className="govuk-heading-l listing-page">Users</h1>
+
+                        <a href="#" className="govuk-button listing-page">
+                            Add a user
+                        </a>
+
+                        <Table users={users} onUserNameClick={(index) => this.onUserNameClick(index)} />
+
+                        <p className="govuk-!-margin-top-9">
+                            <a href="#" className="govuk-link">Back to dashboard</a>
+                        </p>
+                    </div>
+                );
+        }
     }
 }

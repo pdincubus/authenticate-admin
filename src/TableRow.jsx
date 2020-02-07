@@ -6,7 +6,8 @@ const TableRow = ({
     lastName,
     email,
     organisation,
-    userStatus = 'Active'
+    userStatus = 'Active',
+    onNameClick
 }) => {
     return (
         <tr className="govuk-table__row">
@@ -15,7 +16,7 @@ const TableRow = ({
                 className={`govuk-table__header ${rowClassNames}`}
                 data-email={ email }
             >
-                <a href="#" className="govuk-link">
+                <a href="#" className="govuk-link" onClick={(e) => {onNameClick(e)}}>
                     {firstName} {lastName}
                 </a>
             </th>

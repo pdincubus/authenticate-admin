@@ -86,68 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/classnames/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/classnames/index.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-  Copyright (c) 2017 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
-
-(function () {
-	'use strict';
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg) && arg.length) {
-				var inner = classNames.apply(null, arg);
-				if (inner) {
-					classes.push(inner);
-				}
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
-					}
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if ( true && module.exports) {
-		classNames.default = classNames;
-		module.exports = classNames;
-	} else if (true) {
-		// register as 'classnames', consistent with npm package name
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-			return classNames;
-		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {}
-}());
-
-
-/***/ }),
-
 /***/ "./node_modules/faker/index.js":
 /*!*************************************!*\
   !*** ./node_modules/faker/index.js ***!
@@ -126383,6 +126321,61 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./src/Table.jsx":
+/*!***********************!*\
+  !*** ./src/Table.jsx ***!
+  \***********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _TableRow__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TableRow */ "./src/TableRow.jsx");
+
+
+
+const Table = ({
+  users,
+  onUserNameClick
+}) => {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "govuk-table"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
+    className: "govuk-table__head"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+    className: "govuk-table__row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col",
+    className: "govuk-table__header govuk-!-width-one-third"
+  }, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col",
+    className: "govuk-table__header govuk-!-width-one-third"
+  }, "Organisation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+    scope: "col",
+    className: "govuk-table__header"
+  }, "Status"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+    className: "govuk-table__body"
+  }, users.map((user, index) => {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TableRow__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      organisation: user.organisation,
+      userStatus: user.status,
+      key: `${user.firstName}-${user.lastName}-${index}`,
+      onNameClick: e => {
+        onUserNameClick(index);
+      }
+    });
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Table);
+
+/***/ }),
+
 /***/ "./src/TableRow.jsx":
 /*!**************************!*\
   !*** ./src/TableRow.jsx ***!
@@ -126402,7 +126395,8 @@ const TableRow = ({
   lastName,
   email,
   organisation,
-  userStatus = 'Active'
+  userStatus = 'Active',
+  onNameClick
 }) => {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
     className: "govuk-table__row"
@@ -126412,7 +126406,10 @@ const TableRow = ({
     "data-email": email
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "#",
-    className: "govuk-link"
+    className: "govuk-link",
+    onClick: e => {
+      onNameClick(e);
+    }
   }, firstName, " ", lastName)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
     className: "govuk-table__cell"
   }, organisation), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
@@ -126421,6 +126418,74 @@ const TableRow = ({
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TableRow);
+
+/***/ }),
+
+/***/ "./src/UserView.jsx":
+/*!**************************!*\
+  !*** ./src/UserView.jsx ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const UserView = ({
+  data
+}) => {
+  const {
+    firstName,
+    lastName,
+    organisation,
+    email,
+    status
+  } = data;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dl", {
+    className: "govuk-summary-list"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "govuk-summary-list__row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", {
+    className: "govuk-summary-list__key"
+  }, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", {
+    className: "govuk-summary-list__value"
+  }, firstName, " ", lastName)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "govuk-summary-list__row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", {
+    className: "govuk-summary-list__key"
+  }, "Email address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", {
+    className: "govuk-summary-list__value"
+  }, email)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "govuk-summary-list__row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", {
+    className: "govuk-summary-list__key"
+  }, "Organisation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", {
+    className: "govuk-summary-list__value"
+  }, organisation)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "govuk-summary-list__row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", {
+    className: "govuk-summary-list__key"
+  }, "Status"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", {
+    className: "govuk-summary-list__value"
+  }, status)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "govuk-summary-list__row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", {
+    className: "govuk-summary-list__key"
+  }, "Last logged in"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", {
+    className: "govuk-summary-list__value"
+  }, "21 October 2019")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "govuk-summary-list__row"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dt", {
+    className: "govuk-summary-list__key"
+  }, "Created"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("dd", {
+    className: "govuk-summary-list__value"
+  }, "9 April 1982, 7:52pm")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (UserView);
 
 /***/ }),
 
@@ -126436,30 +126501,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Users; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var faker__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! faker */ "./node_modules/faker/index.js");
-/* harmony import */ var faker__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(faker__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _TableRow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TableRow */ "./src/TableRow.jsx");
+/* harmony import */ var faker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! faker */ "./node_modules/faker/index.js");
+/* harmony import */ var faker__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(faker__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Table */ "./src/Table.jsx");
+/* harmony import */ var _UserView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UserView */ "./src/UserView.jsx");
 
 
 
 
 const fakeUsers = Array.apply(0, Array(50)).map((item, index) => {
-  const firstName = faker__WEBPACK_IMPORTED_MODULE_2___default.a.name.firstName();
-  const lastName = faker__WEBPACK_IMPORTED_MODULE_2___default.a.name.lastName();
-  const organisation = faker__WEBPACK_IMPORTED_MODULE_2___default.a.company.companyName();
+  const firstName = faker__WEBPACK_IMPORTED_MODULE_1___default.a.name.firstName();
+  const lastName = faker__WEBPACK_IMPORTED_MODULE_1___default.a.name.lastName();
+  const organisation = faker__WEBPACK_IMPORTED_MODULE_1___default.a.company.companyName();
   const domain = `${organisation.replace(' - ', '-').replace(', ', '-').replace('. ', '-').replace(' ', '-').replace(' ', '-')}.co.uk`.toLowerCase();
-  const email = `${firstName}.${lastName}@${domain}`;
+  const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
+  const userStatuses = ['Active', 'Invite sent', 'Invite Expired', 'Access expired'];
+  const status = userStatuses[Math.floor(Math.random() * userStatuses.length)];
   return {
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    organisation: organisation
+    firstName,
+    lastName,
+    email,
+    organisation,
+    status
   };
 });
 const initialState = {
-  users: fakeUsers
+  users: fakeUsers,
+  currentView: 'userList',
+  userData: {}
 };
 class Users extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   constructor(props) {
@@ -126468,37 +126537,69 @@ class Users extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     };
   }
 
+  onUserNameClick(index) {
+    const singleUserData = this.state.users[index];
+    this.setState({
+      currentView: 'singleUser',
+      userData: singleUserData
+    });
+  }
+
+  onSingleUserBack(e) {
+    e.preventDefault();
+    this.setState({
+      currentView: 'userList',
+      userData: {}
+    });
+  }
+
   render() {
     const {
-      users
+      users,
+      currentView,
+      userData
     } = this.state;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-      className: "govuk-table"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
-      className: "govuk-table__head"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
-      className: "govuk-table__row"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-      scope: "col",
-      className: "govuk-table__header govuk-!-width-one-third"
-    }, "Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-      scope: "col",
-      className: "govuk-table__header govuk-!-width-one-third"
-    }, "Organisation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-      scope: "col",
-      className: "govuk-table__header"
-    }, "Status"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
-      className: "govuk-table__body"
-    }, users.map((user, index) => {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TableRow__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        organisation: user.organisation,
-        status: user.status,
-        key: `${user.firstName}-${user.lastName}-${index}`
-      });
-    })));
+
+    switch (currentView) {
+      case 'singleUser':
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "govuk-grid-row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "govuk-grid-column-two-thirds"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#",
+          className: "govuk-link govuk-back-link",
+          onClick: e => {
+            this.onSingleUserBack(e);
+          }
+        }, "Back"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "govuk-heading-l listing-page"
+        }, "User details"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserView__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          data: userData
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "govuk-!-margin-top-9"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#",
+          className: "govuk-link"
+        }, "Back to dashboard"))));
+
+      case 'userList':
+      default:
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "govuk-heading-l listing-page"
+        }, "Users"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#",
+          className: "govuk-button listing-page"
+        }, "Add a user"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Table__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          users: users,
+          onUserNameClick: index => this.onUserNameClick(index)
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "govuk-!-margin-top-9"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#",
+          className: "govuk-link"
+        }, "Back to dashboard")));
+    }
   }
 
 }
