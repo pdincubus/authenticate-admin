@@ -60,7 +60,7 @@ const UserView = ({ data }) => {
                 </dt>
 
                 <dd className="govuk-summary-list__value">
-                    {format(lastLoggedIn, 'd MMMM yyyy, h:mma')}
+                    {lastLoggedIn !== '' && format(lastLoggedIn, 'd MMMM yyyy, h:mma')}
                 </dd>
             </div>
 
@@ -70,7 +70,7 @@ const UserView = ({ data }) => {
                 </dt>
 
                 <dd className="govuk-summary-list__value">
-                    {format(accountCreatedOn, 'd MMMM yyyy, h:mma')}
+                    {accountCreatedOn !== '' && format(accountCreatedOn, 'd MMMM yyyy, h:mma')}
                 </dd>
             </div>
         </dl>

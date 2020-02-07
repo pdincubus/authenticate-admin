@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import faker from 'faker';
+import sub from 'date-fns/sub';
 
 import Table from './Table';
 import UserView from './UserView';
@@ -10,10 +11,25 @@ const fakeUsers = Array.apply(0, Array(50)).map((item, index) => {
     const organisation = faker.company.companyName();
     const domain = `${organisation.replace(' - ', '-').replace(', ', '-').replace('. ', '-').replace(' ', '-').replace(' ', '-')}.co.uk`.toLowerCase();
     const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
-    const status = faker.random.arrayElement(['Active', 'Invite sent', 'Invite Expired', 'Access expired']);
-    const recentDateDistance = (status === 'Access expired') ? 60 : 30;
-    const lastLoggedIn = faker.date.recent(recentDateDistance);
+    const status = faker.random.arrayElement(['Active', 'Invite sent', 'Invite expired', 'Access expired']);
     const accountCreatedOn = faker.date.past(2);
+
+    let lastLoggedIn;
+
+    switch (status) {
+        case 'Access expired':
+            lastLoggedIn = faker.date.past(2, sub(new Date(), { days: 61 }));
+            break;
+
+        case 'Invite expired':
+        case 'Invite sent':
+            lastLoggedIn = '';
+            break;
+
+        default:
+            lastLoggedIn = faker.date.recent(60);
+            break;
+    }
 
     return {
         firstName,
