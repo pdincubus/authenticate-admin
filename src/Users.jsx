@@ -4,6 +4,7 @@ import sub from 'date-fns/sub';
 
 import Table from './Table';
 import UserView from './UserView';
+import Totals from './Totals';
 
 const fakeUsers = Array.apply(0, Array(50)).map((item, index) => {
     const firstName = faker.name.firstName();
@@ -83,7 +84,7 @@ export default class Users extends Component {
                         <div className="govuk-grid-column-two-thirds">
                             <a
                                 href="#"
-                                className="govuk-back-link"
+                                className="govuk-back-link govuk-!-margin-bottom-9"
                                 onClick={(e) => {this.onSingleUserBack(e)}}
                             >
                                 Back
@@ -111,6 +112,10 @@ export default class Users extends Component {
                         </a>
 
                         <Table users={users} onUserNameClick={(index) => this.onUserNameClick(index)} />
+
+                        <nav role="navigation" aria-label="Pagination">
+                            <Totals totalLow="1" totalHigh={users.length} totalLength={users.length} totalType="users" />
+                        </nav>
 
                         <p className="govuk-!-margin-top-9">
                             <a href="#" className="govuk-link">Back to dashboard</a>
