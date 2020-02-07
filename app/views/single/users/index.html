@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Users - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-width-container">
+        <h1 class="govuk-heading-l listing-page">Users</h1>
+
+        <a href="#" class="govuk-button listing-page">
+            Add a user
+        </a>
+
+        <div id="users-root"></div>
+
+        <p class="govuk-!-margin-top-9">
+            <a href="#" class="govuk-link">Back to dashboard</a>
+        </p>
+    </div>
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="/public/javascripts/app.js"></script>
+{% endblock %}
