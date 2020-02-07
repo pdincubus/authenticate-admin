@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Users - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-width-container">
+        <div id="users-root">
+            <span class="govuk-heading-m">Please wait. Loading data.</span>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="/public/javascripts/app.js"></script>
+{% endblock %}
