@@ -5,6 +5,7 @@ import sub from 'date-fns/sub';
 import Table from './Table';
 import UserView from './UserView';
 import Totals from './Totals';
+import Pagination from './Pagination';
 
 const fakeUsers = Array.apply(0, Array(50)).map((item, index) => {
     const firstName = faker.name.firstName();
@@ -47,6 +48,10 @@ const initialState = {
     users: fakeUsers,
     currentView: 'userList',
     userData: {},
+    itemsPerPage: 20,
+    currentPage: 1,
+    currentPageStart: 0,
+    currentPageEnd: 19,
 };
 
 export default class Users extends Component {
@@ -74,8 +79,20 @@ export default class Users extends Component {
         });
     }
 
+    onPaginationItemClick (e) {
+        console.log('pagination item click');
+    }
+
     render () {
-        const { users, currentView, userData } = this.state;
+        const {
+            users,
+            currentView,
+            userData,
+            itemsPerPage,
+            currentPage,
+            currentPageStart,
+            currentPageEnd,
+        } = this.state;
 
         switch (currentView) {
             case 'singleUser':
@@ -111,10 +128,25 @@ export default class Users extends Component {
                             Add a user
                         </a>
 
-                        <Table users={users} onUserNameClick={(index) => this.onUserNameClick(index)} />
+                        <Table
+                            users={users.slice(currentPageStart, currentPageEnd)}
+                            onUserNameClick={(index) => this.onUserNameClick(index)}
+                        />
 
                         <nav role="navigation" aria-label="Pagination">
-                            <Totals totalLow="1" totalHigh={users.length} totalLength={users.length} totalType="users" />
+                            <Pagination
+                                itemsPerPage={itemsPerPage}
+                                totalItems={users.length}
+                                currentPage={currentPage}
+                                onPaginationClick={(e) => {this.onPaginationItemClick(e)}}
+                            />
+
+                            <Totals
+                                totalLow={currentPageStart + 1}
+                                totalHigh={currentPageEnd + 1}
+                                totalLength={users.length}
+                                totalType="users"
+                            />
                         </nav>
 
                         <p className="govuk-!-margin-top-9">
