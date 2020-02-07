@@ -68,7 +68,7 @@ export default class Users extends Component {
                         <div className="govuk-grid-column-two-thirds">
                             <a
                                 href="#"
-                                className="govuk-link govuk-back-link"
+                                className="govuk-back-link"
                                 onClick={(e) => {this.onSingleUserBack(e)}}
                             >
                                 Back

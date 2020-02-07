@@ -129451,7 +129451,7 @@ class Users extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
           className: "govuk-grid-column-two-thirds"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "#",
-          className: "govuk-link govuk-back-link",
+          className: "govuk-back-link",
           onClick: e => {
             this.onSingleUserBack(e);
           }
