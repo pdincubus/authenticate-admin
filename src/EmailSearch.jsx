@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EmailSearch = ({ onEmailAddressChange, onSubmitEmailSearch }) => {
+const EmailSearch = ({ onEmailAddressChange, onSubmitEmailSearch, onHandleKeyPress }) => {
     return (
         <div className="user-search-box govuk-form-group">
             <label className="govuk-label govuk-label--s" htmlFor="user-search">
@@ -19,6 +19,7 @@ const EmailSearch = ({ onEmailAddressChange, onSubmitEmailSearch }) => {
                 aria-describedby="user-search-hint"
                 spellCheck="false"
                 onInput={(e) => { onEmailAddressChange(e) }}
+                onKeyPress={(e) => { onHandleKeyPress(e) }}
             />
 
             <button

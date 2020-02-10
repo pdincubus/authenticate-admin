@@ -129541,7 +129541,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const EmailSearch = ({
   onEmailAddressChange,
-  onSubmitEmailSearch
+  onSubmitEmailSearch,
+  onHandleKeyPress
 }) => {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "user-search-box govuk-form-group"
@@ -129560,6 +129561,9 @@ const EmailSearch = ({
     spellCheck: "false",
     onInput: e => {
       onEmailAddressChange(e);
+    },
+    onKeyPress: e => {
+      onHandleKeyPress(e);
     }
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "search-button",
@@ -129571,6 +129575,72 @@ const EmailSearch = ({
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (EmailSearch);
+
+/***/ }),
+
+/***/ "./src/Filters.jsx":
+/*!*************************!*\
+  !*** ./src/Filters.jsx ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const Filters = props => {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "govuk-grid-row filter-block"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "govuk-form-group"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "govuk-label govuk-label--s",
+    htmlFor: "sort"
+  }, "Filter user list"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "govuk-select govuk-!-margin-right-1",
+    id: "filter-users-orgs",
+    name: "filter-users-orgs"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "all-organisations"
+  }, "All organisations"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Capita"
+  }, "Capita"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "DWP"
+  }, "DWP"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "G4S"
+  }, "G4S"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Croydon"
+  }, "London Borough of Croydon Council"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Remploy"
+  }, "Remploy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "Serco"
+  }, "Serco")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    className: "govuk-select govuk-!-margin-right-1",
+    id: "filter-users-status",
+    name: "filter-users-status"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "all-statuses"
+  }, "All statuses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "access-expired"
+  }, "Access expired"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "active"
+  }, "Active"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "invite-expired"
+  }, "Invite expired"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "invite-sent"
+  }, "Invite sent")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "govuk-button govuk-!-margin-right-1",
+    "data-module": "govuk-button"
+  }, "Update"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "govuk-button govuk-button--secondary",
+    "data-module": "govuk-button"
+  }, "Clear")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Filters);
 
 /***/ }),
 
@@ -129667,7 +129737,6 @@ const Table = ({
   users,
   onUserNameClick
 }) => {
-  console.log(users);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "govuk-table"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
@@ -129869,6 +129938,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Totals__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Totals */ "./src/Totals.jsx");
 /* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Pagination */ "./src/Pagination.jsx");
 /* harmony import */ var _EmailSearch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./EmailSearch */ "./src/EmailSearch.jsx");
+/* harmony import */ var _Filters__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Filters */ "./src/Filters.jsx");
+
 
 
 
@@ -129957,6 +130028,16 @@ class Users extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     });
   }
 
+  onHandleSearchKeyPress(e) {
+    if (e.which === 13 && this.state.searchEmail.length > 3) {
+      this.setState({
+        currentView: 'searchResults'
+      });
+    } else {
+      alert('Fill in the value');
+    }
+  }
+
   onSubmitEmailSearch(e) {
     this.setState({
       currentView: 'searchResults'
@@ -130037,53 +130118,11 @@ class Users extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
           },
           onEmailAddressChange: e => {
             this.onEmailAddressChange(e);
+          },
+          onHandleKeyPress: e => {
+            this.onHandleSearchKeyPress(e);
           }
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "govuk-grid-row filter-block"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "govuk-form-group"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-          className: "govuk-label govuk-label--s",
-          htmlFor: "sort"
-        }, "Filter user list"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-          className: "govuk-select govuk-!-margin-right-1",
-          id: "filter-users-orgs",
-          name: "filter-users-orgs"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "all-organisations"
-        }, "All organisations"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "Capita"
-        }, "Capita"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "DWP"
-        }, "DWP"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "G4S"
-        }, "G4S"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "Croydon"
-        }, "London Borough of Croydon Council"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "Remploy"
-        }, "Remploy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "Serco"
-        }, "Serco")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-          className: "govuk-select govuk-!-margin-right-1",
-          id: "filter-users-status",
-          name: "filter-users-status"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "all-statuses"
-        }, "All statuses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "access-expired"
-        }, "Access expired"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "active"
-        }, "Active"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "invite-expired"
-        }, "Invite expired"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "invite-sent"
-        }, "Invite sent")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "govuk-button govuk-!-margin-right-1",
-          "data-module": "govuk-button"
-        }, "Update"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "govuk-button govuk-button--secondary",
-          "data-module": "govuk-button"
-        }, "Clear"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Filters__WEBPACK_IMPORTED_MODULE_8__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
           users: users.slice(currentPageStart, currentPageEnd),
           onUserNameClick: index => this.onUserNameClick(index)
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {

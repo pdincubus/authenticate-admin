@@ -6,7 +6,6 @@ const Table = ({
     users,
     onUserNameClick
 }) => {
-    console.log(users);
     return (
         <table className="govuk-table">
             <thead className="govuk-table__head">
