@@ -11,72 +11,11 @@ w{% extends "layout.html" %}
 
 {% block content %}
     <div class="govuk-width-container">
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-half">
-                <h1 class="govuk-heading-l listing-page">Users</h1>
-                <a href="../add/start" class="govuk-button listing-page">
-                    Add a user
-                </a>
-            </div>
+        
 
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-one-half">
-                    <div class="user-search-box">
-                        <div class="govuk-form-group">
-                            <label class="govuk-label govuk-label--s" for="user-search">
-                                Search for a user
-                            </label>
-
-                            <span id="user-search-hint" class="govuk-hint">
-                                Enter the user's full email address
-                            </span>
-
-                            <input class="govuk-input" id="user-search" name="user-search" type="text" aria-describedby="user-search-hint" spellcheck="false">
-
-                            <button class="search-button">
-                                Search
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-       <div class="govuk-grid-row filter-block">
-           <div class="govuk-grid-column-full">
-               <div class="govuk-form-group">
-                    <label class="govuk-label govuk-label--s" for="sort">
-                        Filter user list
-                    </label>
-
-                    <select class="govuk-select govuk-!-margin-right-1" id="filter-users-orgs" name="filter-users-orgs">
-                        <option value="all-organisations">All organisations</option>
-                        <option value="Capita">Capita</option>
-                        <option value="DWP">DWP</option>
-                        <option value="G4S">G4S</option>
-                        <option value="Croydon">London Borough of Croydon Council</option>
-                        <option value="Remploy">Remploy</option>
-                        <option value="Serco">Serco</option>
-                    </select>
-
-                    <select class="govuk-select govuk-!-margin-right-1" id="filter-users-status" name="filter-users-status">
-                        <option value="all-statuses">All statuses</option>
-                        <option value="access-expired">Access expired</option>
-                        <option value="active">Active</option>
-                        <option value="invite-expired">Invite expired</option>
-                        <option value="invite-sent">Invite sent</option>
-                    </select>
-
-                    <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
-                        Update
-                    </button>
-
-                    <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                        Clear
-                    </button>
-                </div>
-           </div>
-       </div>
+        {% include "./includes/user-view-heading-add-search.html" %}
+        
+        {% include "./includes/user-view-filters.html" %}
 
         <table class="govuk-table">
             {% include "./includes/user-view-table-head.html" %}
