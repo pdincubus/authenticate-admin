@@ -12,9 +12,12 @@
 {% block content %}
     <div class="govuk-width-container">
 
-        {% include "./includes/user-view-heading-add-search.html" %}
-        
-        {% include "./includes/user-view-filters.html" %}
+    <h1 class="govuk-heading-l listing-page">Users</h1>
+
+    <a href="../add/start" class="govuk-button listing-page">Add a user</a>
+
+    {% include "./includes/sorting-filtering.html" %}
+
 
         <table class="govuk-table">
             {% include "./includes/user-view-table-head.html" %}
