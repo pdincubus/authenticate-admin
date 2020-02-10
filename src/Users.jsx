@@ -10,7 +10,7 @@ import Pagination from './components/Pagination';
 import EmailSearch from './components/EmailSearch';
 import Filters from './components/Filters';
 
-const fakeUsers = Array.apply(0, Array(50)).map((item, index) => {
+const fakeUsers = Array.apply(0, Array(123)).map((item, index) => {
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
     const organisation = faker.random.arrayElement(['Capita', 'DWP', 'G4S', 'London Borough of Croydon Council', 'Remploy', 'Serco']);

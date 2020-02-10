@@ -14,7 +14,7 @@ const Filters = ({
                 </label>
 
                 <select
-                    className="govuk-select govuk-!-margin-right-3"
+                    className="govuk-select govuk-!-margin-right-2"
                     id="filter-users-orgs"
                     name="filter-users-orgs"
                     onChange={(e) => {onOrganisationFilterChange(e)}}
@@ -29,7 +29,7 @@ const Filters = ({
                 </select>
 
                 <select
-                    className="govuk-select govuk-!-margin-right-3"
+                    className="govuk-select govuk-!-margin-right-2"
                     id="filter-users-status"
                     name="filter-users-status"
                     onChange={(e) => {onStatusFilterChange(e)}}
@@ -42,7 +42,7 @@ const Filters = ({
                 </select>
 
                 <button
-                    className="govuk-button govuk-!-margin-right-3"
+                    className="govuk-button govuk-!-margin-right-2"
                     data-module="govuk-button"
                     onClick={(e) => { onFilter(e) }}
                 >
