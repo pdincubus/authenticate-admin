@@ -66,6 +66,9 @@ export default class Users extends Component {
         this.state = {...initialState};
     }
 
+    /**
+     * Initial view updates to users list sort order
+     */
     componentDidMount () {
         this.setState({
             ...this.state,
@@ -73,6 +76,10 @@ export default class Users extends Component {
         });
     }
 
+    /**
+     * Switch to single user view when we've worked out which user data we need
+     * @param {integer} index     The array index of the user we want
+     */
     onUserNameClick (index) {
         const singleUserData = this.state.users[index];
 
@@ -82,6 +89,9 @@ export default class Users extends Component {
         });
     };
 
+    /**
+     * The back button just changes the view back to the user list default view
+     */
     onSingleUserBack (e) {
         e.preventDefault();
 
@@ -91,6 +101,11 @@ export default class Users extends Component {
         });
     }
 
+    /**
+     * Handle clicks on pagination buttons
+     * @param {event} e     the element interacted with, so we can find the data
+     *                      attribute we need for the next or prev 'page'
+     */
     onPaginationItemClick (e) {
         const { itemsPerPage, currentPage } = this.state;
         const pageTarget = e.currentTarget.dataset.page;
@@ -106,12 +121,20 @@ export default class Users extends Component {
         });
     }
 
+    /**
+     * Update the state value as we type into the search box
+     * @param {event} e     The element we're typing into
+     */
     onEmailAddressChange (e) {
         this.setState({
             searchEmail: e.currentTarget.value,
         });
     }
 
+    /**
+     * Handle users pressing enter after typing an email address into the field
+     * @param {event} e     The key pressed, should be enter (13)
+     */
     onHandleSearchKeyPress (e) {
         if (e.which === 13 && this.state.searchEmail.length > 3) {
             this.setState({
@@ -122,12 +145,19 @@ export default class Users extends Component {
         }
     }
 
+    /**
+     * Clicking the 'search' button changes to the search results view
+     * @param {event} e     The button clicked, not used.
+     */
     onSubmitEmailSearch (e) {
         this.setState({
             currentView: 'searchResults',
         });
     }
 
+    /**
+     * Basic array sort by first name, upper-cased
+     */
     sortByFirstName () {
         const newSortedUsers = this.state.users.sort(function (a, b) {
             const nameA = a.firstName.toUpperCase();
@@ -147,6 +177,9 @@ export default class Users extends Component {
         return newSortedUsers;
     }
 
+    /**
+     * Basic array sort by last name, upper-cased
+     */
     sortByLastName () {
         const newSortedUsers = this.state.users.sort(function (a, b) {
             const nameA = a.lastName.toUpperCase();
@@ -166,6 +199,9 @@ export default class Users extends Component {
         return newSortedUsers;
     }
 
+    /**
+     * Basic array sort by status, upper-cased, alphabetical
+     */
     sortByStatus () {
         const newSortedUsers = this.state.users.sort(function (a, b) {
             const statusA = a.status.toUpperCase();
