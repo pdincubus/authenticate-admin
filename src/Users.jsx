@@ -10,10 +10,10 @@ import Pagination from './components/Pagination';
 import EmailSearch from './components/EmailSearch';
 import Filters from './components/Filters';
 
-const fakeUsers = Array.apply(0, Array(123)).map((item, index) => {
+let fakeUsers = Array.apply(0, Array(243)).map((item, index) => {
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
-    const organisation = faker.random.arrayElement(['Capita', 'DWP', 'G4S', 'London Borough of Croydon Council', 'Remploy', 'Serco']);
+    const organisation = faker.random.arrayElement(['Capita', 'CHDA', 'DWP', 'G4S', 'London Borough of Croydon Council', 'Remploy', 'Serco']);
     const domain = `${organisation.replace(' - ', '-').replace(', ', '-').replace('. ', '-').replace(' ', '-').replace(' ', '-').replace('\'', '')}.co.uk`.toLowerCase();
     const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
     const status = faker.random.arrayElement(['Active', 'Invite sent', 'Invite expired', 'Access expired']);
@@ -47,6 +47,28 @@ const fakeUsers = Array.apply(0, Array(123)).map((item, index) => {
     };
 });
 
+let sameName1 = {
+    firstName: 'John',
+    lastName: 'Smith',
+    email: 'john.smith@capita.co.uk',
+    organisation: 'Capita',
+    status: 'Active',
+    lastLoggedIn: 1581371302,
+    accountCreatedOn: 1566812735,
+};
+
+let sameName2 = {
+    firstName: 'John',
+    lastName: 'Smith',
+    email: 'john.smith2@capita.co.uk',
+    organisation: 'Capita',
+    status: 'Active',
+    lastLoggedIn: 1581198502,
+    accountCreatedOn: 1566985535,
+};
+
+fakeUsers.push(sameName1, sameName2);
+
 const initialState = {
     users: fakeUsers,
     liveUsers: fakeUsers,
@@ -65,7 +87,7 @@ const initialState = {
 
 export default class Users extends Component {
     constructor (props) {
-        super();
+        super(props);
 
         this.state = {...initialState};
     }
@@ -85,7 +107,7 @@ export default class Users extends Component {
      * @param {integer} index     The array index of the user we want
      */
     onUserNameClick (index) {
-        const singleUserData = this.state.users[index];
+        const singleUserData = this.state.liveUsers[index];
 
         this.setState({
             currentView: 'singleUser',
