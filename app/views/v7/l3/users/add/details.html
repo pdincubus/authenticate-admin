@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add new user - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+
+    <span class="govuk-caption-l">{{ data['prototype-organisation'] }}</span>
+    <h1 class="govuk-heading-l">Add a user</h1>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="confirmation" method="post" class="form">
+                {{ govukFieldset({
+                    legend: {
+                        html: legendContent,
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                    }
+                })}}
+
+                {{ govukInput({
+                    label: {
+                        text: "First name"
+                    },
+                    id: "user-first-name",
+                    name: "user-first-name",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Last name"
+                    },
+                    id: "user-last-name",
+                    name: "user-last-name",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Email address"
+                    },
+                    id: "user-email-address",
+                    name: "user-email-address",
+                    type: "email",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                <input type="hidden" id="organisation-name" name="organisation-name" value="{{ data['organisation-name-existing'] }}">
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Service information - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="contacts" method="post" class="form">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Add your service</span>
+                        What information does your service use?
+                    </legend>
+
+                    {{ govukCheckboxes({
+                        idPrefix: "service-information",
+                        name: "service-information",
+                        hint: {
+                            text: "Select all that apply."
+                        },
+                        items: [
+                            {
+                                value: "Pension information",
+                                text: "Pension information"
+                            },
+                            {
+                                value: "Employment records",
+                                text: "Employment records"
+                            },
+                            {
+                                value: "Housing records",
+                                text: "Housing records"
+                            },
+                            {
+                                value: "Universal Credit information",
+                                text: "Universal Credit information"
+                            },
+                            {
+                                value: "Health records",
+                                text: "Health records"
+                            }
+                        ]
+                    }) }}
+
+                    {{ govukButton({
+                        text: "Continue"
+                    }) }}
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Users - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="govuk-heading-l listing-page">
+        <span class="govuk-caption-l">Serco</span>
+        Users
+    </h1>
+
+    <form id="form" method="post" action="../add/details">
+        <input type="hidden" name="organisation-name-existing" id="organisation-name-existing" value="Serco">
+        <button type="submit" class="govuk-button listing-page">Add a user</button>
+    </form>
+
+    {% include "./includes/sorting-filtering-org.html" %}
+
+    <table class="govuk-table sort" id="users-table">
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third" data-sort-method="thead">Name</th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third" data-sort-method="thead">Email address</th>
+                <th scope="col" class="govuk-table__header" data-sort-method="thead">Status</th>
+            </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+            {% if data['organisation-name'] == 'Serco' %}
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                        <a href="single" class="govuk-link">
+                            {{ data['user-first-name'] }} {{ data['user-last-name'] }}
+                        </a>
+                    </th>
+                    <td class="govuk-table__cell">{{ data['user-email-address'] }}</td>
+                    <td class="govuk-table__cell">Invite sent</td>
+                </tr>
+            {% endif %}
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Allan Clarke</a></th>
+                <td class="govuk-table__cell">aclarke@serco.co.uk</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Donald Revie</a></th>
+                <td class="govuk-table__cell">drevie@serco.co.uk</td>
+                <td class="govuk-table__cell">Invite expired</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Edward Gray</a></th>
+                <td class="govuk-table__cell">egray@serco.co.uk</td>
+                <td class="govuk-table__cell">Access expired</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Jonathon Giles</a></th>
+                <td class="govuk-table__cell">jgiles@serco.co.uk</td>
+                <td class="govuk-table__cell">Invite sent</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Norman Hunter</a></th>
+                <td class="govuk-table__cell">nhunter@serco.co.uk</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Peter Lorimer</a></th>
+                <td class="govuk-table__cell">plorimer@serco.co.uk</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">William Bremner</a></th>
+                <td class="govuk-table__cell">wbremner@serco.co.uk</td>
+                <td class="govuk-table__cell">Access expired</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="govuk-!-margin-top-9">
+        <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
+    </p>
+{% endblock %}
+
+{% block pageScripts %}
+    <script src="/public/javascripts/tablesort.min.js"></script>
+    <script src="/public/javascripts/sorts/tablesort.number.min.js"></script>
+
+    <script>
+          new Tablesort(document.getElementById('users-table'));
+    </script>
+{% endblock %}

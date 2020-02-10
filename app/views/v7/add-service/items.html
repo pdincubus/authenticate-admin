@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Custom data - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="summary" method="post" class="form">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Add your service</span>
+                        Add items to {{ data['data-group-name'] }}
+                    </legend>
+
+                    <div id="custom-items">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="data-group-item-1">
+                                Additional data group item
+                            </label>
+
+                            <input
+                                class="govuk-input govuk-!-width-three-quarters"
+                                id="data-group-item-1"
+                                name="data-group-item-1"
+                                type="text"
+                            >
+
+                            <button
+                                type="button"
+                                class="govuk-button govuk-button--secondary remove-button"
+                                data-module="govuk-button"
+                            >
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="govuk-button govuk-button--secondary"
+                        id="onboarding-add-another-data-item"
+                    >
+                        Add another item
+                    </button>
+
+                    <div class="govuk-!-margin-top-6">
+                        {{ govukButton({
+                            text: "Continue"
+                        }) }}
+                    </div>
+
+                    <input type="hidden" name="data-items-total" id="data-items-total" value="1">
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pageScripts %}
+    <script>
+        let dataItemIndex = 1;
+
+        const addAnotherToggle = document.getElementById('onboarding-add-another-data-item');
+        const additionalDataItemsElem = document.getElementById('custom-items');
+        const dataItemsTotalElem = document.getElementById('data-items-total');
+
+        const newDataItemTemplate = (dataItemIndex) => {
+            return `<div class="govuk-form-group">
+                <label class="govuk-label" for="data-group-item-${dataItemIndex}">
+                    Additional data group item
+                </label>
+
+                <input
+                    class="govuk-input govuk-!-width-three-quarters"
+                    id="data-group-item-${dataItemIndex}"
+                    name="data-group-item-${dataItemIndex}"
+                    type="text"
+                >
+
+                <button
+                    type="button"
+                    class="govuk-button govuk-button--secondary remove-button"
+                    data-module="govuk-button"
+                >
+                    Remove
+                </button>
+            </div>`;
+        }
+
+        addAnotherToggle.addEventListener('click', () => {
+            console.log('Add another data item,', dataItemIndex);
+
+            dataItemIndex += 1;
+
+            const newDataItemFields = newDataItemTemplate(dataItemIndex);
+
+            additionalDataItemsElem.insertAdjacentHTML('beforeend', newDataItemFields);
+            dataItemsTotalElem.value = dataItemIndex;
+
+            console.log('We added another data item,', dataItemIndex);
+        });
+    </script>
+{% endblock %}
