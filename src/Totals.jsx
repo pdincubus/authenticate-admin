@@ -8,7 +8,7 @@ const Totals = ({
 }) => {
     return (
         <div className="pagination__summary">
-            Showing {totalLow} &ndash; {totalHigh} of {totalLength} {totalType}
+            Showing {totalLow} &ndash; {(totalHigh > totalLength) ? totalLength : totalHigh} of {totalLength} {totalType}
         </div>
     );
 };

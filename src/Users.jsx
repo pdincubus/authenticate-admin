@@ -92,7 +92,18 @@ export default class Users extends Component {
     }
 
     onPaginationItemClick (e) {
-        console.log('pagination item click, go to page: ', e.currentTarget.dataset.page);
+        const { itemsPerPage, currentPage } = this.state;
+        const pageTarget = e.currentTarget.dataset.page;
+        const newCurrentPageStart = (pageTarget > 1) ? (itemsPerPage * (pageTarget - 1)) : 0;
+        const newCurrentPageEnd = (pageTarget > 1) ? (pageTarget * itemsPerPage) - 1 : (itemsPerPage - 1);
+
+        console.log('page target:', pageTarget, 'start:', newCurrentPageStart, 'end:', newCurrentPageEnd);
+
+        this.setState({
+            currentPage: pageTarget,
+            currentPageStart: newCurrentPageStart,
+            currentPageEnd: newCurrentPageEnd,
+        });
     }
 
     onEmailAddressChange (e) {

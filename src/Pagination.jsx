@@ -10,8 +10,8 @@ const Pagination = ({
 
     const pages = Math.ceil(totalItems / itemsPerPage);
 
-    const nextItem = (currentPage === pages) ? <span className="pagination__link disabled" aria-label="Next page">
-            <span aria-hidden="true" role="presentation">&laquo;</span> Next
+    const nextItem = (currentPage >= pages) ? <span className="pagination__link disabled" aria-label="Next page">
+            <span aria-hidden="true" role="presentation">&raquo;</span> Next
             </span>
         : <li className="pagination__item">
             <button
@@ -19,14 +19,14 @@ const Pagination = ({
                 className="pagination__link"
                 aria-label="Next page"
                 onClick={(e) => { onPaginationClick(e) }}
-                data-page={(currentPage + 1 < pages) ? (currentPage + 1) : currentPage}
+                data-page={((currentPage + 1) >= pages) ? currentPage : currentPage + 1 }
             >
                 Next <span aria-hidden="true" role="presentation">&raquo;</span>
             </button>
         </li>
     ;
 
-    const previousItem = (currentPage === 1) ? <span className="pagination__link disabled" aria-label="Previous page">
+    const previousItem = (currentPage <= 1) ? <span className="pagination__link disabled" aria-label="Previous page">
         <span aria-hidden="true" role="presentation">&laquo;</span> Previous
             </span>
         : <li className="pagination__item">
@@ -35,9 +35,9 @@ const Pagination = ({
                 className="pagination__link"
                 aria-label="Previous page"
                 onClick={(e) => { onPaginationClick(e) }}
-                data-page={(currentPage === 1) ? currentPage : (currentPage - 1)}
+                data-page={((currentPage - 1) === 1) ? 1 : currentPage - 1}
             >
-                Previous <span aria-hidden="true" role="presentation">&raquo;</span>
+                <span aria-hidden="true" role="presentation">&laquo;</span> Previous
             </button>
         </li>
         ;
