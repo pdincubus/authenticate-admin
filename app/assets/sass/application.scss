@@ -662,3 +662,68 @@ p.govuk-filter-reset {
     border-top: 1px solid #b1b4b6;
     margin: 10px 0 0;
 }
+
+/** React app sort table headers */
+.sort-header-toggle {
+    color: $govuk-link-colour;
+    text-decoration: underline;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    font-size: 19px;
+    font-weight: bold;
+    padding: 0 30px 0 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+}
+
+.sort-header-toggle:not(.sorted-ascending)::after,
+.sort-header-toggle:not(.sorted-ascending)::before,
+.sort-header-toggle:not(.sorted-descending)::after,
+.sort-header-toggle:not(.sorted-descending)::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    vertical-align: middle;
+    margin-left: 6px;
+    position: absolute;
+    right: 0;
+}
+
+.sort-header-toggle:not(.sorted-ascending):not(.sorted-descending)::after {
+    border-top: 8px solid $govuk-link-colour;
+    bottom: 2px;
+}
+
+.sort-header-toggle:not(.sorted-ascending):not(.sorted-descending)::before {
+    border-bottom: 8px solid $govuk-link-colour;
+    top: 2px;
+}
+
+.sort-header-toggle.sorted-ascending::after,
+.sort-header-toggle.sorted-descending::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    vertical-align: middle;
+    margin-left: 6px;
+    position: absolute;
+    top: 50%;
+    margin-top: -4px;
+    right: 0;
+}
+
+.sort-header-toggle.sorted-ascending::after {
+    border-bottom: 8px solid $govuk-link-colour;
+}
+
+.sort-header-toggle.sorted-descending::after {
+    border-top: 8px solid $govuk-link-colour;
+}

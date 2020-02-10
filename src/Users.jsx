@@ -57,6 +57,7 @@ const initialState = {
     currentPageStart: 0,
     currentPageEnd: 19,
     currentSort: 'firstName',
+    currentSortDir: 'asc',
     currentOrgFilter: false,
     currentStatusFilter: false,
     searchEmail: '',
@@ -75,7 +76,7 @@ export default class Users extends Component {
     componentDidMount () {
         this.setState({
             ...this.state,
-            liveUsers: this.sortByFirstName()
+            liveUsers: this.sortByFirstName('asc')
         });
     }
 
@@ -190,7 +191,7 @@ export default class Users extends Component {
         console.log('Clear filters');
 
         this.setState({
-            liveUsers: this.sortByFirstName()
+            liveUsers: this.sortByFirstName('asc')
         });
     }
 
@@ -218,20 +219,81 @@ export default class Users extends Component {
         });
     }
 
+    onFirstNameSort (e) {
+        let newDirection = this.toggleSortDirection('firstName');
+
+        this.setState({
+            currentSort: 'firstName',
+            liveUsers: this.sortByFirstName(newDirection),
+        });
+
+        console.log('Sorting by first name, ', newDirection);
+    }
+
+    onOrganisationSort (e) {
+        let newDirection = this.toggleSortDirection('organisation');
+
+        this.setState({
+            currentSort: 'organisation',
+            liveUsers: this.sortByOrganisation(newDirection),
+        });
+
+        console.log('Sorting by organisation, ', newDirection);
+    }
+
+    onStatusSort (e) {
+        let newDirection = this.toggleSortDirection('status');
+
+        this.setState({
+            currentSort: 'status',
+            liveUsers: this.sortByStatus(newDirection),
+        });
+
+        console.log('Sorting by status, ', newDirection);
+    }
+
+    toggleSortDirection (thisSort) {
+        const { currentSort, currentSortDir } = this.state;
+
+        let newSortDir;
+
+        if (currentSortDir === 'asc' && currentSort === thisSort) {
+            newSortDir = 'desc';
+        } else {
+            newSortDir = 'asc';
+        }
+
+        this.setState({
+            currentSortDir: newSortDir,
+        });
+
+        return newSortDir;
+    }
+
     /**
      * Basic array sort by first name, upper-cased
      */
-    sortByFirstName () {
+    sortByFirstName (direction) {
         const newSortedUsers = this.state.liveUsers.sort(function (a, b) {
             const nameA = a.firstName.toUpperCase();
             const nameB = b.firstName.toUpperCase();
 
-            if (nameA < nameB) {
-                return -1;
-            }
+            if (direction === 'asc') {
+                if (nameA < nameB) {
+                    return -1;
+                }
 
-            if (nameA > nameB) {
-                return 1;
+                if (nameA > nameB) {
+                    return 1;
+                }
+            } else {
+                if (nameA > nameB) {
+                    return -1;
+                }
+
+                if (nameA < nameB) {
+                    return 1;
+                }
             }
 
             return 0;
@@ -243,17 +305,59 @@ export default class Users extends Component {
     /**
      * Basic array sort by last name, upper-cased
      */
-    sortByLastName () {
+    sortByLastName (direction) {
         const newSortedUsers = this.state.liveUsers.sort(function (a, b) {
             const nameA = a.lastName.toUpperCase();
             const nameB = b.lastName.toUpperCase();
 
-            if (nameA < nameB) {
-                return -1;
+            if (direction === 'asc') {
+                if (nameA < nameB) {
+                    return -1;
+                }
+
+                if (nameA > nameB) {
+                    return 1;
+                }
+            } else {
+                if (nameA > nameB) {
+                    return -1;
+                }
+
+                if (nameA < nameB) {
+                    return 1;
+                }
             }
 
-            if (nameA > nameB) {
-                return 1;
+            return 0;
+        });
+
+        return newSortedUsers;
+    }
+
+    /**
+     * Basic array sort by organisation, upper-cased, alphabetical
+     */
+    sortByOrganisation(direction) {
+        const newSortedUsers = this.state.liveUsers.sort(function (a, b) {
+            const orgA = a.organisation.toUpperCase();
+            const orgB = b.organisation.toUpperCase();
+
+            if (direction === 'asc') {
+                if (orgA < orgB) {
+                    return -1;
+                }
+
+                if (orgA > orgB) {
+                    return 1;
+                }
+            } else {
+                if (orgA > orgB) {
+                    return -1;
+                }
+
+                if (orgA < orgB) {
+                    return 1;
+                }
             }
 
             return 0;
@@ -265,17 +369,27 @@ export default class Users extends Component {
     /**
      * Basic array sort by status, upper-cased, alphabetical
      */
-    sortByStatus () {
+    sortByStatus (direction) {
         const newSortedUsers = this.state.liveUsers.sort(function (a, b) {
             const statusA = a.status.toUpperCase();
             const statusB = b.status.toUpperCase();
 
-            if (statusA < statusB) {
-                return -1;
-            }
+            if (direction === 'asc') {
+                if (statusA < statusB) {
+                    return -1;
+                }
 
-            if (statusA > statusB) {
-                return 1;
+                if (statusA > statusB) {
+                    return 1;
+                }
+            } else {
+                if (statusA > statusB) {
+                    return -1;
+                }
+
+                if (statusA < statusB) {
+                    return 1;
+                }
             }
 
             return 0;
@@ -291,6 +405,8 @@ export default class Users extends Component {
             currentView,
             userData,
             itemsPerPage,
+            currentSort,
+            currentSortDir,
             currentPage,
             currentPageStart,
             currentPageEnd,
@@ -375,6 +491,11 @@ export default class Users extends Component {
                         <Table
                             users={liveUsers.slice(currentPageStart, currentPageEnd)}
                             onUserNameClick={(index) => this.onUserNameClick(index)}
+                            onFirstNameSort={(index) => this.onFirstNameSort(index)}
+                            onOrganisationSort={(index) => this.onOrganisationSort(index)}
+                            onStatusSort={(index) => this.onStatusSort(index)}
+                            sortDirection={currentSortDir}
+                            currentSortCol={currentSort}
                         />
 
                         <nav role="navigation" aria-label="Pagination">
@@ -412,6 +533,7 @@ Users.propTypes = {
     currentPageStart: PropTypes.number,
     currentPageEnd: PropTypes.number,
     currentSort: PropTypes.string,
+    currentSortDir: PropTypes.string,
     currentOrgFilter: PropTypes.oneOfType([
         PropTypes.bool,
         PropTypes.string
