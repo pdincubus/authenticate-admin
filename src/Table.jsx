@@ -25,7 +25,7 @@ const Table = ({
             </thead>
 
             <tbody className="govuk-table__body">
-                {users.map((user, index) => {
+                {users.length > 0 && users.map((user, index) => {
                     return (
                         <TableRow
                             firstName={user.firstName}
@@ -38,6 +38,17 @@ const Table = ({
                         />
                     );
                 })}
+
+                {users.length === 0 &&
+                    <tr className="govuk-table__row">
+                        <td
+                            className="govuk-table__cell"
+                            colSpan="3"
+                        >
+                            No users found.
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     );

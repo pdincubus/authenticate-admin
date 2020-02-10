@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import faker from 'faker';
 import sub from 'date-fns/sub';
 
@@ -12,7 +13,7 @@ import Filters from './Filters';
 const fakeUsers = Array.apply(0, Array(50)).map((item, index) => {
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
-    const organisation = faker.company.companyName();
+    const organisation = faker.random.arrayElement(['Capita', 'DWP', 'G4S', 'London Borough of Croydon Council', 'Remploy', 'Serco']);
     const domain = `${organisation.replace(' - ', '-').replace(', ', '-').replace('. ', '-').replace(' ', '-').replace(' ', '-').replace('\'', '')}.co.uk`.toLowerCase();
     const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
     const status = faker.random.arrayElement(['Active', 'Invite sent', 'Invite expired', 'Access expired']);
@@ -48,7 +49,7 @@ const fakeUsers = Array.apply(0, Array(50)).map((item, index) => {
 
 const initialState = {
     users: fakeUsers,
-    sortedUsers: [],
+    liveUsers: fakeUsers,
     currentView: 'userList',
     userData: {},
     itemsPerPage: 20,
@@ -56,6 +57,8 @@ const initialState = {
     currentPageStart: 0,
     currentPageEnd: 19,
     currentSort: 'firstName',
+    currentOrgFilter: false,
+    currentStatusFilter: false,
     searchEmail: '',
 };
 
@@ -72,7 +75,7 @@ export default class Users extends Component {
     componentDidMount () {
         this.setState({
             ...this.state,
-            sortedUsers: this.sortByFirstName()
+            liveUsers: this.sortByFirstName()
         });
     }
 
@@ -156,10 +159,70 @@ export default class Users extends Component {
     }
 
     /**
+     * Apply currently selected filters to user list
+     * @param {event} e
+     */
+    onFilter (e) {
+        const { users, currentOrgFilter, currentStatusFilter } = this.state;
+
+        let newFilteredUsers = users;
+
+        console.log('Update filters. Setting filters to:', currentOrgFilter, ', ', currentStatusFilter);
+
+        if (currentOrgFilter) {
+            newFilteredUsers = newFilteredUsers.filter((user) => { return user.organisation === currentOrgFilter; });
+        }
+
+        if (currentStatusFilter) {
+            newFilteredUsers = newFilteredUsers.filter((user) => { return user.status === currentStatusFilter; });
+        }
+
+        this.setState({
+            liveUsers: newFilteredUsers,
+        });
+    }
+
+    /**
+     * Clear all filters and return default user list in first name order
+     * @param {event} e
+     */
+    onClearFilters (e) {
+        console.log('Clear filters');
+
+        this.setState({
+            liveUsers: this.sortByFirstName()
+        });
+    }
+
+    /**
+     * Update state value for organisation when new one chosen in select elem
+     * @param {event} e
+     */
+    onOrganisationFilterChange (e) {
+        console.log('Update org filter, value:', e.currentTarget.value);
+
+        this.setState({
+            currentOrgFilter: e.currentTarget.value,
+        });
+    }
+
+    /**
+     * Update state value for status when new one chosen in select elem
+     * @param {event} e
+     */
+    onStatusFilterChange (e) {
+        console.log('Update status filter, value:', e.currentTarget.value);
+
+        this.setState({
+            currentStatusFilter: e.currentTarget.value,
+        });
+    }
+
+    /**
      * Basic array sort by first name, upper-cased
      */
     sortByFirstName () {
-        const newSortedUsers = this.state.users.sort(function (a, b) {
+        const newSortedUsers = this.state.liveUsers.sort(function (a, b) {
             const nameA = a.firstName.toUpperCase();
             const nameB = b.firstName.toUpperCase();
 
@@ -181,7 +244,7 @@ export default class Users extends Component {
      * Basic array sort by last name, upper-cased
      */
     sortByLastName () {
-        const newSortedUsers = this.state.users.sort(function (a, b) {
+        const newSortedUsers = this.state.liveUsers.sort(function (a, b) {
             const nameA = a.lastName.toUpperCase();
             const nameB = b.lastName.toUpperCase();
 
@@ -203,7 +266,7 @@ export default class Users extends Component {
      * Basic array sort by status, upper-cased, alphabetical
      */
     sortByStatus () {
-        const newSortedUsers = this.state.users.sort(function (a, b) {
+        const newSortedUsers = this.state.liveUsers.sort(function (a, b) {
             const statusA = a.status.toUpperCase();
             const statusB = b.status.toUpperCase();
 
@@ -224,7 +287,7 @@ export default class Users extends Component {
     render () {
         const {
             users,
-            sortedUsers,
+            liveUsers,
             currentView,
             userData,
             itemsPerPage,
@@ -295,17 +358,22 @@ export default class Users extends Component {
 
                             <div className="govuk-grid-column-one-half">
                                 <EmailSearch
-                                    onSubmitEmailSearch={(e) => { this.onSubmitEmailSearch(e) }}
-                                    onEmailAddressChange={(e) => { this.onEmailAddressChange(e) }}
-                                    onHandleKeyPress={(e) => { this.onHandleSearchKeyPress(e) }}
+                                    onSubmitEmailSearch={(e) => {this.onSubmitEmailSearch(e)}}
+                                    onEmailAddressChange={(e) => {this.onEmailAddressChange(e)}}
+                                    onHandleKeyPress={(e) => {this.onHandleSearchKeyPress(e)}}
                                 />
                             </div>
                         </div>
 
-                        <Filters />
+                        <Filters
+                            onFilter={(e) => {this.onFilter(e)}}
+                            onClearFilters={(e) => {this.onClearFilters(e)}}
+                            onOrganisationFilterChange={(e) => { this.onOrganisationFilterChange(e)}}
+                            onStatusFilterChange={(e) => { this.onStatusFilterChange(e)}}
+                        />
 
                         <Table
-                            users={sortedUsers.slice(currentPageStart, currentPageEnd)}
+                            users={liveUsers.slice(currentPageStart, currentPageEnd)}
                             onUserNameClick={(index) => this.onUserNameClick(index)}
                         />
 
@@ -333,3 +401,24 @@ export default class Users extends Component {
         }
     }
 }
+
+Users.propTypes = {
+    users: PropTypes.array,
+    liveUsers: PropTypes.array,
+    currentView: PropTypes.string,
+    userData: PropTypes.object,
+    itemsPerPage: PropTypes.number,
+    currentPage: PropTypes.number,
+    currentPageStart: PropTypes.number,
+    currentPageEnd: PropTypes.number,
+    currentSort: PropTypes.string,
+    currentOrgFilter: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string
+    ]),
+    currentStatusFilter: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.string
+    ]),
+    searchEmail: PropTypes.string,
+};
