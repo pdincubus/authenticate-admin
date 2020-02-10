@@ -18,8 +18,8 @@ const Pagination = ({
                 type="button"
                 className="pagination__link"
                 aria-label="Next page"
-                onClick={(e) => { onPaginationClick(e) }}
-                data-page={((currentPage + 1) >= pages) ? currentPage : currentPage + 1 }
+                onClick={(e) => { onPaginationClick(e)}}
+                data-page={((currentPage + 1) >= pages) ? pages : currentPage + 1 }
             >
                 Next <span aria-hidden="true" role="presentation">&raquo;</span>
             </button>
@@ -34,7 +34,7 @@ const Pagination = ({
                 type="button"
                 className="pagination__link"
                 aria-label="Previous page"
-                onClick={(e) => { onPaginationClick(e) }}
+                onClick={(e) => { onPaginationClick(e)}}
                 data-page={((currentPage - 1) === 1) ? 1 : currentPage - 1}
             >
                 <span aria-hidden="true" role="presentation">&laquo;</span> Previous
