@@ -6,6 +6,7 @@ const Table = ({
     users,
     onUserNameClick,
     onFirstNameSort,
+    onLastNameSort,
     onOrganisationSort,
     onStatusSort,
     sortDirection,
@@ -13,6 +14,7 @@ const Table = ({
     showHead = true,
 }) => {
     let sortingClassFirstName = '';
+    let sortingClassLastName = '';
     let sortingClassOrganisation = '';
     let sortingClassStatus = '';
 
@@ -20,6 +22,12 @@ const Table = ({
         sortingClassFirstName = 'sorted-ascending';
     } else if (sortDirection == 'desc' && currentSortCol === 'firstName') {
         sortingClassFirstName = 'sorted-descending';
+    }
+
+    if (sortDirection == 'asc' && currentSortCol === 'lastName') {
+        sortingClassLastName = 'sorted-ascending';
+    } else if (sortDirection == 'desc' && currentSortCol === 'lastName') {
+        sortingClassLastName = 'sorted-descending';
     }
 
     if (sortDirection == 'asc' && currentSortCol === 'organisation') {
@@ -41,14 +49,27 @@ const Table = ({
                     <tr className="govuk-table__row">
                         <th
                             scope="col"
-                            className="govuk-table__header govuk-!-width-one-third"
+                            className="govuk-table__header govuk-!-width-one-quarter"
                         >
                             <button
                                 type="button"
                                 className={`sort-header-toggle ${sortingClassFirstName}`}
                                 onClick={(e) => { onFirstNameSort(e) }}
                             >
-                                Name
+                                First name
+                            </button>
+                        </th>
+
+                        <th
+                            scope="col"
+                            className="govuk-table__header govuk-!-width-one-quarter"
+                        >
+                            <button
+                                type="button"
+                                className={`sort-header-toggle ${sortingClassLastName}`}
+                                onClick={(e) => { onLastNameSort(e) }}
+                            >
+                                Last name
                             </button>
                         </th>
 

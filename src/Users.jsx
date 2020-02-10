@@ -249,6 +249,20 @@ export default class Users extends Component {
 
     /**
      * Figure out which way we're sorting, then get the new list of users done
+     * and sorted by last name
+     * @param {event} e
+     */
+    onLastNameSort(e) {
+        let newDirection = this.toggleSortDirection('lastName');
+
+        this.setState({
+            currentSort: 'lastName',
+            liveUsers: this.sortByLastName(newDirection),
+        });
+    }
+
+    /**
+     * Figure out which way we're sorting, then get the new list of users done
      * and sorted by organisation
      * @param {event} e
      */
@@ -521,6 +535,7 @@ export default class Users extends Component {
                             users={liveUsers.slice(currentPageStart, currentPageEnd)}
                             onUserNameClick={(index) => this.onUserNameClick(index)}
                             onFirstNameSort={(index) => this.onFirstNameSort(index)}
+                            onLastNameSort={(index) => this.onLastNameSort(index)}
                             onOrganisationSort={(index) => this.onOrganisationSort(index)}
                             onStatusSort={(index) => this.onStatusSort(index)}
                             sortDirection={currentSortDir}
