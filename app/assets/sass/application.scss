@@ -610,41 +610,55 @@ p.govuk-filter-reset {
     border-top: 8px solid $govuk-link-colour;
 }
 
-
 /**
  * user search box
  */
-.user-search-box{
-    margin-left:20px;
+.user-search-box .govuk-form-group {
+    margin-left: 20px;
+    margin-bottom: 10px;
 }
 
-.user-search-box .govuk-form-group{
-    margin-bottom:10px;
+.user-search-box {
+    position: relative;
 }
 
-.user-search-box .govuk-input{
-    float:left;
+.user-search-box .govuk-input {
+    padding-right: 45px;
+    width: 100%;
 }
-.user-search-box .govuk-button{
-    float:left;
-    border: 0;
+
+.user-search-box .search-button,
+.user-search-box .search-button:active {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    border-width: 0 0 0 2px;
+    border-style: solid;
+    border-left-color: #000;
+    box-sizing: border-box;
+    margin-bottom: 0;
     cursor: pointer;
     border-radius: 0;
-    position: relative;
     padding: 0;
-    width: 40px;
-    height: 40px;
-    background-image: url(https://assets.publishing.service.gov.uk/frontend/govuk_publishing_components/search-button-ca89b2a79f944909ceb7370d3f0b78811d32b96e883348fcd8886f63dd619585.png);
+    width: 38px;
+    height: 36px;
+    background-image: url(../images/search-icon.png);
     background-repeat: no-repeat;
     background-position: 2px 50%;
-    text-indent: -5000px;
+    text-indent: 115%;
     overflow: hidden;
+    white-space: nowrap;
     background-color: #1d70b8;
     box-shadow: none;
-    margin-left:-2px;
+
+    &:hover,
+    &:focus {
+        background-color: $govuk-link-hover-colour;
+    }
 }
 
-hr.user-search-border{
-    border-bottom:1px solid #b1b4b6;
-    margin:0 0 30px 0;
+.filter-block {
+    padding-top: 30px;
+    border-top: 1px solid #b1b4b6;
+    margin: 10px 0 0;
 }

@@ -129526,6 +129526,54 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./src/EmailSearch.jsx":
+/*!*****************************!*\
+  !*** ./src/EmailSearch.jsx ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+const EmailSearch = ({
+  onEmailAddressChange,
+  onSubmitEmailSearch
+}) => {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "user-search-box govuk-form-group"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    className: "govuk-label govuk-label--s",
+    htmlFor: "user-search"
+  }, "Search for a user"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "user-search-hint",
+    className: "govuk-hint"
+  }, "Enter the user's full email address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "govuk-input",
+    id: "user-search",
+    name: "user-search",
+    type: "text",
+    "aria-describedby": "user-search-hint",
+    spellCheck: "false",
+    onInput: e => {
+      onEmailAddressChange(e);
+    }
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "search-button",
+    type: "button",
+    onClick: e => {
+      onSubmitEmailSearch(e);
+    }
+  }, "Search"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (EmailSearch);
+
+/***/ }),
+
 /***/ "./src/Pagination.jsx":
 /*!****************************!*\
   !*** ./src/Pagination.jsx ***!
@@ -129619,6 +129667,7 @@ const Table = ({
   users,
   onUserNameClick
 }) => {
+  console.log(users);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
     className: "govuk-table"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
@@ -129819,6 +129868,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _UserView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UserView */ "./src/UserView.jsx");
 /* harmony import */ var _Totals__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Totals */ "./src/Totals.jsx");
 /* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Pagination */ "./src/Pagination.jsx");
+/* harmony import */ var _EmailSearch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./EmailSearch */ "./src/EmailSearch.jsx");
+
 
 
 
@@ -129830,7 +129881,7 @@ const fakeUsers = Array.apply(0, Array(50)).map((item, index) => {
   const firstName = faker__WEBPACK_IMPORTED_MODULE_1___default.a.name.firstName();
   const lastName = faker__WEBPACK_IMPORTED_MODULE_1___default.a.name.lastName();
   const organisation = faker__WEBPACK_IMPORTED_MODULE_1___default.a.company.companyName();
-  const domain = `${organisation.replace(' - ', '-').replace(', ', '-').replace('. ', '-').replace(' ', '-').replace(' ', '-')}.co.uk`.toLowerCase();
+  const domain = `${organisation.replace(' - ', '-').replace(', ', '-').replace('. ', '-').replace(' ', '-').replace(' ', '-').replace('\'', '')}.co.uk`.toLowerCase();
   const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
   const status = faker__WEBPACK_IMPORTED_MODULE_1___default.a.random.arrayElement(['Active', 'Invite sent', 'Invite expired', 'Access expired']);
   const accountCreatedOn = faker__WEBPACK_IMPORTED_MODULE_1___default.a.date.past(2);
@@ -129870,7 +129921,8 @@ const initialState = {
   itemsPerPage: 20,
   currentPage: 1,
   currentPageStart: 0,
-  currentPageEnd: 19
+  currentPageEnd: 19,
+  searchEmail: ''
 };
 class Users extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   constructor(props) {
@@ -129899,6 +129951,18 @@ class Users extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     console.log('pagination item click');
   }
 
+  onEmailAddressChange(e) {
+    this.setState({
+      searchEmail: e.currentTarget.value
+    });
+  }
+
+  onSubmitEmailSearch(e) {
+    this.setState({
+      currentView: 'searchResults'
+    });
+  }
+
   render() {
     const {
       users,
@@ -129907,7 +129971,8 @@ class Users extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       itemsPerPage,
       currentPage,
       currentPageStart,
-      currentPageEnd
+      currentPageEnd,
+      searchEmail
     } = this.state;
 
     switch (currentView) {
@@ -129933,14 +129998,92 @@ class Users extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
           className: "govuk-link"
         }, "Back to dashboard"))));
 
+      case 'searchResults':
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "govuk-grid-row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "govuk-grid-column-two-thirds"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#",
+          className: "govuk-back-link govuk-!-margin-bottom-9",
+          onClick: e => {
+            this.onSingleUserBack(e);
+          }
+        }, "Back"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          className: "govuk-heading-l listing-page"
+        }, "Search results"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          users: users.filter(user => {
+            return user.email === this.state.searchEmail;
+          }),
+          onUserNameClick: index => this.onUserNameClick(index)
+        })));
+
       case 'userList':
       default:
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "govuk-grid-row"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "govuk-grid-column-one-half"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
           className: "govuk-heading-l listing-page"
         }, "Users"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "#",
           className: "govuk-button listing-page"
-        }, "Add a user"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        }, "Add a user")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "govuk-grid-column-one-half"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EmailSearch__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          onSubmitEmailSearch: e => {
+            this.onSubmitEmailSearch(e);
+          },
+          onEmailAddressChange: e => {
+            this.onEmailAddressChange(e);
+          }
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "govuk-grid-row filter-block"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "govuk-form-group"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          className: "govuk-label govuk-label--s",
+          htmlFor: "sort"
+        }, "Filter user list"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+          className: "govuk-select govuk-!-margin-right-1",
+          id: "filter-users-orgs",
+          name: "filter-users-orgs"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "all-organisations"
+        }, "All organisations"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "Capita"
+        }, "Capita"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "DWP"
+        }, "DWP"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "G4S"
+        }, "G4S"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "Croydon"
+        }, "London Borough of Croydon Council"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "Remploy"
+        }, "Remploy"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "Serco"
+        }, "Serco")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+          className: "govuk-select govuk-!-margin-right-1",
+          id: "filter-users-status",
+          name: "filter-users-status"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "all-statuses"
+        }, "All statuses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "access-expired"
+        }, "Access expired"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "active"
+        }, "Active"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "invite-expired"
+        }, "Invite expired"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          value: "invite-sent"
+        }, "Invite sent")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "govuk-button govuk-!-margin-right-1",
+          "data-module": "govuk-button"
+        }, "Update"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "govuk-button govuk-button--secondary",
+          "data-module": "govuk-button"
+        }, "Clear"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Table__WEBPACK_IMPORTED_MODULE_3__["default"], {
           users: users.slice(currentPageStart, currentPageEnd),
           onUserNameClick: index => this.onUserNameClick(index)
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {

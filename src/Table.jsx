@@ -6,21 +6,22 @@ const Table = ({
     users,
     onUserNameClick
 }) => {
+    console.log(users);
     return (
         <table className="govuk-table">
             <thead className="govuk-table__head">
                 <tr className="govuk-table__row">
                     <th scope="col" className="govuk-table__header govuk-!-width-one-third">
                         Name
-            </th>
+                    </th>
 
                     <th scope="col" className="govuk-table__header govuk-!-width-one-third">
                         Organisation
-            </th>
+                    </th>
 
                     <th scope="col" className="govuk-table__header">
                         Status
-            </th>
+                    </th>
                 </tr>
             </thead>
 

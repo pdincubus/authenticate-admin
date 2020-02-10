@@ -14,7 +14,7 @@ const TableRow = ({
             <th
                 scope="row"
                 className={`govuk-table__header ${rowClassNames}`}
-                data-email={ email }
+                data-email={email}
             >
                 <a href="#" className="govuk-link" onClick={(e) => {onNameClick(e)}}>
                     {firstName} {lastName}
