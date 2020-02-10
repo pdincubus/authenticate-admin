@@ -501,7 +501,7 @@ export default class Users extends Component {
                         <nav role="navigation" aria-label="Pagination">
                             <Pagination
                                 itemsPerPage={itemsPerPage}
-                                totalItems={users.length}
+                                totalItems={liveUsers.length}
                                 currentPage={currentPage}
                                 onPaginationClick={(e) => {this.onPaginationItemClick(e)}}
                             />
@@ -509,7 +509,7 @@ export default class Users extends Component {
                             <Totals
                                 totalLow={currentPageStart + 1}
                                 totalHigh={currentPageEnd + 1}
-                                totalLength={users.length}
+                                totalLength={liveUsers.length}
                                 totalType="users"
                             />
                         </nav>
