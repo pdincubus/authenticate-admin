@@ -48,12 +48,14 @@ const fakeUsers = Array.apply(0, Array(50)).map((item, index) => {
 
 const initialState = {
     users: fakeUsers,
+    sortedUsers: [],
     currentView: 'userList',
     userData: {},
     itemsPerPage: 20,
     currentPage: 1,
     currentPageStart: 0,
     currentPageEnd: 19,
+    currentSort: 'firstName',
     searchEmail: '',
 };
 
@@ -62,6 +64,13 @@ export default class Users extends Component {
         super();
 
         this.state = {...initialState};
+    }
+
+    componentDidMount () {
+        this.setState({
+            ...this.state,
+            sortedUsers: this.sortByFirstName()
+        });
     }
 
     onUserNameClick (index) {
@@ -83,7 +92,7 @@ export default class Users extends Component {
     }
 
     onPaginationItemClick (e) {
-        console.log('pagination item click');
+        console.log('pagination item click, go to page: ', e.currentTarget.dataset.page);
     }
 
     onEmailAddressChange (e) {
@@ -108,9 +117,67 @@ export default class Users extends Component {
         });
     }
 
+    sortByFirstName () {
+        const newSortedUsers = this.state.users.sort(function (a, b) {
+            const nameA = a.firstName.toUpperCase();
+            const nameB = b.firstName.toUpperCase();
+
+            if (nameA < nameB) {
+                return -1;
+            }
+
+            if (nameA > nameB) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        return newSortedUsers;
+    }
+
+    sortByLastName () {
+        const newSortedUsers = this.state.users.sort(function (a, b) {
+            const nameA = a.lastName.toUpperCase();
+            const nameB = b.lastName.toUpperCase();
+
+            if (nameA < nameB) {
+                return -1;
+            }
+
+            if (nameA > nameB) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        return newSortedUsers;
+    }
+
+    sortByStatus () {
+        const newSortedUsers = this.state.users.sort(function (a, b) {
+            const statusA = a.status.toUpperCase();
+            const statusB = b.status.toUpperCase();
+
+            if (statusA < statusB) {
+                return -1;
+            }
+
+            if (statusA > statusB) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        return newSortedUsers;
+    }
+
     render () {
         const {
             users,
+            sortedUsers,
             currentView,
             userData,
             itemsPerPage,
@@ -191,7 +258,7 @@ export default class Users extends Component {
                         <Filters />
 
                         <Table
-                            users={users.slice(currentPageStart, currentPageEnd)}
+                            users={sortedUsers.slice(currentPageStart, currentPageEnd)}
                             onUserNameClick={(index) => this.onUserNameClick(index)}
                         />
 
