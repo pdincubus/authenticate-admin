@@ -233,6 +233,11 @@ export default class Users extends Component {
         });
     }
 
+    /**
+     * Figure out which way we're sorting, then get the new list of users done
+     * and sorted by first name
+     * @param {event} e
+     */
     onFirstNameSort (e) {
         let newDirection = this.toggleSortDirection('firstName');
 
@@ -242,6 +247,11 @@ export default class Users extends Component {
         });
     }
 
+    /**
+     * Figure out which way we're sorting, then get the new list of users done
+     * and sorted by organisation
+     * @param {event} e
+     */
     onOrganisationSort (e) {
         let newDirection = this.toggleSortDirection('organisation');
 
@@ -251,6 +261,11 @@ export default class Users extends Component {
         });
     }
 
+    /**
+     * Figure out which way we're sorting, then get the new list of users done
+     * and sorted by status
+     * @param {event} e
+     */
     onStatusSort (e) {
         let newDirection = this.toggleSortDirection('status');
 
@@ -260,6 +275,11 @@ export default class Users extends Component {
         });
     }
 
+    /**
+     * Switch between asceding and descending at the correct time if we're
+     * clicking on a heading we're already sorting by
+     * @param {string} thisSort
+     */
     toggleSortDirection (thisSort) {
         const { currentSort, currentSortDir } = this.state;
 
