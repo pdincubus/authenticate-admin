@@ -10,6 +10,7 @@ const Table = ({
     onStatusSort,
     sortDirection,
     currentSortCol,
+    showHead = true,
 }) => {
     let sortingClassFirstName = '';
     let sortingClassOrganisation = '';
@@ -39,48 +40,50 @@ const Table = ({
 
     return (
         <table className="govuk-table">
-            <thead className="govuk-table__head">
-                <tr className="govuk-table__row">
-                    <th
-                        scope="col"
-                        className="govuk-table__header govuk-!-width-one-third"
-                    >
-                        <button
-                            type="button"
-                            className={`sort-header-toggle ${sortingClassFirstName}`}
-                            onClick={(e) => { onFirstNameSort(e) }}
+            {showHead &&
+                <thead className="govuk-table__head">
+                    <tr className="govuk-table__row">
+                        <th
+                            scope="col"
+                            className="govuk-table__header govuk-!-width-one-third"
                         >
-                            Name
-                        </button>
-                    </th>
+                            <button
+                                type="button"
+                                className={`sort-header-toggle ${sortingClassFirstName}`}
+                                onClick={(e) => { onFirstNameSort(e) }}
+                            >
+                                Name
+                            </button>
+                        </th>
 
-                    <th
-                        scope="col"
-                        className="govuk-table__header govuk-!-width-one-third"
-                    >
-                        <button
-                            type="button"
-                            className={`sort-header-toggle ${sortingClassOrganisation}`}
-                            onClick={(e) => { onOrganisationSort(e) }}
+                        <th
+                            scope="col"
+                            className="govuk-table__header govuk-!-width-one-third"
                         >
-                            Organisation
-                        </button>
-                    </th>
+                            <button
+                                type="button"
+                                className={`sort-header-toggle ${sortingClassOrganisation}`}
+                                onClick={(e) => { onOrganisationSort(e) }}
+                            >
+                                Organisation
+                            </button>
+                        </th>
 
-                    <th
-                        scope="col"
-                        className="govuk-table__header"
-                    >
-                        <button
-                            type="button"
-                            className={`sort-header-toggle ${sortingClassStatus}`}
-                            onClick={(e) => { onStatusSort(e) }}
+                        <th
+                            scope="col"
+                            className="govuk-table__header"
                         >
-                            Status
-                        </button>
-                    </th>
-                </tr>
-            </thead>
+                            <button
+                                type="button"
+                                className={`sort-header-toggle ${sortingClassStatus}`}
+                                onClick={(e) => { onStatusSort(e) }}
+                            >
+                                Status
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+            }
 
             <tbody className="govuk-table__body">
                 {users.length > 0 && users.map((user, index) => {

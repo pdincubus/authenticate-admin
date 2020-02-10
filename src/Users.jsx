@@ -454,6 +454,7 @@ export default class Users extends Component {
                             <Table
                                 users={users.filter((user) => { return user.email === this.state.searchEmail; })}
                                 onUserNameClick={(index) => this.onUserNameClick(index)}
+                                showHead={false}
                             />
                         </div>
                     </div>
