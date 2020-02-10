@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import faker from 'faker';
 import sub from 'date-fns/sub';
 
-import Table from './Table';
-import UserView from './UserView';
-import Totals from './Totals';
-import Pagination from './Pagination';
-import EmailSearch from './EmailSearch';
-import Filters from './Filters';
+import Table from './components/Table';
+import UserView from './components/UserView';
+import Totals from './components/Totals';
+import Pagination from './components/Pagination';
+import EmailSearch from './components/EmailSearch';
+import Filters from './components/Filters';
 
 const fakeUsers = Array.apply(0, Array(50)).map((item, index) => {
     const firstName = faker.name.firstName();
@@ -112,7 +112,7 @@ export default class Users extends Component {
      */
     onPaginationItemClick (e) {
         const { itemsPerPage, currentPage } = this.state;
-        const pageTarget = e.currentTarget.dataset.page;
+        const pageTarget = parseInt(e.currentTarget.dataset.page, 10);
         const newCurrentPageStart = (pageTarget > 1) ? (itemsPerPage * (pageTarget - 1)) : 0;
         const newCurrentPageEnd = (pageTarget > 1) ? (pageTarget * itemsPerPage) - 1 : (itemsPerPage - 1);
 
@@ -168,8 +168,6 @@ export default class Users extends Component {
 
         let newFilteredUsers = users;
 
-        console.log('Update filters. Setting filters to:', currentOrgFilter, ', ', currentStatusFilter);
-
         if (currentOrgFilter) {
             newFilteredUsers = newFilteredUsers.filter((user) => { return user.organisation === currentOrgFilter; });
         }
@@ -188,8 +186,6 @@ export default class Users extends Component {
      * @param {event} e
      */
     onClearFilters (e) {
-        console.log('Clear filters');
-
         this.setState({
             liveUsers: this.sortByFirstName('asc')
         });
@@ -200,8 +196,6 @@ export default class Users extends Component {
      * @param {event} e
      */
     onOrganisationFilterChange (e) {
-        console.log('Update org filter, value:', e.currentTarget.value);
-
         this.setState({
             currentOrgFilter: e.currentTarget.value,
         });
@@ -212,8 +206,6 @@ export default class Users extends Component {
      * @param {event} e
      */
     onStatusFilterChange (e) {
-        console.log('Update status filter, value:', e.currentTarget.value);
-
         this.setState({
             currentStatusFilter: e.currentTarget.value,
         });
@@ -226,8 +218,6 @@ export default class Users extends Component {
             currentSort: 'firstName',
             liveUsers: this.sortByFirstName(newDirection),
         });
-
-        console.log('Sorting by first name, ', newDirection);
     }
 
     onOrganisationSort (e) {
@@ -237,8 +227,6 @@ export default class Users extends Component {
             currentSort: 'organisation',
             liveUsers: this.sortByOrganisation(newDirection),
         });
-
-        console.log('Sorting by organisation, ', newDirection);
     }
 
     onStatusSort (e) {
@@ -248,8 +236,6 @@ export default class Users extends Component {
             currentSort: 'status',
             liveUsers: this.sortByStatus(newDirection),
         });
-
-        console.log('Sorting by status, ', newDirection);
     }
 
     toggleSortDirection (thisSort) {

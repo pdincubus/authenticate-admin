@@ -16,8 +16,6 @@ const Table = ({
     let sortingClassOrganisation = '';
     let sortingClassStatus = '';
 
-    console.log(sortDirection, currentSortCol);
-
     if (sortDirection == 'asc' && currentSortCol === 'firstName') {
         sortingClassFirstName = 'sorted-ascending';
     } else if (sortDirection == 'desc' && currentSortCol === 'firstName') {
@@ -35,8 +33,6 @@ const Table = ({
     } else if (sortDirection == 'desc' && currentSortCol === 'status') {
         sortingClassStatus = 'sorted-descending';
     }
-
-    console.log(sortingClassFirstName, sortingClassOrganisation, sortingClassStatus);
 
     return (
         <table className="govuk-table">
