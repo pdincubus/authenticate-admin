@@ -11,7 +11,7 @@ const Pagination = ({
     const pages = Math.ceil(totalItems / itemsPerPage);
 
     const nextItem = (currentPage >= pages) ? <span className="pagination__link disabled" aria-label="Next page">
-            <span aria-hidden="true" role="presentation">&raquo;</span> Next
+                Next <span aria-hidden="true" role="presentation">&raquo;</span>
             </span>
         : <li className="pagination__item">
             <button
@@ -27,7 +27,7 @@ const Pagination = ({
     ;
 
     const previousItem = (currentPage <= 1) ? <span className="pagination__link disabled" aria-label="Previous page">
-        <span aria-hidden="true" role="presentation">&laquo;</span> Previous
+                <span aria-hidden="true" role="presentation">&laquo;</span> Previous
             </span>
         : <li className="pagination__item">
             <button
