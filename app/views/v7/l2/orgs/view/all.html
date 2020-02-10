@@ -1,0 +1,213 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Organisations using {{ data['prototype-service'] }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l listing-page">
+                Organisations using {{ data['prototype-service'] }}
+            </h1>
+
+            <a href="../add/start" class="govuk-button listing-page">
+                Add an organisation
+            </a>
+
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header govuk-!-width-half">Name</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Users</th>
+                        <th scope="col" class="govuk-table__header"></th>
+                    </tr>
+                </thead>
+
+                <tbody class="govuk-table__body">
+                    {% if data['organisation-name-custom'] %}
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">
+                                <a href="custom" class="govuk-link">
+                                    {{ data['organisation-name-custom'] }}
+                                </a>
+                            </th>
+
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                {% if data['user-first-name'] and data['user-last-name'] %}
+                                    1
+                                {% else %}
+                                    0
+                                {% endif %}
+                            </td>
+
+                            <td class="govuk-table__cell">
+                                {% if not data['contact-1-first-name'] and not data['contact-2-first-name'] and not data['address-line-1'] %}
+                                    <a href="../add/inactive-until-updated" class="govuk-link">
+                                        Complete details
+                                    </a>
+                                {% elseif not data['contact-1-first-name'] and not data['contact-2-first-name'] and data['address-line-1'] %}
+                                    <a href="../add/inactive-until-updated" class="govuk-link">
+                                        Add contacts
+                                    </a>
+                                {% elseif data['contact-1-first-name'] and data['contact-2-first-name'] and not data['address-line-1'] %}
+                                    <a href="../add/inactive-until-updated" class="govuk-link">
+                                        Complete details
+                                    </a>
+                                {% elseif data['contact-1-first-name'] and not data['contact-2-first-name'] and not data['address-line-1'] %}
+                                    <a href="../add/inactive-until-updated" class="govuk-link">
+                                        Complete details
+                                    </a>
+                                {% elseif data['user-first-name'] and data['user-last-name'] %}
+                                    <a href="../../users/view/custom" class="govuk-link">
+                                        View user
+                                    </a>
+                                {% else %}
+                                    <a href="../../users/add/custom" class="govuk-link">
+                                        Add user
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endif %}
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="capita" class="govuk-link">
+                                Capita
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['organisation-name'] == 'Capita' %}
+                                14
+                            {% else %}
+                                13
+                            {% endif %}
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="../../users/view/capita" class="govuk-link">View users</a>
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="dwp" class="govuk-link">
+                                DWP
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['user-first-name'] and data['user-last-name'] and data['organisation-name'] == 'dwp' %}
+                                133
+                            {% else %}
+                                132
+                            {% endif %}
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="../../users/view/dwp" class="govuk-link">View users</a>
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="g4s" class="govuk-link">
+                                G4S
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['organisation-name'] == 'G4S' %}
+                                16
+                            {% else %}
+                                15
+                            {% endif %}
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="../../users/view/g4s" class="govuk-link">View users</a>
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="croydon" class="govuk-link">
+                                London Borough of Croydon Council
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['organisation-name'] == 'London Borough of Croydon Council' %}
+                                16
+                            {% else %}
+                                15
+                            {% endif %}
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="../../users/view/croydon" class="govuk-link">View users</a>
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="remploy" class="govuk-link">
+                                Remploy
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['organisation-name'] == 'Remploy' %}
+                                24
+                            {% else %}
+                                23
+                            {% endif %}
+
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="../../users/view/remploy" class="govuk-link">View users</a>
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="serco" class="govuk-link">
+                                Serco
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['organisation-name'] == 'Serco' %}
+                                8
+                            {% else %}
+                                7
+                            {% endif %}
+
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="../../users/view/serco" class="govuk-link">View users</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="govuk-!-margin-top-9">
+                <a href="../../dashboard" class="govuk-link">
+                    Back to dashboard
+                </a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

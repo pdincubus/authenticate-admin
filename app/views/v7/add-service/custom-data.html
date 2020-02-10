@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Custom data - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Data DWP Authenticate will pass to your service</h1>
+
+            <p>When a user successfully authenticates, DWP Authenticate will pass the following data about them to your service:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>first name</li>
+                <li>last name</li>
+                <li>email address</li>
+                <li>organisation name</li>
+            </ul>
+
+            <h2 class="govuk-heading-s">Additional data</h2>
+            <p>
+                You can define additional data about your users that DWP Authenticate can capture and send. 
+                You can use this feature to define specific user roles or teams you may have within your service.
+            </p>
+
+            <form id="form" method="post" action="custom-data-branch">
+                {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    idPrefix: "custom-data-check",
+                    name: "custom-data-check",
+                    fieldset: {
+                        legend: {
+                            text: "Would you like DWP Authenticate to send your service additional data?",
+                            classes: "govuk-fieldset__legend--s"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "yes",
+                            text: "Yes"
+                        },
+                        {
+                            value: "no",
+                            text: "No"
+                        }
+                    ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

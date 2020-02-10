@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add new organisation - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="confirmation" method="post" class="form">
+                {{ govukFieldset({
+                    legend: {
+                    html: '<span class="govuk-caption-l">Add an organisation</span>Organisation name',
+                    classes: "govuk-fieldset__legend--l",
+                    isPageHeading: true
+                    }
+                })}}
+
+                {{ govukInput({
+
+                    id: "organisation-name-custom",
+                    name: "organisation-name-custom",
+                    classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+

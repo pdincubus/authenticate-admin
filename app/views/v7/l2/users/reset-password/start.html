@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Reset password - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Reset your password</h1>
+
+            <h2 class="govuk-heading-s">Before you start, you will need:</h2>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>access to the email account you use to sign in to the DWP Authenticate admin portal</li>
+                <li>the mobile phone you use to sign in to the DWP Authenticate admin portal</li>
+            </ul>
+
+            <h2 class="govuk-heading-s">What will happen:</h2>
+            <ol class="govuk-list govuk-list--number govuk-!-margin-bottom-9">
+                <li>Enter the email address you use to sign in.</li>
+                <li>We will send you an email with a password reset code.</li>
+                <li>Enter the password reset code.</li>
+                <li>Authenticate with your mobile phone, using an authenticator app or a text message code.</li>
+                <li>Create a new password.</li>
+            </ol>
+
+            {{ govukButton({
+                text: "Start password reset",
+                href: "email.html",
+                isStartButton: true
+            }) }}
+        </div>
+    </div>
+{% endblock %}

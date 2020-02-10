@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add new organisation - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="summary" method="post" class="form">
+                {% call govukFieldset({
+                    legend: {
+                        html: '<span class="govuk-caption-l">Add an organisation</span>Add another additional contact',
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                }) %}
+                    {{ govukInput({
+                        label: {
+                            html: 'First name'
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        id: "contact-3-first-name",
+                        name: "contact-3-first-name"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            html: 'Last name'
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        id: "contact-3-last-name",
+                        name: "contact-3-last-name"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            html: 'Job title (optional)'
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        id: "contact-3-job-title",
+                        name: "contact-3-job-title"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Email address"
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        id: "contact-3-email",
+                        name: "contact-3-email"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Phone number"
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        id: "contact-3-phone",
+                        name: "contact-3-phone"
+                    }) }}
+                {% endcall %}
+
+                {% include './includes/contacts-and-address.html' %}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+

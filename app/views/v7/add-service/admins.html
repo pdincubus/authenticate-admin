@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Service admins - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form id="form" method="post" action="support">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <span class="govuk-caption-l">Add your service</span>
+                        Admins for your service
+                    </legend>
+
+                    <p>These are the people who will use DWP Authenticate to invite users to your service and manage who has access.</p>
+
+                    <h2 class="govuk-heading-m contains-remove-button">
+                        Main admin
+
+                        <button
+                            type="button"
+                            class="govuk-button govuk-button--secondary remove-button"
+                            data-module="govuk-button"
+                        >
+                            Remove
+                        </button>
+                    </h2>
+
+                    {{ govukInput({
+                        label: {
+                            text: "First name"
+                        },
+                        id: "admin-1-first-name",
+                        name: "admin-1-first-name",
+                        classes: "govuk-!-width-three-quarters"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Last name"
+                        },
+                        id: "admin-1-last-name",
+                        name: "admin-1-last-name",
+                        classes: "govuk-!-width-three-quarters"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Email address"
+                        },
+                        id: "admin-1-email-address",
+                        name: "admin-1-email-address",
+                        classes: "govuk-!-width-three-quarters"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Telephone number"
+                        },
+                        id: "admin-1-phone",
+                        name: "admin-1-phone",
+                        classes: "govuk-!-width-three-quarters"
+                    }) }}
+
+                    <div id="additional-admins"></div>
+
+                    <button
+                        type="button"
+                        class="govuk-button govuk-button--secondary"
+                        id="onboarding-add-another-admin"
+                    >
+                        Add another admin
+                    </button>
+
+                    <div class="govuk-!-margin-top-6">
+                        {{ govukButton({
+                            text: "Continue"
+                        }) }}
+                    </div>
+
+                    <input type="hidden" name="admins-total" id="admins-total" value="1">
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pageScripts %}
+    <script>
+        let adminIndex = 1;
+
+        const addAnotherToggle = document.getElementById('onboarding-add-another-admin');
+        const additionalAdminsElem = document.getElementById('additional-admins');
+        const adminTotalElem = document.getElementById('admins-total');
+
+        const newContactTemplate = (adminIndex) => {
+            return `<fieldset class="govuk-fieldset">
+                <h2 class="govuk-heading-m contains-remove-button">
+                    Admin
+
+                    <button
+                        type="button"
+                        class="govuk-button govuk-button--secondary remove-button"
+                        data-module="govuk-button"
+                    >
+                        Remove
+                    </button>
+                </h2>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="admin-${adminIndex}-first-name">
+                        First name
+                    </label>
+
+                    <input class="govuk-input govuk-!-width-three-quarters" id="admin-${adminIndex}-first-name" name="admin-${adminIndex}-first-name" type="text">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="admin-${adminIndex}-last-name">
+                        Last name
+                    </label>
+
+
+                    <input class="govuk-input govuk-!-width-three-quarters" id="admin-${adminIndex}-last-name" name="admin-${adminIndex}-last-name" type="text">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="admin-${adminIndex}-email-address">
+                        Email address
+                    </label>
+
+                    <input class="govuk-input govuk-!-width-three-quarters" id="admin-${adminIndex}-email-address" name="admin-${adminIndex}-email-address" type="text">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="admin-${adminIndex}-phone">
+                        Telephone number
+                    </label>
+
+                    <input class="govuk-input govuk-!-width-three-quarters" id="admin-${adminIndex}-phone" name="admin-${adminIndex}-phone" type="text">
+                </div>
+            </fieldset>`;
+        }
+
+        addAnotherToggle.addEventListener('click', () => {
+            console.log('Add another admin,', adminIndex);
+
+            adminIndex += 1;
+
+            const newAdminFields = newContactTemplate(adminIndex);
+
+            additionalAdminsElem.insertAdjacentHTML('beforeend', newAdminFields);
+            adminTotalElem.value = adminIndex;
+
+            console.log('We added another admin,', adminIndex);
+        });
+    </script>
+{% endblock %}
