@@ -10,17 +10,30 @@
 
 
 {% block content %}
-    <h1 class="govuk-heading-l listing-page">
-        <span class="govuk-caption-l">Remploy</span>
-        Users
-    </h1>
 
-    <form id="form" method="post" action="../add/details">
-        <input type="hidden" name="organisation-name-existing" id="organisation-name-existing" value="Remploy">
-        <button type="submit" class="govuk-button listing-page">Add a user</button>
-    </form>
 
-    {% include "./includes/sorting-filtering-org.html" %}
+ <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+                
+                  <h1 class="govuk-heading-l listing-page">
+                    <span class="govuk-caption-l">Remploy</span>
+                    Users
+                </h1>
+
+                <form id="form" method="post" action="../add/details">
+                    <input type="hidden" name="organisation-name-existing" id="organisation-name-existing" value="Capita">
+                    <button type="submit" class="govuk-button listing-page">Add a user</button>
+                </form>
+
+
+            </div>
+
+            {% include "./includes/org-user-view-search.html" %}
+    </div>
+        
+    {% include "./includes/org-user-view-filters.html" %}
+
+
 
     <table class="govuk-table">
         <thead class="govuk-table__head">
