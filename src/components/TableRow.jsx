@@ -11,15 +11,19 @@ const TableRow = ({
 }) => {
     return (
         <tr className="govuk-table__row">
-            <th
-                scope="row"
-                className={`govuk-table__header ${rowClassNames}`}
+            <td
+                className={`govuk-table__cell ${rowClassNames}`}
                 data-email={email}
             >
                 <a href="#" className="govuk-link" onClick={(e) => {onNameClick(e)}}>
-                    {firstName} {lastName}
+                    {firstName}
                 </a>
-            </th>
+            </td>
+            <td className="govuk-table__cell">
+                <a href="#" className="govuk-link" onClick={(e) => { onNameClick(e) }}>
+                    {lastName}
+                </a>
+            </td>
             <td className="govuk-table__cell">{organisation}</td>
             <td className="govuk-table__cell">{userStatus}</td>
         </tr>
