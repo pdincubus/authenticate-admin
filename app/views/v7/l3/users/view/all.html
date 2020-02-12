@@ -10,17 +10,10 @@
 
 
 {% block content %}
-    <h1 class="govuk-heading-l listing-page">
-        <span class="govuk-caption-l">{{ data['prototype-organisation'] }}</span>
-        Users
-    </h1>
 
-    <form id="form" method="post" action="../add/details">
-        <input type="hidden" name="organisation-name-existing" id="organisation-name-existing" value="Capita">
-        <button type="submit" class="govuk-button listing-page">Add a user</button>
-    </form>
+    {% include "./includes/user-view-heading-add-search.html" %}
 
-    {% include "./includes/sorting-filtering-org.html" %}
+    {% include "./includes/user-view-filters.html" %}
 
     <table class="govuk-table">
         <thead class="govuk-table__head">
