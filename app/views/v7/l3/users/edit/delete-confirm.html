@@ -12,10 +12,11 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             {{ govukPanel({
-                titleText: "User deleted"
+                titleText: "User deleted",
+                html: data['user-first-name'] + " " + data['user-last-name'] + " can no longer access " + data['prototype-service']
+
             }) }}
 
-            <p>{{ data['user-first-name'] }} {{ data['user-last-name'] }} has been deleted.</p>
 
             <p>
                 <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
