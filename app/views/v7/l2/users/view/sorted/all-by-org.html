@@ -17,27 +17,28 @@
         {% include "../includes/user-view-filters.html" %}
 
         <table class="govuk-table">
+
+
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                     <th scope="col" class="govuk-table__header govuk-!-width-one-third">
-                        <a href="../all" class="govuk-link">
-                            Name <span class="govuk-sorted-by govuk-sorted-by--unsorted">(Not currently sorted)</span>
-                        </a>
+                        <button type="button" class="sort-header-toggle" onclick="window.location.href='../all'">
+                            Name
+                        </button>
                     </th>
-
                     <th scope="col" class="govuk-table__header">
-                        <a href="all-by-org-reverse" class="govuk-link">
-                            Organisation <span class="govuk-sorted-by">(Currently sorted by a-z)</span>
-                        </a>
+                        <button type="button" class="sort-header-toggle sorted-descending" onclick="window.location.href='all-by-org-reverse'">
+                            Organisation
+                        </button>
                     </th>
-
                     <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">
-                        <a href="all-by-status" class="govuk-link">
-                            Status <span class="govuk-sorted-by govuk-sorted-by--unsorted">(Not currently sorted)</span>
-                        </a>
+                        <button type="button" class="sort-header-toggle" onclick="window.location.href='all-by-status'">
+                            Status
+                        </button>
                     </th>
                 </tr>
             </thead>
+
 
             <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
