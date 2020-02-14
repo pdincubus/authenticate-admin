@@ -12,10 +12,12 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             {{ govukPanel({
-                titleText: "Invitation re-sent"
+                titleText: "Invitation re-sent",
+                 html: "New invitation sent to " + data['user-first-name'] + " " + data['user-last-name']
+
             }) }}
 
-            <p>An invitation has been re-sent to {{data['user-email-address']}}</p>
+   
             <p><a href="../../dashboard" class="govuk-link">Back to dashboard</a></p>
         </div>
     </div>
