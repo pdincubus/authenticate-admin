@@ -104,10 +104,15 @@ export default class Users extends Component {
 
     /**
      * Switch to single user view when we've worked out which user data we need
-     * @param {integer} index     The array index of the user we want
+     * @param {integer} index     The array index of the user we want. This
+     *                            index is only in the current view, not by page
+     *                            so we need to work out what page we're on too
      */
     onUserNameClick (index) {
-        const singleUserData = this.state.liveUsers[index];
+        const { liveUsers, currentPageStart } = this.state;
+
+        const actualIndex = currentPageStart + index;
+        const singleUserData = liveUsers[actualIndex];
 
         this.setState({
             currentView: 'singleUser',
@@ -494,7 +499,7 @@ export default class Users extends Component {
                             <h1 className="govuk-heading-l listing-page">Search results</h1>
 
                             <Table
-                                users={users.filter((user) => { return user.email === this.state.searchEmail; })}
+                                users={users.filter((user) => { return user.email === searchEmail; })}
                                 onUserNameClick={(index) => this.onUserNameClick(index)}
                                 showHead={false}
                             />
