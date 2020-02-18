@@ -171,8 +171,6 @@ export default class Users extends Component {
             this.setState({
                 currentView: 'searchResults',
             });
-        } else {
-            alert('Fill in the value');
         }
     }
 

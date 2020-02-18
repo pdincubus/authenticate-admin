@@ -22,7 +22,7 @@ let forcedOrg1 = {
 };
 
 let forcedOrg2 = {
-    companyName: 'London Boroug of Croydon Council',
+    companyName: 'London Borough of Croydon Council',
     numberOfUsers: 21,
 };
 
