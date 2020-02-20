@@ -678,6 +678,11 @@ p.govuk-filter-reset {
     background: transparent;
 }
 
+.sort-header-toggle--full {
+    width: 100%;
+    text-align: right;
+}
+
 .sort-header-toggle:not(.sorted-ascending)::after,
 .sort-header-toggle:not(.sorted-ascending)::before,
 .sort-header-toggle:not(.sorted-descending)::after,
