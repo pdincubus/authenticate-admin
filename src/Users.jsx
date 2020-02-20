@@ -530,6 +530,8 @@ export default class Users extends Component {
                             onStatusSort={(index) => this.onStatusSort(index)}
                             sortDirection={currentSortDir}
                             currentSortCol={currentSort}
+                            orgFilter={currentOrgFilter}
+                            statusFilter={currentStatusFilter}
                         />
 
                         <nav role="navigation" aria-label="Pagination">
