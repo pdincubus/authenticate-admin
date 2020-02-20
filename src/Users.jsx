@@ -214,7 +214,10 @@ export default class Users extends Component {
      */
     onClearFilters (e) {
         this.setState({
-            liveUsers: this.sortByFirstName('asc'),
+            currentSort: 'firstName',
+            liveUsers: fakeUsers,
+            currentOrgFilter: '',
+            currentStatusFilter: '',
         });
     }
 
