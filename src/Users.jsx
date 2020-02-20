@@ -13,7 +13,7 @@ import Filters from './components/Filters';
 let fakeUsers = Array.apply(0, Array(243)).map((item, index) => {
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
-    const organisation = faker.random.arrayElement(['Capita', 'CHDA', 'DWP', 'G4S', 'London Borough of Croydon Council', 'Remploy', 'Serco']);
+    const organisation = faker.random.arrayElement(['Capita', 'CHDA', 'DWP', 'G4S', 'London Borough of Croydon Council', 'PeoplePlus', 'Remploy', 'Serco']);
     const domain = `${organisation.replace(' - ', '-').replace(', ', '-').replace('. ', '-').replace(' ', '-').replace(' ', '-').replace('\'', '')}.co.uk`.toLowerCase();
     const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
     const status = faker.random.arrayElement(['Active', 'Invite sent', 'Invite expired', 'Access expired']);
@@ -80,8 +80,8 @@ const initialState = {
     currentPageEnd: 19,
     currentSort: 'firstName',
     currentSortDir: 'asc',
-    currentOrgFilter: false,
-    currentStatusFilter: false,
+    currentOrgFilter: '',
+    currentStatusFilter: '',
     searchEmail: '',
 };
 
@@ -189,20 +189,22 @@ export default class Users extends Component {
      * @param {event} e
      */
     onFilter (e) {
-        const { users, currentOrgFilter, currentStatusFilter } = this.state;
+        const { users } = this.state;
 
         let newFilteredUsers = users;
 
-        if (currentOrgFilter) {
-            newFilteredUsers = newFilteredUsers.filter((user) => { return user.organisation === currentOrgFilter; });
+        if (this.orgFilterInput.value) {
+            newFilteredUsers = newFilteredUsers.filter((user) => { return user.organisation === this.orgFilterInput.value; });
         }
 
-        if (currentStatusFilter) {
-            newFilteredUsers = newFilteredUsers.filter((user) => { return user.status === currentStatusFilter; });
+        if (this.statusFilterInput.value) {
+            newFilteredUsers = newFilteredUsers.filter((user) => { return user.status === this.statusFilterInput.value; });
         }
 
         this.setState({
             liveUsers: newFilteredUsers,
+            currentOrgFilter: this.orgFilterInput.value,
+            currentStatusFilter: this.statusFilterInput.value,
         });
     }
 
@@ -212,27 +214,7 @@ export default class Users extends Component {
      */
     onClearFilters (e) {
         this.setState({
-            liveUsers: this.sortByFirstName('asc')
-        });
-    }
-
-    /**
-     * Update state value for organisation when new one chosen in select elem
-     * @param {event} e
-     */
-    onOrganisationFilterChange (e) {
-        this.setState({
-            currentOrgFilter: e.currentTarget.value,
-        });
-    }
-
-    /**
-     * Update state value for status when new one chosen in select elem
-     * @param {event} e
-     */
-    onStatusFilterChange (e) {
-        this.setState({
-            currentStatusFilter: e.currentTarget.value,
+            liveUsers: this.sortByFirstName('asc'),
         });
     }
 
@@ -456,6 +438,8 @@ export default class Users extends Component {
             currentPageStart,
             currentPageEnd,
             searchEmail,
+            currentOrgFilter,
+            currentStatusFilter,
         } = this.state;
 
         switch (currentView) {
@@ -530,8 +514,11 @@ export default class Users extends Component {
                         <Filters
                             onFilter={(e) => {this.onFilter(e)}}
                             onClearFilters={(e) => {this.onClearFilters(e)}}
-                            onOrganisationFilterChange={(e) => { this.onOrganisationFilterChange(e)}}
-                            onStatusFilterChange={(e) => { this.onStatusFilterChange(e)}}
+                            orgFilter={currentOrgFilter}
+                            statusFilter={currentStatusFilter}
+                            numUsers={liveUsers.length}
+                            orgFilterRef={elem => (this.orgFilterInput = elem)}
+                            statusFilterRef={elem => (this.statusFilterInput = elem)}
                         />
 
                         <Table
@@ -543,6 +530,8 @@ export default class Users extends Component {
                             onStatusSort={(index) => this.onStatusSort(index)}
                             sortDirection={currentSortDir}
                             currentSortCol={currentSort}
+                            orgFilter={currentOrgFilter}
+                            statusFilter={currentStatusFilter}
                         />
 
                         <nav role="navigation" aria-label="Pagination">
@@ -581,13 +570,7 @@ Users.propTypes = {
     currentPageEnd: PropTypes.number,
     currentSort: PropTypes.string,
     currentSortDir: PropTypes.string,
-    currentOrgFilter: PropTypes.oneOfType([
-        PropTypes.bool,
-        PropTypes.string
-    ]),
-    currentStatusFilter: PropTypes.oneOfType([
-        PropTypes.bool,
-        PropTypes.string
-    ]),
+    currentOrgFilter: PropTypes.string,
+    currentStatusFilter: PropTypes.string,
     searchEmail: PropTypes.string,
 };

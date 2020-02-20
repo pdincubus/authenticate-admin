@@ -12,6 +12,8 @@ const Table = ({
     sortDirection,
     currentSortCol,
     showHead = true,
+    orgFilter,
+    statusFilter,
 }) => {
     let sortingClassFirstName = '';
     let sortingClassLastName = '';
@@ -77,26 +79,32 @@ const Table = ({
                             scope="col"
                             className="govuk-table__header govuk-!-width-one-third"
                         >
-                            <button
-                                type="button"
-                                className={`sort-header-toggle ${sortingClassOrganisation}`}
-                                onClick={(e) => { onOrganisationSort(e) }}
-                            >
-                                Organisation
-                            </button>
+                            {(orgFilter === '') ?
+                            (
+                                <button
+                                    type="button"
+                                    className={`sort-header-toggle ${sortingClassOrganisation}`}
+                                    onClick={(e) => { onOrganisationSort(e) }}
+                                >
+                                    Organisation
+                                </button>
+                            ) : 'Organisation'}
                         </th>
 
                         <th
                             scope="col"
                             className="govuk-table__header"
                         >
-                            <button
-                                type="button"
-                                className={`sort-header-toggle ${sortingClassStatus}`}
-                                onClick={(e) => { onStatusSort(e) }}
-                            >
-                                Status
-                            </button>
+                            {(statusFilter === '') ?
+                            (
+                                <button
+                                    type="button"
+                                    className={`sort-header-toggle ${sortingClassStatus}`}
+                                    onClick={(e) => { onStatusSort(e) }}
+                                >
+                                    Status
+                                </button>
+                            ) : 'Status'}
                         </th>
                     </tr>
                 </thead>

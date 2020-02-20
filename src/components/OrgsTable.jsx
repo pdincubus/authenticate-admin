@@ -50,7 +50,7 @@ const OrgsTable = ({
                         >
                             <button
                                 type="button"
-                                className={`sort-header-toggle ${sortingClassOrgUsers}`}
+                                className={`sort-header-toggle sort-header-toggle--full ${sortingClassOrgUsers}`}
                                 onClick={(e) => { onOrgUsersSort(e) }}
                             >
                                 Users
