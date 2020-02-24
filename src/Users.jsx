@@ -205,6 +205,9 @@ export default class Users extends Component {
             liveUsers: newFilteredUsers,
             currentOrgFilter: this.orgFilterInput.value,
             currentStatusFilter: this.statusFilterInput.value,
+            currentPage: 1,
+            currentPageStart: 0,
+            currentPageEnd: 19,
         });
     }
 
@@ -213,11 +216,17 @@ export default class Users extends Component {
      * @param {event} e
      */
     onClearFilters (e) {
+        this.orgFilterInput.value = '';
+        this.statusFilterInput.value = '';
+
         this.setState({
             currentSort: 'firstName',
             liveUsers: fakeUsers,
             currentOrgFilter: '',
             currentStatusFilter: '',
+            currentPage: 1,
+            currentPageStart: 0,
+            currentPageEnd: 19,
         });
     }
 
