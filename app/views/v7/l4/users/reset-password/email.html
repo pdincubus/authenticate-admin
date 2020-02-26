@@ -33,6 +33,8 @@
                     <input class="govuk-input govuk-input--width-20" id="width-20" name="reset-email-address" type="text">
                 </div>
 
+                <input type="hidden" id="prototype-mfa" name="prototype-mfa" value="{{ data['prototype-mfa'] }}">
+
                 {{ govukButton({
                     text: "Send code"
                 }) }}

@@ -179,6 +179,28 @@
                                     text: "Used on 'register' and 'sign in' journey emails"
                                 }
                             }) }}
+
+                            {{ govukSelect({
+                                id: "prototype-mfa",
+                                name: "prototype-mfa",
+                                label: {
+                                    text: "MFA?"
+                                },
+                                hint: {
+                                    text: "Are you using single or multifactor authentication?"
+                                },
+                                items: [
+                                    {
+                                        value: "single",
+                                        text: "Single",
+                                        selected: true
+                                    },
+                                    {
+                                        value: "multiple",
+                                        text: "Multiple"
+                                    }
+                                ]
+                            }) }}
                         </div>
                     </div>
 

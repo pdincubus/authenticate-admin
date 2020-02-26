@@ -35,6 +35,7 @@
                 isStartButton: true
             }) }}
 
+            {% if data['prototype-mfa'] === 'multiple' %}
             <h2 class="govuk-heading-m govuk-!-margin-top-6">Before you start</h2>
 
             <p>You'll need your mobile phone.</p>
@@ -42,6 +43,7 @@
             <p>
                 After you have registered, we will send you a code to your mobile whenever you want to sign in. This makes the service more secure by proving it is you signing in.
             </p>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

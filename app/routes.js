@@ -866,11 +866,6 @@ router.post('/v6/index-check', function (req, res) {
     }
 });
 
-module.exports = router;
-
-
-
-
 /*******************
  * V7
 ******************* */
@@ -1090,16 +1085,15 @@ router.post('/v7/add-service/admin-branch', function (req, res) {
 });
 
 router.post('/v7/l2/signin-branch', function (req, res) {
-    if (req.session.data['prototype-service'] === 'HTDS') {
+    if (req.session.data['prototype-mfa'] === 'single') {
         res.redirect('/v7/l2/dashboard');
     } else {
         res.redirect('/v7/l2/signin-code');
     }
 });
 
-
 router.post('/v7/l3/signin-branch', function (req, res) {
-    if (req.session.data['prototype-service'] === 'HTDS') {
+    if (req.session.data['prototype-mfa'] === 'single') {
         res.redirect('/v7/l3/dashboard');
     } else {
         res.redirect('/v7/l3/signin-code');
@@ -1107,43 +1101,10 @@ router.post('/v7/l3/signin-branch', function (req, res) {
 });
 
 router.post('/v7/l4/signin-branch', function (req, res) {
-    if (req.session.data['prototype-service'] === 'HTDS') {
+    if (req.session.data['prototype-mfa'] === 'single') {
         res.redirect('/v7/l4/dashboard');
     } else {
         res.redirect('/v7/l4/signin-code');
-    }
-});
-
-router.post('/v7/l2/users/register/register-branch', function (req, res) {
-    console.log('L2 register');
-    console.log(req.session.data['prototype-service']);
-
-    if (req.session.data['prototype-service'] === 'HTDS') {
-        res.redirect('/v7/l2/users/register/complete');
-    } else {
-        res.redirect('/v7/l2/users/register/mobile');
-    }
-});
-
-router.post('/v7/l3/users/register/register-branch', function (req, res) {
-    console.log('L3 register');
-    console.log(req.session.data['prototype-service']);
-
-    if (req.session.data['prototype-service'] === 'HTDS') {
-        res.redirect('/v7/l3/users/register/complete');
-    } else {
-        res.redirect('/v7/l3/users/register/mobile');
-    }
-});
-
-router.post('/v7/l4/users/register/register-branch', function (req, res) {
-    console.log('L4 register');
-    console.log(req.session.data['prototype-service']);
-
-    if (req.session.data['prototype-service'] === 'HTDS') {
-        res.redirect('/v7/l4/users/register/complete');
-    } else {
-        res.redirect('/v7/l4/users/register/mobile');
     }
 });
 
