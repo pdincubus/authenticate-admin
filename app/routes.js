@@ -866,11 +866,6 @@ router.post('/v6/index-check', function (req, res) {
     }
 });
 
-module.exports = router;
-
-
-
-
 /*******************
  * V7
 ******************* */
