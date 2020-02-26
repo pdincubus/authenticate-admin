@@ -27,7 +27,7 @@
             <p>It should arrive in a few minutes.</p>
             <p>We sent it to {{ data['reset-email-address'] }}.</p>
 
-            <form action="text-code" method="post" class="form">
+            <form action="{% if data['prototype-mfa'] === 'single' %}password{% else %}text-code{% endif %}" method="post" class="form">
                 <div class="govuk-form-group govuk-!-margin-top-6">
                     <label class="govuk-label" for="width-20">
                         Code
