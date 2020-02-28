@@ -1156,5 +1156,39 @@ router.post('/v7/index-check', function (req, res) {
     }
 });
 
+router.post('/dev2/index-check', function (req, res) {
+    const routeChosen = req.session.data['prototype-route'];
+
+    switch (routeChosen) {
+        case 'l2-register':
+            res.redirect('/dev2/l2/users/register/email');
+            break;
+        case 'l3-register':
+            res.redirect('/dev2/l3/users/register/email');
+            break;
+        case 'l4-register':
+            res.redirect('/dev2/l4/users/register/email');
+            break;
+        case 'l2-reset':
+            res.redirect('/dev2/l2/users/reset-password/start');
+            break;
+        case 'l4-reset':
+            res.redirect('/dev2/l4/users/reset-password/start');
+            break;
+        case 'l2-dashboard':
+            res.redirect('/dev2/l2/email');
+            break;
+        case 'l3-dashboard':
+            res.redirect('/dev2/l3/email');
+            break;
+        case 'l4-dashboard':
+            res.redirect('/dev2/l4/email');
+            break;
+        default:
+            res.redirect('/dev2/l2/email');
+            break;
+    }
+});
+
 module.exports = router;
 

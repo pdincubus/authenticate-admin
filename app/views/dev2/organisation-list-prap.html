@@ -1,0 +1,177 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% include '../includes/back-button.njk' %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l listing-page">Organisations using HTDS</h1>
+
+            <a href="organisation-add-prap" class="govuk-button listing-page">Add an organisation</a>
+
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header govuk-!-width-half">Name</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Users</th>
+                        <th scope="col" class="govuk-table__header"></th>
+                    </tr>
+                </thead>
+
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            DWP
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['user-full-name'] and data['organisation-name'] == 'dwp' %}
+                                1
+                            {% else %}
+                                0
+                            {% endif %}
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            {% if data['user-full-name'] and data['organisation-name'] == 'dwp' %}
+                                <a href="user-list-prap-new" class="govuk-link">View users</a>
+                            {% else %}
+                                <a href="user-add-user-prap-dwp" class="govuk-link">Add user</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+
+                    {% if data['organisation-name'] %}
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            {{ data['organisation-name'] }}
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['user-full-name'] %}
+                                1
+                            {% else %}
+                                0
+                            {% endif %}
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            {% if data['user-full-name'] %}
+                                    <a href="user-list-prap-new" class="govuk-link">View user</a>
+                                {% else %}
+                                    <a href="user-add-user-prap-new" class="govuk-link">Add user</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endif %}
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            Capita
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['organisation-name'] == 'Capita' %}
+                                14
+                            {% else %}
+                                13
+                            {% endif %}
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="user-list-prap-capita" class="govuk-link">View users</a>
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            G4S
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['organisation-name'] == 'G4S' %}
+                                16
+                            {% else %}
+                                15
+                            {% endif %}
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="user-list-prap-g3s" class="govuk-link">View users</a>
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            London Borough of Croydon Council
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['organisation-name'] == 'London Borough of Croydon Council' %}
+                                16
+                            {% else %}
+                                15
+                            {% endif %}
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="user-list-prap-croydon" class="govuk-link">View users</a>
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            Remploy
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['organisation-name'] == 'Remploy' %}
+                                24
+                            {% else %}
+                                23
+                            {% endif %}
+
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="user-list-prap-remploy" class="govuk-link">View users</a>
+                        </td>
+                    </tr>
+
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            Serco
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell--numeric">
+                            {% if data['organisation-name'] == 'Serco' %}
+                                8
+                            {% else %}
+                                7
+                            {% endif %}
+
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            <a href="user-list-prap-serco" class="govuk-link">View users</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="govuk-!-margin-top-9">
+                <a href="dashboard-service-prap" class="govuk-link">Back to dashboard</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
