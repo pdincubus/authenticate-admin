@@ -62,18 +62,25 @@
             <li>
                 <a href="./users/reset-password/start" class="govuk-link">I forgot my password</a>
             </li>
-            <li>
-                {{ govukDetails({
-                    summaryText: "I forgot my email address",
-                    text: "lorem ipsum dolor sit amet, consectetur adepiscing"
-                }) }}
-            </li>
-            <li>
-                {{ govukDetails({
-                    summaryText: "I don't have the mobile phone linked to my account",
-                    text: "lorem ipsum dolor sit amet, consectetur adepiscing"
-                }) }}
-            </li>
+
+                <details class="govuk-details" data-module="govuk-details">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                            Other problems
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        If you have a problem that is not a forgotten password, email
+
+                        {% if data['prototype-service'] == "HTDS" %}
+                            <a href="mailto:htds.support@dwp.gsi.gov.uk" class="govuk-link">htds.support@dwp.gsi.gov.uk</a>
+                        {% elseif data['prototype-service'] == "PRaP" %}
+                            <a href="mailto:prap.support@dwp.gsi.gov.uk" class="govuk-link">prap.support@dwp.gsi.gov.uk</a>
+                        {% elseif data['prototype-service'] == "ESF" %}
+                            <a href="mailto:prap.support@dwp.gsi.gov.uk" class="govuk-link">esf.support@dwp.gsi.gov.uk</a>
+                        {% endif %}
+                    </div>
+                </details>
         </ul>
     </form>
 {% endblock %}
