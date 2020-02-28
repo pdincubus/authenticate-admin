@@ -894,6 +894,106 @@ router.post('/v7/l2/users/add/org-check', function (req, res) {
     }
 });
 
+
+router.post('/v7/l2/users/add-multiple-orgs/org-check', function (req, res) {
+    const chosenOrgName = req.session.data['organisation-name-existing'].toLowerCase();
+    const orgName = req.session.data['organisation-name'];
+
+    if (
+        chosenOrgName == 'capita'
+        || chosenOrgName == 'serco'
+        || chosenOrgName == 'remploy'
+        || chosenOrgName == 'g4s'
+        || chosenOrgName == 'london borough of croydon council'
+        || chosenOrgName == 'sheffield city council'
+        || (chosenOrgName == orgName && orgName !== null)
+        || (chosenOrgName == orgName.toLowerCase() && orgName !== undefined)
+    ) {
+        req.session.data['org-error'] = false;
+
+        res.redirect('/v7/l2/users/add-multiple-orgs/additional-org');
+    } else {
+        req.session.data['org-error'] = true;
+
+        res.redirect('/v7/l2/users/add/start');
+    }
+});
+
+router.post('/v7/l2/users/add-multiple-orgs/org-check-2', function (req, res) {
+    const chosenOrgName = req.session.data['organisation-name-existing-2'].toLowerCase();
+    const orgName = req.session.data['organisation-name'];
+
+    if (
+        chosenOrgName == 'capita'
+        || chosenOrgName == 'serco'
+        || chosenOrgName == 'remploy'
+        || chosenOrgName == 'g4s'
+        || chosenOrgName == 'london borough of croydon council'
+        || chosenOrgName == 'sheffield city council'
+        || (chosenOrgName == orgName && orgName !== null)
+        || (chosenOrgName == orgName.toLowerCase() && orgName !== undefined)
+    ) {
+        req.session.data['org-error'] = false;
+
+        res.redirect('/v7/l2/users/add-multiple-orgs/additional-org-2');
+    } else {
+        req.session.data['org-error'] = true;
+
+        res.redirect('/v7/l2/users/add/start');
+    }
+});
+
+router.post('/v7/l2/users/add-multiple-orgs/org-check-3', function (req, res) {
+    const chosenOrgName = req.session.data['organisation-name-existing-3'].toLowerCase();
+    const orgName = req.session.data['organisation-name'];
+
+    if (
+        chosenOrgName == 'capita'
+        || chosenOrgName == 'serco'
+        || chosenOrgName == 'remploy'
+        || chosenOrgName == 'g4s'
+        || chosenOrgName == 'london borough of croydon council'
+        || chosenOrgName == 'sheffield city council'
+        || (chosenOrgName == orgName && orgName !== null)
+        || (chosenOrgName == orgName.toLowerCase() && orgName !== undefined)
+    ) {
+        req.session.data['org-error'] = false;
+
+        res.redirect('/v7/l2/users/add-multiple-orgs/additional-org-4');
+    } else {
+        req.session.data['org-error'] = true;
+
+        res.redirect('/v7/l2/users/add/start');
+    }
+});
+
+
+router.post('/v7/l2/users/add-multiple-orgs/org-check-4', function (req, res) {
+    const chosenOrgName = req.session.data['organisation-name-existing-4'].toLowerCase();
+    const orgName = req.session.data['organisation-name'];
+
+    if (
+        chosenOrgName == 'capita'
+        || chosenOrgName == 'serco'
+        || chosenOrgName == 'remploy'
+        || chosenOrgName == 'g4s'
+        || chosenOrgName == 'london borough of croydon council'
+        || chosenOrgName == 'sheffield city council'
+        || (chosenOrgName == orgName && orgName !== null)
+        || (chosenOrgName == orgName.toLowerCase() && orgName !== undefined)
+    ) {
+        req.session.data['org-error'] = false;
+
+        res.redirect('/v7/l2/users/add-multiple-orgs/additional-org-5');
+    } else {
+        req.session.data['org-error'] = true;
+
+        res.redirect('/v7/l2/users/add/start');
+    }
+});
+
+
+
 router.post('/v7/l2/orgs/add/address-branch', function (req, res) {
     const checkChoice = req.session.data['add-org-address'];
 
