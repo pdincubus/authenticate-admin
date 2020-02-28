@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Suspend organisation - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form id="form" method="post" action="org-suspend">
+                {{ govukRadios({
+                    classes: "govuk-radios",
+                    idPrefix: "suspend-check",
+                    name: "suspend-check",
+                    fieldset: {
+                        legend: {
+                            text: "Are you sure you want to suspend " + data["organisation-name"] + "?",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "yes",
+                            text: "Yes, suspend the organisation"
+                        },
+                        {
+                            value: "no",
+                            text: "No"
+                        }
+                    ]
+                }) }}
+
+                <input type="hidden" value="{{ data["organisation-name"] }}" name="organisation-name" id="organisation-name">
+
+                <input type="submit" class="govuk-button govuk-!-margin-right-1" value="Continue" id="submit">
+
+                <a href="org-view" class="govuk-button govuk-button--secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}
