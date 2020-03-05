@@ -5,21 +5,24 @@
         </label>
 
        
+        <form action="/v7/l3/users/view/sorted/filtered-access-expired" method="post" class="form">
+            <select class="govuk-select govuk-!-margin-right-1" id="filter-users-status" name="filter-users-status">
+                <option value="all-statuses">All statuses</option>
+                <option value="access-expired">Access expired</option>
+                <option value="active">Active</option>
+                <option value="invite-expired">Invite expired</option>
+                <option value="invite-sent">Invite sent</option>
+            </select>
 
-        <select class="govuk-select govuk-!-margin-right-1" id="filter-users-status" name="filter-users-status">
-            <option value="all-statuses">All statuses</option>
-            <option value="access-expired">Access expired</option>
-            <option value="active">Active</option>
-            <option value="invite-expired">Invite expired</option>
-            <option value="invite-sent">Invite sent</option>
-        </select>
+            <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+                Update
+            </button>
+        
 
-        <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
-            Update
-        </button>
-
-        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Clear
-        </button>
+            <a class="govuk-button govuk-button--secondary" data-module="govuk-button" href="../all" >
+                Clear
+            </a>
+        
+        </form>
     </div>
 </div>

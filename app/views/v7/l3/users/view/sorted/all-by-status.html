@@ -11,25 +11,25 @@
 
 {% block content %}
 
-    {% include "./includes/user-view-heading-add-search.html" %}
+    {% include "../includes/user-view-heading-add-search.html" %}
 
-    {% include "./includes/org-user-view-filters.html" %}
+    {% include "../includes/org-user-view-filters.html" %}
 
     <table class="govuk-table">
         <thead class="govuk-table__head">
             <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header govuk-!-width-one-third">
-                    <button type="button" class="sort-header-toggle sorted-descending" onclick="window.location.href='sorted/all-by-name-reverse'">
+                    <button type="button" class="sort-header-toggle" onclick="window.location.href='../all'">
                         Name
                     </button>
                 </th>
                 <th scope="col" class="govuk-table__header">
-                    <button type="button" class="sort-header-toggle" onclick="window.location.href='sorted/all-by-email'">
+                    <button type="button" class="sort-header-toggle" onclick="window.location.href='all-by-email'">
                         Email address
                     </button>
                 </th>
-                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter" onclick="window.location.href='sorted/all-by-status'">
-                    <button type="button" class="sort-header-toggle ">
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter" onclick="window.location.href='all-by-status-reverse'">
+                    <button type="button" class="sort-header-toggle sorted-descending" >
                         Status
                     </button>
                 </th>
@@ -48,6 +48,24 @@
                     <td class="govuk-table__cell">Invite sent</td>
                 </tr>
             {% endif %}
+
+             <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">David Batty</a></th>
+                <td class="govuk-table__cell">david.batty@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Access expired</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Gary Speed</a></th>
+                <td class="govuk-table__cell">gary.speed@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Access expired</td>
+            </tr>
+
+             <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Jon Newsome</a></th>
+                <td class="govuk-table__cell">jon.newsome@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Access expired</td>
+            </tr>
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Adam Bucknall</a></th>
@@ -93,29 +111,12 @@
                 <td class="govuk-table__cell">Active</td>
             </tr>
 
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Chris Whyte</a></th>
-                <td class="govuk-table__cell">chris.whyte@{{ data['prototype-organisation-machine'] }}</td>
-                <td class="govuk-table__cell">Invite sent</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Christine Harris</a></th>
-                <td class="govuk-table__cell">christine.harris@{{ data['prototype-organisation-machine'] }}</td>
-                <td class="govuk-table__cell">Invite sent</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">David Batty</a></th>
-                <td class="govuk-table__cell">david.batty@{{ data['prototype-organisation-machine'] }}</td>
-                <td class="govuk-table__cell">Access expired</td>
-            </tr>
-
-            <tr class="govuk-table__row">
+             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Gabby Dyche</a></th>
                 <td class="govuk-table__cell">gabby.dyche@{{ data['prototype-organisation-machine'] }}</td>
                 <td class="govuk-table__cell">Active</td>
             </tr>
+
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Gary McAllister</a></th>
@@ -123,25 +124,7 @@
                 <td class="govuk-table__cell">Active</td>
             </tr>
 
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Gary Speed</a></th>
-                <td class="govuk-table__cell">gary.speed@{{ data['prototype-organisation-machine'] }}</td>
-                <td class="govuk-table__cell">Access expired</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Gordon Strachan</a></th>
-                <td class="govuk-table__cell">gordon.strachan@{{ data['prototype-organisation-machine'] }}</td>
-                <td class="govuk-table__cell">Invite sent</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single-hs" class="govuk-link">Harpal Singh</a></th>
-                <td class="govuk-table__cell">harpal.singh@{{ data['prototype-organisation-machine'] }}</td>
-                <td class="govuk-table__cell ">Invite expired</td>
-            </tr>
-
-            <tr class="govuk-table__row">
+             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single-hs" class="govuk-link">Haroon Latif</a></th>
                 <td class="govuk-table__cell">haroon.latif@{{ data['prototype-organisation-machine'] }}</td>
                 <td class="govuk-table__cell ">Active</td>
@@ -166,10 +149,29 @@
                 <td class="govuk-table__cell ">Active</td>
             </tr>
 
+
+               <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Lee Chapman</a></th>
+                <td class="govuk-table__cell">lee.chapman@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
             <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Jon Newsome</a></th>
-                <td class="govuk-table__cell">jon.newsome@{{ data['prototype-organisation-machine'] }}</td>
-                <td class="govuk-table__cell">Access expired</td>
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Mel Sterland</a></th>
+                <td class="govuk-table__cell">mel.sterland@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Rod Wallace</a></th>
+                <td class="govuk-table__cell">rod.wallace@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Steve Hodge</a></th>
+                <td class="govuk-table__cell">steve.hodge@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell ">Active</td>
             </tr>
 
            
