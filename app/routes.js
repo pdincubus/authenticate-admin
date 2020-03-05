@@ -1,6 +1,5 @@
-const express = require('express')
-const router = express.Router()
-
+const express = require('express');
+const router = express.Router();
 
 /**
  * Just to get the nav working nicely
@@ -966,7 +965,6 @@ router.post('/v7/l2/users/add-multiple-orgs/org-check-3', function (req, res) {
         res.redirect('/v7/l2/users/add/start');
     }
 });
-
 
 router.post('/v7/l2/users/add-multiple-orgs/org-check-4', function (req, res) {
     const chosenOrgName = req.session.data['organisation-name-existing-4'].toLowerCase();

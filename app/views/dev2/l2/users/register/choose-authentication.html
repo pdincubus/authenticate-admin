@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Authenticator app backup - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Two factor authentication</h1>
+
+            <p>
+                To keep your account secure DWP Authenticate will send you a unique code each time you signin to your service.</p> 
+                
+               <p> You can choose to recieve these codes either via a text message or through an authenticator app.</p>
+
+            <p>
+                You need a smartphone or tablet to use an authenticator app.
+            </p>
+
+            <form id="form" method="post" action="app-branch">
+                {{ govukRadios({
+                    idPrefix: "app-backup",
+                    name: "app-backup",
+                    fieldset: {
+                        legend: {
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    idPrefix: "app-backup",
+                    name: "app-backup",
+                    fieldset: {
+                        legend: {
+                        text: "How do you want to authenticate?",
+                        classes: "govuk-fieldset__legend--m"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "yes",
+                            text: "I will set up an authenticator app"
+                        },
+                        {
+                            value: "no",
+                            text: "I will use text messages"
+                        }
+                    ]
+                }) }}
+
+                <input type="submit" class="govuk-button govuk-!-margin-right-1" value="Continue" id="submit">
+            </form>
+        </div>
+    </div>
+{% endblock %}

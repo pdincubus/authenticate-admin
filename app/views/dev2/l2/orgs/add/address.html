@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add new organisation - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="contacts-check" method="post" class="form">
+                {% call govukFieldset({
+                    legend: {
+                        html: '<span class="govuk-caption-l">Add an organisation</span>Organisation address',
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                }) %}
+                    {{ govukInput({
+                        label: {
+                            html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+                        },
+                        id: "address-line-1",
+                        name: "address-line-1"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+                        },
+                        id: "address-line-2",
+                        name: "address-line-2"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Town or city"
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        id: "address-town",
+                        name: "address-town"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                            text: "Postcode"
+                        },
+                        classes: "govuk-input--width-10",
+                        id: "address-postcode",
+                        name: "address-postcode"
+                    }) }}
+                {% endcall %}
+
+                {% include './includes/contacts-and-address.html' %}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+
