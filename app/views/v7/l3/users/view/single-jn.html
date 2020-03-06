@@ -1,0 +1,157 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    User details - {{ data['user-first-name'] }} {{ data['user-last-name'] }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">
+                User details
+            </h1>
+
+            {% set userStatus %}
+                {% if data['user-first-name'] and data['user-last-name'] %}
+                    Invite sent
+                {% else %}
+                    Active
+                {% endif %}
+            {% endset %}
+
+            {% set userCreated %}
+                {% if data['user-first-name'] and data['user-last-name'] %}
+                    <div id="current-time"></div>
+                {% else %}
+                    9 April 1982, 7:52pm
+                {% endif %}
+            {% endset %}
+
+            {{ govukSummaryList({
+                rows: [
+                    {
+                        key: {
+                            text: "Name"
+                        },
+                        value: {
+                            text: "Jon Newsome"
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Email address"
+                        },
+                        value: {
+                            html: "jon.newsome@" + data['prototype-organisation-machine']
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Organisation"
+                        },
+                        value: {
+                            html: data['prototype-organisation']
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Status"
+                        },
+                        value: {
+                            text: "Access expired: more than 28 days since last sign in"
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Last logged in"
+                        },
+                        value: {
+                            html: '21 October 2019'
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Created"
+                        },
+                        value: {
+                            html: userCreated
+                        }
+                    }
+                ]
+            }) }}
+
+            <form id="form" method="post" action="edit-branch">
+                {{ govukRadios({
+                    classes: "govuk-radios",
+                    idPrefix: "user-task",
+                    name: "user-task",
+                    fieldset: {
+                        legend: {
+                            text: "Change user's status",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--m"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "restore",
+                            text: "Restore access"
+                        },
+                        {
+                            value: "delete",
+                            text: "Delete Jacob Burns"
+                        }
+                    ]
+                }) }}
+
+                <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">
+                    Continue
+                </button>
+            </form>
+
+            <p class="govuk-!-margin-top-9">
+                <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var currentDateElem = document.getElementById('current-time');
+
+        //9 April 1982, 7:52pm
+        var currentDate = new Date();
+        var currentDay = currentDate.getDate();
+        var currentMonth = currentDate.getMonth();
+        var currentYear = currentDate.getFullYear();
+        var currentHour = currentDate.getHours();
+        var currentMinutes = currentDate.getMinutes();
+        var currentTimeOfDay = (currentDate.getHours() < 12) ? 'am' : 'pm';
+
+        var months = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'Spetember',
+            'October',
+            'November',
+            'December'
+        ];
+
+        var currentStamp = currentDay + ' ' + months[currentMonth] + ' ' + currentYear + ', ' + currentHour + ':' + currentMinutes + currentTimeOfDay;
+
+        currentDateElem.innerHTML = currentStamp;
+    </script>
+{% endblock %}
