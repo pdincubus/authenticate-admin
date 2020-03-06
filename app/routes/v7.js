@@ -222,6 +222,16 @@ router.post('/l2/users/view/edit-branch', function (req, res) {
     }
 });
 
+router.post('/l3/users/view/edit-branch', function (req, res) {
+    const editChoice = req.session.data['user-task'];
+
+    if (editChoice === 'restore') {
+        res.redirect(`/${verNum}/l3/users/edit/restore`);
+    } else if (editChoice === 'delete') {
+        res.redirect(`/${verNum}/l3/users/edit/delete-check`);
+    }
+});
+
 router.post('/l2/users/edit/delete-branch', function (req, res) {
     const deleteChoice = req.session.data['delete-check'];
 
