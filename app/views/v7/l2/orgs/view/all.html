@@ -50,28 +50,13 @@
                             </td>
 
                             <td class="govuk-table__cell">
-                                {% if not data['contact-1-first-name'] and not data['contact-2-first-name'] and not data['address-line-1'] %}
-                                    <a href="../add/inactive-until-updated" class="govuk-link">
-                                        Complete details
-                                    </a>
-                                {% elseif not data['contact-1-first-name'] and not data['contact-2-first-name'] and data['address-line-1'] %}
-                                    <a href="../add/inactive-until-updated" class="govuk-link">
-                                        Add contacts
-                                    </a>
-                                {% elseif data['contact-1-first-name'] and data['contact-2-first-name'] and not data['address-line-1'] %}
-                                    <a href="../add/inactive-until-updated" class="govuk-link">
-                                        Complete details
-                                    </a>
-                                {% elseif data['contact-1-first-name'] and not data['contact-2-first-name'] and not data['address-line-1'] %}
-                                    <a href="../add/inactive-until-updated" class="govuk-link">
-                                        Complete details
-                                    </a>
-                                {% elseif data['user-first-name'] and data['user-last-name'] %}
+                                
+                                {% if data['user-first-name'] and data['user-last-name'] %}
                                     <a href="../../users/view/custom" class="govuk-link">
                                         View user
                                     </a>
                                 {% else %}
-                                    <a href="../../users/add/custom" class="govuk-link">
+                                    <a href="../../users/add/details" class="govuk-link">
                                         Add user
                                     </a>
                                 {% endif %}
