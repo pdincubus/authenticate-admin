@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Users - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+
+    {% if data['filter-users-status'] | lower == 'active' %}
+        <script>
+            window.location.href = 'filtered-active'
+        </script>
+    {% endif %}
+
+    {% if data['filter-users-status'] | lower == 'invite-expired' %}
+        <script>
+            window.location.href = 'filtered-invite-expired'
+        </script>
+    {% endif %}
+
+    {% if data['filter-users-status'] | lower == 'invite-sent' %}
+        <script>
+            window.location.href = 'filtered-invite-sent'
+        </script>
+    {% endif %}
+
+
+    {% include "../includes/user-view-heading-add-search.html" %}
+
+  
+
+    <div class="govuk-grid-row filter-block">
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="sort">
+                Filter users by status
+            </label>
+
+        
+            <form action="/v7/l3/users/view/sorted/filtered-access-expired" method="post" class="form">
+                <select class="govuk-select govuk-!-margin-right-1" id="filter-users-status" name="filter-users-status">
+                    <option value="all-statuses">All statuses</option>
+                    <option value="access-expired" selected>Access expired</option>
+                    <option value="active">Active</option>
+                    <option value="invite-expired">Invite expired</option>
+                    <option value="invite-sent">Invite sent</option>
+                </select>
+
+                <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+                    Update
+                </button>
+            
+
+                <a class="govuk-button govuk-button--secondary" data-module="govuk-button" href="../all" >
+                    Clear
+                </a>
+            
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <p class="govuk-body" style="margin-top:-25px">Showing <strong>3 Access expired</strong> users</p>
+
+    <table class="govuk-table">
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third">
+                    <button type="button" class="sort-header-toggle sorted-descending" onclick="window.location.href='#'">
+                        Name
+                    </button>
+                </th>
+                <th scope="col" class="govuk-table__header">
+                    <button type="button" class="sort-header-toggle" onclick="window.location.href='#'">
+                        Email address
+                    </button>
+                </th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">
+                    Status 
+                </th>
+            </tr>
+        </thead>
+
+        
+
+        <tbody class="govuk-table__body">
+          
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">David Batty</a></th>
+                <td class="govuk-table__cell">david.batty@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Access expired</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Gary Speed</a></th>
+                <td class="govuk-table__cell">gary.speed@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Access expired</td>
+            </tr>
+
+             <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single-jn" class="govuk-link">Jon Newsome</a></th>
+                <td class="govuk-table__cell">jon.newsome@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Access expired</td>
+            </tr>
+
+           
+        </tbody>
+    </table>
+
+
+
+    <p class="govuk-!-margin-top-9">
+        <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
+    </p>
+{% endblock %}

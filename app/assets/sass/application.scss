@@ -355,7 +355,7 @@ a.pagination__link:focus {
  * Autocomplete stuff
  */
 .autocomplete__wrapper {
-    width: 50%;
+    width: 100%;
 }
 
 .autocomplete__option {
@@ -733,6 +733,18 @@ p.govuk-filter-reset {
     border-top: 8px solid $govuk-link-colour;
 }
 
+.autocomplete__hint,
+.autocomplete__input {
+    width: 150%
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-.autocomplete__hint,.autocomplete__input{width:150%}
+body > .govuk-header + .govuk-width-container {
+    flex: 1 1 100%;
+    width: 100%;
+}

@@ -1,0 +1,196 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Users - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+
+  
+
+
+    {% include "../includes/user-view-heading-add-search.html" %}
+
+    <div class="govuk-grid-row filter-block">
+    <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="sort">
+            Filter users by status
+        </label>
+
+       
+        <form action="/v7/l3/users/view/sorted/filtered-access-expired" method="post" class="form">
+            <select class="govuk-select govuk-!-margin-right-1" id="filter-users-status" name="filter-users-status">
+                <option value="all-statuses">All statuses</option>
+                <option value="access-expired">Access expired</option>
+                <option value="active" selected>Active</option>
+                <option value="invite-expired">Invite expired</option>
+                <option value="invite-sent">Invite sent</option>
+            </select>
+
+            <button class="govuk-button govuk-!-margin-right-1" data-module="govuk-button">
+                Update
+            </button>
+        
+
+            <a class="govuk-button govuk-button--secondary" data-module="govuk-button" href="../all" >
+                Clear
+            </a>
+        
+        </form>
+    </div>
+</div>
+
+    <p class="govuk-body" style="margin-top:-25px">Showing <strong>18 Active</strong> users</p>
+
+    <table class="govuk-table">
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header govuk-!-width-one-third">
+                    <button type="button" class="sort-header-toggle sorted-descending" onclick="window.location.href='#'">
+                        Name
+                    </button>
+                </th>
+                <th scope="col" class="govuk-table__header">
+                    <button type="button" class="sort-header-toggle" onclick="window.location.href='#'">
+                        Email address
+                    </button>
+                </th>
+                <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">
+                    Status 
+                </th>
+            </tr>
+        </thead>
+
+        
+
+        <tbody class="govuk-table__body">
+          
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Adam Bucknall</a></th>
+                <td class="govuk-table__cell">adam.bucknall@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Amy Smith</a></th>
+                <td class="govuk-table__cell">amy.smith@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Andy Dawson</a></th>
+                <td class="govuk-table__cell">andy.dawson@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+
+             <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Barry Holmes</a></th>
+                <td class="govuk-table__cell">barry.holmes@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Ben Todd</a></th>
+                <td class="govuk-table__cell">ben.todd@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Carol Adams</a></th>
+                <td class="govuk-table__cell">carol.adams@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Chris Fairclough</a></th>
+                <td class="govuk-table__cell">chris.fairclough@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Gabby Dyche</a></th>
+                <td class="govuk-table__cell">gabby.dyche@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Gary McAllister</a></th>
+                <td class="govuk-table__cell">gary.mcallister@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Haroon Latif</a></th>
+                <td class="govuk-table__cell">haroon.latif@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell ">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single-jb" class="govuk-link">Jacob Burns</a></th>
+                <td class="govuk-table__cell">jacob.burns@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell ">Active</td>
+            </tr>
+
+             <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Jenny Clarkson</a></th>
+                <td class="govuk-table__cell">jenny.clarkson@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell ">Active</td>
+            </tr>
+
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">John Lukic</a></th>
+                <td class="govuk-table__cell">john.lukic@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell ">Active</td>
+            </tr>
+
+
+               <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Lee Chapman</a></th>
+                <td class="govuk-table__cell">lee.chapman@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Mel Sterland</a></th>
+                <td class="govuk-table__cell">mel.sterland@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Rod Wallace</a></th>
+                <td class="govuk-table__cell">rod.wallace@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Steve Hodge</a></th>
+                <td class="govuk-table__cell">steve.hodge@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell ">Active</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="../single" class="govuk-link">Tony Dorigo</a></th>
+                <td class="govuk-table__cell">tony.dorigo@{{ data['prototype-organisation-machine'] }}</td>
+                <td class="govuk-table__cell">Active</td>
+            </tr>
+
+           
+        </tbody>
+    </table>
+
+ 
+
+    <p class="govuk-!-margin-top-9">
+        <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
+    </p>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Sign in - {{ data['prototype-service'] }}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <form action="signin-branch" method="post">
+        {{ govukFieldset({
+            legend: {
+                html: 'Sign in through DWP Authenticate',
+                classes: "govuk-fieldset__legend--l",
+                isPageHeading: true
+            }
+        })}}
+
+        <p>To use <strong>{{ data['prototype-service'] }}</strong>, you need to prove it's you signing in.</p>
+
+        {{ govukInput({
+            label: {
+                text: "Email address"
+            },
+            id: "email-address",
+            name: "email-address",
+            classes: "govuk-!-width-one-half",
+            type: "email"
+        }) }}
+
+        {{ govukInput({
+            label: {
+                text: "Password"
+            },
+            id: "user-password",
+            name: "user-password",
+            classes: "govuk-!-width-one-half",
+            type: "password"
+        }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+        <h2 class="govuk-heading-m">Problems signing in</h2>
+
+        <ul class="govuk-list signin">
+            <li>
+                <a href="./users/reset-password/start" class="govuk-link">I forgot my password</a>
+            </li>
+
+                <details class="govuk-details" data-module="govuk-details">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                            Other problems
+                        </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        If you have a problem that is not a forgotten password, email
+
+                        {% if data['prototype-service'] == "HTDS" %}
+                            <a href="mailto:htds.support@dwp.gsi.gov.uk" class="govuk-link">htds.support@dwp.gsi.gov.uk</a>
+                        {% elseif data['prototype-service'] == "PRaP" %}
+                            <a href="mailto:prap.support@dwp.gsi.gov.uk" class="govuk-link">prap.support@dwp.gsi.gov.uk</a>
+                        {% elseif data['prototype-service'] == "ESF" %}
+                            <a href="mailto:prap.support@dwp.gsi.gov.uk" class="govuk-link">esf.support@dwp.gsi.gov.uk</a>
+                        {% endif %}
+                    </div>
+                </details>
+        </ul>
+    </form>
+{% endblock %}

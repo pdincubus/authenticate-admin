@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Invitation re-sent
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukPanel({
+                titleText: "Invitation re-sent",
+                 html: "New invitation sent to " + data['user-first-name'] + " " + data['user-last-name']
+            }) }}
+
+            <p><a href="../../dashboard" class="govuk-link">Back to dashboard</a></p>
+        </div>
+    </div>
+{% endblock %}
+

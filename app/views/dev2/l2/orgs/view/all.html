@@ -36,9 +36,7 @@
                     {% if data['organisation-name-custom'] %}
                         <tr class="govuk-table__row">
                             <th scope="row" class="govuk-table__header">
-                                <a href="custom" class="govuk-link">
-                                    {{ data['organisation-name-custom'] }}
-                                </a>
+                                {{ data['organisation-name-custom'] }}
                             </th>
 
                             <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -50,28 +48,12 @@
                             </td>
 
                             <td class="govuk-table__cell">
-                                {% if not data['contact-1-first-name'] and not data['contact-2-first-name'] and not data['address-line-1'] %}
-                                    <a href="../add/inactive-until-updated" class="govuk-link">
-                                        Complete details
-                                    </a>
-                                {% elseif not data['contact-1-first-name'] and not data['contact-2-first-name'] and data['address-line-1'] %}
-                                    <a href="../add/inactive-until-updated" class="govuk-link">
-                                        Add contacts
-                                    </a>
-                                {% elseif data['contact-1-first-name'] and data['contact-2-first-name'] and not data['address-line-1'] %}
-                                    <a href="../add/inactive-until-updated" class="govuk-link">
-                                        Complete details
-                                    </a>
-                                {% elseif data['contact-1-first-name'] and not data['contact-2-first-name'] and not data['address-line-1'] %}
-                                    <a href="../add/inactive-until-updated" class="govuk-link">
-                                        Complete details
-                                    </a>
-                                {% elseif data['user-first-name'] and data['user-last-name'] %}
-                                    <a href="../../users/view/custom" class="govuk-link">
+                                {% if data['user-first-name'] and data['user-last-name'] %}
+                                    <a href="../../users/view/details" class="govuk-link">
                                         View user
                                     </a>
                                 {% else %}
-                                    <a href="../../users/add/custom" class="govuk-link">
+                                    <a href="../../users/add/details" class="govuk-link">
                                         Add user
                                     </a>
                                 {% endif %}
@@ -81,9 +63,7 @@
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="capita" class="govuk-link">
-                                Capita
-                            </a>
+                            Capita
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -101,9 +81,7 @@
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="dwp" class="govuk-link">
-                                DWP
-                            </a>
+                            DWP
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -121,9 +99,7 @@
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="g4s" class="govuk-link">
-                                G4S
-                            </a>
+                            G4S
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -141,9 +117,7 @@
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="croydon" class="govuk-link">
-                                London Borough of Croydon Council
-                            </a>
+                            London Borough of Croydon Council
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -161,9 +135,7 @@
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="remploy" class="govuk-link">
-                                Remploy
-                            </a>
+                            Remploy
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -182,9 +154,7 @@
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="serco" class="govuk-link">
-                                Serco
-                            </a>
+                            Serco
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell--numeric">

@@ -11,15 +11,22 @@
 
 {% block content %}
 
-    {% include "./includes/user-view-heading-add-search.html" %}
-        
+    <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+                <h1 class="govuk-heading-l listing-page">Users</h1>
+                <a href="/dev2/l2/users/add/start" class="govuk-button listing-page">
+                    Add a user
+                </a>
+            </div>
+        </div>
+
         {% include "./includes/user-view-filters.html" %}
 
     <table class="govuk-table">
         {% include "./includes/user-view-table-head.html" %}
 
         <tbody class="govuk-table__body">
-            
+
 
                <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Deborah Smith</a></th>
@@ -57,7 +64,7 @@
                 <td class="govuk-table__cell">Active</td>
             </tr>
 
-            
+
 
             <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Edward Gray</a></th>
