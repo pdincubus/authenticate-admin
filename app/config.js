@@ -4,7 +4,7 @@
 
 module.exports = {
   // Service name used in header. Eg: 'Renew your passport'
-  serviceName: 'DWP Authenticate',
+  serviceName: 'DWP Authenticate admin portal',
 
   // Default port that prototype runs on
   port: '3000',

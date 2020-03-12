@@ -7,11 +7,11 @@
 {% block header %}
     <header class="govuk-header" role="banner" data-module="govuk-header">
         <div class="govuk-header__container govuk-width-container">
-            <div class="govuk-header__logo">
+            <div class="govuk-header__logo" style="width:50%">
                 <a href="/" class="govuk-header__link govuk-header__link--homepage">
                     <span class="govuk-header__logotype">
                         <span class="govuk-header__logotype-text">
-                            {{serviceName}}
+                            DWP Authenticate admin portal
                         </span>
                     </span>
                 </a>
@@ -24,13 +24,12 @@
     <form action="signin-branch" method="post">
         {{ govukFieldset({
             legend: {
-                html: 'Sign in through DWP Authenticate',
+                html: 'Sign in',
                 classes: "govuk-fieldset__legend--l",
                 isPageHeading: true
             }
         })}}
 
-        <p>To use <strong>{{ data['prototype-service'] }}</strong>, you need to prove it's you signing in.</p>
 
         {{ govukInput({
             label: {
