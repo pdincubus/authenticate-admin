@@ -7,11 +7,11 @@
 {% block header %}
     <header class="govuk-header" role="banner" data-module="govuk-header">
         <div class="govuk-header__container govuk-width-container">
-            <div class="govuk-header__logo">
+            <div class="govuk-header__logo" style="width:50%">
                 <a href="/" class="govuk-header__link govuk-header__link--homepage">
                     <span class="govuk-header__logotype">
                         <span class="govuk-header__logotype-text">
-                            {{serviceName}}
+                            DWP Authenticate: {{ data['prototype-service'] }}
                         </span>
                     </span>
                 </a>
@@ -51,7 +51,10 @@
 
         {{ govukDetails({
             summaryText: "This isn't the right phone number",
-            text: "lorem ipsum dolor sit amet, consectetur adepiscing"
+            html: 'Email <a href="mailto:support@support.com">service support team</a>, if you need the code sent to a new number.'
         }) }}
+
+
+      
     </form>
 {% endblock %}
