@@ -49,9 +49,9 @@
         <p><a href="signin-resend" class="govuk-link">I didn't receive a code</a></p>
 
 
-        {{ govukDetails({
+       {{ govukDetails({
             summaryText: "This isn't the right phone number",
-            text: "lorem ipsum dolor sit amet, consectetur adepiscing"
+            html: 'Email <a href="mailto:support@support.com">service support team</a>, if you need the code sent to a new number.'
         }) }}
     </form>
 {% endblock %}
