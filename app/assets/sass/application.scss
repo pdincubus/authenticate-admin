@@ -738,7 +738,7 @@ p.govuk-filter-reset {
     width: 150%
 }
 
-body {
+/*body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -747,8 +747,8 @@ body {
 body > .govuk-header + .govuk-width-container {
     flex: 1 1 100%;
     width: 100%;
-}
+}*/
 
-.govuk-header__logotype{
+.govuk-header__logotype {
     width:150% !important;
 }
