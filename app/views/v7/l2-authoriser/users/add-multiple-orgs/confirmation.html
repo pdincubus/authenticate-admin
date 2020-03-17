@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    User added - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    {% set panelTitle %}
+        {% if data["user-access-rights"] == 'admin' %}
+            Admin added
+        {% else %}
+            User added
+        {% endif %}
+    {% endset %}
+
+    {% set panelContent %}
+            {{ data["user-first-name"] }} {{ data['user-last-name'] }} added to {{ data["organisation-name-existing"] }}, {{ data["organisation-name-existing-2"] }}, {{ data["organisation-name-existing-3"] }}
+    {% endset %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukPanel({
+                titleText: panelTitle,
+                html: panelContent
+            }) }}
+
+            
+            <p>An invitation has been sent to {{data['user-email-address']}}</p>
+
+            <p>They have 72 hours to accept the invite.</p>
+
+            <p>
+               
+                    <a href="start" class="govuk-link">
+                        Add another user
+                    </a>
+            </p>
+
+            <p>
+                <a href="../../dashboard" class="govuk-link">
+                    Back to dashboard
+                </a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

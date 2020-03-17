@@ -1,0 +1,247 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Users - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-width-container">
+
+        {% include "./includes/user-view-heading-add-search.html" %}
+        
+        {% include "./includes/user-view-filters.html" %}
+
+        <table class="govuk-table">
+            
+            
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">
+                        <button type="button" class="sort-header-toggle sorted-descending" onclick="window.location.href='sorted/all-by-name-reverse'">
+                            Name
+                        </button>
+                    </th>
+                    <th scope="col" class="govuk-table__header">
+                        <button type="button" class="sort-header-toggle" onclick="window.location.href='sorted/all-by-org'">
+                            Organisation
+                        </button>
+                    </th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">
+                        <button type="button" class="sort-header-toggle" onclick="window.location.href='sorted/all-by-status'">
+                            Status
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+
+
+
+
+            <tbody class="govuk-table__body">
+                {% if data["user-first-name"] and data["user-last-name"] %}
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="single" class="govuk-link">
+                                {{ data["user-first-name"] + ' ' + data["user-last-name"] }}
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell">
+                            {{ data['organisation-name'] }}
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            Invite sent
+                        </td>
+                    </tr>
+                {% endif %}
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Abby Hammond</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Abigail Clancy</a></th>
+                    <td class="govuk-table__cell">Remploy</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Adam McCluskey</a></th>
+                    <td class="govuk-table__cell">G4S</td>
+                    <td class="govuk-table__cell">Invite sent</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Allan Clarke</a></th>
+                    <td class="govuk-table__cell">Serco</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Albert Morris</a></th>
+                    <td class="govuk-table__cell">London Borough of Croydon Council</td>
+                    <td class="govuk-table__cell">Access expired</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Alf Masser</a></th>
+                    <td class="govuk-table__cell">London Borough of Croydon Council</td>
+                    <td class="govuk-table__cell ">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Ali Hamidi</a></th>
+                    <td class="govuk-table__cell">G4S</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Amy Whitlow</a></th>
+                    <td class="govuk-table__cell">Remploy</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Andrew Weatherall</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell">Invite sent</td>
+                </tr>
+
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Andy Radrizzani</a></th>
+                    <td class="govuk-table__cell">London Borough of Croydon Council</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">April Vokey</a></th>
+                    <td class="govuk-table__cell">G4S</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Bella White</a></th>
+                    <td class="govuk-table__cell">Serco</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+
+                 <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Ben Jarvis</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Ben Smith</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Ben Jones</a></th>
+                    <td class="govuk-table__cell">Capita</td>
+                    <td class="govuk-table__cell">Invite sent</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Bill Fotherby</a></th>
+                    <td class="govuk-table__cell">Remploy</td>
+                    <td class="govuk-table__cell">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Bob Nudd</a></th>
+                    <td class="govuk-table__cell">G4S</td>
+                    <td class="govuk-table__cell ">Active</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Brenda Charles</a></th>
+                    <td class="govuk-table__cell">G4S</td>
+                    <td class="govuk-table__cell ">Active</td>
+                </tr>
+
+                 <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Brian Smith</a></th>
+                    <td class="govuk-table__cell">Serco</td>
+                    <td class="govuk-table__cell ">Active</td>
+                </tr>
+
+                 <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header"><a href="single" class="govuk-link">Bruce Sanders</a></th>
+                    <td class="govuk-table__cell">G4S</td>
+                    <td class="govuk-table__cell ">Active</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <nav role="navigation" aria-label="Pagination">
+            <div class="pagination__summary">
+                Showing 1 &ndash; 20 of 154 users
+            </div>
+
+            <ul class="pagination">
+                <li class="pagination__item">
+                    <span class="pagination__link disabled" aria-label="Previous page">
+                        <span aria-hidden="true" role="presentation">&laquo;</span> Previous
+                    </span>
+                </li>
+
+                <li class="pagination__item">
+                    <span class="pagination__link current" aria-label="Page 1">1</span>
+                </li>
+
+                <li class="pagination__item">
+                    <a class="pagination__link" href="all-2" aria-label="Page 2">2</a>
+                </li>
+
+                <li class="pagination__item">
+                    <a class="pagination__link" href="all-3" aria-label="Page 3">3</a>
+                </li>
+
+                <li class="pagination__item">
+                    <a class="pagination__link" href="all-4" aria-label="Page 4">4</a>
+                </li>
+
+                <li class="pagination__item">
+                    <a class="pagination__link" href="all-5"  aria-label="Page 5">5</a>
+                </li>
+
+                <li class="pagination__item">
+                    <a class="pagination__link" href="all-6" aria-label="Page 6">6</a>
+                </li>
+
+                <li class="pagination__item">
+                    <a class="pagination__link" href="all-7" aria-label="Page 7">7</a>
+                </li>
+
+                <li class="pagination__item">
+                    <a class="pagination__link" href="all-8" aria-label="Page 8">8</a>
+                </li>
+
+                <li class="pagination__item">
+                    <a class="pagination__link" href="all-2" aria-label="Next page">
+                        Next <span aria-hidden="true" role="presentation">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <p class="govuk-!-margin-top-9">
+            <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
+        </p>
+    </div>
+{% endblock %}

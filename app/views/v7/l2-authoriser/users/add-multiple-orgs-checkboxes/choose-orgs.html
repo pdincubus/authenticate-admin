@@ -1,0 +1,315 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add new user - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+ 
+
+            <form action="confirmation" method="post" class="form">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            <span class="govuk-caption-l">Add a user</span>Which organisations does {{ data['user-first-name'] }} {{ data['user-last-name'] }} belong to?
+                        </h1>
+                    </legend>
+                    <p class="govuk-hint govuk-!-margin-bottom-6">Select all that apply</p>
+
+                        {{ govukCheckboxes({
+                        idPrefix: "organisations",
+                        name: "organisations",
+                        
+                        items: [
+                            {
+                            value: "A4E",
+                            text: "A4E",
+                            checked: checked("organisations", "A4E")
+                            },
+                            {
+                            value: "Advance Housing",
+                            text: "Advance Housing",
+                            checked: checked("organisations", "Advance Housing")
+                            },
+                            {
+                            value: "APM",
+                            text: "APM",
+                            checked: checked("organisations", "APM")
+                            },
+                            {
+                            value: "Avanta",
+                            text: "Avanta",
+                            checked: checked("organisations", "Avanta")
+                            },
+                            {
+                            value: "Brighton and Hove Council",
+                            text: "Brighton and Hove Council",
+                            checked: checked("organisations", "Brighton and Hove Council")
+                            },
+                            {
+                            value: "Business Sense Associates",
+                            text: "Business Sense Associates",
+                            checked: checked("organisations", "Business Sense Associates")
+                            },
+                            {
+                            value: "CDG Wise Ability",
+                            text: "CDG Wise Ability",
+                            checked: checked("organisations", "CDG Wise Ability")
+                            },
+                            {
+                            value: "Cheshire West and Chester Council",
+                            text: "Cheshire West and Chester Council",
+                            checked: checked("organisations", "Cheshire West and Chester Council")
+                            },
+                            {
+                            value: "Cumbria Chambers of Commerce",
+                            text: "Cumbria Chambers of Commerce",
+                            checked: checked("organisations", "Cumbria Chambers of Commerce")
+                            },
+                            {
+                            value: "Doncaster Deaf Trust",
+                            text: "Doncaster Deaf Trust",
+                            checked: checked("organisations", "Doncaster Deaf Trust")
+                            },
+                            {
+                            value: "DWP",
+                            text: "DWP",
+                            checked: checked("organisations", "DWP")
+                            },
+                            {
+                            value: "Economic Solutions",
+                            text: "Economic Solutions",
+                            checked: checked("organisations", "Economic Solutions")
+                            },
+                            {
+                            value: "EOS",
+                            text: "EOS",
+                            checked: checked("organisations", "EOS")
+                            },
+                            {
+                            value: "ESG Holdings",
+                            text: "ESG Holdings",
+                            checked: checked("organisations", "ESG Holdings")
+                            },
+                            {
+                            value: "Fedcap",
+                            text: "Fedcap",
+                            checked: checked("organisations", "Fedcap")
+                            },
+                            {
+                            value: "G4S",
+                            text: "G4S",
+                            checked: checked("organisations", "G4S")
+                            },
+                            {
+                            value: "Gateshead Trading",
+                            text: "Gateshead Trading",
+                            checked: checked("organisations", "Gateshead Trading")
+                            },
+                            {
+                            value: "GC Employment",
+                            text: "GC Employment",
+                            checked: checked("organisations", "GC Employment")
+                            },
+                            {
+                            value: "Gloucestershire Enterprise",
+                            text: "Gloucestershire Enterprise",
+                            checked: checked("organisations", "Gloucestershire Enterprise")
+                            },
+                            {
+                            value: "Hertfordshire County Council",
+                            text: "Hertfordshire County Council",
+                            checked: checked("organisations", "Hertfordshire County Council")
+                            },
+                            {
+                            value: "Ingeus",
+                            text: "Ingeus",
+                            checked: checked("organisations", "Ingeus")
+                            },
+                            {
+                            value: "Interserve",
+                            text: "Interserve",
+                            checked: checked("organisations", "Interserve")
+                            },
+                            {
+                            value: "Intraining",
+                            text: "Intraining",
+                            checked: checked("organisations", "Intraining")
+                            },
+                             {
+                            value: "IXION",
+                            text: "IXION",
+                            checked: checked("organisations", "IXION")
+                            },
+                             {
+                            value: "JHP Group Ltd - Learn Direct",
+                            text: "JHP Group Ltd - Learn Direct",
+                            checked: checked("organisations", "JHP Group Ltd - Learn Direct")
+                            },
+                             {
+                            value: "Kennedy Scott",
+                            text: "Kennedy Scott",
+                            checked: checked("organisations", "Kennedy Scott")
+                            },
+                             {
+                            value: "Kent County Council",
+                            text: "Kent County Council",
+                            checked: checked("organisations", "Kent County Council")
+                            },
+                             {
+                            value: "London Borough of Croydon",
+                            text: "London Borough of Croydon",
+                            checked: checked("organisations", "London Borough of Croydon")
+                            },
+                             {
+                            value: "Maximus",
+                            text: "Maximus",
+                            checked: checked("organisations", "Maximus")
+                            },
+                             {
+                            value: "Momentum",
+                            text: "Momentum",
+                            checked: checked("organisations", "Momentum")
+                            },
+                             {
+                            value: "Newcastle College - Intraining",
+                            text: "Newcastle College - Intraining",
+                            checked: checked("organisations", "Newcastle College - Intraining")
+                            },
+                             {
+                            value: "PeoplePlus",
+                            text: "PeoplePlus",
+                            checked: checked("organisations", "PeoplePlus")
+                            },
+                             {
+                            value: "Pertemps",
+                            text: "Pertemps",
+                            checked: checked("organisations", "Pertemps")
+                            },
+                             {
+                            value: "Pinnacle People",
+                            text: "Pinnacle People",
+                            checked: checked("organisations", "Pinnacle People")
+                            },
+                             {
+                            value: "PLUSS Org",
+                            text: "PLUSS Org",
+                            checked: checked("organisations", "PLUSS Org")
+                            },
+                            {
+                            value: "Prospects Services Ltd",
+                            text: "Prospects Services Ltd",
+                            checked: checked("organisations", "Prospects Services Ltd")
+                            },
+                             {
+                            value: "RBLI",
+                            text: "RBLI",
+                            checked: checked("organisations", "RBLI")
+                            },
+                             {
+                            value: "Reed",
+                            text: "Reed",
+                            checked: checked("organisations", "Reed")
+                            },
+                             {
+                            value: "Rehab Jobfit",
+                            text: "Rehab Jobfit",
+                            checked: checked("organisations", "Rehad Jobfit")
+                            },
+                            {
+                            value: "Relate",
+                            text: "Relate",
+                            checked: checked("organisations", "Relate")
+                            },
+                             {
+                            value: "Remploy",
+                            text: "Remploy",
+                            checked: checked("organisations", "Remploy")
+                            },
+                             {
+                            value: "Royal National College for the Blind",
+                            text: "Royal National College for the Blind",
+                            checked: checked("organisations", "Royal National College for the Blind")
+                            },
+                             {
+                            value: "SEETEC",
+                            text: "SEETEC",
+                            checked: checked("organisations", "SEETEC")
+                            },
+                             {
+                            value: "Serco",
+                            text: "Serco",
+                            checked: checked("organisations", "Serco")
+                            },
+                            {
+                            value: "Shaw Trust",
+                            text: "Shaw Trust",
+                            checked: checked("organisations", "Shaw Trust")
+                            },
+                            {
+                            value: "Standguide",
+                            text: "Standguide",
+                            checked: checked("organisations", "Standguide")
+                            },
+                            {
+                            value: "Stockport Council Adult Social Care",
+                            text: "Stockport Council Adult Social Care",
+                            checked: checked("organisations", "Stockport Council Adult Social Care")
+                            },
+                            {
+                            value: "Tavistock Relationships",
+                            text: "Tavistock Relationships",
+                            checked: checked("organisations", "Tavistock Relationships")
+                            },
+                            {
+                            value: "Telford and Wrekin Council",
+                            text: "Telford and Wrekin Council",
+                            checked: checked("organisations", "Telford and Wrekin Council")
+                            },
+                            {
+                            value: "Twin Training International",
+                            text: "Twin Training International",
+                            checked: checked("organisations", "Twin Training International")
+                            },
+                            {
+                            value: "Working Links",
+                            text: "Working Links",
+                            checked: checked("organisations", "Working Links")
+                            }
+                        ]
+                        }) }}
+         
+                        {{ govukButton({
+                            text: "Continue"
+                        }) }}
+                </fieldset>
+            </form>
+
+
+            <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                The organisation I want is not on this list
+                </span>
+            </summary>
+            <div class="govuk-details__text">
+                You can an <a href="../../orgs/add/start">add an organisation</a> then add {{ data['user-first-name'] }} {{ data['user-last-name'] }} as a member later.
+            </div>
+            </details>
+              
+   
+        </div>
+    </div>
+{% endblock %}
+
+

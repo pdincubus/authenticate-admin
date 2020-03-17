@@ -331,6 +331,22 @@ router.post('/l2/signin-branch', function (req, res) {
     }
 });
 
+router.post('/l2-authoriser/signin-branch', function (req, res) {
+    if (req.session.data['prototype-mfa'] === 'single') {
+        res.redirect(`/${verNum}/l2-authoriser/dashboard`);
+    } else {
+        res.redirect(`/${verNum}/l2-authoriser/signin-code`);
+    }
+});
+
+router.post('/l2-requester/signin-branch', function (req, res) {
+    if (req.session.data['prototype-mfa'] === 'single') {
+        res.redirect(`/${verNum}/l2-requester/dashboard`);
+    } else {
+        res.redirect(`/${verNum}/l2-requester/signin-code`);
+    }
+});
+
 router.post('/l3/signin-branch', function (req, res) {
     if (req.session.data['prototype-mfa'] === 'single') {
         res.redirect(`/${verNum}/l3/dashboard`);
@@ -391,6 +407,12 @@ router.post('/index-check', function (req, res) {
             break;
         default:
             res.redirect(`/${verNum}/l2/email`);
+            break;
+        case 'l2-dashboard-requester':
+            res.redirect(`/${verNum}/l2-requester/email`);
+            break;
+        case 'l2-dashboard-authoriser':
+            res.redirect(`/${verNum}/l2-authoriser/email`);
             break;
     }
 });

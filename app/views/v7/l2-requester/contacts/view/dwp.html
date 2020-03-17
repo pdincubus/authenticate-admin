@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+   Contacts - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-width-container">
+        <h1 class="govuk-heading-l listing-page">
+            <span class="govuk-caption-l">DWP</span>
+            Contacts
+        </h1>
+
+        <a href="../../contacts/add/details-custom" class="govuk-button listing-page">
+            Add a contact
+        </a>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Name</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Email address</th>
+                    <th scope="col" class="govuk-table__header">Telephone number</th>
+                </tr>
+            </thead>
+
+            <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                        <a href="single" class="govuk-link">
+                            David Hill
+                        </a>
+                    </th>
+
+                    <td class="govuk-table__cell">
+                        david.hill@dwp.gov.co.uk
+                    </td>
+
+                    <td class="govuk-table__cell">
+                        07767135435
+                    </td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                        <a href="single-2" class="govuk-link">
+                            Rick Smith
+                        </a>
+                    </th>
+
+                    <td class="govuk-table__cell">
+                        rick.smith@dwp.gov.uk
+                    </td>
+
+                    <td class="govuk-table__cell">
+                        07787655675
+                    </td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                        <a href="single-3" class="govuk-link">
+                            Amy Heath
+                        </a>
+                    </th>
+
+                    <td class="govuk-table__cell">
+                        amy.heath@dwp.gov.uk
+                    </td>
+
+                    <td class="govuk-table__cell">
+                        07763427836
+                    </td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">
+                        <a href="single-3" class="govuk-link">
+                            Simon Kenyon
+                        </a>
+                    </th>
+
+                    <td class="govuk-table__cell">
+                        simon.kenyon@dwp.gov.uk
+                    </td>
+
+                    <td class="govuk-table__cell">
+                        07787237356
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="govuk-!-margin-top-9">
+            <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
+        </p>
+    </div>
+{% endblock %}

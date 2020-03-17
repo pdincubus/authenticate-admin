@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Sign in - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    <header class="govuk-header" role="banner" data-module="govuk-header">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">
+                            {{serviceName}}
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <form action="signin-code" method="post">
+        {{ govukFieldset({
+            legend: {
+                html: 'Send me another text message',
+                classes: "govuk-fieldset__legend--l",
+                isPageHeading: true
+            }
+        })}}
+
+        <p>The text message will contain a new code.</p>
+        <p>If your previous text arrives later, the code in it won’t work.</p>
+        <p><a href="signin-code" class="govuk-button">Send new text message</a></p>
+    </form>
+{% endblock %}
