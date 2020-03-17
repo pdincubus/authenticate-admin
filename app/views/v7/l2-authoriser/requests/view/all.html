@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Organisations using {{ data['prototype-service'] }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-l listing-page">
+                Requests
+            </h1>
+
+
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Type</th>
+                        <th scope="col" class="govuk-table__header">Requester</th>
+                        <th scope="col" class="govuk-table__header">Date</th>
+                    </tr>
+                </thead>
+
+                <tbody class="govuk-table__body">
+      
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="single-new-user" class="govuk-link">
+                                New user
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell">
+                           David Smith
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            21 March 2020
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="#" class="govuk-link">
+                                New user
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell">
+                            Sarah Adams
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            20 March 2020
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="#" class="govuk-link">
+                                New organisation
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell">
+                           David Smith
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            19 March 2020
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="#" class="govuk-link">
+                                New user
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell">
+                            Dan Heath
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            19 March 2020
+                        </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="#" class="govuk-link">
+                                Delete user
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell">
+                            Dan Heath
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            19 March 2020
+                        </td>
+                    </tr>
+
+
+                    <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="#" class="govuk-link">
+                                Delete user
+                            </a>
+                        </th>
+
+                        <td class="govuk-table__cell govuk-table__cell">
+                            Dan Heath
+                        </td>
+
+                        <td class="govuk-table__cell">
+                            19 March 2020
+                        </td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+
+            <p class="govuk-!-margin-top-9">
+                <a href="../../dashboard" class="govuk-link">
+                    Back to dashboard
+                </a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

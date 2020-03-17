@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Add new organisation - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form id="form" method="post" action="address-branch">
+                {{ govukRadios({
+                    classes: "govuk-radios",
+                    idPrefix: "add-org-address",
+                    name: "add-org-address",
+                    fieldset: {
+                        legend: {
+                            html: '<span class="govuk-caption-l">Add an organisation</span>Do you want to add the organisation’s address now?',
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    hint: {
+                        text: "You will not be able to add users to this organisation until you add an address."
+                    },
+                    items: [
+                        {
+                            value: "yes",
+                            text: "Yes"
+                        },
+                        {
+                            value: "no",
+                            text: "No, add this later"
+                        }
+                    ]
+                }) }}
+
+                {% include './includes/contacts-and-address.html' %}
+
+                <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">
+                    Continue
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
