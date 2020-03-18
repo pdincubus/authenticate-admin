@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Delete user - {{ data['user-first-name'] }} {{ data['user-last-name'] }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form id="form" method="post" action="delete-confirm-jn">
+                {{ govukRadios({
+                    classes: "govuk-radios",
+                    idPrefix: "delete-check",
+                    name: "delete-check",
+                    fieldset: {
+                        legend: {
+                            text: "Are you sure you want to delete Jon Newsome",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    hint: {
+                        text: "They will lose their access to " + data['prototype-service'] + " if you delete them."
+                    },
+                    items: [
+                        {
+                            value: "yes",
+                            text: "Yes, delete the user"
+                        },
+                        {
+                            value: "no",
+                            text: "No"
+                        }
+                    ]
+                }) }}
+
+                <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">Continue</button>
+
+                <a href="../view/all" class="govuk-button govuk-button--secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}
