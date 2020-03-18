@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Suspend organisation - {{ data['organisation-name'] }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukPanel({
+                titleText: "New user request rejected"
+            }) }}
+
+            <p>A notification has been sent to the requester, David Smith.</p>
+
+            <p>Reason: {{ data["rejection-reason"] }}</p>
+
+            <p>
+                <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

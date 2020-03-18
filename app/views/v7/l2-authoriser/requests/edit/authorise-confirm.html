@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    New user authorised - {{ data['organisation-name'] }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+    {% set panelContent %}
+        Dave Evans added to {{ data["prototype-organisation"] }}
+    {% endset %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukPanel({
+                titleText: "New user request authorised",
+                html: panelContent
+            }) }}
+
+            <p>A notification has been sent to the requester, David Smith.</p>
+
+            <p>
+                <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
