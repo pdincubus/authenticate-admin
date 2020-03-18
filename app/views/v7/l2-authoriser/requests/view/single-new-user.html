@@ -42,7 +42,7 @@
                             text: "Name"
                         },
                         value: {
-                            text: data['user-first-name'] + " " + data['user-last-name']
+                            text: "Dave Evans"
                         }
                     },
                     {
@@ -50,7 +50,7 @@
                             text: "Email address"
                         },
                         value: {
-                            text: data['user-email-address']
+                            html: "dave.evans@" + data['prototype-organisation-machine']
                         }
                     },
                     {
@@ -58,56 +58,94 @@
                             text: "Organisation"
                         },
                         value: {
-                            text: data['organisation-name']
+                            html: data['prototype-organisation']
                         }
                     },
                     {
                         key: {
-                            text: "Status"
+                            text: "Admin portal user"
                         },
                         value: {
-                            html: userStatus
+                            text: "Yes"
                         }
                     },
                     {
                         key: {
-                            text: "Last logged in"
+                            text: "Access rights"
                         },
                         value: {
-                            html: '21 October 2019'
+                            text: "Level 3 Organisation Admin"
                         }
                     },
                     {
                         key: {
-                            text: "Created"
+                            text: "Job role"
                         },
                         value: {
-                            html: userCreated
+                            text: "Case worker"
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Staff ID"
+                        },
+                        value: {
+                            text: "248793"
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Supplier reference"
+                        },
+                        value: {
+                            html: data['prototype-organisation'] + " Newcastle"
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Requester"
+                        },
+                        value: {
+                            html: "David Smith"
                         }
                     }
                 ]
             }) }}
 
-            <form id="form" method="post" action="edit-branch">
+            <form id="form" method="post" action="authorise-branch">
+                 {% set rejectHtml %}
+                    {{ govukInput({
+                        id: "rejection-reason",
+                        name: "rejection-reason",
+                        classes: "govuk-!-width-two-thirds",
+                        label: {
+                            text: "Reason for rejection"
+                        }
+                    }) }}
+                {% endset -%}
+
                 {{ govukRadios({
                     classes: "govuk-radios",
-                    idPrefix: "user-task",
-                    name: "user-task",
+                    idPrefix: "authorise-request",
+                    name: "authorise-request",
                     fieldset: {
                         legend: {
-                            text: "Change user's status",
+                            text: "Authorise the request?",
                             isPageHeading: true,
                             classes: "govuk-fieldset__legend--m"
                         }
                     },
                     items: [
                         {
-                            value: "reinvite",
-                            text: "Resend invitation"
+                            value: "request-authorised",
+                            text: "Yes"
                         },
                         {
-                            value: "delete",
-                            text: "Delete " + data['user-first-name'] + " " + data['user-last-name']
+                            value: "request-rejected",
+                            text: "No, reject the request",
+                                    conditional: {
+                                html: rejectHtml
+                            }
                         }
                     ]
                 }) }}

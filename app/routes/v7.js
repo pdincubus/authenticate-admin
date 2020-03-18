@@ -222,6 +222,17 @@ router.post('/l2/users/view/edit-branch', function (req, res) {
     }
 });
 
+
+router.post('/l2-authoriser/requests/view/authorise-branch', function (req, res) {
+    const editChoice = req.session.data['authorise-request'];
+
+    if (editChoice === 'request-authorised') {
+        res.redirect(`/${verNum}/l2-authoriser/requests/edit/authorise-confirm`);
+    } else if (editChoice === 'request-rejected') {
+        res.redirect(`/${verNum}/l2-authoriser/requests/edit/reject-confirm`);
+    }
+});
+
 router.post('/l3/users/view/edit-branch', function (req, res) {
     const editChoice = req.session.data['user-task'];
 
