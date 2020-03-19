@@ -16,7 +16,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">
-                New user request
+                Request for new user
             </h1>
 
             {% set userStatus %}
@@ -63,18 +63,10 @@
                     },
                     {
                         key: {
-                            text: "Admin portal user"
+                            text: "Permissions"
                         },
                         value: {
-                            text: "Yes"
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Access rights"
-                        },
-                        value: {
-                            text: "Level 3 Organisation Admin"
+                            text: "Organisation Admin"
                         }
                     },
                     {
@@ -103,10 +95,10 @@
                     },
                     {
                         key: {
-                            text: "Requester"
+                            text: "Requested by"
                         },
                         value: {
-                            html: "David Smith"
+                            html: "Paul Smith"
                         }
                     }
                 ]
@@ -130,7 +122,7 @@
                     name: "authorise-request",
                     fieldset: {
                         legend: {
-                            text: "Authorise the request?",
+                            text: "Approve the request?",
                             isPageHeading: true,
                             classes: "govuk-fieldset__legend--m"
                         }

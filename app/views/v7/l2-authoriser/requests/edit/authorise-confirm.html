@@ -11,17 +11,17 @@
 {% block content %}
 
     {% set panelContent %}
-        Dave Evans added to {{ data["prototype-organisation"] }}
+        Dave Evans has been added to {{ data["prototype-organisation"] }}
     {% endset %}
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             {{ govukPanel({
-                titleText: "New user request authorised",
+                titleText: "Request for new user approved",
                 html: panelContent
             }) }}
 
-            <p>A notification has been sent to the requester, David Smith.</p>
+            <p>Paul Smith has been notified that their request has been approved.</p>
 
             <p>
                 <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
