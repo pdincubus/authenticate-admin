@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add new user - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+
+    {% set legendContent %}
+        <span class="govuk-caption-l">Add a user</span>What job role does the user perform?
+    {% endset %}
+    
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="supplier-ref" method="post" class="form">
+                
+
+                {{ govukCheckboxes({
+                    idPrefix: "roles",
+                    name: "roles",
+                    fieldset: {
+                        legend: {
+                        html: legendContent,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    hint: {
+                        text: "Select all that apply."
+                    },
+                    items: [
+                        {
+                        value: "admin",
+                        text: "Admin"
+                        },
+                        {
+                        value: "hcp",
+                        text: "HCP"
+                        },
+                        {
+                        value: "qhcp",
+                        text: "QHCP"
+                        },
+                        {
+                        value: "case-worker",
+                        text: "Case worker"
+                        },
+                        {
+                        value: "decision-maker",
+                        text: "Decision maker"
+                        },
+                        {
+                        value: "super-user",
+                        text: "Super user"
+                        }
+                    ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                <input type="hidden" id="organisation-name" name="organisation-name" value="{{ data['organisation-name-existing'] }}">
+            </form>
+        </div>
+    </div>
+{% endblock %}

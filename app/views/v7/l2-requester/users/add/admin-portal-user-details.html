@@ -61,6 +61,39 @@
                     classes: "govuk-!-width-three-quarters"
                 }) }}
 
+                {{ govukInput({
+                    label: {
+                        text: "Staff ID"
+                    },
+                    id: "staff-id",
+                    name: "staff-id",
+                    inputmode: "numeric",
+                    classes: "govuk-!-width-one-quarter"
+                }) }}
+
+                {{ govukRadios({
+                    classes: "govuk-radios",
+                    idPrefix: "admin-level",
+                    name: "admin-level",
+                    fieldset: {
+                        legend: {
+                        text: "Admin level",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--s"
+                        }
+                    },
+                    items: [
+                        {
+                        value: "l2",
+                        text: "Level 2 Service Admin"
+                        },
+                        {
+                        value: "l3",
+                        text: "Level 3 Organisation Admin"
+                        }
+                    ]
+                }) }}
+
                 {{ govukButton({
                     text: "Continue"
                 }) }}

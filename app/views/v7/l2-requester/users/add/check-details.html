@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    New user request 
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l"> <span class="govuk-caption-l">Add a user</span>
+                Check details
+            </h1>
+
+            <form action="confirmation" method="post" class="form">
+
+            {{ govukSummaryList({
+                rows: [
+                    {
+                        key: {
+                            text: "Name"
+                        },
+                        value: {
+                            text: " "
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Email address"
+                        },
+                        value: {
+                            html:  " "
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Organisation"
+                        },
+                        value: {
+                            html:  " "
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Access rights"
+                        },
+                        value: {
+                            text:  " "
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Job role"
+                        },
+                        value: {
+                            text:  " "
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Staff ID"
+                        },
+                        value: {
+                            text:  " "
+                        }
+                    },
+                    {
+                        key: {
+                            text: "Supplier reference"
+                        },
+                        value: {
+                            html:  " "
+                        }
+                    }
+                ]
+            }) }}
+
+           
+
+                <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">
+                    Continue
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var currentDateElem = document.getElementById('current-time');
+
+        //9 April 1982, 7:52pm
+        var currentDate = new Date();
+        var currentDay = currentDate.getDate();
+        var currentMonth = currentDate.getMonth();
+        var currentYear = currentDate.getFullYear();
+        var currentHour = currentDate.getHours();
+        var currentMinutes = currentDate.getMinutes();
+        var currentTimeOfDay = (currentDate.getHours() < 12) ? 'am' : 'pm';
+
+        var months = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'Spetember',
+            'October',
+            'November',
+            'December'
+        ];
+
+        var currentStamp = currentDay + ' ' + months[currentMonth] + ' ' + currentYear + ', ' + currentHour + ':' + currentMinutes + currentTimeOfDay;
+
+        currentDateElem.innerHTML = currentStamp;
+    </script>
+{% endblock %}
