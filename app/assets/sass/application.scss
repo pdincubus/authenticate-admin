@@ -573,6 +573,28 @@ p.govuk-filter-reset {
 
 .contains-remove-button {
     width: 75%;
+    min-height: 38px;
+    line-height: 38px;
+    margin-bottom: 10px;
+}
+
+.org-autocomplete,
+.govuk-autocomplete-block .autocomplete__input.autocomplete__input--default {
+    width: 75%;
+}
+
+@include govuk-media-query($until: tablet) {
+    .org-autocomplete,
+    .govuk-autocomplete-block .autocomplete__input.autocomplete__input--default {
+        width: 100%;
+    }
+}
+
+@include govuk-media-query($from: tablet) {
+    .org-autocomplete,
+    .govuk-autocomplete-block .autocomplete__input.autocomplete__input--default {
+        width: 75%;
+    }
 }
 
 /**
@@ -735,7 +757,7 @@ p.govuk-filter-reset {
 
 .autocomplete__hint,
 .autocomplete__input {
-    width: 150%
+    width: 150%;
 }
 
 /*body {

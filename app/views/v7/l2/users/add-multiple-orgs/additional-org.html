@@ -38,14 +38,15 @@
                             <span class="govuk-caption-l">Add a user</span>Which organisations does the user belong to?
                         </h1>
                     </legend>
-                    <p class="govuk-hint govuk-!-margin-bottom-6">You can add more than one organisation if you need to.</p>
 
-                        
-
+                    <p class="govuk-hint govuk-!-margin-bottom-6">
+                        You can add more than one organisation if you need to.
+                    </p>
 
                     <div class="govuk-form-group govuk-!-margin-bottom-9">
                         <h2 class="govuk-heading-s contains-remove-button">
-                            Organisation 
+                            Organisation
+
                             <button
                                 type="button"
                                 class="govuk-button govuk-button--secondary remove-button"
@@ -53,11 +54,12 @@
                                 Remove
                             </button>
                         </h2>
-                        <input class="govuk-input" id="event-name" name="event-name" type="text" style="width:472px" value="{{ data['organisation-name-existing'] }}">
+
+                        <input class="govuk-input org-autocomplete" id="event-name" name="event-name" type="text" value="{{ data['organisation-name-existing'] }}">
                     </div>
 
 
-                    <div class="govuk-form-group{% if data['org-error'] %} govuk-form-group--error{% endif %}">
+                    <div class="govuk-autocomplete-block govuk-form-group{% if data['org-error'] %} govuk-form-group--error{% endif %}">
                         {% if data['org-error'] %}
                         <span id="organisation-error-message" class="govuk-error-message">
                             <span class="govuk-visually-hidden">Error:</span> {{ errorSummaryMessage }}
@@ -91,22 +93,22 @@
                     </div>
 
                     {{ govukButton({
-                    text: "Add another",
-                    classes: "govuk-button--secondary"
+                        text: "Add another",
+                        classes: "govuk-button--secondary"
                     }) }}
                 </fieldset>
             </form>
 
-                <div class="govuk-!-margin-top-9">
-                    {{ govukButton({
-                        text: "Continue"
-                    }) }}
-                </div>
+            <div class="govuk-!-margin-top-9">
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </div>
 
-           <!-- 
+           <!--
             <ul class="govuk-list govuk-!-margin-top-6">
                 <li>
-                    <a href="../../orgs/add/start" class="govuk-link">Add an organisation</a> 
+                    <a href="../../orgs/add/start" class="govuk-link">Add an organisation</a>
                 </li>
                 <li>
                     <a href="../../orgs/view/all" class="govuk-link">View all organisations</a>
