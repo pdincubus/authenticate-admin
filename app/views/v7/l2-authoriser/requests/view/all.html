@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    Organisations using {{ data['prototype-service'] }}
+    Requests {{ data['prototype-service'] }}
 {% endblock %}
 
 {% block header %}
@@ -26,19 +26,27 @@
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
                         <th scope="col" class="govuk-table__header">Type</th>
+                        <th scope="col" class="govuk-table__header">Name</th>
                         <th scope="col" class="govuk-table__header">Requester</th>
                         <th scope="col" class="govuk-table__header">Date</th>
                     </tr>
                 </thead>
 
                 <tbody class="govuk-table__body">
-      
+
+                    {% if data['authorise-request'] %}
+                        
+                    {% else %}
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
                             <a href="single-new-user" class="govuk-link">
                                 New user
                             </a>
                         </th>
+
+                        <td class="govuk-table__cell govuk-table__cell">
+                           Dave Evans
+                        </td>
 
                         <td class="govuk-table__cell govuk-table__cell">
                            David Smith
@@ -48,6 +56,9 @@
                             21 March 2020
                         </td>
                     </tr>
+                    {% endif %}
+      
+                    
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
@@ -55,6 +66,10 @@
                                 New user
                             </a>
                         </th>
+
+                        <td class="govuk-table__cell govuk-table__cell">
+                           Amijit Bhoghal
+                        </td>
 
                         <td class="govuk-table__cell govuk-table__cell">
                             Sarah Adams
@@ -73,6 +88,10 @@
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell">
+                           Calderdale Metropolitan Borough Council
+                        </td>
+
+                        <td class="govuk-table__cell govuk-table__cell">
                            David Smith
                         </td>
 
@@ -89,6 +108,10 @@
                         </th>
 
                         <td class="govuk-table__cell govuk-table__cell">
+                           Susanna Reid
+                        </td>
+
+                        <td class="govuk-table__cell govuk-table__cell">
                             Dan Heath
                         </td>
 
@@ -103,6 +126,10 @@
                                 Delete user
                             </a>
                         </th>
+
+                        <td class="govuk-table__cell govuk-table__cell">
+                           Ben Walker
+                        </td>
 
                         <td class="govuk-table__cell govuk-table__cell">
                             Dan Heath
@@ -120,6 +147,11 @@
                                 Delete user
                             </a>
                         </th>
+
+                         <td class="govuk-table__cell govuk-table__cell">
+                           Emma Smith
+                        </td>
+
 
                         <td class="govuk-table__cell govuk-table__cell">
                             Dan Heath
