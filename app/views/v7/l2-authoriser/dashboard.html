@@ -19,7 +19,7 @@
         <p class="govuk-heading-xl govuk-!-margin-bottom-5">
             <span class="govuk-visually-hidden">There are currently</span>
 
-            {% if data['authorise-request'] or data['authorise-org-request'] %}
+            {% if data['authorise-request'] or data['authorise-org-request'] or data['authorise-delete-user-request'] %}
                 5
             {% else %}
                 6

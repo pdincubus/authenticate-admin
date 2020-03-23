@@ -37,25 +37,25 @@
                     {% if data['authorise-request'] %}
                         
                     {% else %}
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">
-                            <a href="single-new-user" class="govuk-link">
-                                New user
-                            </a>
-                        </th>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">
+                                <a href="single-new-user" class="govuk-link">
+                                    New user
+                                </a>
+                            </th>
 
-                        <td class="govuk-table__cell govuk-table__cell">
-                           Dave Evans
-                        </td>
+                            <td class="govuk-table__cell govuk-table__cell">
+                            Dave Evans
+                            </td>
 
-                        <td class="govuk-table__cell govuk-table__cell">
-                           David Smith
-                        </td>
+                            <td class="govuk-table__cell govuk-table__cell">
+                            David Smith
+                            </td>
 
-                        <td class="govuk-table__cell">
-                            21 March 2020
-                        </td>
-                    </tr>
+                            <td class="govuk-table__cell">
+                                21 March 2020
+                            </td>
+                        </tr>
                     {% endif %}
       
                     
@@ -130,30 +130,35 @@
                         </td>
                     </tr>
 
+
+                    {% if data['authorise-delete-user-request'] %}
+                        
+                    {% else %}
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">
+                                <a href="single-delete-user" class="govuk-link">
+                                    Delete user
+                                </a>
+                            </th>
+
+                            <td class="govuk-table__cell govuk-table__cell">
+                            Ben Walker
+                            </td>
+
+                            <td class="govuk-table__cell govuk-table__cell">
+                                Dan Heath
+                            </td>
+
+                            <td class="govuk-table__cell">
+                                19 March 2020
+                            </td>
+                        </tr>
+                    {% endif %}
+
+
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
-                            <a href="#" class="govuk-link">
-                                Delete user
-                            </a>
-                        </th>
-
-                        <td class="govuk-table__cell govuk-table__cell">
-                           Ben Walker
-                        </td>
-
-                        <td class="govuk-table__cell govuk-table__cell">
-                            Dan Heath
-                        </td>
-
-                        <td class="govuk-table__cell">
-                            19 March 2020
-                        </td>
-                    </tr>
-
-
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">
-                            <a href="#" class="govuk-link">
+                            <a href="single-delete-user" class="govuk-link">
                                 Delete user
                             </a>
                         </th>

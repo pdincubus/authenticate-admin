@@ -267,6 +267,26 @@ router.post('/l2-authoriser/requests/view/authorise-org-branch', function (req, 
     }
 });
 
+router.post('/l2-authoriser/requests/view/authorise-delete-user-branch', function (req, res) {
+    const editChoice = req.session.data['authorise-delete-user-request'];
+
+    if (editChoice === 'request-authorised') {
+        res.redirect(`/${verNum}/l2-authoriser/requests/edit/authorise-delete-user-check`);
+    } else if (editChoice === 'request-rejected') {
+        res.redirect(`/${verNum}/l2-authoriser/requests/edit/reject-delete-user-confirm`);
+    }
+});
+
+router.post('/l2-authoriser/requests/edit/authorise-delete-user-check-branch', function (req, res) {
+    const editChoice = req.session.data['authorise-delete-user-check'];
+
+    if (editChoice === 'authorise-delete-user-check-yes') {
+        res.redirect(`/${verNum}/l2-authoriser/requests/edit/authorise-delete-user-confirm`);
+    } else if (editChoice === 'authorise-delete-user-check-no') {
+        res.redirect(`/${verNum}/l2-authoriser/requests/view/single-delete-user`);
+    }
+});
+
 router.post('/l2-requester/users/add/admin-portal-branch', function (req, res) {
     const editChoice = req.session.data['admin-portal-user'];
 
