@@ -61,6 +61,16 @@
                     classes: "govuk-!-width-three-quarters"
                 }) }}
 
+                {{ govukInput({
+                    label: {
+                        text: "Staff ID"
+                    },
+                    id: "staff-id",
+                    name: "staff-id",
+                    inputmode: "numeric",
+                    classes: "govuk-!-width-one-quarter"
+                }) }}
+
                 {{ govukButton({
                     text: "Continue"
                 }) }}

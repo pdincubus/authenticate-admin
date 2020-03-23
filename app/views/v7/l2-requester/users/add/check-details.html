@@ -21,129 +21,105 @@
 
             <form action="confirmation" method="post" class="form">
 
-            {{ govukSummaryList({
-                rows: [
-                    {
-                        key: {
-                            text: "Name"
-                        },
-                        value: {
-                            text: data['user-first-name'] + " " + data['user-first-name']
-                        },
-                        actions: {
-                        items: [
-                            {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "name"
-                            }
-                        ]
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Email address"
-                        },
-                        value: {
-                            html:  data['user-email-address']
-                        },
-                        actions: {
-                        items: [
-                            {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "name"
-                            }
-                        ]
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Organisation"
-                        },
-                        value: {
-                            html:  data['organisation-name-existing']
-                        },
-                        actions: {
-                        items: [
-                            {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "name"
-                            }
-                        ]
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Permissions"
-                        },
-                        value: {
-                            text:  data['admin-level']
-                        },
-                        actions: {
-                        items: [
-                            {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "name"
-                            }
-                        ]
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Job role"
-                        },
-                        value: {
-                            text:  data['roles']
-                        },
-                        actions: {
-                        items: [
-                            {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "name"
-                            }
-                        ]
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Staff ID"
-                        },
-                        value: {
-                            text:  data['staff-id']
-                        },
-                        actions: {
-                        items: [
-                            {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "name"
-                            }
-                        ]
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Supplier reference"
-                        },
-                        value: {
-                            text:  data['supplier-ref']
-                        },
-                        actions: {
-                        items: [
-                            {
-                            href: "#",
-                            text: "Change",
-                            visuallyHiddenText: "name"
-                            }
-                        ]
-                        }
-                    }
-                ]
-            }) }}
+
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ data['user-first-name'] }} {{ data['user-last-name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['user-email-address'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Email address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation
+            </dt>
+            <dd class="govuk-summary-list__value">
+             {{ data['organisation-name-existing'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Organisation</span>
+              </a>
+            </dd>
+          </div>
+          {% if data["admin-portal-user"] == 'admin-user' %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Permissions
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{ data['admin-level'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> Permissions</span>
+                </a>
+                </dd>
+            </div>
+          {% else %}
+            
+        {% endif %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Job role
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['roles'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Job role</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Staff ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['staff-id'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Staff ID</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Supplier reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['supplier-ref'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Supplier reference</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
 
            
 
@@ -155,35 +131,5 @@
         </div>
     </div>
 
-    <script>
-        var currentDateElem = document.getElementById('current-time');
-
-        //9 April 1982, 7:52pm
-        var currentDate = new Date();
-        var currentDay = currentDate.getDate();
-        var currentMonth = currentDate.getMonth();
-        var currentYear = currentDate.getFullYear();
-        var currentHour = currentDate.getHours();
-        var currentMinutes = currentDate.getMinutes();
-        var currentTimeOfDay = (currentDate.getHours() < 12) ? 'am' : 'pm';
-
-        var months = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'Spetember',
-            'October',
-            'November',
-            'December'
-        ];
-
-        var currentStamp = currentDay + ' ' + months[currentMonth] + ' ' + currentYear + ', ' + currentHour + ':' + currentMinutes + currentTimeOfDay;
-
-        currentDateElem.innerHTML = currentStamp;
-    </script>
+ 
 {% endblock %}
