@@ -80,25 +80,35 @@
                         </td>
                     </tr>
 
-                    <tr class="govuk-table__row">
-                        <th scope="row" class="govuk-table__header">
-                            <a href="#" class="govuk-link">
-                                New organisation
-                            </a>
-                        </th>
 
-                        <td class="govuk-table__cell govuk-table__cell">
-                           Calderdale Metropolitan Borough Council
-                        </td>
 
-                        <td class="govuk-table__cell govuk-table__cell">
-                           David Smith
-                        </td>
 
-                        <td class="govuk-table__cell">
-                            19 March 2020
-                        </td>
-                    </tr>
+                    {% if data['authorise-org-request'] %}
+                        
+                    {% else %}
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">
+                                <a href="single-new-organisation" class="govuk-link">
+                                    New organisation
+                                </a>
+                            </th>
+
+                            <td class="govuk-table__cell govuk-table__cell">
+                            Calderdale Metropolitan Borough Council
+                            </td>
+
+                            <td class="govuk-table__cell govuk-table__cell">
+                            David Smith
+                            </td>
+
+                            <td class="govuk-table__cell">
+                                19 March 2020
+                            </td>
+                        </tr>
+                    {% endif %}
+
+
+
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">

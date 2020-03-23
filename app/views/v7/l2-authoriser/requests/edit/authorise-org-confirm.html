@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    New user authorised - {{ data['organisation-name'] }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+    {% set panelContent %}
+        Calderdale Metropolitan Borough Council has been added to {{ data["prototype-service"] }}
+    {% endset %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            {{ govukPanel({
+                titleText: "Request for new organisation approved",
+                html: panelContent
+            }) }}
+
+            <p>Paul Smith has been notified that their request has been approved.</p>
+
+            <p>
+                <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

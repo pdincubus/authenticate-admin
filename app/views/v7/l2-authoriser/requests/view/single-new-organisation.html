@@ -16,10 +16,8 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">
-                Request for new user
+                Request for new organisation
             </h1>
-
-           
 
 
             {{ govukSummaryList({
@@ -29,55 +27,7 @@
                             text: "Name"
                         },
                         value: {
-                            text: "Dave Evans"
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Email address"
-                        },
-                        value: {
-                            html: "dave.evans@" + data['prototype-organisation-machine']
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Organisation"
-                        },
-                        value: {
-                            html: data['prototype-organisation']
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Permissions"
-                        },
-                        value: {
-                            text: "Organisation admin"
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Job role"
-                        },
-                        value: {
-                            text: "Case worker"
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Staff ID"
-                        },
-                        value: {
-                            text: "248793"
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Supplier reference"
-                        },
-                        value: {
-                            html: data['prototype-organisation'] + " Newcastle"
+                            text: "Calderdale Metropolitan Borough Council"
                         }
                     },
                     {
@@ -88,18 +38,18 @@
                             html: "Paul Smith"
                         }
                     },
-                    {
+                     {
                         key: {
                             text: "Date"
                         },
                         value: {
-                            html: "	20 March 2020"
+                            html: "19 March 2020"
                         }
                     }
                 ]
             }) }}
 
-            <form id="form" method="post" action="authorise-branch">
+            <form id="form" method="post" action="authorise-org-branch">
                  {% set rejectHtml %}
                     {{ govukInput({
                         id: "rejection-reason",
@@ -113,8 +63,8 @@
 
                 {{ govukRadios({
                     classes: "govuk-radios",
-                    idPrefix: "authorise-request",
-                    name: "authorise-request",
+                    idPrefix: "authorise-org-request",
+                    name: "authorise-org-request",
                     fieldset: {
                         legend: {
                             text: "Approve the request?",

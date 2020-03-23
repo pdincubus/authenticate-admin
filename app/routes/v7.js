@@ -257,6 +257,16 @@ router.post('/l2-authoriser/requests/view/authorise-branch', function (req, res)
     }
 });
 
+router.post('/l2-authoriser/requests/view/authorise-org-branch', function (req, res) {
+    const editChoice = req.session.data['authorise-org-request'];
+
+    if (editChoice === 'request-authorised') {
+        res.redirect(`/${verNum}/l2-authoriser/requests/edit/authorise-org-confirm`);
+    } else if (editChoice === 'request-rejected') {
+        res.redirect(`/${verNum}/l2-authoriser/requests/edit/reject-org-confirm`);
+    }
+});
+
 router.post('/l2-requester/users/add/admin-portal-branch', function (req, res) {
     const editChoice = req.session.data['admin-portal-user'];
 
