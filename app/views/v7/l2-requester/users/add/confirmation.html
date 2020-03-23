@@ -10,19 +10,15 @@
 
 {% block content %}
     {% set panelTitle %}
-        {% if data["user-access-rights"] == 'admin' %}
-            Admin added
+        {% if data["admin-portal-user"] == 'admin-user' %}
+            New admin user request sent
         {% else %}
-            User added
+            New user request sent
         {% endif %}
     {% endset %}
 
     {% set panelContent %}
-        {% if data["organisation-name-custom"] %}
-            {{ data["user-first-name"] }} {{ data['user-last-name'] }} added to {{ data['organisation-name-custom'] }} 
-        {% else %}
-            {{ data["user-first-name"] }} {{ data['user-last-name'] }} added to {{ data["organisation-name"] }}
-        {% endif %}
+            {{ data["user-first-name"] }} {{ data['user-last-name'] }}, {{ data['organisation-name-custom'] }} 
     {% endset %}
 
     <div class="govuk-grid-row">
@@ -32,18 +28,13 @@
                 html: panelContent
             }) }}
 
-            <p>An invitation has been sent to {{data['user-email-address']}}</p>
+            <p>Sarah Jones has been notified of your request.</p>
 
             <p>
-                {% if data['organisation-name-custom'] %}
                     <a href="../add/details" class="govuk-link">
-                        Add another user to {{ data['organisation-name-custom'] }}
+                        Add another user
                     </a>
-                {% else %}
-                    <a href="javascript:window.history.back()" class="govuk-link">
-                        Add another user to {{ data['organisation-name'] }}
-                    </a>
-                {% endif %}
+               
             </p>
 
             <p>

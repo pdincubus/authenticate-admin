@@ -260,7 +260,7 @@ router.post('/l2-authoriser/requests/view/authorise-branch', function (req, res)
 router.post('/l2-requester/users/add/admin-portal-branch', function (req, res) {
     const editChoice = req.session.data['admin-portal-user'];
 
-    if (editChoice === 'admin-portal-user') {
+    if (editChoice === 'admin-user') {
         res.redirect(`/${verNum}/l2-requester/users/add/admin-portal-user-details`);
     } else if (editChoice === 'standard-user') {
         res.redirect(`/${verNum}/l2-requester/users/add/details`);

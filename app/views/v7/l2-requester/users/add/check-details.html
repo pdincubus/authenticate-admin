@@ -28,7 +28,16 @@
                             text: "Name"
                         },
                         value: {
-                            text: " "
+                            text: data['user-first-name'] + " " + data['user-first-name']
+                        },
+                        actions: {
+                        items: [
+                            {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "name"
+                            }
+                        ]
                         }
                     },
                     {
@@ -36,7 +45,16 @@
                             text: "Email address"
                         },
                         value: {
-                            html:  " "
+                            html:  data['user-email-address']
+                        },
+                        actions: {
+                        items: [
+                            {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "name"
+                            }
+                        ]
                         }
                     },
                     {
@@ -44,15 +62,33 @@
                             text: "Organisation"
                         },
                         value: {
-                            html:  " "
+                            html:  data['organisation-name-existing']
+                        },
+                        actions: {
+                        items: [
+                            {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "name"
+                            }
+                        ]
                         }
                     },
                     {
                         key: {
-                            text: "Access rights"
+                            text: "Permissions"
                         },
                         value: {
-                            text:  " "
+                            text:  data['admin-level']
+                        },
+                        actions: {
+                        items: [
+                            {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "name"
+                            }
+                        ]
                         }
                     },
                     {
@@ -60,7 +96,16 @@
                             text: "Job role"
                         },
                         value: {
-                            text:  " "
+                            text:  data['roles']
+                        },
+                        actions: {
+                        items: [
+                            {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "name"
+                            }
+                        ]
                         }
                     },
                     {
@@ -68,7 +113,16 @@
                             text: "Staff ID"
                         },
                         value: {
-                            text:  " "
+                            text:  data['staff-id']
+                        },
+                        actions: {
+                        items: [
+                            {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "name"
+                            }
+                        ]
                         }
                     },
                     {
@@ -76,7 +130,16 @@
                             text: "Supplier reference"
                         },
                         value: {
-                            html:  " "
+                            text:  data['supplier-ref']
+                        },
+                        actions: {
+                        items: [
+                            {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "name"
+                            }
+                        ]
                         }
                     }
                 ]
@@ -85,7 +148,7 @@
            
 
                 <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">
-                    Continue
+                    Confirm user details
                 </button>
 
             </form>
