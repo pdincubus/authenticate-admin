@@ -24,7 +24,7 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <form action="confirmation" method="post" class="form">
+            <form action="roles" method="post" class="form">
                 {{ govukFieldset({
                     legend: {
                         html: legendContent,
@@ -59,6 +59,16 @@
                     name: "user-email-address",
                     type: "email",
                     classes: "govuk-!-width-three-quarters"
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: "Staff ID"
+                    },
+                    id: "staff-id",
+                    name: "staff-id",
+                    inputmode: "numeric",
+                    classes: "govuk-!-width-one-quarter"
                 }) }}
 
                 {{ govukButton({
