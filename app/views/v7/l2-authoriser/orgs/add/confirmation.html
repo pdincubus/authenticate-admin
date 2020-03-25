@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Organisation added - {{ data['organisation-name-custom'] }}
+  New organisation request sent - {{ data['organisation-name-custom'] }}
 {% endblock %}
 
 {% block header %}
@@ -12,7 +12,7 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             {{ govukPanel({
-                titleText: "Organisation added",
+                titleText: "New organisation request sent",
                 html: data["organisation-name-custom"]
             }) }}
 
@@ -23,6 +23,8 @@
                 </a>
             </p>
             {% endif %}
+
+            <p>Dave Fenton has been notified of your request.</p>
 
             <p>
                 <a href="../../dashboard" class="govuk-link">
