@@ -246,6 +246,16 @@ router.post('/l2/users/view/edit-branch', function (req, res) {
     }
 });
 
+router.post('/l2-requester/users/view/edit-branch', function (req, res) {
+    const editChoice = req.session.data['user-task'];
+
+    if (editChoice === 'reinvite') {
+        res.redirect(`/${verNum}/l2/users/edit/reinvite`);
+    } else if (editChoice === 'delete') {
+        res.redirect(`/${verNum}/l2/users/edit/delete-check`);
+    }
+});
+
 
 router.post('/l2-authoriser/requests/view/authorise-branch', function (req, res) {
     const editChoice = req.session.data['authorise-request'];

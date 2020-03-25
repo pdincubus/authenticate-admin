@@ -33,36 +33,7 @@
                 </thead>
 
                 <tbody class="govuk-table__body">
-                    {% if data['organisation-name-custom'] %}
-                        <tr class="govuk-table__row">
-                            <th scope="row" class="govuk-table__header">
-                                <a href="custom" class="govuk-link">
-                                    {{ data['organisation-name-custom'] }}
-                                </a>
-                            </th>
-
-                            <td class="govuk-table__cell govuk-table__cell--numeric">
-                                {% if data['user-first-name'] and data['user-last-name'] %}
-                                    1
-                                {% else %}
-                                    0
-                                {% endif %}
-                            </td>
-
-                            <td class="govuk-table__cell">
-                                
-                                {% if data['user-first-name'] and data['user-last-name'] %}
-                                    <a href="../../users/view/custom" class="govuk-link">
-                                        View user
-                                    </a>
-                                {% else %}
-                                    <a href="../../users/add/details" class="govuk-link">
-                                        Add user
-                                    </a>
-                                {% endif %}
-                            </td>
-                        </tr>
-                    {% endif %}
+                  
 
                     <tr class="govuk-table__row">
                         <th scope="row" class="govuk-table__header">
