@@ -147,6 +147,30 @@ router.post('/l2-requester/users/add/org-check', function (req, res) {
     }
 });
 
+router.post('/l2-authoriser/users/add/org-check', function (req, res) {
+    const chosenOrgName = req.session.data['organisation-name-existing'].toLowerCase();
+    const orgName = req.session.data['organisation-name'];
+
+    if (
+        chosenOrgName == 'capita'
+        || chosenOrgName == 'serco'
+        || chosenOrgName == 'remploy'
+        || chosenOrgName == 'g4s'
+        || chosenOrgName == 'london borough of croydon council'
+        || chosenOrgName == 'sheffield city council'
+        || (chosenOrgName == orgName && orgName !== null)
+        || (chosenOrgName == orgName.toLowerCase() && orgName !== undefined)
+    ) {
+        req.session.data['org-error'] = false;
+
+        res.redirect(`/${verNum}/l2-authoriser/users/add/admin-portal-user`);
+    } else {
+        req.session.data['org-error'] = true;
+
+        res.redirect(`/${verNum}/l2-authoriser/users/add/start`);
+    }
+});
+
 router.post('/l2/orgs/add/address-branch', function (req, res) {
     const checkChoice = req.session.data['add-org-address'];
 
@@ -304,6 +328,16 @@ router.post('/l2-requester/users/add/admin-portal-branch', function (req, res) {
         res.redirect(`/${verNum}/l2-requester/users/add/admin-portal-user-details`);
     } else if (editChoice === 'standard-user') {
         res.redirect(`/${verNum}/l2-requester/users/add/details`);
+    }
+});
+
+router.post('/l2-authoriser/users/add/admin-portal-branch', function (req, res) {
+    const editChoice = req.session.data['admin-portal-user'];
+
+    if (editChoice === 'admin-user') {
+        res.redirect(`/${verNum}/l2-authoriser/users/add/admin-portal-user-details`);
+    } else if (editChoice === 'standard-user') {
+        res.redirect(`/${verNum}/l2-authoriser/users/add/details`);
     }
 });
 

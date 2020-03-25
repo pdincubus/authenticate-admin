@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add new user - {{serviceName}}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+
+    {% set legendContent %}
+        <span class="govuk-caption-l">Add a user</span>What is the users supplier reference?
+    {% endset %}
+    
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="check-details" method="post" class="form">
+                
+
+                {{ govukCheckboxes({
+                    idPrefix: "supplier-ref",
+                    name: "supplier-ref",
+                    fieldset: {
+                        legend: {
+                        html: legendContent,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    hint: {
+                        text: "Select all that apply."
+                    },
+                    items: [
+                        {
+                        value: "Capita",
+                        text: "Capita"
+                        },
+                        {
+                        value: "CHDA",
+                        text: "CHDA"
+                        },
+                        {
+                        value: "DWP Assessment Centre",
+                        text: "DWP Assessment Centre"
+                        },
+                        {
+                        value: "IAS",
+                        text: "IAS"
+                        },
+                        {
+                        value: "Blank",
+                        text: "Blank"
+                        }
+                    ]
+                }) }}
+
+                
+
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                <input type="hidden" id="organisation-name" name="organisation-name" value="{{ data['organisation-name-existing'] }}">
+            </form>
+        </div>
+    </div>
+{% endblock %}
