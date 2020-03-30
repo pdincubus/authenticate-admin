@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-    New user request 
+    New delete user request 
 {% endblock %}
 
 {% block header %}
@@ -16,10 +16,8 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <h1 class="govuk-heading-l">
-                Request for new user
+                Request for user deletion
             </h1>
-
-           
 
 
             {{ govukSummaryList({
@@ -29,7 +27,7 @@
                             text: "Name"
                         },
                         value: {
-                            text: "Dave Evans"
+                            text: "Ben Walker"
                         }
                     },
                     {
@@ -37,7 +35,7 @@
                             text: "Email address"
                         },
                         value: {
-                            html: "dave.evans@" + data['prototype-organisation-machine']
+                            html: "ben.walker@" + data['prototype-organisation-machine']
                         }
                     },
                     {
@@ -77,15 +75,7 @@
                             text: "Supplier reference"
                         },
                         value: {
-                            html: "CHDA"
-                        }
-                    },
-                    {
-                        key: {
-                            text: "Requested by"
-                        },
-                        value: {
-                            html: "Paul Smith"
+                            html: "DWP Assessment Centre"
                         }
                     },
                     {
@@ -99,46 +89,9 @@
                 ]
             }) }}
 
-            <form id="form" method="post" action="authorise-branch">
-                 {% set rejectHtml %}
-                    {{ govukInput({
-                        id: "rejection-reason",
-                        name: "rejection-reason",
-                        classes: "govuk-!-width-two-thirds",
-                        label: {
-                            text: "Reason for rejection"
-                        }
-                    }) }}
-                {% endset -%}
-
-                {{ govukRadios({
-                    classes: "govuk-radios",
-                    idPrefix: "authorise-request",
-                    name: "authorise-request",
-                    fieldset: {
-                        legend: {
-                            text: "Approve the request?",
-                            isPageHeading: true,
-                            classes: "govuk-fieldset__legend--m"
-                        }
-                    },
-                    items: [
-                        {
-                            value: "request-authorised",
-                            text: "Yes"
-                        },
-                        {
-                            value: "request-rejected",
-                            text: "No, reject the request",
-                                    conditional: {
-                                html: rejectHtml
-                            }
-                        }
-                    ]
-                }) }}
-
-                <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">
-                    Continue
+            <form id="form" method="post" action="authorise-delete-user-branch">
+               <button type="submit" class="govuk-button govuk-button--secondary" id="submit">
+                    Delete this request
                 </button>
             </form>
 

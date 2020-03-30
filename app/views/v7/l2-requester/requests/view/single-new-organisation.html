@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    New user request 
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">
+                Request for new organisation
+            </h1>
+
+
+            {{ govukSummaryList({
+                rows: [
+                    {
+                        key: {
+                            text: "Name"
+                        },
+                        value: {
+                            text: "Calderdale Metropolitan Borough Council"
+                        }
+                    },
+                    
+                     {
+                        key: {
+                            text: "Date"
+                        },
+                        value: {
+                            html: "19 March 2020"
+                        }
+                    }
+                ]
+            }) }}
+
+            <form id="form" method="post" action="authorise-org-branch">
+             
+
+               <button type="submit" class="govuk-button govuk-button--secondary" id="submit">
+                    Delete this request
+                </button>
+            </form>
+
+            <p class="govuk-!-margin-top-9">
+                <a href="../../dashboard" class="govuk-link">Back to dashboard</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var currentDateElem = document.getElementById('current-time');
+
+        //9 April 1982, 7:52pm
+        var currentDate = new Date();
+        var currentDay = currentDate.getDate();
+        var currentMonth = currentDate.getMonth();
+        var currentYear = currentDate.getFullYear();
+        var currentHour = currentDate.getHours();
+        var currentMinutes = currentDate.getMinutes();
+        var currentTimeOfDay = (currentDate.getHours() < 12) ? 'am' : 'pm';
+
+        var months = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'Spetember',
+            'October',
+            'November',
+            'December'
+        ];
+
+        var currentStamp = currentDay + ' ' + months[currentMonth] + ' ' + currentYear + ', ' + currentHour + ':' + currentMinutes + currentTimeOfDay;
+
+        currentDateElem.innerHTML = currentStamp;
+    </script>
+{% endblock %}
