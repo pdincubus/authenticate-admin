@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    New user request 
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include 'includes/back-button.njk' %}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l"> <span class="govuk-caption-l">Add a user</span>
+                Check details
+            </h1>
+
+            <form action="confirmation" method="post" class="form">
+
+
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{ data['user-first-name'] }} {{ data['user-last-name'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['user-email-address'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Email address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation
+            </dt>
+            <dd class="govuk-summary-list__value">
+             {{ data['organisation-name-existing'] }} {{ data['organisation-name-custom'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Organisation</span>
+              </a>
+            </dd>
+          </div>
+          {% if data["admin-portal-user"] == 'admin-user' %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Permissions
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{ data['admin-level'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                    Change<span class="govuk-visually-hidden"> Permissions</span>
+                </a>
+                </dd>
+            </div>
+          {% else %}
+            
+        {% endif %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Job role
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['roles'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Job role</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Staff ID
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['staff-id'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Staff ID</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Supplier reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['supplier-ref'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Supplier reference</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+           
+
+                <button type="submit" class="govuk-button govuk-!-margin-right-1" id="submit">
+                    Confirm user details
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+ 
+{% endblock %}
