@@ -126,7 +126,7 @@
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
                         Email:<br>
                         {% if data['prototype-service'] == "HTDS" %}
-                            <a href="mailto:htds.support@dwp.gov.uk" class="govuk-link">htds.support@dwp.gov.uk</a>
+                            <a href="mailto:DigitalHealth.livesupport@dwp.gov.uk" class="govuk-link">DigitalHealth.livesupport@dwp.gov.uk</a>
                         {% elseif data['prototype-service'] == "PRaP" %}
                             <a href="mailto:prap.support@dwp.gov.uk" class="govuk-link">prap.support@dwp.gov.uk</a>
                         {% elseif data['prototype-service'] == "ESF" %}
@@ -138,7 +138,7 @@
                         Telephone:<br>
                         <strong>
                             {% if data['prototype-service'] == "HTDS" %}
-                                0345 000 000
+                                01253 843 812
                             {% elseif data['prototype-service'] == "PRaP" %}
                                 0345 604 5406
                             {% elseif data['prototype-service'] == "ESF" %}
@@ -149,11 +149,17 @@
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
                         Opening times:<br>
-                        <strong>Monday to Friday: 9:00am to 4:00pm</strong>
+                        {% if data['prototype-service'] == "HTDS" %}
+                                <strong>Monday to Friday: 8:00am to 4:30pm</strong>
+                            {% elseif data['prototype-service'] == "PRaP" %}
+                                <strong>Monday to Friday: 9:00am to 4:00pm</strong>
+                            {% elseif data['prototype-service'] == "ESF" %}
+                                <strong>Monday to Friday: 9:00am to 4:00pm</strong>
+                            {% endif %}
                     </p>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
-                        We will respond to emails within 3 working days.
+                        We will respond to emails within 3 days.
                     </p>
 
                     <p style="Margin: 0 0 20px 0; font-size: 19px; line-height: 25px; color: #0B0C0C;">
